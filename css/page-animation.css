@@ -1,0 +1,21 @@
+.card.expanded {
+    position: absolute;
+    pointer-events: none;
+    z-index: 200;
+    width: 110lvw;
+    height: 300lvh;
+    transform: translateY(-100lvh);
+    left: -5%;
+    overflow: hidden;
+}
+
+.card.expanded::before {
+    background-color: var(--darkBackground);
+    transition: 300ms;
+}
+
+.card.expanded * {
+    opacity: 0;
+    transition: 50ms;
+}
+

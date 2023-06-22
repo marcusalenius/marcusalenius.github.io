@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="css/work.css">
     <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/page-animation.css">
   </head>
   <body class="light-mode">
     <nav>
@@ -116,7 +117,7 @@
       <div id="projects">
         <h2>Select Projects</h2>
         <div class="card-layout">
-          <div class="card" id="kenboard-card">
+          <div class="card" id="kenboard-card" onclick="expandCard('kenboard-card')" >
             <div class="card-border"></div>
             <h3>Kenboard</h3>
             <p class="paragraph-small">Python Kivy app with a custom intelligent typing error correction system</p>
@@ -195,5 +196,6 @@
     <script src="js/locations.js"></script>
     <script src="js/navmenu-mobile.js"></script>
     <script src="js/card-hover-effect.js"></script>
+    <script src="js/page-animation.js"></script>
   </body>
 </html>
