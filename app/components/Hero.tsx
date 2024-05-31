@@ -3,13 +3,17 @@ import './Card.css';
 
 import HeroLocations from './HeroLocations';
 
-export default function Hero() {
+type Props = {
+  data: { [key:string]: any};
+};
+
+function Hero({data}: Props) {
   return (
     <div id="hero">
       <div id="hero-left">
         <h1>Hello,<br/>I’m Marcus</h1>
-        <p className="paragraph-large">I’m a sophomore at Carnegie Mellon studying information systems and artificial intelligence. I am passionate about creating technology that unlocks our full potential while making it less obtrusive, almost invisible to us.</p>
-        <HeroLocations />
+        <p className="paragraph-large">{data.brief}</p>
+        <HeroLocations locations={data.locations}/>
       </div>
       <div id="hero-right">
         <div className="card" id="hero-card">
@@ -25,3 +29,5 @@ export default function Hero() {
     </div>
   );
 }
+
+export default Hero;

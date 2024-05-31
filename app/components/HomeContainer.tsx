@@ -1,9 +1,15 @@
 import Hero from './Hero';
 
-export default function HomeContainer() {
-    return (
-      <div id="container">
-        <Hero />
-      </div>
-    );
-  }
+type Props = {
+  data: { [key:string]: any};
+};
+
+function HomeContainer({data}: Props) {
+  return (
+    <div id="container">
+      <Hero data={data} />
+    </div>
+  );
+}
+
+export default HomeContainer;

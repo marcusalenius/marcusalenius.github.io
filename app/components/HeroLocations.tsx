@@ -1,11 +1,9 @@
 
-export default function HeroLocations() {
+type Props = {
+  locations: { [key:string]: string}[];
+};
 
-  const locations = [
-    { name: "Pittsburgh, PA", link: "https://goo.gl/maps/bNiQi64BXmRpJvmT6" },
-    { name: "Gävle, Sweden", link: "https://goo.gl/maps/P4SXTrr1t84QU3kj7" },
-  ]
-
+function HeroLocations({locations}: Props) {
   return (
     <div id="locations-container">
       {locations.map((location) => (
@@ -20,3 +18,5 @@ export default function HeroLocations() {
     </div>
   );
 }
+
+export default HeroLocations;
