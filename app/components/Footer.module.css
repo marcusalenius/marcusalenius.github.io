@@ -1,0 +1,24 @@
+.footer {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .lightMode .footer {  */
+.footer { 
+    background-color: var(--lightFooter); 
+}
+
+.darkMode .footer { 
+    background-color: var(--darkFooter); 
+}
+
+/* iPhone Plus */
+@media (max-width: 740px) {
+
+    .footerText { 
+        width: 233px; 
+    }
+
+}
