@@ -29,12 +29,12 @@
     padding: 0;
 }
 
-body.lightMode {
+body.light-mode {
     background-color: var(--lightBackground);
     transition: background-color 400ms;
 }
 
-body.darkMode {
+body.dark-mode {
     background-color: var(--darkBackground);
     transition: background-color 400ms;
 }
@@ -44,60 +44,46 @@ body.darkMode {
     margin: 0 auto;
 }
 
-a { 
-    text-decoration: none; 
-}
+a { text-decoration: none; }
 
 /* iPad 11" Landscape */
 @media (max-width: 1200px) {
 
-    #container { 
-        width: 989px; 
-    }
+    #container { width: 989px; }
 
 }
 
 /* iPad 13" Portrait */
 @media (max-width: 1120px) {
 
-    #container { 
-        width: 862px; 
-    }
+    #container { width: 862px; }
 
 }
 
 /* iPad 11" Portrait */
 @media (max-width: 970px) {
 
-    #container { 
-        width: 754px; 
-    }
+    #container { width: 754px; }
 
 }
 
 /* iPad Mini Portrait */
 @media (max-width: 830px) {
 
-    #container { 
-        width: 700px; 
-    }
+    #container { width: 700px; }
 
 }
 
 /* iPhone Plus */
 @media (max-width: 740px) {
 
-    #container { 
-        width: 394px; 
-    }
+    #container { width: 394px; }
 
 }
 
 /* iPhone */
 @media (max-width: 424px) {
 
-    #container { 
-        width: 353px; 
-    }
+    #container { width: 353px; }
 
 }
