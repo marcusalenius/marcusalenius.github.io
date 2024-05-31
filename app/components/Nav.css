@@ -1,0 +1,706 @@
+nav {
+    position: sticky;
+    z-index: 100;
+    top: 20px;
+    width: 1156px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-page nav {
+    top: 28px;
+}
+
+#nav-right {
+    display: flex;
+    gap: 35px;
+}
+
+/* Navbuttons */
+
+.navbutton {
+    border-radius: 45px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.light-mode .navbutton {
+    background-color: var(--lightCard);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25), 0px 0px 12px rgba(0, 0, 0, 0.25);
+    transition: scale 200ms ease, box-shadow 200ms ease; /* transition for hover */
+}
+
+@media (hover: hover) {
+    .light-mode .navbutton:hover {
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25), 0px 0px 26px rgba(0, 0, 0, 0.25);
+        scale: 1.00005;
+        transition: scale 200ms ease, box-shadow 200ms ease;
+    }    
+}
+
+/* background card */
+.dark-mode .navbutton {
+    background-color: var(--darkCardRim);
+    box-shadow: 0px 0px 8px #000000;
+    position: relative;
+    transition: scale 200ms ease, box-shadow 200ms ease; /* transition for hover */
+
+}
+
+@media (hover: hover) {
+    .dark-mode .navbutton:hover {
+        box-shadow: 0px 0px 13px #000000;
+        scale: 1.0001;
+        transition: scale 200ms ease, box-shadow 200ms ease;
+    }    
+}
+
+/* foreground card */
+.dark-mode .navbutton::before {
+    background-color: var(--darkCard);
+    content: '';
+    position: absolute;
+    margin: 1px;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    border-radius: 44px;
+    z-index: 101;
+}
+
+/* foreground hover element and background hover element */
+.navbutton::after,
+.navbutton .card-border,
+#appearance-drop-down::after,
+#appearance-drop-down .card-border,
+#navbutton-home::after,
+#navbutton-home .card-border,
+#navmenu-mobile::after,
+#navmenu-mobile .card-border {
+    opacity: 0;
+    transition: opacity 500ms;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+/* foreground hover element, dark mode */
+.dark-mode .navbutton::after {
+    background: radial-gradient(
+        circle 200px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.04), 
+        transparent 40%
+    );
+    z-index: 120;
+}
+
+/* foreground hover element, light mode */
+.light-mode .navbutton::after {
+    background: radial-gradient(
+        circle 200px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.2), 
+        transparent 40%
+    );
+    z-index: 120;
+}
+
+/* background hover element, only in dark mode */
+.dark-mode .navbutton .card-border,
+.dark-mode #navbutton-home .card-border {
+    background: radial-gradient(
+        circle 100px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.7), 
+        transparent 40%
+    );
+    z-index: 100;
+}
+
+/* background hover element, hide in light mode */
+.light-mode .navbutton .card-border,
+.light-mode #appearance-drop-down .card-border,
+.light-mode #navbutton-home .card-border,
+.light-mode #navmenu-mobile .card-border {
+    display: none;
+}
+
+/* when card hovered, show foreground hover element */
+@media (hover: hover) {
+    .navbutton:hover::after,
+    #appearance-drop-down:hover::after,
+    #navbutton-home:hover::after,
+    #navmenu-mobile:hover::after {
+        opacity: 1;
+    }
+}
+
+/* when parent container hovered, show background hover element */
+@media (hover: hover) {
+    #nav-right:hover .navbutton .card-border,
+    #appearance-drop-down:hover .card-border,
+    #navbutton-home:hover .card-border,
+    #navbutton-appearance:hover .card-border,
+    #navbutton-back:hover .card-border,
+    #navmenu-mobile:hover .card-border {
+        opacity: 1;
+    }
+}
+
+.navbutton .button-text { z-index: 102; }
+
+#navbutton-projects { width: 139px; }
+
+#navbutton-work { width: 113px; }
+
+#navbutton-contact { width: 135px; }
+
+#navbutton-back {
+    width: 118px;
+    display: flex;
+    gap: 8px;
+}
+
+/* Home button */
+
+#navbutton-home {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    border-radius: 45px;
+    cursor: pointer;
+}
+
+.light-mode #navbutton-home {
+    background: var(--lightCard);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25), 0px 0px 12px rgba(0, 0, 0, 0.25);
+    transition: scale 200ms ease, box-shadow 200ms ease; /* transition for hover */
+}
+
+@media (hover: hover) {
+    .light-mode #navbutton-home:hover {
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25), 0px 0px 26px rgba(0, 0, 0, 0.25);
+        scale: 1.0005;
+        transition: scale 200ms ease, box-shadow 200ms ease;
+    }    
+}
+
+/* background card */
+.dark-mode #navbutton-home {
+    background: var(--darkCardRim);
+    box-shadow: 0px 0px 8px #000000;
+    transition: scale 200ms ease, box-shadow 200ms ease; /* transition for hover */
+}
+
+@media (hover: hover) {
+    .dark-mode #navbutton-home:hover {
+        box-shadow: 0px 0px 13px #000000;
+        scale: 1.0005;
+        transition: scale 200ms ease, box-shadow 200ms ease;
+    
+    }    
+}
+
+/* foreground card */
+.dark-mode #navbutton-home::before {
+    background: var(--darkCard);
+    position: relative;
+    content: '';
+    display: inline-block;
+    margin: 1px;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    border-radius: 45px;
+    z-index: 101;
+}
+
+/* foreground hover element, dark mode */
+.dark-mode #navbutton-home::after {
+    background: radial-gradient(
+        circle 200px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.1), 
+        transparent 40%
+    );
+    z-index: 120;
+}
+
+/* foreground hover element, light mode */
+.light-mode #navbutton-home::after {
+    background: radial-gradient(
+        circle 200px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.02), 
+        transparent 40%
+    );
+    z-index: 120;
+}
+
+#navbar-headshot {
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    left: 4px;
+    top: 4px;
+    z-index: 102;
+}
+
+/* Back button */
+
+#back-icon-dark-mode,
+#back-icon-light-mode { z-index: 102; }
+
+.light-mode #back-icon-dark-mode,
+.dark-mode #back-icon-light-mode { display: none; }
+
+/* Appearance button */
+
+#navbutton-appearance {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    border-radius: 45px;
+    cursor: pointer;
+}
+
+#appearance-icon-light-mode {
+    position: absolute;
+    left: 9px;
+    top: 9px;
+    z-index: 102;
+}
+
+#appearance-icon-dark-mode {
+    position: absolute;
+    left: 11px;
+    top: 10px;
+    z-index: 102;
+}
+
+.appearance-cross-icon {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    z-index: 102;
+}
+
+.drop-down-hidden .appearance-icon,
+.drop-down-visible .appearance-cross-icon {
+    display: inline;
+    transform: scale(1);
+    transform-origin: center center;
+    transition: transform 150ms ease;
+}
+
+.drop-down-hidden .appearance-cross-icon, 
+.drop-down-visible .appearance-icon { transform: scale(0); }
+
+
+.light-mode #appearance-icon-dark-mode,
+.light-mode #appearance-cross-icon-dark-mode,
+.dark-mode #appearance-icon-light-mode,
+.dark-mode #appearance-cross-icon-light-mode { transform: scale(0); }
+
+/* Appearance dropdown */
+
+#appearance-drop-down.hidden {
+    transform: scale(0);
+    opacity: 0;
+    transition: 120ms ease-in;
+}
+
+#appearance-drop-down {
+    top: 70px;
+    right: 0;
+    position: absolute;
+    width: 188px;
+    height: 160px;
+    border-radius: 20px;
+    transform: scale(1);
+    transform-origin: top right;
+    transition: transform 200ms ease-out;
+}
+
+.post-page #appearance-drop-down { top: 62px; }
+
+.light-mode #appearance-drop-down {
+    background-color: var(--lightCard);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25), 0px 0px 16px rgba(0, 0, 0, 0.25);
+    transition: 200ms ease-out;
+}
+
+@media (hover: hover) {
+    .light-mode #appearance-drop-down:hover {
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25), 0px 0px 30px rgba(0, 0, 0, 0.25);
+        scale: 1.0005;
+        transition: 200ms ease-out;
+    }    
+}
+
+/* background card */
+.dark-mode #appearance-drop-down {
+    background-color: var(--darkCardRim);
+    box-shadow: 0px 0px 10px #000000;
+    display: inline;
+    transition: 200ms ease-out;
+}
+
+@media (hover: hover) {
+    .dark-mode #appearance-drop-down:hover {
+        box-shadow: 0px 0px 15px #000000;
+        scale: 1.0005;
+        transition: 200ms ease-out;
+    
+    }    
+}
+
+/* foreground card */
+.dark-mode #appearance-drop-down::before {
+    background: var(--darkCard);
+    content: '';
+    position: absolute;
+    display: inline-block;
+    margin: 1px;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    border-radius: 19px;
+    z-index: 101;
+}
+
+/* allow click-through */
+#appearance-drop-down::after,
+#appearance-drop-down .card-border {
+    pointer-events: none;
+}
+
+/* foreground hover element, dark mode */
+.dark-mode #appearance-drop-down::after {
+    background: radial-gradient(
+        circle 400px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.04), 
+        transparent 40%
+    );
+    z-index: 120;
+}
+
+/* foreground hover element, light mode */
+.light-mode #appearance-drop-down::after {
+    background: radial-gradient(
+        circle 400px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.2), 
+        transparent 40%
+    );
+    z-index: 120;
+}
+
+/* background hover element, only in dark mode */
+.dark-mode #appearance-drop-down .card-border {
+    background: radial-gradient(
+        circle 150px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.7), 
+        transparent 40%
+    );
+    z-index: 100;
+}
+
+.appearance-drop-down-item {
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin: auto;
+    gap: 8px;
+    width: 172px;
+    height: 48px;
+    border-radius: 12px;
+    z-index: 102;
+    cursor: pointer;
+}
+
+.light-mode .appearance-drop-down-item.selected {
+ background-color: var(--lightSelected);
+}
+
+.dark-mode .appearance-drop-down-item.selected {
+    background-color: var(--darkSelected);
+}
+
+@media (hover: hover) {
+    .light-mode .appearance-drop-down-item:hover:not(.selected) {
+        background-color: var(--lightHover);
+    }
+    
+    .dark-mode .appearance-drop-down-item:hover:not(.selected) {
+        background-color: var(--darkHover);
+    }    
+}
+
+.appearance-drop-down-icon { margin-left: 12px; }
+
+#appearance-drop-down-item-system { margin-top: 8px; }
+
+#appearance-drop-down-item-system .appearance-drop-down-icon-dark-mode {
+    width: 24px;
+    height: 24px;
+}
+
+#appearance-drop-down-item-dark .appearance-drop-down-icon-dark-mode {
+    margin-left: 16px;
+}
+
+.light-mode .appearance-drop-down-icon-dark-mode, 
+.dark-mode .appearance-drop-down-icon-light-mode { display: none; }
+
+#navmenu-mobile { display: none; }
+
+
+/* iPad 11" Landscape */
+@media (max-width: 1200px) {
+
+    nav { width: 1105px; }
+    
+}
+
+/* iPad 13" Portrait */
+@media (max-width: 1120px) {
+
+    nav { width: 935px; }
+
+    #nav-right { gap: 30px; }
+    
+}
+
+/* iPad Pro 11" Portrait */
+@media (max-width: 970px) {
+
+    nav { width: 814px; }
+
+    #nav-right { gap: 25px; }
+
+}
+
+/* iPad Mini Portrait */
+@media (max-width: 830px) {
+
+    nav { width: 724px; }
+
+}
+
+/* iPhone Plus */
+@media (max-width: 740px) {
+
+    nav {
+        width: 408px;
+        top: 6px;
+    }
+
+    .post-page nav { top: 9px; }
+
+    .navbutton { display: none; }
+
+    #navbutton-back { height: 44px; }
+        
+    #navbutton-home {
+        width: 50px;
+        height: 50px;
+    } 
+    
+    #navbar-headshot {
+        width: 44px;
+        height: 44px;
+        left: 3px;
+        top: 3px;
+    
+    }
+
+    #navbutton-appearance {
+        display: block;
+        width: 44px;
+        height: 44px;
+    }
+
+    #appearance-icon-light-mode {
+        width: 27.5px;
+        height: 27.5px;
+        left: 8px;
+        top: 8px;
+    }
+    
+    #appearance-icon-dark-mode {
+        width: 24px;
+        height: 24px;
+        left: 10px;
+        top: 10px;
+    }
+
+    .appearance-cross-icon {
+        width: 19px;
+        height: 19px;
+        left: 13px;
+        top: 13px;
+    }
+
+    #appearance-drop-down { top: 60px; }
+
+    .post-page #appearance-drop-down { top: 57px; }
+
+    /* Navmenu mobile */
+
+    #navmenu-mobile {
+        display: inline;
+        position: absolute;
+        top: 6px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 188px;
+        height: 208px;
+        border-radius: 20px;
+        transition: 200ms ease;
+    }
+
+    .light-mode #navmenu-mobile {
+        background-color: var(--lightCard);
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25), 0px 0px 16px rgba(0, 0, 0, 0.25);
+        transition: 200ms ease;
+    }
+
+    @media (hover: hover) {
+        .light-mode #navmenu-mobile:hover {
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25), 0px 0px 30px rgba(0, 0, 0, 0.25);
+            scale: 1.0005;
+            transition: 200ms ease;
+        }    
+    }
+
+    /* background card */
+    .dark-mode #navmenu-mobile {
+        background-color: var(--darkCardRim);
+        box-shadow: 0px 0px 10px #000000;
+        transition: 200ms ease;
+    }
+
+    @media (hover: hover) {
+        .dark-mode #navmenu-mobile:hover {
+            box-shadow: 0px 0px 15px #000000;
+            scale: 1.0005;
+            transition: 200ms ease;
+        }    
+    }
+
+    /* foreground card */
+    .dark-mode #navmenu-mobile::before {
+        background: var(--darkCard);
+        content: '';
+        position: absolute;
+        display: inline-block;
+        margin: 1px;
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
+        border-radius: 19px;
+        z-index: 101;
+        transition: 200ms ease;
+    }
+
+    /* allow click-through */
+    #navmenu-mobile::after,
+    #navmenu-mobile .card-border {
+        pointer-events: none;
+    }
+
+    /* foreground hover element, dark mode */
+    .dark-mode #navmenu-mobile::after {
+        background: radial-gradient(
+            circle 400px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.04), 
+            transparent 40%
+        );
+        z-index: 120;
+    }
+
+    /* foreground hover element, light mode */
+    .light-mode #navmenu-mobile::after {
+        background: radial-gradient(
+            circle 400px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.2), 
+            transparent 40%
+        );
+        z-index: 120;
+    }
+
+    /* background hover element, only in dark mode */
+    .dark-mode #navmenu-mobile .card-border {
+        background: radial-gradient(
+            circle 150px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.7), 
+            transparent 40%
+        );
+        z-index: 100;
+    }
+
+    #navmenu-mobile.hidden {
+        top: 3px;
+        display: inline;
+        border-radius: 45px;
+        width: 146px;
+        height: 44px;
+        align-items: center;
+        justify-content: center;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .dark-mode #navmenu-mobile.hidden::before { border-radius: 44px; }
+
+    .navmenu-item {
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        gap: 8px;
+        width: 172px;
+        height: 48px;
+        border-radius: 12px;
+        z-index: 102;
+        cursor: pointer;
+    }
+
+    .navmenu-item.selected { transition: 250ms ease; }
+
+    .light-mode .navmenu-item.selected {
+        background-color: var(--lightSelected);
+    }
+
+    .dark-mode .navmenu-item.selected {
+        background-color: var(--darkSelected);
+    }
+
+    @media (hover: hover) {
+        .light-mode .navmenu-item:hover:not(.selected) {
+            background-color: var(--lightHover);
+        }
+        
+        .dark-mode .navmenu-item:hover:not(.selected) {
+            background-color: var(--darkHover);
+        }    
+    }
+    
+    .navmenu-item.hidden { display: none; }
+
+    #navmenu-item-about-me { margin-top: 8px; }
+
+    .hidden #navmenu-item-about-me { margin-top: 0px; }
+
+    .hidden .navmenu-item {
+        width: 100%;
+        height: 100%;
+    }
+
+    .hidden .navmenu-item.selected {
+        background-color: rgba(0, 0, 0, 0);
+        border-radius: 45px;
+        width: 146px;
+        height: 44px;
+    }
+    
+}
+
+/* iPhone */
+@media (max-width: 424px) {
+
+    nav { width: 366px; }
+
+}

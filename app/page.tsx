@@ -1,6 +1,6 @@
-import './typography.css';
+import "./typography.css";
 
-import data from '../data.json';
+import data from "../data.json";
 
 import Nav from "./components/Nav";
 import HomeContainer from "./components/HomeContainer";
