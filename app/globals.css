@@ -42,6 +42,7 @@ body.dark-mode {
 #container {
     width: 1040px;
     margin: 0 auto;
+    height: 2000px;
 }
 
 a { text-decoration: none; }
