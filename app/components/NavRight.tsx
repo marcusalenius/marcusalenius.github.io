@@ -73,7 +73,11 @@ function AppearanceDropDownItem({
         className="appearance-drop-down-icon appearance-drop-down-icon-light-mode"
       />
       <img
-        src={`icons/appearance-drop-down-icon-${optionLower}-dark-mode.png`}
+        src={
+          optionLower === "system"
+            ? `icons/appearance-drop-down-icon-${optionLower}-dark-mode.png`
+            : `icons/appearance-drop-down-icon-${optionLower}-dark-mode.svg`
+        }
         alt=""
         draggable="false"
         className="appearance-drop-down-icon appearance-drop-down-icon-dark-mode"
