@@ -1,22 +1,12 @@
 import { useRef, useContext } from "react";
+import { useTheme } from "next-themes";
 import ThemedImage from "./ThemedImage";
 import { AppearanceContext } from "./View";
-import {
-  toggleAppearanceDropdown,
-  setSystemAppearance,
-  setLightMode,
-  setDarkMode,
-} from "./utils";
+import { toggleAppearanceDropdown } from "./utils";
 
-function AppearanceDropDownItem({
-  option,
-  isDefault = false,
-}: {
-  option: string;
-  isDefault?: boolean;
-}) {
-  const preferredAppearance =
-    localStorage.getItem("preferredAppearance") || "system";
+function AppearanceDropDownItem({ option }: { option: string }) {
+  // const preferredAppearance =
+  //   localStorage.getItem("preferredAppearance") || "system";
 
   // if (preferredAppearance === "light") {
   //   setLightMode();
@@ -48,27 +38,32 @@ function AppearanceDropDownItem({
   const appearanceContextRef = useContext(AppearanceContext);
   const optionLower = option.toLowerCase();
 
-  const handleAppearanceChange = () => {
-    const preferredAppearance =
-      localStorage.getItem("preferredAppearance") || "system";
-    if (preferredAppearance === optionLower) return;
-    localStorage.setItem("preferredAppearance", optionLower);
+  const { theme, setTheme } = useTheme();
+
+  const handleAppearanceChange = (optionLower: string) => {
+    console.log("current theme:", theme);
+    // const preferredAppearance =
+    //   localStorage.getItem("preferredAppearance") || "system";
+    // if (preferredAppearance === optionLower) return;
+    // localStorage.setItem("preferredAppearance", optionLower);
     if (optionLower === "system") {
-      setSystemAppearance();
+      setTheme("system");
     } else if (optionLower === "light") {
-      setLightMode();
+      setTheme("light");
     } else {
-      setDarkMode();
+      setTheme("dark");
     }
     toggleAppearanceDropdown(appearanceContextRef);
   };
 
   return (
     <div
-      className={`appearance-drop-down-item ${isDefault ? "selected" : ""}`}
+      className={`appearance-drop-down-item ${
+        theme === optionLower ? "selected" : ""
+      }`}
       id={`appearance-drop-down-item-${optionLower}`}
       tabIndex={0}
-      onClick={handleAppearanceChange}
+      onClick={() => handleAppearanceChange(optionLower)}
     >
       <ThemedImage
         lightSrc={`/icons/appearance-drop-down-icon-${optionLower}-light-mode.svg`}
@@ -79,23 +74,6 @@ function AppearanceDropDownItem({
         lightId={`appearance-drop-down-icon-${optionLower}-light-mode`}
         darkId={`appearance-drop-down-icon-${optionLower}-dark-mode`}
       />
-
-      {/* <img
-        src={`icons/appearance-drop-down-icon-${optionLower}-light-mode.svg`}
-        alt=""
-        draggable="false"
-        className="appearance-drop-down-icon appearance-drop-down-icon-light-mode"
-      />
-      <img
-        src={
-          optionLower === "system"
-            ? `icons/appearance-drop-down-icon-${optionLower}-dark-mode.png`
-            : `icons/appearance-drop-down-icon-${optionLower}-dark-mode.svg`
-        }
-        alt=""
-        draggable="false"
-        className="appearance-drop-down-icon appearance-drop-down-icon-dark-mode"
-      /> */}
       <div className="button-text">{option}</div>
     </div>
   );

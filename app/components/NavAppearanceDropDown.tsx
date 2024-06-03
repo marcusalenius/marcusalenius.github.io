@@ -25,7 +25,7 @@ function AppearanceDropDown() {
   return (
     <div className="hidden" id="appearance-drop-down">
       <div className="card-border"></div>
-      <AppearanceDropDownItem option="System" isDefault={true} />
+      <AppearanceDropDownItem option="System" />
       <AppearanceDropDownItem option="Light" />
       <AppearanceDropDownItem option="Dark" />
     </div>
