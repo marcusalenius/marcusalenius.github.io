@@ -29,12 +29,12 @@
     padding: 0;
 }
 
-body.light-mode {
+body {
     background-color: var(--lightBackground);
     transition: background-color 400ms;
 }
 
-body.dark-mode {
+.dark body {
     background-color: var(--darkBackground);
     transition: background-color 400ms;
 }

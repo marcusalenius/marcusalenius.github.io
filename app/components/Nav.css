@@ -30,14 +30,14 @@ nav {
     position: relative;
 }
 
-.light-mode .navbutton {
+.navbutton {
     background-color: var(--lightCard);
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25), 0px 0px 12px rgba(0, 0, 0, 0.25);
     transition: scale 200ms ease, box-shadow 200ms ease; /* transition for hover */
 }
 
 @media (hover: hover) {
-    .light-mode .navbutton:hover {
+    .navbutton:hover {
         box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25), 0px 0px 26px rgba(0, 0, 0, 0.25);
         scale: 1.00005;
         transition: scale 200ms ease, box-shadow 200ms ease;
@@ -45,7 +45,7 @@ nav {
 }
 
 /* background card */
-.dark-mode .navbutton {
+.dark .navbutton {
     background-color: var(--darkCardRim);
     box-shadow: 0px 0px 8px #000000;
     position: relative;
@@ -54,7 +54,7 @@ nav {
 }
 
 @media (hover: hover) {
-    .dark-mode .navbutton:hover {
+    .dark .navbutton:hover {
         box-shadow: 0px 0px 13px #000000;
         scale: 1.0001;
         transition: scale 200ms ease, box-shadow 200ms ease;
@@ -62,7 +62,7 @@ nav {
 }
 
 /* foreground card */
-.dark-mode .navbutton::before {
+.dark .navbutton::before {
     background-color: var(--darkCard);
     content: '';
     position: absolute;
@@ -94,7 +94,7 @@ nav {
 }
 
 /* foreground hover element, dark mode */
-.dark-mode .navbutton::after {
+.dark .navbutton::after {
     background: radial-gradient(
         circle 200px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.04), 
         transparent 40%
@@ -103,7 +103,7 @@ nav {
 }
 
 /* foreground hover element, light mode */
-.light-mode .navbutton::after {
+.navbutton::after {
     background: radial-gradient(
         circle 200px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.2), 
         transparent 40%
@@ -112,8 +112,8 @@ nav {
 }
 
 /* background hover element, only in dark mode */
-.dark-mode .navbutton .card-border,
-.dark-mode #navbutton-home .card-border {
+.dark .navbutton .card-border,
+.dark #navbutton-home .card-border {
     background: radial-gradient(
         circle 100px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.7), 
         transparent 40%
@@ -122,10 +122,10 @@ nav {
 }
 
 /* background hover element, hide in light mode */
-.light-mode .navbutton .card-border,
-.light-mode #appearance-drop-down .card-border,
-.light-mode #navbutton-home .card-border,
-.light-mode #navmenu-mobile .card-border {
+.navbutton .card-border,
+#appearance-drop-down .card-border,
+#navbutton-home .card-border,
+#navmenu-mobile .card-border {
     display: none;
 }
 
@@ -175,14 +175,14 @@ nav {
     cursor: pointer;
 }
 
-.light-mode #navbutton-home {
+#navbutton-home {
     background: var(--lightCard);
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25), 0px 0px 12px rgba(0, 0, 0, 0.25);
     transition: scale 200ms ease, box-shadow 200ms ease; /* transition for hover */
 }
 
 @media (hover: hover) {
-    .light-mode #navbutton-home:hover {
+    #navbutton-home:hover {
         box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25), 0px 0px 26px rgba(0, 0, 0, 0.25);
         scale: 1.0005;
         transition: scale 200ms ease, box-shadow 200ms ease;
@@ -190,14 +190,14 @@ nav {
 }
 
 /* background card */
-.dark-mode #navbutton-home {
+.dark #navbutton-home {
     background: var(--darkCardRim);
     box-shadow: 0px 0px 8px #000000;
     transition: scale 200ms ease, box-shadow 200ms ease; /* transition for hover */
 }
 
 @media (hover: hover) {
-    .dark-mode #navbutton-home:hover {
+    .dark #navbutton-home:hover {
         box-shadow: 0px 0px 13px #000000;
         scale: 1.0005;
         transition: scale 200ms ease, box-shadow 200ms ease;
@@ -206,7 +206,7 @@ nav {
 }
 
 /* foreground card */
-.dark-mode #navbutton-home::before {
+.dark #navbutton-home::before {
     background: var(--darkCard);
     position: relative;
     content: '';
@@ -219,7 +219,7 @@ nav {
 }
 
 /* foreground hover element, dark mode */
-.dark-mode #navbutton-home::after {
+.dark #navbutton-home::after {
     background: radial-gradient(
         circle 200px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.1), 
         transparent 40%
@@ -228,7 +228,7 @@ nav {
 }
 
 /* foreground hover element, light mode */
-.light-mode #navbutton-home::after {
+#navbutton-home::after {
     background: radial-gradient(
         circle 200px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.02), 
         transparent 40%
@@ -250,8 +250,8 @@ nav {
 #back-icon-dark-mode,
 #back-icon-light-mode { z-index: 102; }
 
-.light-mode #back-icon-dark-mode,
-.dark-mode #back-icon-light-mode { display: none; }
+#back-icon-dark-mode,
+.dark #back-icon-light-mode { display: none; }
 
 /* Appearance button */
 
@@ -330,7 +330,7 @@ nav {
 }
 
 @media (hover: hover) {
-    .light-mode #appearance-drop-down:hover {
+    #appearance-drop-down:hover {
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25), 0px 0px 30px rgba(0, 0, 0, 0.25);
         scale: 1.0005;
         transition: 200ms ease-out;
@@ -338,7 +338,7 @@ nav {
 }
 
 /* background card */
-.dark-mode #appearance-drop-down {
+.dark #appearance-drop-down {
     background-color: var(--darkCardRim);
     box-shadow: 0px 0px 10px #000000;
     display: inline;
@@ -346,7 +346,7 @@ nav {
 }
 
 @media (hover: hover) {
-    .dark-mode #appearance-drop-down:hover {
+    .dark #appearance-drop-down:hover {
         box-shadow: 0px 0px 15px #000000;
         scale: 1.0005;
         transition: 200ms ease-out;
@@ -355,7 +355,7 @@ nav {
 }
 
 /* foreground card */
-.dark-mode #appearance-drop-down::before {
+.dark #appearance-drop-down::before {
     background: var(--darkCard);
     content: '';
     position: absolute;
@@ -374,7 +374,7 @@ nav {
 }
 
 /* foreground hover element, dark mode */
-.dark-mode #appearance-drop-down::after {
+.dark #appearance-drop-down::after {
     background: radial-gradient(
         circle 400px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.04), 
         transparent 40%
@@ -383,7 +383,7 @@ nav {
 }
 
 /* foreground hover element, light mode */
-.light-mode #appearance-drop-down::after {
+#appearance-drop-down::after {
     background: radial-gradient(
         circle 400px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.2), 
         transparent 40%
@@ -392,7 +392,7 @@ nav {
 }
 
 /* background hover element, only in dark mode */
-.dark-mode #appearance-drop-down .card-border {
+.dark #appearance-drop-down .card-border {
     background: radial-gradient(
         circle 150px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.7), 
         transparent 40%
@@ -413,20 +413,20 @@ nav {
     cursor: pointer;
 }
 
-.light-mode .appearance-drop-down-item.selected {
+.appearance-drop-down-item.selected {
  background-color: var(--lightSelected);
 }
 
-.dark-mode .appearance-drop-down-item.selected {
+.dark .appearance-drop-down-item.selected {
     background-color: var(--darkSelected);
 }
 
 @media (hover: hover) {
-    .light-mode .appearance-drop-down-item:hover:not(.selected) {
+    .appearance-drop-down-item:hover:not(.selected) {
         background-color: var(--lightHover);
     }
     
-    .dark-mode .appearance-drop-down-item:hover:not(.selected) {
+    .dark .appearance-drop-down-item:hover:not(.selected) {
         background-color: var(--darkHover);
     }    
 }

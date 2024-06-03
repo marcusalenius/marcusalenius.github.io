@@ -15,11 +15,6 @@ function View({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <Script
-        id="set-stored-appearance"
-        // onReady={() => console.log("onload")}
-        onReady={setDarkMode}
-      >{`console.log('loaded')`}</Script>
       <AppearanceContext.Provider value={appearanceContextRef}>
         {children}
       </AppearanceContext.Provider>

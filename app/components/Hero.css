@@ -75,10 +75,6 @@
     align-items: center;
 }
 
-.light-mode .location-icon-dark-mode { display: none; }
-
-.dark-mode .location-icon-light-mode { display: none; }
-
 /* iPad Pro 11" Landscape */
 @media (max-width: 1200px) {
 

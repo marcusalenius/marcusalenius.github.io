@@ -5,13 +5,13 @@ footer {
     justify-content: center;
 }
 
-.light-mode footer { background-color: var(--lightFooter); }
+footer { background-color: var(--lightFooter); }
 
-.dark-mode footer { background-color: var(--darkFooter); }
+.dark footer { background-color: var(--darkFooter); }
 
 /* phone */
 @media (max-width: 740px) {
 
-    .footerText { width: 233px; }
+    .footer-text { width: 233px; }
 
 }

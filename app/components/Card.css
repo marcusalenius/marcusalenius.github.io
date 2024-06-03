@@ -37,14 +37,14 @@
     transform: translateZ(0); /* to fix safari border radius overflow hidden issue */
 }
 
-.light-mode .card {
+.card {
     background: var(--lightCard);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25), 0px 0px 20px rgba(0, 0, 0, 0.25);
     transition: scale 200ms ease, box-shadow 200ms ease; /* transition for hover */
 }
 
 @media (hover: hover) {
-    .light-mode .card:hover {
+    .card:hover {
         box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.25), 0px 0px 32px rgba(0, 0, 0, 0.25);
         scale: 1.0005;
         transition: scale 200ms ease, box-shadow 200ms ease;
@@ -52,7 +52,7 @@
 }
 
 /* background card */
-.dark-mode .card {
+.dark .card {
     background: var(--darkCardRim);
     box-shadow: 0px 0px 17px #000000;
     position: relative;
@@ -60,7 +60,7 @@
 }
 
 @media (hover: hover) {
-    .dark-mode .card:hover {
+    .dark .card:hover {
         box-shadow: 0px 0px 22px #000000;
         scale: 1.001;
         transition: scale 200ms ease, box-shadow 200ms ease;
@@ -68,7 +68,7 @@
 }
 
 /* foreground card */
-.dark-mode .card::before {
+.dark .card::before {
     background-color: var(--darkCard);
     content: '';
     position: absolute;
@@ -96,7 +96,7 @@
 }
 
 /* foreground hover element, dark mode */
-.dark-mode .card::after {
+.dark .card::after {
     background: radial-gradient(
         circle 800px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.04), 
         transparent 40%
@@ -105,7 +105,7 @@
 }
 
 /* foreground hover element, light mode */
-.light-mode .card::after {
+.card::after {
     background: radial-gradient(
         circle 800px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.3), 
         transparent 40%
@@ -114,7 +114,7 @@
 }
 
 /* hero card hover element, dark mode */
-.dark-mode #hero-card::after {
+.dark #hero-card::after {
     background: radial-gradient(
         circle 800px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.1), 
         transparent 40%
@@ -123,7 +123,7 @@
 }
 
 /* hero card hover element, light mode */
-.light-mode #hero-card::after {
+#hero-card::after {
     background: radial-gradient(
         circle 800px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.18), 
         transparent 40%
@@ -132,7 +132,7 @@
 }
 
 /* make actordentify card hover element the same as hero card hover element in light mode */
-.light-mode #actordentify-card::after {
+#actordentify-card::after {
     background: radial-gradient(
         circle 800px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.18), 
         transparent 40%
@@ -142,7 +142,7 @@
 
 
 /* background hover element, only in dark mode, o */
-.dark-mode .card .card-border {
+.dark .card .card-border {
     background: radial-gradient(
         circle 400px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.7), 
         transparent 40%
@@ -151,8 +151,8 @@
 }
 
 /* background hover element, hide in light mode */
-.light-mode .card .card-border,
-.light-mode .contact-card .card-border {
+.card .card-border,
+.contact-card .card-border {
     display: none;
 }
 
@@ -198,14 +198,14 @@
     z-index: 11;
 }
 
-.light-mode .contact-card {
+.contact-card {
     background: var(--lightCard);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25), 0px 0px 16px rgba(0, 0, 0, 0.25);
     transition: scale 200ms ease, box-shadow 200ms ease; /* transition for hover */
 }
 
 @media (hover: hover) {
-    .light-mode .contact-card:hover {
+    .contact-card:hover {
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25), 0px 0px 30px rgba(0, 0, 0, 0.25);
         scale: 1.00005;
         transition: scale 200ms ease, box-shadow 200ms ease;
@@ -213,7 +213,7 @@
 }
 
 /* background contact-card */
-.dark-mode .contact-card {
+.dark .contact-card {
     background: var(--darkCardRim);
     box-shadow: 0px 0px 10px #000000;
     position: relative;
@@ -221,7 +221,7 @@
 }
 
 @media (hover: hover) {
-    .dark-mode .contact-card:hover {
+    .dark .contact-card:hover {
         box-shadow: 0px 0px 15px #000000;
         scale: 1.0005;
         transition: scale 200ms ease, box-shadow 200ms ease;
@@ -230,7 +230,7 @@
 }
 
 /* foreground contact-card */
-.dark-mode .contact-card::before {
+.dark .contact-card::before {
     background-color: var(--darkCard);
     content: '';
     position: absolute;
@@ -242,7 +242,7 @@
 }
 
 /* foreground hover element, dark mode */
-.dark-mode .contact-card::after {
+.dark .contact-card::after {
     background: radial-gradient(
         circle 400px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.04), 
         transparent 40%
@@ -251,7 +251,7 @@
 }
 
 /* foreground hover element, light mode */
-.light-mode .contact-card::after {
+.contact-card::after {
     background: radial-gradient(
         circle 400px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.2), 
         transparent 40%
@@ -260,7 +260,7 @@
 }
 
 /* background hover element, only in dark mode */
-.dark-mode .contact-card .card-border {
+.dark .contact-card .card-border {
     background: radial-gradient(
         circle 150px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.7), 
         transparent 40%
