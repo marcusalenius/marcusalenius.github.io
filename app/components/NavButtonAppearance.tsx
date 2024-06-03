@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import ThemedImage from "./ThemedImage";
 import { AppearanceContext } from "./View";
 import { toggleAppearanceDropdown } from "./utils";
 
@@ -13,33 +14,27 @@ function NavButtonAppearance() {
       onClick={() => toggleAppearanceDropdown(appearanceContextRef)}
     >
       <div className="card-border"></div>
-      <img
-        src="icons/appearance-icon-light-mode.svg"
-        alt=""
-        draggable="false"
+      <ThemedImage
+        lightSrc="icons/appearance-icon-light-mode.svg"
+        darkSrc="icons/appearance-icon-dark-mode.svg"
+        width={30}
+        height={30}
+        darkWidth={27}
+        darkHeight={27}
+        lightId="appearance-icon-light-mode"
+        darkId="appearance-icon-dark-mode"
         className="appearance-icon"
-        id="appearance-icon-light-mode"
-      />
-      <img
-        src="icons/appearance-icon-dark-mode.svg"
         alt=""
-        draggable="false"
-        className="appearance-icon"
-        id="appearance-icon-dark-mode"
+        draggable={false}
       />
-      <img
-        src="icons/appearance-cross-icon-light-mode.svg"
-        alt=""
-        draggable="false"
+      <ThemedImage
+        lightSrc="icons/appearance-cross-icon-light-mode.svg"
+        darkSrc="icons/appearance-cross-icon-dark-mode.svg"
+        width={21}
+        height={21}
         className="appearance-cross-icon"
-        id="appearance-cross-icon-light-mode"
-      />
-      <img
-        src="icons/appearance-cross-icon-dark-mode.svg"
         alt=""
-        draggable="false"
-        className="appearance-cross-icon"
-        id="appearance-cross-icon-dark-mode"
+        draggable={false}
       />
     </div>
   );
