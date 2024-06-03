@@ -17,9 +17,9 @@ function AppearanceDropDownItem({
   const preferredAppearance =
     localStorage.getItem("preferredAppearance") || "system";
 
-  // if (preferredAppearance.current === "light") {
+  // if (preferredAppearance === "light") {
   //   setLightMode();
-  // } else if (preferredAppearance.current === "dark") {
+  // } else if (preferredAppearance === "dark") {
   //   setDarkMode();
   // } else {
   //   setSystemAppearance();
@@ -29,7 +29,7 @@ function AppearanceDropDownItem({
   // window
   //   .matchMedia("(prefers-color-scheme: dark)")
   //   .addEventListener("change", (event) => {
-  //     if (preferredAppearance.current === "system") {
+  //     if (preferredAppearance === "system") {
   //       const body = document.body;
   //       // enable dark mode
   //       if (event.matches) {
