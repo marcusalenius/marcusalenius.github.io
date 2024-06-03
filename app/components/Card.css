@@ -143,6 +143,7 @@
 
 /* background hover element, only in dark mode, o */
 .dark .card .card-border {
+    display: block;
     background: radial-gradient(
         circle 400px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.7), 
         transparent 40%

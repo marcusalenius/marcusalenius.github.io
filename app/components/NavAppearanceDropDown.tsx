@@ -1,6 +1,7 @@
 import AppearanceDropDownItem from "./NavAppearanceDropDownItem";
 
 function AppearanceDropDown() {
+  // TODO: refactor with this: https://www.robinwieruch.de/react-hook-detect-click-outside-component/
   // Close the appearance dropdown if click outside
   window.addEventListener("click", (event) => {
     const appearanceDropdown = document.getElementById("appearance-drop-down");
