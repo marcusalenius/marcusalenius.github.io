@@ -13,8 +13,6 @@ function HeroLocations({ locations }: Props) {
             <ThemedImage
               lightSrc="/icons/location-icon-light-mode.svg"
               darkSrc="/icons/location-icon-dark-mode.svg"
-              width={20}
-              height={30}
               draggable={false}
               className="location-icon"
             />

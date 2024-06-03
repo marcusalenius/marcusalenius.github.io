@@ -17,10 +17,6 @@ function NavButtonAppearance() {
       <ThemedImage
         lightSrc="icons/appearance-icon-light-mode.svg"
         darkSrc="icons/appearance-icon-dark-mode.svg"
-        width={30}
-        height={30}
-        darkWidth={27}
-        darkHeight={27}
         lightId="appearance-icon-light-mode"
         darkId="appearance-icon-dark-mode"
         className="appearance-icon"
@@ -30,8 +26,6 @@ function NavButtonAppearance() {
       <ThemedImage
         lightSrc="icons/appearance-cross-icon-light-mode.svg"
         darkSrc="icons/appearance-cross-icon-dark-mode.svg"
-        width={21}
-        height={21}
         className="appearance-cross-icon"
         alt=""
         draggable={false}

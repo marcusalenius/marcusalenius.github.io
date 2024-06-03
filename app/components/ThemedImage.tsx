@@ -6,10 +6,6 @@ import { useTheme } from "next-themes";
 type Props = {
   lightSrc: string;
   darkSrc: string;
-  width: number;
-  height: number;
-  darkWidth?: number;
-  darkHeight?: number;
   lightId?: string;
   darkId?: string;
   alt?: string;
@@ -21,10 +17,6 @@ type Props = {
 function ThemedImage({
   lightSrc,
   darkSrc,
-  width,
-  height,
-  darkWidth = width,
-  darkHeight = height,
   lightId = "",
   darkId = "",
   alt = "",
@@ -34,8 +26,6 @@ function ThemedImage({
   const { resolvedTheme } = useTheme();
   let src;
   let id;
-  let resolvedWidth = width;
-  let resolvedHeight = height;
 
   switch (resolvedTheme) {
     case "light":
@@ -45,8 +35,6 @@ function ThemedImage({
     case "dark":
       src = darkSrc;
       id = darkId;
-      resolvedWidth = darkWidth;
-      resolvedHeight = darkHeight;
       break;
     default:
       // Fallback to a transparent image
@@ -59,8 +47,8 @@ function ThemedImage({
   return (
     <Image
       src={src}
-      width={resolvedWidth}
-      height={resolvedHeight}
+      width={0}
+      height={0}
       id={id}
       alt={alt}
       className={className}
