@@ -1,4 +1,5 @@
 import { useRef, useContext } from "react";
+import ThemedImage from "./ThemedImage";
 import { AppearanceContext } from "./View";
 import {
   toggleAppearanceDropdown,
@@ -69,7 +70,17 @@ function AppearanceDropDownItem({
       tabIndex={0}
       onClick={handleAppearanceChange}
     >
-      <img
+      <ThemedImage
+        lightSrc={`/icons/appearance-drop-down-icon-${optionLower}-light-mode.svg`}
+        darkSrc={`icons/appearance-drop-down-icon-${optionLower}-dark-mode.svg`}
+        alt=""
+        draggable={false}
+        className="appearance-drop-down-icon"
+        lightId={`appearance-drop-down-icon-${optionLower}-light-mode`}
+        darkId={`appearance-drop-down-icon-${optionLower}-dark-mode`}
+      />
+
+      {/* <img
         src={`icons/appearance-drop-down-icon-${optionLower}-light-mode.svg`}
         alt=""
         draggable="false"
@@ -84,7 +95,7 @@ function AppearanceDropDownItem({
         alt=""
         draggable="false"
         className="appearance-drop-down-icon appearance-drop-down-icon-dark-mode"
-      />
+      /> */}
       <div className="button-text">{option}</div>
     </div>
   );

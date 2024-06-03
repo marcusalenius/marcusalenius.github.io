@@ -6,10 +6,12 @@ import { useTheme } from "next-themes";
 type Props = {
   lightSrc: string;
   darkSrc: string;
-  lightId?: string;
-  darkId?: string;
   alt?: string;
   className?: string;
+  lightClassName?: string;
+  darkClassName?: string;
+  lightId?: string;
+  darkId?: string;
   draggable?: boolean;
 };
 
@@ -17,30 +19,36 @@ type Props = {
 function ThemedImage({
   lightSrc,
   darkSrc,
-  lightId = "",
-  darkId = "",
   alt = "",
   className = "",
+  lightClassName = className,
+  darkClassName = className,
+  lightId = "",
+  darkId = "",
   draggable = true,
 }: Props) {
   const { resolvedTheme } = useTheme();
   let src;
   let id;
+  let resolvedClassName;
 
   switch (resolvedTheme) {
     case "light":
       src = lightSrc;
       id = lightId;
+      resolvedClassName = lightClassName;
       break;
     case "dark":
       src = darkSrc;
       id = darkId;
+      resolvedClassName = darkClassName;
       break;
     default:
       // Fallback to a transparent image
       src =
         "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
       id = "";
+      resolvedClassName = className;
       break;
   }
 
@@ -51,9 +59,10 @@ function ThemedImage({
       height={0}
       id={id}
       alt={alt}
-      className={className}
+      className={resolvedClassName}
       draggable={draggable}
       style={{ width: "auto" }}
+      quality={100}
     />
   );
 }
