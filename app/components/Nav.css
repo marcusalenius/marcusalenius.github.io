@@ -114,6 +114,7 @@ nav {
 /* background hover element, only in dark mode */
 .dark .navbutton .card-border,
 .dark #navbutton-home .card-border {
+    display: block;
     background: radial-gradient(
         circle 100px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.7), 
         transparent 40%
@@ -302,12 +303,6 @@ nav {
 .drop-down-hidden .appearance-cross-icon, 
 .drop-down-visible .appearance-icon { transform: scale(0); }
 
-
-.light-mode #appearance-icon-dark-mode,
-.light-mode #appearance-cross-icon-dark-mode,
-.dark-mode #appearance-icon-light-mode,
-.dark-mode #appearance-cross-icon-light-mode { transform: scale(0); }
-
 /* Appearance dropdown */
 
 #appearance-drop-down.hidden {
@@ -472,15 +467,6 @@ nav {
 
 #appearance-drop-down-item-system { margin-top: 8px; }
 
-#appearance-drop-down-item-system .appearance-drop-down-icon-dark-mode {
-    width: 24px;
-    height: 24px;
-}
-
-#appearance-drop-down-item-dark .appearance-drop-down-icon-dark-mode {
-    margin-left: 16px;
-}
-
 #navmenu-mobile { display: none; }
 
 
@@ -540,7 +526,6 @@ nav {
         height: 44px;
         left: 3px;
         top: 3px;
-    
     }
 
     #navbutton-appearance {
@@ -588,14 +573,14 @@ nav {
         transition: 200ms ease;
     }
 
-    .light-mode #navmenu-mobile {
+    #navmenu-mobile {
         background-color: var(--lightCard);
         box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25), 0px 0px 16px rgba(0, 0, 0, 0.25);
         transition: 200ms ease;
     }
 
     @media (hover: hover) {
-        .light-mode #navmenu-mobile:hover {
+        #navmenu-mobile:hover {
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25), 0px 0px 30px rgba(0, 0, 0, 0.25);
             scale: 1.0005;
             transition: 200ms ease;
@@ -603,14 +588,14 @@ nav {
     }
 
     /* background card */
-    .dark-mode #navmenu-mobile {
+    .dark #navmenu-mobile {
         background-color: var(--darkCardRim);
         box-shadow: 0px 0px 10px #000000;
         transition: 200ms ease;
     }
 
     @media (hover: hover) {
-        .dark-mode #navmenu-mobile:hover {
+        .dark #navmenu-mobile:hover {
             box-shadow: 0px 0px 15px #000000;
             scale: 1.0005;
             transition: 200ms ease;
@@ -618,7 +603,7 @@ nav {
     }
 
     /* foreground card */
-    .dark-mode #navmenu-mobile::before {
+    .dark #navmenu-mobile::before {
         background: var(--darkCard);
         content: '';
         position: absolute;
@@ -638,7 +623,7 @@ nav {
     }
 
     /* foreground hover element, dark mode */
-    .dark-mode #navmenu-mobile::after {
+    .dark #navmenu-mobile::after {
         background: radial-gradient(
             circle 400px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.04), 
             transparent 40%
@@ -647,7 +632,7 @@ nav {
     }
 
     /* foreground hover element, light mode */
-    .light-mode #navmenu-mobile::after {
+    #navmenu-mobile::after {
         background: radial-gradient(
             circle 400px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.2), 
             transparent 40%
@@ -656,7 +641,7 @@ nav {
     }
 
     /* background hover element, only in dark mode */
-    .dark-mode #navmenu-mobile .card-border {
+    #navmenu-mobile .card-border {
         background: radial-gradient(
             circle 150px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.7), 
             transparent 40%
@@ -676,7 +661,7 @@ nav {
         transform: translateX(-50%);
     }
 
-    .dark-mode #navmenu-mobile.hidden::before { border-radius: 44px; }
+    .dark #navmenu-mobile.hidden::before { border-radius: 44px; }
 
     .navmenu-item {
         display: flex;
@@ -694,20 +679,20 @@ nav {
 
     .navmenu-item.selected { transition: 250ms ease; }
 
-    .light-mode .navmenu-item.selected {
+    .navmenu-item.selected {
         background-color: var(--lightSelected);
     }
 
-    .dark-mode .navmenu-item.selected {
+    .dark .navmenu-item.selected {
         background-color: var(--darkSelected);
     }
 
     @media (hover: hover) {
-        .light-mode .navmenu-item:hover:not(.selected) {
+        .navmenu-item:hover:not(.selected) {
             background-color: var(--lightHover);
         }
         
-        .dark-mode .navmenu-item:hover:not(.selected) {
+        .dark .navmenu-item:hover:not(.selected) {
             background-color: var(--darkHover);
         }    
     }
