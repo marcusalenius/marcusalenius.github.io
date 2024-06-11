@@ -2,14 +2,18 @@
 
 type Props = {
   id: string;
+  tabIndex?: number;
+  onClick?: () => void;
   children: React.ReactNode;
 };
 
-function Card({ id, children }: Props) {
+function Card({ id, children, tabIndex = 0, onClick = () => {} }: Props) {
   return (
     <div
       className="card"
       id={id}
+      tabIndex={tabIndex}
+      onClick={onClick}
       onMouseMove={(event) => {
         const card = event.target as HTMLElement;
         const rect = card.getBoundingClientRect();

@@ -1,13 +1,13 @@
 import Image from "next/image";
+import Card from "./Card";
 
 function NavHome() {
   return (
-    <div
+    <Card
       id="navbutton-home"
       tabIndex={0}
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
     >
-      <div className="card-border"></div>
       <Image
         src="/images/navbar-headshot.png"
         width={56}
@@ -16,7 +16,7 @@ function NavHome() {
         draggable="false"
         id="navbar-headshot"
       />
-    </div>
+    </Card>
   );
 }
 
