@@ -93,6 +93,24 @@ p.paragraph-small {
 
 .dark .image-text { color: var(--darkBodyText); }
 
+.nav-link {
+    display: flex;
+    flex-direction: row;
+    align-items: first baseline;
+    width: fit-content;
+}
+
+.nav-link p { 
+    padding-right: 6px;
+    color: var(--lightNavLink); 
+}
+.dark .nav-link p { color: var(--darkNavLink); }
+
+p.paragraph-large + .nav-link-chevron {
+    width: 5.5px;
+    height: 11px;
+}
+
 a { color: var(--lightFooterText); }
 .dark a { color: var(--darkFooterText); }
 

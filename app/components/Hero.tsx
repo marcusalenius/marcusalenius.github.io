@@ -1,7 +1,7 @@
 import "./Hero.css";
 import "./Card.css";
 
-import HeroLocations from "./HeroLocations";
+import NavLink from "./NavLink";
 import HeroCard from "./HeroCard";
 
 type Props = {
@@ -18,7 +18,9 @@ function Hero({ data }: Props) {
           I’m Marcus
         </h1>
         <p className="paragraph-large">{data.brief}</p>
-        <HeroLocations locations={data.locations} />
+        <NavLink href="/">
+          <p className="paragraph-large">Learn more about me</p>
+        </NavLink>
       </div>
       <div id="hero-right">
         <HeroCard />

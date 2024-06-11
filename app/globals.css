@@ -9,6 +9,7 @@
     --lightFooter: #F5F5F5;
     --lightHover: #F5F5F5;
     --lightSelected: #ECECEC;
+    --lightNavLink: #4287F5;
 
     /* dark mode colors */
     --darkBackground: #262626;
@@ -20,6 +21,7 @@
     --darkFooter: #2E2E2E;
     --darkHover: #414141;
     --darkSelected: #4D4D4D;
+    --darkNavLink: #2997FF;
 
 }
 
