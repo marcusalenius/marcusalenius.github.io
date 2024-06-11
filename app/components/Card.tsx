@@ -2,12 +2,19 @@
 
 type Props = {
   id: string;
+  individualEffect: boolean;
   tabIndex?: number;
   onClick?: () => void;
   children: React.ReactNode;
 };
 
-function Card({ id, children, tabIndex = 0, onClick = () => {} }: Props) {
+function Card({
+  id,
+  individualEffect: individualEffect,
+  tabIndex = 0,
+  onClick = () => {},
+  children,
+}: Props) {
   return (
     <div
       className="card"
@@ -15,6 +22,7 @@ function Card({ id, children, tabIndex = 0, onClick = () => {} }: Props) {
       tabIndex={tabIndex}
       onClick={onClick}
       onMouseMove={(event) => {
+        if (!individualEffect) return;
         const card = event.target as HTMLElement;
         const rect = card.getBoundingClientRect();
         const x = event.clientX - rect.left;
