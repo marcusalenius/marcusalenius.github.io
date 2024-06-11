@@ -1,23 +1,25 @@
 "use client";
 
 type Props = {
-  id: string;
-  individualEffect: boolean;
+  className?: string;
+  id?: string;
+  individualEffect?: boolean;
   tabIndex?: number;
   onClick?: () => void;
   children: React.ReactNode;
 };
 
 function Card({
-  id,
-  individualEffect: individualEffect,
+  id = "",
+  className = "card",
+  individualEffect = true,
   tabIndex = 0,
   onClick = () => {},
   children,
 }: Props) {
   return (
     <div
-      className="card"
+      className={className}
       id={id}
       tabIndex={tabIndex}
       onClick={onClick}

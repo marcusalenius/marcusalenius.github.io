@@ -1,17 +1,18 @@
 import CardRegion from "./CardRegion";
+import Card from "./Card";
 import NavButtonAppearance from "./NavButtonAppearance";
 import AppearanceDropDown from "./NavAppearanceDropDown";
 
 function NavButtonSection({ name }: { name: string }) {
   return (
-    <div
+    <Card
       className="navbutton"
       id={`navbutton-${name.toLowerCase()}`}
       tabIndex={0}
+      individualEffect={false}
     >
-      <div className="card-border"></div>
       <div className="button-text">{name}</div>
-    </div>
+    </Card>
   );
 }
 
