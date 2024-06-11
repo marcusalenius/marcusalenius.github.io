@@ -25,7 +25,7 @@ function Card({
       onClick={onClick}
       onMouseMove={(event) => {
         if (!individualEffect) return;
-        const card = event.target as HTMLElement;
+        const card = event.currentTarget as HTMLElement;
         const rect = card.getBoundingClientRect();
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;

@@ -1,3 +1,4 @@
+import Card from "./Card";
 import AppearanceDropDownItem from "./NavAppearanceDropDownItem";
 
 function AppearanceDropDown() {
@@ -24,12 +25,17 @@ function AppearanceDropDown() {
   });
 
   return (
-    <div className="hidden" id="appearance-drop-down">
-      <div className="card-border"></div>
+    <Card className="hidden" id="appearance-drop-down">
       <AppearanceDropDownItem option="System" />
       <AppearanceDropDownItem option="Light" />
       <AppearanceDropDownItem option="Dark" />
-    </div>
+    </Card>
+    // <div className="hidden" id="appearance-drop-down">
+    //   <div className="card-border"></div>
+    //   <AppearanceDropDownItem option="System" />
+    //   <AppearanceDropDownItem option="Light" />
+    //   <AppearanceDropDownItem option="Dark" />
+    // </div>
   );
 }
 
