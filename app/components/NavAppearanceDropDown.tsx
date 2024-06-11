@@ -25,17 +25,15 @@ function AppearanceDropDown() {
   });
 
   return (
-    <Card className="hidden" id="appearance-drop-down">
+    <Card
+      className="hidden card-region-child"
+      id="appearance-drop-down"
+      individualEffect={false}
+    >
       <AppearanceDropDownItem option="System" />
       <AppearanceDropDownItem option="Light" />
       <AppearanceDropDownItem option="Dark" />
     </Card>
-    // <div className="hidden" id="appearance-drop-down">
-    //   <div className="card-border"></div>
-    //   <AppearanceDropDownItem option="System" />
-    //   <AppearanceDropDownItem option="Light" />
-    //   <AppearanceDropDownItem option="Dark" />
-    // </div>
   );
 }
 

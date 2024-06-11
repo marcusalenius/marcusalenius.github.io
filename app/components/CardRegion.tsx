@@ -1,16 +1,10 @@
 type Props = {
-  childCardsClassName: string;
-  className?: string;
   id?: string;
+  className?: string;
   children: React.ReactNode;
 };
 
-function CardRegion({
-  id = "",
-  className = "",
-  childCardsClassName,
-  children,
-}: Props) {
+function CardRegion({ id = "", className = "", children }: Props) {
   return (
     <div
       className={className}
@@ -19,7 +13,7 @@ function CardRegion({
         const cardRegion = event.currentTarget as HTMLElement;
         Array.from(
           cardRegion.querySelectorAll(
-            `.${childCardsClassName}`
+            `.card-region-child`
           ) as NodeListOf<HTMLElement>
         ).forEach((card: HTMLElement) => {
           const rect = card.getBoundingClientRect();

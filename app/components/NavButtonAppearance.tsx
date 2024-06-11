@@ -8,7 +8,7 @@ function NavButtonAppearance() {
 
   return (
     <div
-      className="navbutton drop-down-hidden"
+      className="navbutton card-region-child drop-down-hidden"
       id="navbutton-appearance"
       tabIndex={0}
       onClick={() => toggleAppearanceDropdown(appearanceContextRef)}

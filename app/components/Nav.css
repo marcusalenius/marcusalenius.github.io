@@ -143,6 +143,7 @@ nav {
 /* when parent container hovered, show background hover element */
 @media (hover: hover) {
     #nav-right:hover .navbutton .card-border,
+    #nav-right:hover #appearance-drop-down .card-border,
     #appearance-drop-down:hover .card-border,
     #navbutton-home:hover .card-border,
     #navbutton-appearance:hover .card-border,

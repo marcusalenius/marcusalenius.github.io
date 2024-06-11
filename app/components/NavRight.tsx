@@ -6,7 +6,7 @@ import AppearanceDropDown from "./NavAppearanceDropDown";
 function NavButtonSection({ name }: { name: string }) {
   return (
     <Card
-      className="navbutton"
+      className="navbutton card-region-child"
       id={`navbutton-${name.toLowerCase()}`}
       tabIndex={0}
       individualEffect={false}
@@ -18,7 +18,7 @@ function NavButtonSection({ name }: { name: string }) {
 
 function NavRight() {
   return (
-    <CardRegion id="nav-right" childCardsClassName="navbutton">
+    <CardRegion id="nav-right">
       <NavButtonSection name="Projects" />
       <NavButtonSection name="Work" />
       <NavButtonSection name="Contact" />
