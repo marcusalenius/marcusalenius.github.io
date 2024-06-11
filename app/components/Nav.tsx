@@ -6,12 +6,16 @@ import NavHome from "./NavHome";
 import NavMobile from "./NavMobile";
 import NavRight from "./NavRight";
 
-function Nav() {
+type Props = {
+  data: { [key: string]: any };
+};
+
+function Nav({ data }: Props) {
   return (
     <nav>
       <NavHome />
       <NavMobile />
-      <NavRight />
+      <NavRight data={data} />
     </nav>
   );
 }

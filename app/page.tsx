@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 function Home() {
   return (
     <View>
-      <Nav />
+      <Nav data={data} />
       <HomeContainer data={data} />
       <Footer />
     </View>

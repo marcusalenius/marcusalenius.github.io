@@ -1,27 +1,18 @@
 import CardRegion from "./CardRegion";
-import Card from "./Card";
+import NavButtonSection from "./NavButtonSection";
 import NavButtonAppearance from "./NavButtonAppearance";
 import AppearanceDropDown from "./NavAppearanceDropDown";
 
-function NavButtonSection({ name }: { name: string }) {
-  return (
-    <Card
-      className="navbutton card-region-child"
-      id={`navbutton-${name.toLowerCase()}`}
-      tabIndex={0}
-      individualEffect={false}
-    >
-      <div className="button-text">{name}</div>
-    </Card>
-  );
-}
+type Props = {
+  data: { [key: string]: any };
+};
 
-function NavRight() {
+function NavRight({ data }: Props) {
   return (
     <CardRegion id="nav-right">
-      <NavButtonSection name="Projects" />
-      <NavButtonSection name="Work" />
-      <NavButtonSection name="Contact" />
+      {data.sections.map((section: string) => (
+        <NavButtonSection name={section} />
+      ))}
       <NavButtonAppearance />
       <AppearanceDropDown />
     </CardRegion>

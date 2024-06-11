@@ -1,7 +1,7 @@
 {
     "firstName": "Marcus",
     "lastName": "Alenius",
-    "brief": "I’m a sophomore at Carnegie Mellon studying information systems and artificial intelligence. I am passionate about creating technology that unlocks our full potential while making it less obtrusive, almost invisible to us.",
+    "brief": "I’m a junior at Carnegie Mellon University, where I am studying Artificial Intelligence. I have a deep passion for building innovative solutions and teaching others. My primary interests lie in machine learning, natural language processing, and software engineering.",
     "locations": [
         {
             "name" : "Pittsburgh, PA",
@@ -11,5 +11,6 @@
             "name" : "Gävle, Sweden",
             "link" : "https://goo.gl/maps/P4SXTrr1t84QU3kj7"
         }
-    ]
+    ],
+    "sections" : ["Projects", "Experience", "Publications"]
 }
