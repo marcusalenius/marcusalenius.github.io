@@ -28,6 +28,8 @@ nav {
     justify-content: center;
     cursor: pointer;
     position: relative;
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
 .navbutton {
@@ -154,12 +156,6 @@ nav {
 }
 
 .navbutton .button-text { z-index: 102; }
-
-#navbutton-projects { width: 139px; }
-
-#navbutton-work { width: 113px; }
-
-#navbutton-contact { width: 135px; }
 
 #navbutton-back {
     width: 118px;
