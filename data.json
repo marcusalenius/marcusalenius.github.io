@@ -4,13 +4,29 @@
     "brief": "I’m a junior at Carnegie Mellon University, where I am studying Artificial Intelligence. I have a deep passion for building innovative solutions and teaching others. My primary interests lie in machine learning, natural language processing, and software engineering.",
     "locations": [
         {
-            "name" : "Pittsburgh, PA",
-            "link" : "https://goo.gl/maps/bNiQi64BXmRpJvmT6"
+            "name": "Pittsburgh, PA",
+            "link": "https://goo.gl/maps/bNiQi64BXmRpJvmT6"
         },
         {
-            "name" : "Gävle, Sweden",
-            "link" : "https://goo.gl/maps/P4SXTrr1t84QU3kj7"
+            "name": "Gävle, Sweden",
+            "link": "https://goo.gl/maps/P4SXTrr1t84QU3kj7"
         }
     ],
-    "sections" : ["Projects", "Publications", "Experience"]
+    "sections": {
+        "Projects": {
+            "cards": [
+                {
+                    "title": "Actordentify",
+                    "subtitle": "Chrome extension that identifies actors in Netflix shows",
+                    "link": "/actordentify"
+                }
+            ]
+        },
+        "Publications": {
+            "cards": []
+        },
+        "Experience": {
+            "cards": []
+        }
+    }
 }

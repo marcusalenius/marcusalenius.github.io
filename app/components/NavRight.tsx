@@ -10,8 +10,8 @@ type Props = {
 function NavRight({ data }: Props) {
   return (
     <CardRegion id="nav-right">
-      {data.sections.map((section: string) => (
-        <NavButtonSection name={section} />
+      {Object.keys(data.sections).map((sectionName: string) => (
+        <NavButtonSection name={sectionName} />
       ))}
       <NavButtonAppearance />
       <AppearanceDropDown />

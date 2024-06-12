@@ -1,13 +1,17 @@
-import Hero from './Hero';
+import Hero from "./Hero";
+import Section from "./Section";
 
 type Props = {
-  data: { [key:string]: any};
+  data: { [key: string]: any };
 };
 
-function HomeContainer({data}: Props) {
+function HomeContainer({ data }: Props) {
   return (
     <div id="container">
       <Hero data={data} />
+      {Object.keys(data.sections).map((sectionName: string) => (
+        <Section sectionData={data.sections[sectionName]} name={sectionName} />
+      ))}
     </div>
   );
 }
