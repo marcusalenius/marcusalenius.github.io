@@ -23,6 +23,14 @@
 
 #actordentify-card .nav-link p { color: var(--darkNavLink); }
 
+@media (hover: hover) {
+    .card:hover {
+        /* do not scale actordentify card on hover */
+        scale: 1;
+    }
+}
+
+
 /* iPad 11" Landscape */
 @media (max-width: 1200px) {
 
