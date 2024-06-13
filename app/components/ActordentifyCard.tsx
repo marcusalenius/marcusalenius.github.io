@@ -9,7 +9,11 @@ type Props = {
 
 function ActordentifyCard({ cardData }: Props) {
   return (
-    <Card id="actordentify-card" individualEffect={false}>
+    <Card
+      className="card card-region-child"
+      id="actordentify-card"
+      individualEffect={false}
+    >
       <div className="card-images">
         <Video
           src="videos/actordentify-hero.mp4"

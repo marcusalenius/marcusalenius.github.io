@@ -68,4 +68,31 @@
     height: 24px;
 }
 
+/* foreground hover element, dark mode */
+.dark .category-card::after {
+    background: radial-gradient(
+        circle 400px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.02), 
+        transparent 40%
+    );
+    z-index: 20;
+}
+
+/* foreground hover element, light mode */
+.category-card::after {
+    background: radial-gradient(
+        circle 400px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.2), 
+        transparent 40%
+    );
+    z-index: 20;
+}
+
+/* background hover element, only in dark mode */
+.dark .category-card .card-border {
+    background: radial-gradient(
+        circle 150px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.7), 
+        transparent 40%
+    );
+    z-index: 9;
+}
+
 

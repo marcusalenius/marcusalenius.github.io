@@ -9,7 +9,10 @@ type Props = {
 
 function CategoryCard({ categoryData }: Props) {
   return (
-    <Card className="card category-card" individualEffect={false}>
+    <Card
+      className="card category-card card-region-child"
+      individualEffect={false}
+    >
       <div className="category-card-content">
         <h3>{categoryData.title}</h3>
         <div className="plus-container">
