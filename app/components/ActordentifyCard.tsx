@@ -1,6 +1,7 @@
 import Card from "./Card";
 import NavLink from "./NavLink";
 import "./ActordentifyCard.css";
+import Video from "./Video";
 
 type Props = {
   cardData: { [key: string]: any };
@@ -10,22 +11,12 @@ function ActordentifyCard({ cardData }: Props) {
   return (
     <Card id="actordentify-card" individualEffect={false}>
       <div className="card-images">
-        <video
+        <Video
           src="videos/actordentify-hero.mp4"
-          // autoPlay temporary until I write autoplay on scroll
-          autoPlay
-          playsInline
-          muted
-          loop
           id="actordentify-card-video-bkg"
         />
-        <video
+        <Video
           src="videos/actordentify-hero.mp4"
-          // autoPlay temporary until I write autoplay on scroll
-          autoPlay
-          playsInline
-          muted
-          loop
           id="actordentify-card-video"
         />
         <div className="frosted-pane">
