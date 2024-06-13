@@ -11,10 +11,18 @@
 }
 
 .frosted-pane {
+    position: absolute;
     height: 100%;
     width: 380px;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(115px);
+}
+
+.dark .frosted-pane {
+    height: calc(100% - 1.5px);
+    left: 1px;
+    top: 1px;
+    border-radius: 29px 0 0 29px;
 }
 
 #actordentify-card h3 { color: var(--darkText); }
@@ -24,12 +32,13 @@
 #actordentify-card .nav-link p { color: var(--darkNavLink); }
 
 @media (hover: hover) {
-    .card:hover {
+    .card:hover,
+    .dark .card:hover {
         /* do not scale actordentify card on hover */
         scale: 1;
     }
-}
 
+}
 
 /* iPad 11" Landscape */
 @media (max-width: 1200px) {
