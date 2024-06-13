@@ -20,6 +20,51 @@
                     "subtitle": "Chrome extension that identifies actors in Netflix shows",
                     "link": "/actordentify"
                 }
+            ],
+            "categories" : [
+                {
+                    "title": "AI/ML",
+                    "projects" : []
+                },
+                {
+                    "title": "Fullstack Development",
+                    "projects" : []
+                },
+                {
+                    "title": "Computer Systems",
+                    "projects" : [
+                        {
+                            "title": "Dynamic Memory Allocator",
+                            "description": "Lorem ipsum",
+                            "link": null
+                        },
+                        {
+                            "title": "Web Proxy Server",
+                            "description": "Lorem ipsum",
+                            "link": null
+                        },
+                        {
+                            "title": "Multithreaded File System",
+                            "description": "Lorem ipsum",
+                            "link": null
+                        },
+                        {
+                            "title": "Linux Shell",
+                            "description": "Lorem ipsum",
+                            "link": null
+                        },
+                        {
+                            "title": "Cache Memory Simulator",
+                            "description": "Lorem ipsum",
+                            "link": null
+                        },
+                        {
+                            "title": "Virtual Machine",
+                            "description": "Lorem ipsum",
+                            "link": null
+                        }
+                    ]
+                }
             ]
         },
         "Publications": {
