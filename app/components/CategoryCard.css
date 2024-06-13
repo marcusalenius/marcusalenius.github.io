@@ -1,0 +1,71 @@
+.category-card {
+    height: 90px;
+    background: var(--lightFooter);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1), 0px 0px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* background card */
+.dark .category-card {
+    background: var(--darkCardRim);
+    box-shadow: 0px 0px 15px #000000;
+}
+
+/* foreground card */
+.dark .card::before {
+    background-color: var(--darkFooter);
+}
+
+@media (hover: hover) {
+    .category-card:hover {
+        box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.1), 0px 0px 32px rgba(0, 0, 0, 0.2);
+        scale: 1.0005;
+        transition: scale 200ms ease, box-shadow 200ms ease;
+    }
+
+    .dark .category-card:hover {
+        box-shadow: 0px 0px 20px #000000;
+    }
+}
+
+.category-card h3 {
+    padding: 0;
+    color: var(--lightBodyText);
+}
+
+.dark .category-card h3 {
+    color: var(--darkBodyText);
+}
+
+.category-card-content {
+    padding-left: 40px;
+    padding-right: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.plus-container {
+    z-index: 11;
+    width: 48px;
+    height: 48px;
+    border-radius: 45px;
+    background-color: var(--lightCard);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark .plus-container {
+    background-color: var(--darkCard);
+}
+
+.plus-icon {
+    z-index: 12;
+    width: 24px;
+    height: 24px;
+}
+
+

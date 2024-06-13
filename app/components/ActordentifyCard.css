@@ -23,7 +23,7 @@
 }
 
 .dark .frosted-pane {
-    height: calc(100% - 1.5px);
+    height: calc(100% - 2.5px);
     left: 1px;
     top: 1px;
     border-radius: 29px 0 0 29px;
