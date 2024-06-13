@@ -16,7 +16,7 @@ function Section({ sectionData, name }: Props) {
   return (
     <div id={name.toLowerCase()}>
       <h2>{name}</h2>
-      <CardRegion>
+      <CardRegion className="card-layout">
         {sectionData.cards.map((cardData: { [key: string]: any }) => {
           const ThisCard = cardMap[cardData.title];
           return <ThisCard cardData={cardData} />;
