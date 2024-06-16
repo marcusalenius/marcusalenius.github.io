@@ -58,16 +58,16 @@
 /* background card */
 .dark .card {
     background: var(--darkCardRim);
-    box-shadow: 0px 0px 17px #000000;
+    box-shadow: none;
     position: relative;
-    transition: scale 200ms ease, box-shadow 200ms ease; /* transition for hover */
+    transition: scale 200ms ease; /* transition for hover */
 }
 
 @media (hover: hover) {
     .dark .card:hover {
-        box-shadow: 0px 0px 22px #000000;
+        box-shadow: none;
         scale: 1.001;
-        transition: scale 200ms ease, box-shadow 200ms ease;
+        transition: scale 200ms ease;
     }
 }
 
@@ -220,16 +220,16 @@
 /* background contact-card */
 .dark .contact-card {
     background: var(--darkCardRim);
-    box-shadow: 0px 0px 10px #000000;
+    box-shadow: none;
     position: relative;
-    transition: scale 200ms ease, box-shadow 200ms ease; /* transition for hover */
+    transition: scale 200ms ease; /* transition for hover */
 }
 
 @media (hover: hover) {
     .dark .contact-card:hover {
-        box-shadow: 0px 0px 15px #000000;
+        box-shadow: none;
         scale: 1.0005;
-        transition: scale 200ms ease, box-shadow 200ms ease;
+        transition: scale 200ms ease;
     
     }    
 }
