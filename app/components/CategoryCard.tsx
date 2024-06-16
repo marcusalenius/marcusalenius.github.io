@@ -14,7 +14,7 @@ function CategoryCard({ categoryData }: Props) {
       individualEffect={false}
     >
       <div className="category-card-content">
-        <h3>{categoryData.title}</h3>
+        <h4>{categoryData.title}</h4>
         <div className="plus-container">
           <ThemedImage
             lightSrc="icons/plus-icon-light-mode.svg"

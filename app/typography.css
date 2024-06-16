@@ -3,7 +3,6 @@ h1 {
     font-weight: 600;
     font-size: 64px;
     line-height: 76px;
-    letter-spacing: -0.005em;
     color: var(--lightText);
 }
 
@@ -14,7 +13,6 @@ h2 {
     font-weight: 500;
     font-size: 42px;
     line-height: 51px;
-    letter-spacing: -0.005em;
     color: var(--lightText);
 }
 
@@ -25,12 +23,22 @@ h3 {
     font-weight: 500;
     font-size: 32px;
     line-height: 39px;
-    letter-spacing: -0.005em;
     z-index: 15;
     color: var(--lightText);
 }
 
 .dark h3 { color: var(--darkText); }
+
+h4 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 38px;
+    z-index: 15;
+    color: var(--lightText);
+}
+
+.dark h4 { color: var(--darkText); }
 
 p.paragraph-large {
     font-style: normal;
