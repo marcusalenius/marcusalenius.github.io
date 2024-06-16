@@ -15,7 +15,7 @@ nav {
 
 #nav-right {
     display: flex;
-    gap: 35px;
+    gap: 24px;
 }
 
 /* Navbuttons */
@@ -51,15 +51,12 @@ nav {
     background-color: var(--darkCardRim);
     box-shadow: none;
     position: relative;
-    transition: scale 200ms ease; /* transition for hover */
-
 }
 
 @media (hover: hover) {
     .dark .navbutton:hover {
         box-shadow: none;
-        scale: 1.0001;
-        transition: scale 200ms ease;
+        scale: 1;
     }    
 }
 
@@ -191,14 +188,12 @@ nav {
 .dark #navbutton-home {
     background: var(--darkCardRim);
     box-shadow: none;
-    transition: scale 200ms ease; /* transition for hover */
 }
 
 @media (hover: hover) {
     .dark #navbutton-home:hover {
         box-shadow: none;
-        scale: 1.0005;
-        transition: scale 200ms ease;
+        scale: 1;
     
     }    
 }
@@ -341,15 +336,12 @@ nav {
     background-color: var(--darkCardRim);
     box-shadow: none;
     display: inline;
-    transition: 200ms ease-out;
 }
 
 @media (hover: hover) {
     .dark #appearance-drop-down:hover {
         box-shadow: none;
-        scale: 1.0005;
-        transition: 200ms ease-out;
-    
+        scale: 1;    
     }    
 }
 
@@ -589,14 +581,12 @@ nav {
     .dark #navmenu-mobile {
         background-color: var(--darkCardRim);
         box-shadow: none;
-        transition: 200ms ease;
     }
 
     @media (hover: hover) {
         .dark #navmenu-mobile:hover {
             box-shadow: none;
-            scale: 1.0005;
-            transition: 200ms ease;
+            scale: 1;
         }    
     }
 

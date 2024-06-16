@@ -27,6 +27,7 @@
 
     .dark .category-card:hover {
         box-shadow: none;
+        scale: 1;
     }
 }
 

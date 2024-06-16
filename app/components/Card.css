@@ -60,14 +60,12 @@
     background: var(--darkCardRim);
     box-shadow: none;
     position: relative;
-    transition: scale 200ms ease; /* transition for hover */
 }
 
 @media (hover: hover) {
     .dark .card:hover {
         box-shadow: none;
-        scale: 1.001;
-        transition: scale 200ms ease;
+        scale: 1;
     }
 }
 
@@ -222,15 +220,12 @@
     background: var(--darkCardRim);
     box-shadow: none;
     position: relative;
-    transition: scale 200ms ease; /* transition for hover */
 }
 
 @media (hover: hover) {
     .dark .contact-card:hover {
         box-shadow: none;
-        scale: 1.0005;
-        transition: scale 200ms ease;
-    
+        scale: 1;    
     }    
 }
 
