@@ -41,7 +41,8 @@
 
 .category-card-content {
     padding-left: 40px;
-    padding-right: 22px;
+    /* padding-right: 22px; */
+    padding-right: 18px;
     display: flex;
     align-items: center;
     justify-content: space-between;
