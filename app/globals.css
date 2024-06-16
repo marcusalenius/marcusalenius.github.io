@@ -13,14 +13,14 @@
 
     /* dark mode colors */
     --darkBackground: #151618;
-    --darkCard: #1C1D21;
-    --darkCardRim: #555555;
+    --darkCard: #1B1C1E;
+    --darkCardRim: #55585D;
     --darkText: #FAFAFA;
     --darkBodyText: #E6E6E6;
     --darkFooterText: #B3B3B3;
-    --darkFooter: #2E2E2E;
-    --darkHover: #414141;
-    --darkSelected: #4D4D4D;
+    --darkFooter: #191A1B;
+    --darkHover: #212226;
+    --darkSelected: #2A2B30;
     --darkNavLink: #2997FF;
 
 }

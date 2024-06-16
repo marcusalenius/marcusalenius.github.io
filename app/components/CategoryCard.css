@@ -15,7 +15,7 @@
 
 /* foreground card */
 .dark .category-card::before {
-    background-color: var(--darkFooter);
+    background-color: var(--darkCard);
 }
 
 @media (hover: hover) {
@@ -42,8 +42,7 @@
 
 .category-card-content {
     padding-left: 40px;
-    /* padding-right: 22px; */
-    padding-right: 1px;
+    padding-right: 17px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -61,7 +60,12 @@
 }
 
 .dark .plus-container {
-    background-color: var(--darkCard);
+    background-color: var(--darkSelected);
+}
+
+.dark .plus-container:hover {
+    background-color: red;
+
 }
 
 .plus-icon {
