@@ -14,6 +14,10 @@
     transform: translateZ(0); /* to fix safari border radius overflow hidden issue */
 }
 
+a.card {
+    display: block;
+}
+
 .card h3 {
     padding-left: 40px;
     padding-top: 39px;

@@ -2,7 +2,7 @@ import Card from "./Card";
 
 function HeroCard() {
   return (
-    <Card id="hero-card">
+    <Card id="hero-card" href="https://www.google.com/">
       <img
         src="images/hero-image-desktop.png"
         alt="large image of Marcus Alenius"
