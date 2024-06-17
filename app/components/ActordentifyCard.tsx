@@ -13,6 +13,7 @@ function ActordentifyCard({ cardData }: Props) {
       className="card card-region-child"
       id="actordentify-card"
       individualEffect={false}
+      href="https://google.com/"
     >
       <div className="card-images">
         <Video
