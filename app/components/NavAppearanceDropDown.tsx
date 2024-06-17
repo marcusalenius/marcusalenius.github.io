@@ -1,3 +1,5 @@
+import "./NavAppearanceDropDown.css";
+
 import Card from "./Card";
 import AppearanceDropDownItem from "./NavAppearanceDropDownItem";
 
