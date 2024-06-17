@@ -1,3 +1,5 @@
+import "./NavButtonAppearance.css";
+
 import { useContext } from "react";
 import ThemedImage from "./ThemedImage";
 import { AppearanceContext } from "./View";
