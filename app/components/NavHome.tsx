@@ -1,3 +1,5 @@
+import "./NavHome.css";
+
 import Image from "next/image";
 import Card from "./Card";
 

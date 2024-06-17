@@ -160,83 +160,6 @@ nav {
     gap: 8px;
 }
 
-/* Home button */
-
-#navbutton-home {
-    position: relative;
-    width: 64px;
-    height: 64px;
-    border-radius: 45px;
-    cursor: pointer;
-}
-
-#navbutton-home {
-    background: var(--lightCard);
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25), 0px 0px 12px rgba(0, 0, 0, 0.25);
-    transition: scale 200ms ease, box-shadow 200ms ease; /* transition for hover */
-}
-
-@media (hover: hover) {
-    #navbutton-home:hover {
-        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25), 0px 0px 26px rgba(0, 0, 0, 0.25);
-        scale: 1.0005;
-        transition: scale 200ms ease, box-shadow 200ms ease;
-    }    
-}
-
-/* background card */
-.dark #navbutton-home {
-    background: var(--darkCardRim);
-    box-shadow: none;
-}
-
-@media (hover: hover) {
-    .dark #navbutton-home:hover {
-        box-shadow: none;
-        scale: 1;
-    
-    }    
-}
-
-/* foreground card */
-.dark #navbutton-home::before {
-    background: var(--darkCard);
-    position: relative;
-    content: '';
-    display: inline-block;
-    margin: 1px;
-    width: calc(100% - 2px);
-    height: calc(100% - 2px);
-    border-radius: 45px;
-    z-index: 101;
-}
-
-/* foreground hover element, dark mode */
-.dark #navbutton-home::after {
-    background: radial-gradient(
-        circle 200px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.1), 
-        transparent 40%
-    );
-    z-index: 120;
-}
-
-/* foreground hover element, light mode */
-#navbutton-home::after {
-    background: radial-gradient(
-        circle 200px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.02), 
-        transparent 40%
-    );
-    z-index: 120;
-}
-
-#navbar-headshot {
-    position: absolute;
-    width: 56px;
-    height: 56px;
-    left: 4px;
-    top: 4px;
-    z-index: 102;
-}
 
 /* Back button */
 
@@ -421,6 +344,7 @@ nav {
     .dark .appearance-drop-down-item:hover:not(.selected) {
         background-color: var(--darkHover);
     }    
+    
 }
 
 .appearance-drop-down-icon { margin-left: 12px; }
