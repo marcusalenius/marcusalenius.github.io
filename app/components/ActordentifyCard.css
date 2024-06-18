@@ -1,5 +1,10 @@
 #actordentify-card {
     grid-column: span 2;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.35), 0px 0px 20px rgba(0, 0, 0, 0.35);
+}
+
+.dark #actordentify-card {
+    box-shadow: none;
 }
 
 /* foreground hover element */
@@ -46,12 +51,18 @@
 #actordentify-card .nav-link p { color: var(--darkNavLink); }
 
 @media (hover: hover) {
-    .card:hover,
-    .dark .card:hover {
+
+    #actordentify-card:hover {
         /* do not scale actordentify card on hover */
         scale: 1;
+        box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.35), 0px 0px 32px rgba(0, 0, 0, 0.35);
     }
 
+    .dark #actordentify-card:hover {
+        scale: 1;
+        box-shadow: none;
+    }
+    
 }
 
 /* iPad 11" Landscape */
