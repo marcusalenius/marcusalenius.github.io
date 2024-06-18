@@ -108,4 +108,25 @@
     z-index: 9;
 }
 
+/* iPad 13" Portrait */
+@media (max-width: 1120px) {
+
+    .category-card-content { padding-left: 36px; }
+
+}
+
+/* iPad 11" Portrait */
+@media (max-width: 970px) {
+
+    .category-card-content { padding-left: 33px; }
+
+}
+
+/* iPad Mini Portrait */
+@media (max-width: 830px) {
+    
+    .category-card-content { padding-left: 28px; }
+    
+}
+
 
