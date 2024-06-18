@@ -9,6 +9,7 @@
         transparent 40%
     );
     z-index: 20;
+    pointer-events: none;
 }
 
 #actordentify-card-video {

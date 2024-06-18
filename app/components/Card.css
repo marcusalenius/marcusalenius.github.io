@@ -108,6 +108,7 @@ a.card {
         transparent 40%
     );
     z-index: 20;
+    pointer-events: none;
 }
 
 /* foreground hover element, light mode */
@@ -117,6 +118,7 @@ a.card {
         transparent 40%
     );
     z-index: 20;
+    pointer-events: none;
 }
 
 /* hero card hover element, dark mode */
@@ -126,6 +128,7 @@ a.card {
         transparent 40%
     );
     z-index: 20;
+    pointer-events: none;
 }
 
 /* hero card hover element, light mode */
@@ -135,6 +138,7 @@ a.card {
         transparent 40%
     );
     z-index: 20;
+    pointer-events: none;
 }
 
 /* background hover element, only in dark mode, o */
@@ -242,6 +246,7 @@ a.card {
         transparent 40%
     );
     z-index: 20;
+    pointer-events: none;
 }
 
 /* foreground hover element, light mode */
@@ -251,6 +256,7 @@ a.card {
         transparent 40%
     );
     z-index: 20;
+    pointer-events: none;
 }
 
 /* background hover element, only in dark mode */

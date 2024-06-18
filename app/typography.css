@@ -115,8 +115,11 @@ p.card-link {
     align-items: first baseline;
     width: fit-content;
 }
+@media (hover: hover) {
 
-.nav-link:hover { filter: brightness(1.1);}
+    .nav-link:hover { filter: brightness(1.1); }
+
+}
 
 .nav-link p { 
     padding-right: 6px;
