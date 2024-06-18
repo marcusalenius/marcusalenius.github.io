@@ -2,6 +2,15 @@
     grid-column: span 2;
 }
 
+/* foreground hover element */
+#actordentify-card::after {
+    background: radial-gradient(
+        circle 800px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.05), 
+        transparent 40%
+    );
+    z-index: 20;
+}
+
 #actordentify-card-video {
     height: 100%;
     position: absolute;

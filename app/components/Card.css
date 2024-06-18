@@ -137,16 +137,6 @@ a.card {
     z-index: 20;
 }
 
-/* make actordentify card hover element the same as hero card hover element in light mode */
-#actordentify-card::after {
-    background: radial-gradient(
-        circle 800px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.18), 
-        transparent 40%
-    );
-    z-index: 20;
-}
-
-
 /* background hover element, only in dark mode, o */
 .dark .card .card-border {
     display: block;
