@@ -330,7 +330,6 @@ a.card {
         gap: 22px;
         margin-top: 25px;
         margin-bottom: 131px;
-        border: 1px solid red;
     }    
 
     .card { height: 285px; }

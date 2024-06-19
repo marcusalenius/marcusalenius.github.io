@@ -128,3 +128,20 @@
     .category-card-content { padding-left: 28px; }
     
 }
+
+/* iPhone Plus */
+@media (max-width: 740px) {
+
+    .category-card {
+        height: 74px;
+    }   
+    
+    .category-card-content {
+        padding-right: 13px;
+    }    
+
+    .plus-container {
+        transform: scale(0.9);
+    }
+
+}
