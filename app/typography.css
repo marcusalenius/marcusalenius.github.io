@@ -123,7 +123,8 @@ p.card-link {
 
 .nav-link p { 
     padding-right: 6px;
-    color: var(--lightNavLink); 
+    color: var(--lightNavLink);
+    width: fit-content !important;
 }
 .dark .nav-link p { color: var(--darkNavLink); }
 
