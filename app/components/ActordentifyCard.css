@@ -98,5 +98,13 @@
         right: -130px;
     }
 
+}
+
+/* iPhone 14 Plus */
+@media (max-width: 740px) {
+
+    #actordentify-card {
+        grid-column: span 1;
+    }
 
 }
