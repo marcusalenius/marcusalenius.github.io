@@ -108,14 +108,14 @@
     }
 
     #actordentify-card-video {
-        width: 101%;
+        width: 100%;
         height: auto;
-        top: -6px;
+        top: -8px;
         left: 0;
     }
 
     #actordentify-card-video-bkg {
-        width: 101%;
+        width: 100%;
         height: auto;
         bottom: 0;
         left: 0;
@@ -126,10 +126,20 @@
         height: 100px;
         bottom: 0;
     
+        /* backdrop-filter: none;
+        background: none; */
+    }
 
-        backdrop-filter: none;
-        background: rgba(255, 0, 0, 0.5);
+    .frosted-pane h3 {
+        padding-top: 18px;
+    }
+
+    .frosted-pane .paragraph-small {
+        display: none;
+    }
+
+    .frosted-pane p {
+        margin-top: 4px;
     }
     
-
 }
