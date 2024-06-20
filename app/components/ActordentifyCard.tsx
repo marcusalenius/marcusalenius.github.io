@@ -19,10 +19,12 @@ function ActordentifyCard({ cardData }: Props) {
         <Video
           src="videos/actordentify-hero.mp4"
           id="actordentify-card-video-bkg"
+          className="actordentify-card-video"
         />
         <Video
           src="videos/actordentify-hero.mp4"
           id="actordentify-card-video"
+          className="actordentify-card-video"
         />
         <div className="frosted-pane">
           <h3>{cardData.title}</h3>
