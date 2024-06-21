@@ -1,32 +1,18 @@
-function NavMenuItem({
-  option,
-  isDefault = false,
-}: {
-  option: string;
-  isDefault?: boolean;
-}) {
-  const optionLowerDashed = option.toLowerCase().replace(" ", "-");
+import Card from "./Card";
+import NavMenuItem from "./NavMenuItem";
 
-  return (
-    <div
-      className={`navmenu-item ${isDefault ? "selected" : "hidden"}`}
-      id={`navmenu-item-${optionLowerDashed}`}
-      tabIndex={0}
-    >
-      <div className="button-text">{option}</div>
-    </div>
-  );
-}
+type Props = {
+  data: { [key: string]: any };
+};
 
-function NavMobile() {
+function NavMobile({ data }: Props) {
   return (
-    <div className="hidden" id="navmenu-mobile">
-      <div className="card-border"></div>
-      <NavMenuItem option="About Me" isDefault={true} />
-      <NavMenuItem option="Projects" />
-      <NavMenuItem option="Work" />
-      <NavMenuItem option="Contact" />
-    </div>
+    <Card className="hidden" id="navmenu-mobile">
+      <NavMenuItem name="About Me" isDefault={true} />
+      {Object.keys(data.sections).map((sectionName: string) => (
+        <NavMenuItem name={sectionName} />
+      ))}
+    </Card>
   );
 }
 

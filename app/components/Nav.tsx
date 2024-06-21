@@ -14,7 +14,7 @@ function Nav({ data }: Props) {
   return (
     <nav>
       <NavHome />
-      <NavMobile />
+      <NavMobile data={data} />
       <NavRight data={data} />
     </nav>
   );
