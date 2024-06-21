@@ -8,8 +8,6 @@ type Props = {
 };
 
 function Section({ sectionData, name }: Props) {
-  console.log(sectionData.cards.Actordentify);
-
   const cardMap: { [key: string]: any } = {
     Actordentify: ActordentifyCard,
   };
