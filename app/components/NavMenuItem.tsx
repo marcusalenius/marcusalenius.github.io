@@ -1,9 +1,16 @@
 type Props = {
   name: string;
+  hideNavmenu: () => void;
+  unhideNavmenu: () => void;
   isDefault?: boolean;
 };
 
-function NavMenuItem({ name, isDefault = false }: Props) {
+function NavMenuItem({
+  name,
+  hideNavmenu,
+  unhideNavmenu,
+  isDefault = false,
+}: Props) {
   const nameLowerDashed = name.toLowerCase().replace(" ", "-");
 
   function onClick(nameLowerDashed: string) {
@@ -14,7 +21,7 @@ function NavMenuItem({ name, isDefault = false }: Props) {
       return;
     }
     if (navmenu.classList.contains("hidden")) {
-      // unhideNavmenu();
+      unhideNavmenu();
     } else {
       if (!document.getElementById(sectionName)) {
         return;
@@ -24,7 +31,7 @@ function NavMenuItem({ name, isDefault = false }: Props) {
         top: section.offsetTop,
         behavior: "smooth",
       });
-      // hideNavmenu();
+      hideNavmenu();
     }
   }
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import Card from "./Card";
 import NavMenuItem from "./NavMenuItem";
@@ -56,7 +56,7 @@ const getMostInView = (itemSectionMap: { [key: string]: any }) => {
 };
 
 function NavMobile({ data }: Props) {
-  // useEffect for scroll event to update navmenu item selection
+  // Hook for scroll event to update navmenu item selection
   useEffect(function mount() {
     function onScroll() {
       const navmenu = document.getElementById("navmenu-mobile");
@@ -117,11 +117,109 @@ function NavMobile({ data }: Props) {
     };
   });
 
+  // Hook for scroll event to auto-hide navmenu
+  const [yUnhideNavmenu, setYUnhideNavmenu] = useState(-1); // -1 means not set
+  useEffect(function mount() {
+    function onScroll() {
+      const navmenu = document.getElementById("navmenu-mobile");
+      const navmenuItems = document.querySelectorAll(".navmenu-item");
+      if (!navmenu) {
+        return;
+      }
+      if (
+        yUnhideNavmenu !== -1 &&
+        Math.abs(yUnhideNavmenu - window.scrollY) >= 200
+      ) {
+        // hide navmenu
+        if (!navmenu.classList.contains("hidden")) {
+          navmenu.classList.add("hidden");
+          navmenuItems.forEach((item) => {
+            if (!item.classList.contains("selected")) {
+              item.classList.add("hidden");
+            }
+          });
+        }
+      }
+    }
+
+    window.addEventListener("scroll", onScroll);
+
+    return function unMount() {
+      window.removeEventListener("scroll", onScroll);
+    };
+  });
+
+  const hideNavmenu = () => {
+    const navmenu = document.getElementById("navmenu-mobile");
+    if (!navmenu) {
+      return;
+    }
+    const navmenuItems = document.querySelectorAll(".navmenu-item");
+    // unset yUnhideNavmenu
+    setYUnhideNavmenu(-1);
+    // hide navmenu
+    if (!navmenu.classList.contains("hidden")) {
+      navmenu.classList.add("hidden");
+      navmenuItems.forEach((item) => {
+        if (!item.classList.contains("selected")) {
+          item.classList.add("hidden");
+        }
+      });
+    }
+  };
+
+  const unhideNavmenu = () => {
+    const navmenu = document.getElementById("navmenu-mobile");
+    if (!navmenu) {
+      return;
+    }
+    const navmenuItems = document.querySelectorAll(".navmenu-item");
+    // unhide navmenu
+    if (navmenu.classList.contains("hidden")) {
+      navmenu.classList.remove("hidden");
+      navmenuItems.forEach((item) => {
+        if (!item.classList.contains("selected")) {
+          item.classList.remove("hidden");
+        }
+      });
+    }
+    // set yUnhideNavmenu
+    setYUnhideNavmenu(window.scrollY);
+  };
+
+  // Hook for click outside to hide navmenu
+  useEffect(function mount() {
+    function onClick(event: MouseEvent) {
+      const navmenu = document.getElementById("navmenu-mobile");
+      if (!navmenu) {
+        return;
+      }
+      if (event.target !== navmenu) {
+        hideNavmenu();
+      }
+    }
+
+    document.addEventListener("click", onClick);
+
+    return function unMount() {
+      document.removeEventListener("click", onClick);
+    };
+  });
+
   return (
     <Card className="hidden" id="navmenu-mobile">
-      <NavMenuItem name="About Me" isDefault={true} />
+      <NavMenuItem
+        name="About Me"
+        hideNavmenu={hideNavmenu}
+        unhideNavmenu={unhideNavmenu}
+        isDefault={true}
+      />
       {Object.keys(data.sections).map((sectionName: string) => (
-        <NavMenuItem name={sectionName} />
+        <NavMenuItem
+          name={sectionName}
+          hideNavmenu={hideNavmenu}
+          unhideNavmenu={unhideNavmenu}
+        />
       ))}
     </Card>
   );
