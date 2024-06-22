@@ -1,6 +1,8 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import "./NavMobile.css";
+
+import { useEffect, useState } from "react";
 
 import Card from "./Card";
 import NavMenuItem from "./NavMenuItem";
