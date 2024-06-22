@@ -6,7 +6,7 @@
     #navmenu-mobile {
         display: inline;
         position: absolute;
-        top: 6px;
+        top: 3px;
         left: 50%;
         transform: translateX(-50%);
         width: 188px;
