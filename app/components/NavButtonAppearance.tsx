@@ -1,19 +1,18 @@
 import "./NavButtonAppearance.css";
 
-import { useContext } from "react";
 import ThemedImage from "./ThemedImage";
-import { AppearanceContext } from "./View";
-import { toggleAppearanceDropdown } from "./utils";
 
-function NavButtonAppearance() {
-  const appearanceContextRef = useContext(AppearanceContext);
+type Props = {
+  toggleAppearanceDropdown: () => void;
+};
 
+function NavButtonAppearance({ toggleAppearanceDropdown }: Props) {
   return (
     <div
       className="navbutton card-region-child drop-down-hidden"
       id="navbutton-appearance"
       tabIndex={0}
-      onClick={() => toggleAppearanceDropdown(appearanceContextRef)}
+      onClick={() => toggleAppearanceDropdown()}
     >
       <div className="card-border"></div>
       <ThemedImage

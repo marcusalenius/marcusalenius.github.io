@@ -1,11 +1,12 @@
-import { useContext } from "react";
 import { useTheme } from "next-themes";
 import ThemedImage from "./ThemedImage";
-import { AppearanceContext } from "./View";
-import { toggleAppearanceDropdown } from "./utils";
 
-function AppearanceDropDownItem({ option }: { option: string }) {
-  const appearanceContextRef = useContext(AppearanceContext);
+type Props = {
+  option: string;
+  toggleAppearanceDropdown: () => void;
+};
+
+function AppearanceDropDownItem({ option, toggleAppearanceDropdown }: Props) {
   const optionLower = option.toLowerCase();
   const { theme, setTheme } = useTheme();
 
@@ -18,7 +19,7 @@ function AppearanceDropDownItem({ option }: { option: string }) {
       tabIndex={0}
       onClick={() => {
         setTheme(optionLower);
-        toggleAppearanceDropdown(appearanceContextRef);
+        toggleAppearanceDropdown();
       }}
     >
       <ThemedImage

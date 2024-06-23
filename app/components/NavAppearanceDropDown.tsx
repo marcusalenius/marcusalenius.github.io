@@ -2,23 +2,34 @@
 
 import "./NavAppearanceDropDown.css";
 
+import { useEffect } from "react";
 import Card from "./Card";
 import AppearanceDropDownItem from "./NavAppearanceDropDownItem";
 
-function AppearanceDropDown() {
-  // TODO: refactor with this: https://www.robinwieruch.de/react-hook-detect-click-outside-component/
-  // Close the appearance dropdown if click outside
-  window.addEventListener("click", (event) => {
-    const appearanceDropdown = document.getElementById("appearance-drop-down");
-    const navbuttonAppearance = document.getElementById("navbutton-appearance");
-    if (!appearanceDropdown || !navbuttonAppearance || !event.target) {
-      return;
-    }
-    if (!appearanceDropdown.classList.contains("hidden")) {
+type Props = {
+  yUnhideAppearanceDropdown: number;
+  toggleAppearanceDropdown: () => void;
+};
+
+function AppearanceDropDown({
+  yUnhideAppearanceDropdown,
+  toggleAppearanceDropdown,
+}: Props) {
+  // Hook for scroll event to auto-hide appearance dropdown
+  useEffect(function mount() {
+    function onScroll() {
+      const appearanceDropdown = document.getElementById(
+        "appearance-drop-down"
+      );
+      const navbuttonAppearance = document.getElementById(
+        "navbutton-appearance"
+      );
+      if (!appearanceDropdown || !navbuttonAppearance) {
+        return;
+      }
       if (
-        event.target != appearanceDropdown &&
-        event.target != navbuttonAppearance &&
-        (event.target as HTMLElement).parentNode != navbuttonAppearance
+        yUnhideAppearanceDropdown !== -1 &&
+        Math.abs(yUnhideAppearanceDropdown - window.scrollY) >= 200
       ) {
         // hide
         appearanceDropdown.classList.add("hidden");
@@ -26,6 +37,45 @@ function AppearanceDropDown() {
         navbuttonAppearance.classList.add("drop-down-hidden");
       }
     }
+
+    window.addEventListener("scroll", onScroll);
+
+    return function unMount() {
+      window.removeEventListener("scroll", onScroll);
+    };
+  });
+
+  // Hook for click outside to hide appearance dropdown
+  useEffect(function mount() {
+    function onClick(event: MouseEvent) {
+      const appearanceDropdown = document.getElementById(
+        "appearance-drop-down"
+      );
+      const navbuttonAppearance = document.getElementById(
+        "navbutton-appearance"
+      );
+      if (!appearanceDropdown || !navbuttonAppearance || !event.target) {
+        return;
+      }
+      if (!appearanceDropdown.classList.contains("hidden")) {
+        if (
+          event.target != appearanceDropdown &&
+          event.target != navbuttonAppearance &&
+          (event.target as HTMLElement).parentNode != navbuttonAppearance
+        ) {
+          // hide
+          appearanceDropdown.classList.add("hidden");
+          navbuttonAppearance.classList.remove("drop-down-visible");
+          navbuttonAppearance.classList.add("drop-down-hidden");
+        }
+      }
+    }
+
+    document.addEventListener("click", onClick);
+
+    return function unMount() {
+      document.removeEventListener("click", onClick);
+    };
   });
 
   return (
@@ -34,9 +84,18 @@ function AppearanceDropDown() {
       id="appearance-drop-down"
       individualEffect={false}
     >
-      <AppearanceDropDownItem option="System" />
-      <AppearanceDropDownItem option="Light" />
-      <AppearanceDropDownItem option="Dark" />
+      <AppearanceDropDownItem
+        option="System"
+        toggleAppearanceDropdown={toggleAppearanceDropdown}
+      />
+      <AppearanceDropDownItem
+        option="Light"
+        toggleAppearanceDropdown={toggleAppearanceDropdown}
+      />
+      <AppearanceDropDownItem
+        option="Dark"
+        toggleAppearanceDropdown={toggleAppearanceDropdown}
+      />
     </Card>
   );
 }
