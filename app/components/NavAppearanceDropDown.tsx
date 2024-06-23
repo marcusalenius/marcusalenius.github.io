@@ -1,3 +1,5 @@
+"use client";
+
 import "./NavAppearanceDropDown.css";
 
 import Card from "./Card";
