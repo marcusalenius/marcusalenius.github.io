@@ -6,9 +6,10 @@ type Props = {
   children: React.ReactNode;
 };
 
+// If href is an empty string, the component will render a div element instead of a Link element.
 function NavLink({ href, children }: Props) {
-  return (
-    <Link href={href} className="nav-link">
+  const content = (
+    <>
       {children}
       <ThemedImage
         lightSrc="/icons/nav-link-chevron-light-mode.svg"
@@ -16,7 +17,15 @@ function NavLink({ href, children }: Props) {
         draggable={false}
         className="nav-link-chevron"
       />
+    </>
+  );
+
+  return href !== "" ? (
+    <Link href={href} className="nav-link">
+      {content}
     </Link>
+  ) : (
+    <div className="nav-link">{content}</div>
   );
 }
 

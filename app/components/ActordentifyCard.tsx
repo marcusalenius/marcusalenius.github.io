@@ -29,7 +29,7 @@ function ActordentifyCard({ cardData }: Props) {
         <div className="frosted-pane">
           <h3>{cardData.title}</h3>
           <p className="paragraph-small">{cardData.subtitle}</p>
-          <NavLink href={cardData.link}>
+          <NavLink href="">
             <p className="card-link">Learn more</p>
           </NavLink>
         </div>
