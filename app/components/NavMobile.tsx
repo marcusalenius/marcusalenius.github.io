@@ -221,6 +221,7 @@ function NavMobile({ data }: Props) {
           name={sectionName}
           hideNavmenu={hideNavmenu}
           unhideNavmenu={unhideNavmenu}
+          key={data.sections[sectionName].id}
         />
       ))}
     </Card>

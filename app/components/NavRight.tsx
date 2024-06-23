@@ -11,7 +11,10 @@ function NavRight({ data }: Props) {
   return (
     <CardRegion id="nav-right">
       {Object.keys(data.sections).map((sectionName: string) => (
-        <NavButtonSection name={sectionName} />
+        <NavButtonSection
+          name={sectionName}
+          key={data.sections[sectionName].id}
+        />
       ))}
       <NavButtonAppearance />
       <AppearanceDropDown />

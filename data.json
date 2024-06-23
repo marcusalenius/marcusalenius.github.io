@@ -14,6 +14,7 @@
     ],
     "sections": {
         "Projects": {
+            "id": 0,
             "cards": [
                 {
                     "title": "Actordentify",
@@ -21,18 +22,18 @@
                     "link": "/actordentify"
                 }
             ],
-            "categories" : [
+            "categories": [
                 {
                     "title": "AI/ML",
-                    "projects" : []
+                    "projects": []
                 },
                 {
                     "title": "Web Development",
-                    "projects" : []
+                    "projects": []
                 },
                 {
                     "title": "Computer Systems",
-                    "projects" : [
+                    "projects": [
                         {
                             "title": "Dynamic Memory Allocator",
                             "description": "Lorem ipsum",
@@ -68,9 +69,11 @@
             ]
         },
         "Publications": {
+            "id": 1,
             "cards": []
         },
         "Experience": {
+            "id": 2,
             "cards": []
         }
     }
