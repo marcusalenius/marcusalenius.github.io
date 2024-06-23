@@ -209,7 +209,7 @@ function NavMobile({ data }: Props) {
   });
 
   return (
-    <Card className="hidden" id="navmenu-mobile">
+    <Card className="card hidden" id="navmenu-mobile">
       <NavMenuItem
         name="About Me"
         hideNavmenu={hideNavmenu}
