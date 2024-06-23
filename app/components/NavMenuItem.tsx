@@ -28,7 +28,7 @@ function NavMenuItem({
       }
       const section = document.getElementById(sectionName) as HTMLElement;
       window.scrollTo({
-        top: section.offsetTop,
+        top: section.offsetTop - 80,
         behavior: "smooth",
       });
       hideNavmenu();
