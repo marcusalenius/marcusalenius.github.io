@@ -48,7 +48,7 @@ p.paragraph-large {
     color: var(--lightText);
 }
 
-.dark .paragraph-large { color: var(--darkText); }
+.dark p.paragraph-large { color: var(--darkText); }
 
 p.paragraph-small {
     font-style: normal;
@@ -140,6 +140,7 @@ p.card-link + .nav-link-chevron {
 }
 
 a { color: var(--lightFooterText); }
+
 .dark a { color: var(--darkFooterText); }
 
 .post-body p {
