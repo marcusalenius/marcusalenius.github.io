@@ -3,9 +3,8 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--lightFooter);
 }
-
-footer { background-color: var(--lightFooter); }
 
 .dark footer { background-color: var(--darkFooter); }
 
