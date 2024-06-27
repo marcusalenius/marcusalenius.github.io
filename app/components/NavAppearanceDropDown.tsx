@@ -15,6 +15,10 @@ function AppearanceDropDown({
   yUnhideAppearanceDropdown,
   toggleAppearanceDropdown,
 }: Props) {
+  // For some reason, the following line is necessary to prevent
+  // the client and server from getting out of sync.
+  window.addEventListener("click", () => {});
+
   // Hook for scroll event to auto-hide appearance dropdown
   useEffect(function mount() {
     function onScroll() {
