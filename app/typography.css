@@ -184,7 +184,7 @@ p.url-card-website {
 .dark p.url-card-website { color: var(--darkBodyText); }
 
 
-/* tablet */
+/* Tablet */
 @media (max-width: 1200px) {
     
     h1 {
@@ -206,7 +206,7 @@ p.url-card-website {
         
 }
 
-/* phone */
+/* Phone */
 @media (max-width: 740px) {
     
     h1 {

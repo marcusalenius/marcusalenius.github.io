@@ -4,7 +4,7 @@ import data from "../data.json";
 
 import Nav from "./components/Nav";
 import HomeContainer from "./components/HomeContainer";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/Footer";
 
 function Home() {
   return (
