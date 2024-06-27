@@ -72,6 +72,7 @@
     z-index: 102;
 }
 
+/* Phone */
 @media (max-width: 740px) {
         
     #navbutton-home {

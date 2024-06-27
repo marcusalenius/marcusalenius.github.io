@@ -2,7 +2,7 @@ import "./typography.css";
 
 import data from "../data.json";
 
-import Nav from "./components/Nav";
+import Nav from "./components/Nav/Nav";
 import HomeContainer from "./components/HomeContainer";
 import Footer from "./components/Footer/Footer";
 

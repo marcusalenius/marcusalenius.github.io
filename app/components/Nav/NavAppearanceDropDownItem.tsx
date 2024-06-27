@@ -2,7 +2,7 @@
 
 import { useTheme } from "next-themes";
 
-import ThemedImage from "./ThemedImage";
+import ThemedImage from "../ThemedImage";
 
 type Props = {
   option: string;

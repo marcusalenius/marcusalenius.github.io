@@ -1,4 +1,4 @@
-import CardRegion from "./CardRegion";
+import CardRegion from "../CardRegion";
 import NavButtonSection from "./NavButtonSection";
 import AppearanceComponents from "./NavAppearanceComponents";
 

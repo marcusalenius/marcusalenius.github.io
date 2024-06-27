@@ -46,7 +46,7 @@
 .drop-down-hidden .appearance-cross-icon, 
 .drop-down-visible .appearance-icon { transform: scale(0); }
 
-/* iPhone Plus */
+/* Phone */
 @media (max-width: 740px) {
 
     #navbutton-appearance {

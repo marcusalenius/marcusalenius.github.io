@@ -1,6 +1,5 @@
-"use client";
-
 import { useState } from "react";
+
 import NavButtonAppearance from "./NavButtonAppearance";
 import AppearanceDropDown from "./NavAppearanceDropDown";
 
