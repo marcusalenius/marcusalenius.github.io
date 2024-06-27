@@ -1,3 +1,5 @@
+"use client";
+
 import "./NavButtonAppearance.css";
 
 import ThemedImage from "./ThemedImage";

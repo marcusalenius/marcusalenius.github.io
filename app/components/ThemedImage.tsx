@@ -32,6 +32,8 @@ function ThemedImage({
   let id;
   let resolvedClassName;
 
+  console.log("resolvedTheme:", resolvedTheme);
+
   switch (resolvedTheme) {
     case "light":
       src = lightSrc;

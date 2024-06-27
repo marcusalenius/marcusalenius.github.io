@@ -1,4 +1,7 @@
+"use client";
+
 import { useTheme } from "next-themes";
+
 import ThemedImage from "./ThemedImage";
 
 type Props = {
@@ -9,6 +12,7 @@ type Props = {
 function AppearanceDropDownItem({ option, toggleAppearanceDropdown }: Props) {
   const optionLower = option.toLowerCase();
   const { theme, setTheme } = useTheme();
+  console.log("theme:", theme, "optionLower:", optionLower);
 
   return (
     <div
