@@ -1,5 +1,5 @@
 .category-card {
-    height: 80px;
+    height: 72px;
     background: var(--lightFooter);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1), 0px 0px 20px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -41,8 +41,8 @@
 }
 
 .category-card-content {
-    padding-left: 40px;
-    padding-right: 17px;
+    padding-left: 36px;
+    padding-right: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -50,8 +50,8 @@
 
 .plus-container {
     z-index: 21;
-    width: 48px;
-    height: 48px;
+    width: 43px;
+    height: 43px;
     border-radius: 45px;
     background-color: var(--lightCard);
     display: flex;
@@ -77,8 +77,8 @@
 
 .plus-icon {
     z-index: 12;
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
 }
 
 /* foreground hover element, dark mode */
@@ -111,21 +111,21 @@
 /* iPad 13" Portrait */
 @media (max-width: 1120px) {
 
-    .category-card-content { padding-left: 36px; }
+    .category-card-content { padding-left: 32px; }
 
 }
 
 /* iPad 11" Portrait */
 @media (max-width: 970px) {
 
-    .category-card-content { padding-left: 33px; }
+    .category-card-content { padding-left: 30px; }
 
 }
 
 /* iPad Mini Portrait */
 @media (max-width: 830px) {
     
-    .category-card-content { padding-left: 28px; }
+    .category-card-content { padding-left: 25px; }
     
 }
 
