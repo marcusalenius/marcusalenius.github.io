@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     width: 58px;
     height: 58px;
     border-radius: 45px;
@@ -66,6 +67,7 @@
 }
 
 #navbar-headshot {
+    position: absolute;
     width: 51px;
     height: 51px;
     z-index: 102;
