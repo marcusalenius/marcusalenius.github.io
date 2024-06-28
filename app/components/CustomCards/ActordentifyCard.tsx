@@ -1,7 +1,7 @@
 import "./ActordentifyCard.css";
 
 import Card from "../Card/Card";
-import NavLink from "../NavLink";
+import NavLink from "../NavLink/NavLink";
 import Video from "../Media/Video";
 
 type Props = {

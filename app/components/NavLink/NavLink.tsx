@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ThemedImage from "./Media/ThemedImage";
+import ThemedImage from "../Media/ThemedImage";
 
 type Props = {
   href: string;
