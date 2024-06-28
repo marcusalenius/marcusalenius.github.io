@@ -32,9 +32,9 @@
 .frosted-pane {
     position: absolute;
     height: 100%;
-    width: 380px;
+    width: 342px;
     background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(115px);
+    backdrop-filter: blur(100px);
 }
 
 .dark .frosted-pane {
@@ -68,7 +68,7 @@
 /* iPad 11" Landscape */
 @media (max-width: 1200px) {
 
-    .frosted-pane { width: 326px; }
+    .frosted-pane { width: 293px; }
 
 }
 
@@ -76,12 +76,12 @@
 @media (max-width: 1120px) {
     
     .frosted-pane { 
-        width: 280px; 
-        padding-right: 20px;
+        width: 252px; 
+        padding-right: 18px;
     }
 
     #actordentify-card-video {
-        right: -20px;
+        right: -18px;
     }
     
 }
@@ -90,12 +90,12 @@
 @media (max-width: 970px) {
 
     .frosted-pane { 
-        width: 246px; 
-        padding-right: 20px;
+        width: 221px; 
+        padding-right: 18px;
     }
 
     #actordentify-card-video {
-        right: -130px;
+        right: -117px;
     }
 
 }
