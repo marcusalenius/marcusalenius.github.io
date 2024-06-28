@@ -3,7 +3,8 @@ import Card from "../Card/Card";
 function HeroCard() {
   return (
     <Card id="hero-card" href="https://www.google.com/">
-      <img
+      <></>
+      {/* <img
         src="images/hero-image-desktop.png"
         alt="large image of Marcus Alenius"
         draggable="false"
@@ -44,7 +45,7 @@ function HeroCard() {
         draggable="false"
         className="hero-image"
         id="hero-image-mobile-small"
-      />
+      /> */}
     </Card>
   );
 }

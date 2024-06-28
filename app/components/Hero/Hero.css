@@ -1,29 +1,30 @@
 #hero {
     display: flex;
     justify-content: space-between;
-    height: 87lvh;
-    min-height: 580px;
-    max-height: 700px;
+    height: 78lvh;
+    min-height: 522px;
+    max-height: 630px;
     align-items: center;
-    transform: translateY(-30px);
 }
 
-#hero-left { width: 621px; }
+#hero-left { width: 559px; }
 
-#hero h1 { margin-top: 16px; }
+#hero h1 { margin-top: 15px; }
 
-#hero p { margin-top: 15px; }
+#hero p { margin-top: 14px; }
 
 #hero-card {
     position: relative;
-    width: 355px;
-    height: 430px;
+    width: 319px;
+    height: 387px;
 }
 
-.hero-image {
+/* NO HERO IMAGE ADJUSTED */
+
+/* .hero-image {
     position: absolute;
-    left: 8px;
-    top: 8px;
+    left: 7px;
+    top: 7px;
     z-index: 12;
 }
 
@@ -60,93 +61,63 @@
     width: 337px;
     height: 253px;
     display: none;
-}
+} */
 
-#locations-container {
-    display: flex;
-    gap: 87px;
-    margin-top: 26px;
-}
 
-.location {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-}
 
 /* iPad 11" Landscape */
 @media (max-width: 1200px) {
 
-    #hero-left { width: 567px; }
-    
-    .location-icon { height: 26px; }
-    
+    #hero-left { width: 510px; }
+        
 }
 
 /* iPad 13" Portrait */
 @media (max-width: 1120px) {
 
-    #hero-left { width: 483px; }
+    #hero-left { width: 435px; }
 
-    #hero h1 { margin-top: 10px; }
-    
-    .location-icon { height: 26px; }
+    #hero h1 { margin-top: 9px; }
 
-    #hero-card { width: 345px; }
+    #hero-card { width: 311px; }
     
-    #hero-image-desktop { display: none; }
+    /* #hero-image-desktop { display: none; }
     
-    #hero-image-tablet { display: inline; }
+    #hero-image-tablet { display: inline; } */
     
 }
 
 /* iPad 11" Portrait */
 @media (max-width: 970px) {
 
-    #hero-left { width: 409px; }
+    #hero-left { width: 368px; }
 
     #hero h1 { margin-top: 8px; }
 
-    #hero p { margin-top: 15px; }
+    #hero p { margin-top: 14px; }
 
-    .location-icon { height: 26px; }
+    #hero-card { width: 292px; }
 
-    #hero-card { width: 325px; }
+    /* #hero-image-tablet { display: none; }
 
-    #hero-image-tablet { display: none; }
-
-    #hero-image-medium-skinny { display: inline; }
-
-    #locations-container {
-        gap: 60px;
-        margin-top: 20px;
-    }
+    #hero-image-medium-skinny { display: inline; } */
 
 }
 
 /* iPad Mini Portrait */
 @media (max-width: 830px) {
 
-    #hero-left { width: 376px; }
+    #hero-left { width: 338px; }
 
     #hero h1 { margin-top: 0px; }
 
-    #hero p { margin-top: 12px; }
+    #hero p { margin-top: 11px; }
 
-    #locations-container { gap: 40px; }
+    #hero-card { width: 265px; }
 
-    .location-icon { height: 26px; }
+    /* #hero-image-medium-skinny { display: none; }
 
-    #hero-card { width: 294px; }
-
-    #hero-image-medium-skinny { display: none; }
-
-    #hero-image-skinny { display: inline; }
-
-    #locations-container {
-        gap: 40px;
-        margin-top: 16px;
-    }
+    #hero-image-skinny { display: inline; } */
 
 }
 
@@ -174,14 +145,9 @@
 
     #hero h1 { margin-top: 100px; }
     
-    #hero-image-skinny { display: none; }
+    /* #hero-image-skinny { display: none; }
 
-    #hero-image-mobile { display: inline; }
-
-    #locations-container {
-        margin-top: 22px;
-        gap: 36px
-    }
+    #hero-image-mobile { display: inline; } */
 
 }
 
@@ -196,10 +162,8 @@
         height: 269px;
     }
 
-    #hero-image-mobile { display: none; }
+    /* #hero-image-mobile { display: none; }
 
-    #hero-image-mobile-small { display: inline; }  
+    #hero-image-mobile-small { display: inline; }   */
     
-    #locations-container { gap: 30px }
-
 }
