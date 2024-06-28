@@ -1,10 +1,11 @@
 #hero {
     display: flex;
     justify-content: space-between;
-    height: 78lvh;
+    height: 80lvh;
     min-height: 522px;
-    max-height: 630px;
+    max-height: 640px;
     align-items: center;
+    padding-bottom: 30px;
 }
 
 #hero-left { width: 559px; }
