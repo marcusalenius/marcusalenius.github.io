@@ -1,5 +1,5 @@
 import CardRegion from "./Card/CardRegion";
-import ActordentifyCard from "./ActordentifyCard";
+import ActordentifyCard from "./CustomCards/ActordentifyCard";
 import CategoryCard from "./CategoryCard/CategoryCard";
 
 type Props = {

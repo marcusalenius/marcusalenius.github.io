@@ -1,7 +1,8 @@
-import Card from "./Card/Card";
-import NavLink from "./NavLink";
 import "./ActordentifyCard.css";
-import Video from "./Video";
+
+import Card from "../Card/Card";
+import NavLink from "../NavLink";
+import Video from "../Video";
 
 type Props = {
   cardData: { [key: string]: any };
