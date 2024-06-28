@@ -1,4 +1,4 @@
-import Hero from "./Hero/Hero";
+import Hero from "../Hero/Hero";
 import Section from "./Section";
 
 type Props = {

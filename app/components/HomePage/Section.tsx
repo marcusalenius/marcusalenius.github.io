@@ -1,6 +1,6 @@
-import CardRegion from "./Card/CardRegion";
-import ActordentifyCard from "./CustomCards/ActordentifyCard";
-import CategoryCard from "./CategoryCard/CategoryCard";
+import CardRegion from "../Card/CardRegion";
+import ActordentifyCard from "../CustomCards/ActordentifyCard";
+import CategoryCard from "../CategoryCard/CategoryCard";
 
 type Props = {
   sectionData: { [key: string]: any };
