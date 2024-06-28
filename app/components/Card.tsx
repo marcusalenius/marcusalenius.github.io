@@ -1,5 +1,7 @@
 "use client";
 
+import "./Card.css";
+
 import Link from "next/link";
 
 type Props = {

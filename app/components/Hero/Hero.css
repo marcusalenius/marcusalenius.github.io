@@ -74,7 +74,7 @@
     align-items: center;
 }
 
-/* iPad Pro 11" Landscape */
+/* iPad 11" Landscape */
 @media (max-width: 1200px) {
 
     #hero-left { width: 567px; }
@@ -83,7 +83,7 @@
     
 }
 
-/* iPad Pro 12.9" Portrait */
+/* iPad 13" Portrait */
 @media (max-width: 1120px) {
 
     #hero-left { width: 483px; }
@@ -100,7 +100,7 @@
     
 }
 
-/* iPad Pro 11" Portrait */
+/* iPad 11" Portrait */
 @media (max-width: 970px) {
 
     #hero-left { width: 409px; }
@@ -150,7 +150,7 @@
 
 }
 
-/* iPhone 14 Plus */
+/* iPhone Plus */
 @media (max-width: 740px) {
 
     #hero {
@@ -185,7 +185,7 @@
 
 }
 
-/* iPhone 14 */
+/* iPhone */
 @media (max-width: 424px) {
 
     #hero p { width: 345px; }

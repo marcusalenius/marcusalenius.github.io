@@ -1,7 +1,6 @@
 import "./Hero.css";
-import "./Card.css";
 
-import NavLink from "./NavLink";
+import NavLink from "../NavLink";
 import HeroCard from "./HeroCard";
 
 type Props = {
