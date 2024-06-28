@@ -1,4 +1,4 @@
-import CardRegion from "./CardRegion";
+import CardRegion from "./Card/CardRegion";
 import ActordentifyCard from "./ActordentifyCard";
 import CategoryCard from "./CategoryCard";
 

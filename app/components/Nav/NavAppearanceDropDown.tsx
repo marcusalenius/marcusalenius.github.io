@@ -2,7 +2,7 @@ import "./NavAppearanceDropDown.css";
 
 import { useEffect } from "react";
 
-import Card from "../Card";
+import Card from "../Card/Card";
 import AppearanceDropDownItem from "./NavAppearanceDropDownItem";
 
 type Props = {

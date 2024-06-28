@@ -1,7 +1,7 @@
 import "./NavHome.css";
 
 import Image from "next/image";
-import Card from "../Card";
+import Card from "../Card/Card";
 
 function NavHome() {
   return (

@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Card from "./Card/Card";
 import NavLink from "./NavLink";
 import "./ActordentifyCard.css";
 import Video from "./Video";

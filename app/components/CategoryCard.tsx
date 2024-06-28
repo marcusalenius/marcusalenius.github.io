@@ -1,6 +1,6 @@
 import "./CategoryCard.css";
 
-import Card from "./Card";
+import Card from "./Card/Card";
 import ThemedImage from "./ThemedImage";
 
 type Props = {

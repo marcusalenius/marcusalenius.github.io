@@ -1,4 +1,4 @@
-import Card from "../Card";
+import Card from "../Card/Card";
 
 function NavButtonSection({ name }: { name: string }) {
   const nameLowerDashed = name.toLowerCase().replace(" ", "-");
