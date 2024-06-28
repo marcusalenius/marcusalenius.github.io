@@ -42,7 +42,7 @@ body {
 }
 
 #container {
-    width: 1040px;
+    width: 936px;
     margin: 0 auto;
 }
 
@@ -51,28 +51,28 @@ a { text-decoration: none; }
 /* iPad 11" Landscape */
 @media (max-width: 1200px) {
 
-    #container { width: 989px; }
+    #container { width: 890px; }
 
 }
 
 /* iPad 13" Portrait */
 @media (max-width: 1120px) {
 
-    #container { width: 862px; }
+    #container { width: 776px; }
 
 }
 
 /* iPad 11" Portrait */
 @media (max-width: 970px) {
 
-    #container { width: 754px; }
+    #container { width: 679px; }
 
 }
 
 /* iPad Mini Portrait */
 @media (max-width: 830px) {
 
-    #container { width: 700px; }
+    #container { width: 630px; }
 
 }
 
