@@ -1,6 +1,6 @@
 import "./NavButtonAppearance.css";
 
-import ThemedImage from "../ThemedImage";
+import ThemedImage from "../Media/ThemedImage";
 
 type Props = {
   toggleAppearanceDropdown: () => void;

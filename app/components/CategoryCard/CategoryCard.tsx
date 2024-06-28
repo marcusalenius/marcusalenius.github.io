@@ -1,7 +1,7 @@
 import "./CategoryCard.css";
 
 import Card from "../Card/Card";
-import ThemedImage from "../ThemedImage";
+import ThemedImage from "../Media/ThemedImage";
 
 type Props = {
   categoryData: { [key: string]: any };

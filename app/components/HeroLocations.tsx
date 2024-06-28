@@ -1,4 +1,4 @@
-import ThemedImage from "./ThemedImage";
+import ThemedImage from "./Media/ThemedImage";
 
 type Props = {
   locations: { [key: string]: string }[];

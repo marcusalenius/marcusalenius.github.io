@@ -2,7 +2,7 @@ import "./ActordentifyCard.css";
 
 import Card from "../Card/Card";
 import NavLink from "../NavLink";
-import Video from "../Video";
+import Video from "../Media/Video";
 
 type Props = {
   cardData: { [key: string]: any };
