@@ -1,7 +1,9 @@
 #navbutton-home {
-    position: relative;
-    width: 64px;
-    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
     border-radius: 45px;
     cursor: pointer;
 }
@@ -64,11 +66,8 @@
 }
 
 #navbar-headshot {
-    position: absolute;
-    width: 56px;
-    height: 56px;
-    left: 4px;
-    top: 4px;
+    width: 51px;
+    height: 51px;
     z-index: 102;
 }
 

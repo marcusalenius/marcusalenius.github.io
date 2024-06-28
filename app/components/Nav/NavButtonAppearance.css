@@ -1,7 +1,7 @@
 #navbutton-appearance {
     position: relative;
-    width: 48px;
-    height: 48px;
+    width: 43px;
+    height: 43px;
     border-radius: 45px;
     cursor: pointer;
     padding: 0;
@@ -10,28 +10,28 @@
 
 #appearance-icon-light-mode {
     position: absolute;
-    left: 9px;
-    top: 9px;
-    width: 30px;
-    height: 30px;
-    z-index: 102;
-}
-
-#appearance-icon-dark-mode {
-    position: absolute;
-    left: 11px;
-    top: 10px;
+    left: 8px;
+    top: 8px;
     width: 27px;
     height: 27px;
     z-index: 102;
 }
 
+#appearance-icon-dark-mode {
+    position: absolute;
+    left: 10px;
+    top: 9px;
+    width: 24px;
+    height: 24px;
+    z-index: 102;
+}
+
 .appearance-cross-icon {
     position: absolute;
-    left: 14px;
-    top: 14px;
-    width: 21px;
-    height: 21px;
+    left: 13px;
+    top: 13px;
+    width: 19px;
+    height: 19px;
     z-index: 102;
 }
 

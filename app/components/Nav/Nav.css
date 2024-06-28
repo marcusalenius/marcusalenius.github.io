@@ -1,8 +1,8 @@
 nav {
     position: sticky;
     z-index: 100;
-    top: 20px;
-    width: 1156px;
+    top: 18px;
+    width: 1040px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -10,26 +10,26 @@ nav {
 }
 
 .post-page nav {
-    top: 28px;
+    top: 25px;
 }
 
 #nav-right {
     display: flex;
-    gap: 25px;
+    gap: 23px;
 }
 
 /* Navbuttons */
 
 .navbutton {
     border-radius: 45px;
-    height: 48px;
+    height: 43px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     position: relative;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 22px;
+    padding-right: 22px;
 }
 
 .navbutton {
@@ -154,14 +154,14 @@ nav {
 
 .navbutton .button-text { z-index: 102; }
 
-#navbutton-back {
-    width: 118px;
-    display: flex;
-    gap: 8px;
-}
-
 
 /* Back button */
+
+#navbutton-back {
+    width: 106px;
+    display: flex;
+    gap: 7px;
+}
 
 #back-icon-dark-mode,
 #back-icon-light-mode { z-index: 102; }
@@ -176,32 +176,30 @@ nav {
 /* iPad 11" Landscape */
 @media (max-width: 1200px) {
 
-    nav { width: 1105px; }
+    nav { width: 995px; }
     
 }
 
 /* iPad 13" Portrait */
 @media (max-width: 1120px) {
 
-    nav { width: 935px; }
-
-    #nav-right { gap: 30px; }
+    nav { width: 842px; }
     
 }
 
 /* iPad Pro 11" Portrait */
 @media (max-width: 970px) {
 
-    nav { width: 814px; }
+    nav { width: 733px; }
 
-    #nav-right { gap: 25px; }
+    #nav-right { gap: 20px; }
 
 }
 
 /* iPad Mini Portrait */
 @media (max-width: 830px) {
 
-    nav { width: 724px; }
+    nav { width: 652px; }
 
 }
 
@@ -218,8 +216,8 @@ nav {
     .navbutton { display: none; }
 
     #navbutton-back { height: 44px; }
-        
-    }
+
+}
 
 
 /* iPhone */
