@@ -1,15 +1,15 @@
 .card-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 25px;
-    margin-top: 25px;
-    margin-bottom: 131px;
+    gap: 23px;
+    margin-top: 23px;
+    margin-bottom: 118px;
 }
 
 .card {
     overflow: hidden;
     border-radius: 30px;
-    height: 374px;
+    height: 337px;
     cursor: pointer;
     transform: translateZ(0); /* to fix safari border radius overflow hidden issue */
 }
@@ -19,14 +19,14 @@ a.card {
 }
 
 .card h3 {
-    padding-left: 40px;
-    padding-top: 39px;
+    padding-left: 36px;
+    padding-top: 36px;
     position: relative;
 }
 
 .card p {
-    margin-left: 40px;
-    margin-top: 12px;
+    margin-left: 36px;
+    margin-top: 11px;
     position: relative;
 }
 
@@ -180,7 +180,9 @@ a.card {
     }    
 }
 
-.contact-card-layout {
+/* CONTACT CARD STUFF NOT ADJUSTED */
+
+/* .contact-card-layout {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 25px;
@@ -202,7 +204,7 @@ a.card {
 .contact-card {
     background: var(--lightCard);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25), 0px 0px 16px rgba(0, 0, 0, 0.25);
-    transition: scale 200ms ease, box-shadow 200ms ease; /* transition for hover */
+    transition: scale 200ms ease, box-shadow 200ms ease; 
 }
 
 @media (hover: hover) {
@@ -211,10 +213,10 @@ a.card {
         scale: 1.00005;
         transition: scale 200ms ease, box-shadow 200ms ease;
     }    
-}
+} */
 
 /* background contact-card */
-.dark .contact-card {
+/* .dark .contact-card {
     background: var(--darkCardRim);
     box-shadow: none;
     position: relative;
@@ -225,10 +227,10 @@ a.card {
         box-shadow: none;
         scale: 1;    
     }    
-}
+} */
 
 /* foreground contact-card */
-.dark .contact-card::before {
+/* .dark .contact-card::before {
     background-color: var(--darkCard);
     content: '';
     position: absolute;
@@ -237,48 +239,48 @@ a.card {
     height: calc(100% - 2px);
     border-radius: 19px;
     z-index: 10;
-}
+} */
 
 /* foreground hover element, dark mode */
-.dark .contact-card::after {
+/* .dark .contact-card::after {
     background: radial-gradient(
         circle 400px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.04), 
         transparent 40%
     );
     z-index: 20;
     pointer-events: none;
-}
+} */
 
 /* foreground hover element, light mode */
-.contact-card::after {
+/* .contact-card::after {
     background: radial-gradient(
         circle 400px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.2), 
         transparent 40%
     );
     z-index: 20;
     pointer-events: none;
-}
+} */
 
 /* background hover element, only in dark mode */
-.dark .contact-card .card-border {
+/* .dark .contact-card .card-border {
     background: radial-gradient(
         circle 150px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.7), 
         transparent 40%
     );
     z-index: 9;
-}
+} */
 
 /* iPad 13" Portrait */
 @media (max-width: 1120px) {
 
     .card h3 {
-        padding-left: 36px;
-        padding-top: 35px;
+        padding-left: 32px;
+        padding-top: 32px;
     }
 
     .card p {
-        margin-left: 36px;
-        margin-top: 12px;
+        margin-left: 32px;
+        margin-top: 11px;
     }
 
 }
@@ -286,18 +288,19 @@ a.card {
 /* iPad 11" Portrait */
 @media (max-width: 970px) {
 
-    .card-layout { gap: 22px; }
+    .card-layout { gap: 20px; }
 
-    .contact-card-layout { gap: 22px; }
+    /* THIS WAS ADJUSTED */
+    /* .contact-card-layout { gap: 20px; } */
     
     .card h3 {
-        padding-left: 33px;
-        padding-top: 28px;
+        padding-left: 30px;
+        padding-top: 25px;
     }
     
     .card p {
-        margin-left: 33px;
-        margin-top: 10px;
+        margin-left: 30px;
+        margin-top: 9px;
     }
      
 }
@@ -305,23 +308,24 @@ a.card {
 /* iPad Mini Portrait */
 @media (max-width: 830px) {
 
-    .card-layout { gap: 20px; }
+    .card-layout { gap: 18px; }
 
-    .contact-card-layout { gap: 20px; }
+    /* THIS WAS ADJUSTED */
+    /* .contact-card-layout { gap: 18px; } */
 
     .card h3 {
-        padding-left: 28px;
-        padding-top: 25px;
+        padding-left: 25px;
+        padding-top: 23px;
     }
     
     .card p {
-        margin-left: 28px;
-        margin-top: 10px;
+        margin-left: 25px;
+        margin-top: 9px;
     }
 
 }
 
-/* iPhone 14 Plus */
+/* iPhone Plus */
 @media (max-width: 740px) {
 
     .card-layout {
@@ -344,7 +348,7 @@ a.card {
         margin-top: 8px;
     }
 
-    .contact-card-layout {
+    /* .contact-card-layout {
         display: grid;
         grid-template-columns: 1fr;
         gap: 20px;
@@ -352,6 +356,6 @@ a.card {
         margin-bottom: 131px;
     }
 
-    .contact-card { height: 70px; }
+    .contact-card { height: 70px; } */
     
 }
