@@ -48,39 +48,6 @@
     justify-content: space-between;
 }
 
-.plus-container {
-    z-index: 21;
-    width: 43px;
-    height: 43px;
-    border-radius: 45px;
-    background-color: var(--lightCard);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.dark .plus-container {
-    background-color: var(--darkSelected);
-} 
-
-@media (hover: hover) {
-
-    .plus-container:hover {
-        filter: brightness(0.99);
-    }
-
-    .dark .plus-container:hover {
-        filter: brightness(1.2);
-    }
-
-}
-
-.plus-icon {
-    z-index: 12;
-    width: 22px;
-    height: 22px;
-}
-
 /* foreground hover element, dark mode */
 .dark .category-card::after {
     background: radial-gradient(
@@ -139,9 +106,5 @@
     .category-card-content {
         padding-right: 13px;
     }    
-
-    .plus-container {
-        transform: scale(0.9);
-    }
 
 }

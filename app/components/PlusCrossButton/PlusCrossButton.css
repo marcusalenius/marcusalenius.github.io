@@ -1,0 +1,41 @@
+.plus-cross-container {
+    z-index: 21;
+    width: 43px;
+    height: 43px;
+    border-radius: 45px;
+    background-color: var(--lightCard);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark .plus-cross-container {
+    background-color: var(--darkSelected);
+}
+
+@media (hover: hover) {
+
+    .plus-cross-container:hover {
+        filter: brightness(0.99);
+    }
+
+    .dark .plus-cross-container:hover {
+        filter: brightness(1.2);
+    }
+
+}
+
+.plus-cross-icon {
+    z-index: 12;
+    width: 22px;
+    height: 22px;
+}
+
+/* iPhone Plus */
+@media (max-width: 666px) {
+
+    .plus-cross-container {
+        transform: scale(0.9);
+    }
+
+}

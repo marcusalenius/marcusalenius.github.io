@@ -1,0 +1,31 @@
+.modal-overlay {
+    background-color: aquamarine;
+    height: 400px;
+    overflow-y: scroll;
+
+    position: absolute;
+    width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 60px;
+    padding-bottom: 12px;
+}
+
+.modal-card {
+    background-color: var(--lightBackground);
+    border-radius: 40px;
+}
+
+.modal-content {
+    /* same width as container */
+    width: 936px;
+    margin: 0 auto;
+    background-color: aliceblue;
+}
+
+body {
+    /* overflow: hidden; */
+}

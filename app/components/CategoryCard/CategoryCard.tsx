@@ -1,7 +1,7 @@
 import "./CategoryCard.css";
 
 import Card from "../Card/Card";
-import ThemedImage from "../Media/ThemedImage";
+import PlusCrossButton from "../PlusCrossButton/PlusCrossButton";
 
 type Props = {
   categoryData: { [key: string]: any };
@@ -15,13 +15,7 @@ function CategoryCard({ categoryData }: Props) {
     >
       <div className="category-card-content">
         <h4>{categoryData.title}</h4>
-        <div className="plus-container">
-          <ThemedImage
-            lightSrc="icons/plus-icon-light-mode.svg"
-            darkSrc="icons/plus-icon-dark-mode.svg"
-            className="plus-icon"
-          />
-        </div>
+        <PlusCrossButton />
       </div>
     </Card>
   );
