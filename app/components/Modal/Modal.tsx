@@ -13,7 +13,7 @@ function Modal({ categoryData, isModalOpen, setIsModalOpen }: Props) {
   const titleLowerDashed = categoryData.title.toLowerCase().replace(" ", "-");
   return (
     <div
-      className={isModalOpen ? "modal-overlay open" : "modal-overlay"}
+      className={isModalOpen ? "modal-overlay" : "modal-overlay hidden"}
       id={`${titleLowerDashed}-modal`}
     >
       <div className="modal-card">
