@@ -36,32 +36,32 @@
                     "projects": [
                         {
                             "title": "Dynamic Memory Allocator",
-                            "description": "Lorem ipsum",
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sem id orci maximus luctus. Sed et sem dui. Suspendisse potenti. Sed fringilla tortor nec ante aliquet accumsan. Phasellus at quam vitae tortor volutpat vulputate. Maecenas neque lorem, rutrum eget venenatis ut, vulputate eget dui. Suspendisse hendrerit, risus non dignissim vulputate, nunc metus suscipit lacus, sed tempor nulla ante nec risus. Suspendisse et massa vitae massa pretium venenatis vitae nec neque.",
                             "link": null
                         },
                         {
                             "title": "Web Proxy Server",
-                            "description": "Lorem ipsum",
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sem id orci maximus luctus. Sed et sem dui. Suspendisse potenti. Sed fringilla tortor nec ante aliquet accumsan. Phasellus at quam vitae tortor volutpat vulputate. Maecenas neque lorem, rutrum eget venenatis ut, vulputate eget dui. Suspendisse hendrerit, risus non dignissim vulputate, nunc metus suscipit lacus, sed tempor nulla ante nec risus. Suspendisse et massa vitae massa pretium venenatis vitae nec neque.",
                             "link": null
                         },
                         {
                             "title": "Multithreaded File System",
-                            "description": "Lorem ipsum",
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sem id orci maximus luctus. Sed et sem dui. Suspendisse potenti. Sed fringilla tortor nec ante aliquet accumsan. Phasellus at quam vitae tortor volutpat vulputate. Maecenas neque lorem, rutrum eget venenatis ut, vulputate eget dui. Suspendisse hendrerit, risus non dignissim vulputate, nunc metus suscipit lacus, sed tempor nulla ante nec risus. Suspendisse et massa vitae massa pretium venenatis vitae nec neque.",
                             "link": null
                         },
                         {
                             "title": "Linux Shell",
-                            "description": "Lorem ipsum",
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sem id orci maximus luctus. Sed et sem dui. Suspendisse potenti. Sed fringilla tortor nec ante aliquet accumsan. Phasellus at quam vitae tortor volutpat vulputate. Maecenas neque lorem, rutrum eget venenatis ut, vulputate eget dui. Suspendisse hendrerit, risus non dignissim vulputate, nunc metus suscipit lacus, sed tempor nulla ante nec risus. Suspendisse et massa vitae massa pretium venenatis vitae nec neque.",
                             "link": null
                         },
                         {
                             "title": "Cache Memory Simulator",
-                            "description": "Lorem ipsum",
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sem id orci maximus luctus. Sed et sem dui. Suspendisse potenti. Sed fringilla tortor nec ante aliquet accumsan. Phasellus at quam vitae tortor volutpat vulputate. Maecenas neque lorem, rutrum eget venenatis ut, vulputate eget dui. Suspendisse hendrerit, risus non dignissim vulputate, nunc metus suscipit lacus, sed tempor nulla ante nec risus. Suspendisse et massa vitae massa pretium venenatis vitae nec neque.",
                             "link": null
                         },
                         {
                             "title": "Virtual Machine",
-                            "description": "Lorem ipsum",
+                            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis sem id orci maximus luctus. Sed et sem dui. Suspendisse potenti. Sed fringilla tortor nec ante aliquet accumsan. Phasellus at quam vitae tortor volutpat vulputate. Maecenas neque lorem, rutrum eget venenatis ut, vulputate eget dui. Suspendisse hendrerit, risus non dignissim vulputate, nunc metus suscipit lacus, sed tempor nulla ante nec risus. Suspendisse et massa vitae massa pretium venenatis vitae nec neque.",
                             "link": null
                         }
                     ]

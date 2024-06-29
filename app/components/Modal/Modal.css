@@ -61,15 +61,6 @@
     background-color: var(--darkSelected);
 }
 
-
-.modal-content {
-    /* same width as container */
-    width: 936px;
-    margin: 0 auto;
-    padding-top: 90px;
-    padding-bottom: 90px;
-}
-
 body:has(.modal-overlay:not(.hidden)) {
     overflow: hidden;
 }
@@ -81,6 +72,14 @@ body:has(.modal-overlay:not(.hidden)) nav {
 
 nav {
     transition: top 0.5s;
+}
+
+.modal-content {
+    /* same width as container */
+    width: 936px;
+    margin: 0 auto;
+    padding-top: 90px;
+    padding-bottom: 90px;
 }
 
 /* iPad 11" Landscape */

@@ -1,0 +1,6 @@
+.modal-content-card {
+    background-color: var(--lightCard);
+    border-radius: 30px;
+    padding: 26px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15), 0px 0px 15px rgba(0, 0, 0, 0.20);
+}
