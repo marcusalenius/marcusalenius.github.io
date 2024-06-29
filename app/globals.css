@@ -72,7 +72,7 @@ a { text-decoration: none; }
 /* iPad Mini Portrait */
 @media (max-width: 747px) {
 
-    #container { width: 630px; }
+    #container { width: 630px; } 
 
 }
 

@@ -1,9 +1,16 @@
+import Image from "next/image";
+
 import Card from "../Card/Card";
 
 function HeroCard() {
   return (
     <Card id="hero-card" href="https://www.google.com/">
-      <></>
+      <img
+        src="/images/hero-image.jpg"
+        id="hero-image"
+        alt="Marcus Alenius"
+        draggable={false}
+      />
       {/* <img
         src="images/hero-image-desktop.png"
         alt="large image of Marcus Alenius"
