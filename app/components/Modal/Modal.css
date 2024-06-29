@@ -16,6 +16,11 @@
     transition: background-color 1s, backdrop-filter 1s;
 }
 
+
+.dark .modal-overlay {
+    background-color: rgba(171, 171, 171, 0.12);
+}
+
 .modal-overlay.hidden {
     overflow-y: hidden;
     background-color: transparent;
@@ -35,6 +40,10 @@
     transition: top 0.5s 0.3s, opacity 0s;
 }
 
+.dark .modal-card {
+    background-color: var(--darkBackground);
+}
+
 .modal-overlay.hidden .modal-card {
     opacity: 0;
     top: 120vh;
@@ -46,6 +55,10 @@
     right: 30px;
     top: 30px;
     background-color: var(--lightFooter);
+}
+
+.dark .modal-card .plus-cross-container {
+    background-color: var(--darkSelected);
 }
 
 
