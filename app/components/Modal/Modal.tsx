@@ -5,12 +5,16 @@ import ModalContent from "./ModalContent";
 
 type Props = {
   categoryData: { [key: string]: any };
+  isModalOpen: boolean;
 };
 
-function Modal({ categoryData }: Props) {
+function Modal({ categoryData, isModalOpen }: Props) {
   const titleLowerDashed = categoryData.title.toLowerCase().replace(" ", "-");
   return (
-    <div className="modal-overlay" id={`${titleLowerDashed}-modal`}>
+    <div
+      className={isModalOpen ? "modal-overlay" : "modal-overlay hidden"}
+      id={`${titleLowerDashed}-modal`}
+    >
       <div className="modal-card">
         <PlusCrossButton cross={true} />
         <ModalContent categoryData={categoryData} />

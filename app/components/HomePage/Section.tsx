@@ -28,13 +28,6 @@ function Section({ sectionData, name }: Props) {
               }
             )
           : null}
-        {sectionData.categories
-          ? sectionData.categories.map(
-              (categoryData: { [key: string]: any }) => {
-                return <Modal categoryData={categoryData} />;
-              }
-            )
-          : null}
       </CardRegion>
     </div>
   );
