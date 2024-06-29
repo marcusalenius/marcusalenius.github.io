@@ -1,5 +1,7 @@
 import "./Modal.css";
 
+import PlusCrossButton from "../PlusCrossButton/PlusCrossButton";
+
 function ModalOverlay({ children }: { children: React.ReactNode }) {
   return <div className="modal-overlay">{children}</div>;
 }
@@ -35,6 +37,7 @@ function Modal() {
   return (
     <ModalOverlay>
       <ModalCard>
+        <PlusCrossButton cross={true} />
         <ModalContent />
       </ModalCard>
     </ModalOverlay>

@@ -1,31 +1,50 @@
 .modal-overlay {
-    background-color: aquamarine;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(40px);
     height: 400px;
     overflow-y: scroll;
 
-    position: absolute;
+    position: fixed;
+    top: 0;
     width: 100vw;
     left: 50%;
     margin-left: -50vw;
+    height: 100vh;
 
     padding-left: 12px;
     padding-right: 12px;
-    padding-top: 60px;
+    padding-top: 100px;
     padding-bottom: 12px;
 }
 
 .modal-card {
+    position: relative;
     background-color: var(--lightBackground);
     border-radius: 40px;
+    min-height: calc(100vh - 100px - 12px); /* minus padding top and bottom */
 }
+
+.modal-card .plus-cross-container {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    background-color: var(--lightFooter);
+}
+
 
 .modal-content {
     /* same width as container */
     width: 936px;
     margin: 0 auto;
-    background-color: aliceblue;
+    padding-top: 90px;
+    padding-bottom: 90px;
 }
 
 body {
-    /* overflow: hidden; */
+    overflow: hidden;
+}
+
+nav {
+    display: none !important;
 }
