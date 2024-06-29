@@ -1,4 +1,6 @@
-.modal-overlay {
+.modal-overlay.open {
+    display: block;
+    
     position: fixed;
     top: 0;
     width: 100vw;
@@ -15,9 +17,13 @@
     padding-bottom: 12px;
 }
 
+.modal-overlay {
+    display: none;
+}
+
 .modal-card {
     position: relative;
-    min-height: calc(100vh - 100px - 12px); /* minus padding top and bottom */
+    min-height: calc(100vh - 60px - 12px); /* minus padding top and bottom */
     border-radius: 40px;
     background-color: var(--lightBackground);
 }
@@ -38,10 +44,10 @@
     padding-bottom: 90px;
 }
 
-body:has(.modal-overlay) {
+body:has(.modal-overlay.open) {
     overflow: hidden;
 }
 
-nav:has(.modal-overlay) {
+nav:has(.modal-overlay.open) {
     display: none !important;
 }
