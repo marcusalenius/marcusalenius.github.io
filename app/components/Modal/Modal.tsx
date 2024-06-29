@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import "./Modal.css";
 
 import PlusCrossButton from "../PlusCrossButton/PlusCrossButton";
@@ -10,6 +12,31 @@ type Props = {
 };
 
 function Modal({ categoryData, isModalOpen, setIsModalOpen }: Props) {
+  // Hook for click outside (on modal overlay) to close modal
+  useEffect(function mount() {
+    function onClick(event: MouseEvent) {
+      const modalOverlays = Array.from(
+        document.querySelectorAll(".modal-overlay")
+      ) as HTMLElement[];
+      const modalCards = Array.from(
+        document.querySelectorAll(".modal-card")
+      ) as HTMLElement[];
+      if (
+        isModalOpen &&
+        modalOverlays.includes(event.target as HTMLElement) &&
+        !modalCards.includes(event.target as HTMLElement)
+      ) {
+        setIsModalOpen(!isModalOpen);
+      }
+    }
+
+    document.addEventListener("click", onClick);
+
+    return function unMount() {
+      document.removeEventListener("click", onClick);
+    };
+  });
+
   const titleLowerDashed = categoryData.title.toLowerCase().replace(" ", "-");
   return (
     <div
