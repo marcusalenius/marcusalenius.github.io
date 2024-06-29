@@ -27,14 +27,11 @@ function CategoryCard({ categoryData }: Props) {
           <PlusCrossButton />
         </div>
       </Card>
-      {/* temp: */}
-      {categoryData.title === "Computer Systems" ? (
-        <Modal
-          categoryData={categoryData}
-          isModalOpen={isModalOpen}
-          setIsModalOpen={setIsModalOpen}
-        />
-      ) : null}
+      <Modal
+        categoryData={categoryData}
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+      />
     </>
   );
 }
