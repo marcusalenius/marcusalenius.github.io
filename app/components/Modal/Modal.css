@@ -69,3 +69,45 @@ body:has(.modal-overlay:not(.hidden)) nav {
 nav {
     transition: top 0.5s;
 }
+
+/* iPad 11" Landscape */
+@media (max-width: 1080px) {
+
+    .modal-content { width: 890px; }
+
+}
+
+/* iPad 13" Portrait */
+@media (max-width: 1008px) {
+
+    .modal-content { width: 776px; }
+
+}
+
+/* iPad 11" Portrait */
+@media (max-width: 873px) {
+
+    .modal-content { width: 679px; }
+
+}
+
+/* iPad Mini Portrait */
+@media (max-width: 747px) {
+
+    .modal-content { width: 630px; } 
+
+}
+
+/* iPhone Plus */
+@media (max-width: 666px) {
+
+    .modal-content { width: 394px; }
+
+}
+
+/* iPhone */
+@media (max-width: 424px) {
+
+    .modal-content { width: 353px; }
+
+}
