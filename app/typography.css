@@ -218,9 +218,14 @@ p.url-card-website {
         line-height: 39px;
     }
 
-    h3, h4 {
+    h3 {
         font-size: 26px;
         line-height: 32px;
+    }
+
+    h4 {
+        font-size: 25px;
+        line-height: 31px;
     }
 
     p.paragraph-large {
