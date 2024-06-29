@@ -174,21 +174,21 @@ nav {
 #navmenu-mobile { display: none; }
 
 /* iPad 11" Landscape */
-@media (max-width: 1200px) {
+@media (max-width: 1080px) {
 
     nav { width: 995px; }
     
 }
 
 /* iPad 13" Portrait */
-@media (max-width: 1120px) {
+@media (max-width: 1008px) {
 
     nav { width: 842px; }
     
 }
 
 /* iPad Pro 11" Portrait */
-@media (max-width: 970px) {
+@media (max-width: 873px) {
 
     nav { width: 733px; }
 
@@ -197,14 +197,14 @@ nav {
 }
 
 /* iPad Mini Portrait */
-@media (max-width: 830px) {
+@media (max-width: 747px) {
 
     nav { width: 652px; }
 
 }
 
 /* iPhone Plus */
-@media (max-width: 740px) {
+@media (max-width: 666px) {
 
     nav {
         width: 408px;

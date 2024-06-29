@@ -47,7 +47,7 @@
 .drop-down-visible .appearance-icon { transform: scale(0); }
 
 /* Phone */
-@media (max-width: 740px) {
+@media (max-width: 666px) {
 
     #navbutton-appearance {
         display: block;

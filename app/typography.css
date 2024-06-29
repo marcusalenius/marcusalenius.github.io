@@ -184,7 +184,7 @@ p.url-card-website {
 
 
 /* Tablet */
-@media (max-width: 1200px) {
+@media (max-width: 1080px) {
     
     h1 {
         font-size: 52px;
@@ -206,7 +206,7 @@ p.url-card-website {
 }
 
 /* Phone */
-@media (max-width: 740px) {
+@media (max-width: 666px) {
     
     h1 {
         font-size: 52px;

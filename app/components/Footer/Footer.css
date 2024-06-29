@@ -9,7 +9,7 @@ footer {
 .dark footer { background-color: var(--darkFooter); }
 
 /* Phone */
-@media (max-width: 740px) {
+@media (max-width: 666px) {
 
     .footer-text { width: 233px; }
 

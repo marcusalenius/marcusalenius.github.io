@@ -66,14 +66,14 @@
 }
 
 /* iPad 11" Landscape */
-@media (max-width: 1200px) {
+@media (max-width: 1080px) {
 
     .frosted-pane { width: 293px; }
 
 }
 
 /* iPad 13" Portrait */
-@media (max-width: 1120px) {
+@media (max-width: 1008px) {
     
     .frosted-pane { 
         width: 252px; 
@@ -87,7 +87,7 @@
 }
 
 /* iPad 11" Portrait */
-@media (max-width: 970px) {
+@media (max-width: 873px) {
 
     .frosted-pane { 
         width: 221px; 
@@ -101,7 +101,7 @@
 }
 
 /* iPhone Plus */
-@media (max-width: 740px) {
+@media (max-width: 666px) {
 
     #actordentify-card {
         grid-column: span 1;

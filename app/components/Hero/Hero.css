@@ -67,14 +67,14 @@
 
 
 /* iPad 11" Landscape */
-@media (max-width: 1200px) {
+@media (max-width: 1080px) {
 
     #hero-left { width: 510px; }
         
 }
 
 /* iPad 13" Portrait */
-@media (max-width: 1120px) {
+@media (max-width: 1008px) {
 
     #hero-left { width: 435px; }
 
@@ -89,7 +89,7 @@
 }
 
 /* iPad 11" Portrait */
-@media (max-width: 970px) {
+@media (max-width: 873px) {
 
     #hero-left { width: 368px; }
 
@@ -106,7 +106,7 @@
 }
 
 /* iPad Mini Portrait */
-@media (max-width: 830px) {
+@media (max-width: 747px) {
 
     #hero-left { width: 338px; }
 
@@ -123,7 +123,7 @@
 }
 
 /* iPhone Plus */
-@media (max-width: 740px) {
+@media (max-width: 666px) {
 
     #hero {
         display: flex;

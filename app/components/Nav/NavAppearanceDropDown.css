@@ -169,7 +169,7 @@
 #appearance-drop-down-item-system { margin-top: 7px; }
 
 /* iPhone Plus */
-@media (max-width: 740px) {
+@media (max-width: 666px) {
 
     #appearance-drop-down { top: 60px; }
 

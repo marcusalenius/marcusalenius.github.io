@@ -271,7 +271,7 @@ a.card {
 } */
 
 /* iPad 13" Portrait */
-@media (max-width: 1120px) {
+@media (max-width: 1008px) {
 
     .card h3 {
         padding-left: 32px;
@@ -286,7 +286,7 @@ a.card {
 }
 
 /* iPad 11" Portrait */
-@media (max-width: 970px) {
+@media (max-width: 873px) {
 
     .card-layout { gap: 20px; }
 
@@ -306,7 +306,7 @@ a.card {
 }
 
 /* iPad Mini Portrait */
-@media (max-width: 830px) {
+@media (max-width: 747px) {
 
     .card-layout { gap: 18px; }
 
@@ -326,7 +326,7 @@ a.card {
 }
 
 /* iPhone Plus */
-@media (max-width: 740px) {
+@media (max-width: 666px) {
 
     .card-layout {
         display: grid;

@@ -109,28 +109,28 @@
 }
 
 /* iPad 13" Portrait */
-@media (max-width: 1120px) {
+@media (max-width: 1008px) {
 
     .category-card-content { padding-left: 32px; }
 
 }
 
 /* iPad 11" Portrait */
-@media (max-width: 970px) {
+@media (max-width: 873px) {
 
     .category-card-content { padding-left: 30px; }
 
 }
 
 /* iPad Mini Portrait */
-@media (max-width: 830px) {
+@media (max-width: 747px) {
     
     .category-card-content { padding-left: 25px; }
     
 }
 
 /* iPhone Plus */
-@media (max-width: 740px) {
+@media (max-width: 666px) {
 
     .category-card {
         height: 74px;
