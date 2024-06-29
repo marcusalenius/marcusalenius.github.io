@@ -1,6 +1,7 @@
 import CardRegion from "../Card/CardRegion";
 import ActordentifyCard from "../CustomCards/ActordentifyCard";
 import CategoryCard from "../CategoryCard/CategoryCard";
+import Modal from "../Modal/Modal";
 
 type Props = {
   sectionData: { [key: string]: any };
@@ -24,6 +25,13 @@ function Section({ sectionData, name }: Props) {
           ? sectionData.categories.map(
               (categoryData: { [key: string]: any }) => {
                 return <CategoryCard categoryData={categoryData} />;
+              }
+            )
+          : null}
+        {sectionData.categories
+          ? sectionData.categories.map(
+              (categoryData: { [key: string]: any }) => {
+                return <Modal categoryData={categoryData} />;
               }
             )
           : null}

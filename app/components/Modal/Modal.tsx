@@ -1,46 +1,21 @@
 import "./Modal.css";
 
 import PlusCrossButton from "../PlusCrossButton/PlusCrossButton";
+import ModalContent from "./ModalContent";
 
-function ModalOverlay({ children }: { children: React.ReactNode }) {
-  return <div className="modal-overlay">{children}</div>;
-}
+type Props = {
+  categoryData: { [key: string]: any };
+};
 
-function ModalCard({ children }: { children: React.ReactNode }) {
-  return <div className="modal-card">{children}</div>;
-}
-
-function ModalContent() {
+function Modal({ categoryData }: Props) {
+  const titleLowerDashed = categoryData.title.toLowerCase().replace(" ", "-");
   return (
-    <div className="modal-content">
-      <h1>Foo</h1>
-      <h1>Foo</h1>
-      <h1>Foo</h1>
-      <h1>Foo</h1>
-      <h1>Foo</h1>
-      <h1>Foo</h1>
-      <h1>Foo</h1>
-      <h1>Foo</h1>
-      <h1>Foo</h1>
-      <h1>Foo</h1>
-      <h1>Foo</h1>
-      <h1>Foo</h1>
-      <h1>Foo</h1>
-      <h1>Foo</h1>
-      <h1>Foo</h1>
-      <h1>Foo</h1>
-    </div>
-  );
-}
-
-function Modal() {
-  return (
-    <ModalOverlay>
-      <ModalCard>
+    <div className="modal-overlay" id={`${titleLowerDashed}-modal`}>
+      <div className="modal-card">
         <PlusCrossButton cross={true} />
-        <ModalContent />
-      </ModalCard>
-    </ModalOverlay>
+        <ModalContent categoryData={categoryData} />
+      </div>
+    </div>
   );
 }
 
