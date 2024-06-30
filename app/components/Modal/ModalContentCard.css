@@ -9,27 +9,3 @@ h3 {
     padding-bottom: 6px;
 }
 
-.expand-collapse-button {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-    width: fit-content;
-    cursor: pointer;
-    user-select: none;
-    margin-left: auto;
-}
-
-.expand-collapse-button p.card-link {
-    font-weight: 500;
-    color: var(--lightFooterText);
-}
-
-.expand-chevron {
-    width: 12px;
-    height: 6px;
-}
-
-.expand-chevron.collapse {
-    transform: rotate(180deg);
-}

@@ -27,7 +27,7 @@ function ModalContentCard({ projectData }: Props) {
       </p>
       {projectData.link && isShowingAll ? (
         <NavLink href={projectData.link}>
-          <p>Learn More</p>
+          <p className="card-link">Learn More</p>
         </NavLink>
       ) : null}
       <ExpandCollapseButton

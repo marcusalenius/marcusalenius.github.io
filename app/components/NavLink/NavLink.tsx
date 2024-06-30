@@ -1,3 +1,5 @@
+import "./NavLink.css";
+
 import Link from "next/link";
 import ThemedImage from "../Media/ThemedImage";
 

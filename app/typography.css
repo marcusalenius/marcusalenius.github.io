@@ -109,35 +109,6 @@ p.card-link {
     z-index: 15;
 }
 
-.nav-link {
-    display: flex;
-    flex-direction: row;
-    align-items: first baseline;
-    width: fit-content;
-}
-@media (hover: hover) {
-
-    .nav-link:hover { filter: brightness(1.1); }
-
-}
-
-.nav-link p { 
-    padding-right: 5px;
-    color: var(--lightNavLink);
-    width: fit-content !important;
-}
-.dark .nav-link p { color: var(--darkNavLink); }
-
-p.paragraph-large + .nav-link-chevron {
-    width: 5.5px;
-    height: 11px;
-}
-
-p.card-link + .nav-link-chevron {
-    width: 4.5px;
-    height: 9px;
-}
-
 a { color: var(--lightFooterText); }
 
 .dark a { color: var(--darkFooterText); }
