@@ -2,6 +2,7 @@ import "./ModalContentCard.css";
 
 import CardRegion from "../Card/CardRegion";
 import Card from "../Card/Card";
+import ReadMore from "../ReadMore/ReadMore";
 
 type Props = {
   categoryData: { [key: string]: any };
@@ -19,7 +20,9 @@ function ModalContent({ categoryData }: Props) {
               individualEffect={false}
             >
               <h3>{projectData.title}</h3>
-              <p className="paragraph-small">{projectData.description}</p>
+              <p className="paragraph-small">
+                <ReadMore numLines={5}>{projectData.description}</ReadMore>
+              </p>
             </Card>
           );
         })}
