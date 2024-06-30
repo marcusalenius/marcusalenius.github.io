@@ -11,6 +11,11 @@
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15), 0px 0px 15px rgba(0, 0, 0, 0.20);
 }
 
+.modal-content-card:has(.read-more:not(.closed)) {
+    border: 1px solid blue;
+    z-index: 1100;
+}
+
 .modal-content-card p.paragraph-small {
     margin-top: 6px;
     margin-bottom: 6px;
