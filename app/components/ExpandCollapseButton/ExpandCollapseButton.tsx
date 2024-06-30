@@ -1,3 +1,5 @@
+import "./ExpandCollapseButton.css";
+
 import ThemedImage from "../Media/ThemedImage";
 
 type Props = {

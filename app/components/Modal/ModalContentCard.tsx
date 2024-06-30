@@ -4,6 +4,7 @@ import "./ModalContentCard.css";
 
 import Card from "../Card/Card";
 import ReadMore from "../ReadMore/ReadMore";
+import NavLink from "../NavLink/NavLink";
 import ExpandCollapseButton from "../ExpandCollapseButton/ExpandCollapseButton";
 
 type Props = {
@@ -24,8 +25,13 @@ function ModalContentCard({ projectData }: Props) {
           {projectData.description}
         </ReadMore>
       </p>
+      {projectData.link && isShowingAll ? (
+        <NavLink href={projectData.link}>
+          <p>Learn More</p>
+        </NavLink>
+      ) : null}
       <ExpandCollapseButton
-        collapse={isShowingAll} // collapse button if showing all
+        collapse={isShowingAll} // collapse-button if showing all
         onClick={() => setIsShowingAll(!isShowingAll)}
       />
     </Card>
