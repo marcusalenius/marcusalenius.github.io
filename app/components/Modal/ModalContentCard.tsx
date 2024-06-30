@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./ModalContentCard.css";
 
 import Card from "../Card/Card";
-import ReadMoreLineCount from "../ReadMore/ReadMoreLineCount";
+import ReadMoreLineCount from "../ReadMore/ReadMore";
 
 type Props = {
   projectData: { [key: string]: any };
@@ -21,7 +21,7 @@ function ModalContentCard({ projectData }: Props) {
     >
       <h3>{projectData.title}</h3>
       <p className="paragraph-small">
-        <ReadMoreLineCount numLines={5} isShowingAll={isShowingAll}>
+        <ReadMoreLineCount isShowingAll={isShowingAll}>
           {projectData.description}
         </ReadMoreLineCount>
       </p>
