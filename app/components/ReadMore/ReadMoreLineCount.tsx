@@ -2,10 +2,11 @@ import { useRef, useState } from "react";
 
 type Props = {
   numLines: number;
+  isShowingAll: boolean;
   children: React.ReactNode;
 };
 
-function ReadMore({ numLines, children }: Props) {
+function ReadMore({ numLines, isShowingAll, children }: Props) {
   const text = children as string;
   const words = text.split(" ");
 
@@ -46,15 +47,20 @@ function ReadMore({ numLines, children }: Props) {
     }
   }
 
+  const limitedWords =
+    lastSpanIndex === -1 ? words : words.slice(0, lastSpanIndex + 1);
+
+  const displayedWords = isShowingAll ? words : limitedWords;
+
   return (
     <span ref={containerRef}>
-      {words.map((word, index) => {
-        return lastSpanIndex == -1 || index <= lastSpanIndex ? (
+      {displayedWords.map((word) => {
+        return (
           <>
             <span>{word}</span>
             <> </>
           </>
-        ) : null;
+        );
       })}
     </span>
   );

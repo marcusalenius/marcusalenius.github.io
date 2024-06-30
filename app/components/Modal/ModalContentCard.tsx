@@ -1,21 +1,29 @@
+import { useState } from "react";
+
 import "./ModalContentCard.css";
 
 import Card from "../Card/Card";
-import ReadMore from "../ReadMore/ReadMore";
+import ReadMoreLineCount from "../ReadMore/ReadMoreLineCount";
 
 type Props = {
   projectData: { [key: string]: any };
 };
 
 function ModalContentCard({ projectData }: Props) {
+  const [isShowingAll, setIsShowingAll] = useState(false);
+
   return (
     <Card
       className="modal-content-card card-region-child"
       individualEffect={false}
+      // temp (only link should be clickable)?
+      onClick={() => setIsShowingAll(!isShowingAll)}
     >
       <h3>{projectData.title}</h3>
       <p className="paragraph-small">
-        <ReadMore>{projectData.description}</ReadMore>
+        <ReadMoreLineCount numLines={5} isShowingAll={isShowingAll}>
+          {projectData.description}
+        </ReadMoreLineCount>
       </p>
     </Card>
   );
