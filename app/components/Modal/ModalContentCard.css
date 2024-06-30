@@ -5,7 +5,8 @@
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15), 0px 0px 15px rgba(0, 0, 0, 0.20);
 }
 
-h3 {
-    padding-bottom: 6px;
+.modal-content-card p.paragraph-small {
+    margin-top: 6px;
+    margin-bottom: 6px;
 }
 
