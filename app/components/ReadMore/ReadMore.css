@@ -1,7 +1,7 @@
 .read-more-container {
     max-height: 500px;
     overflow: hidden;
-    transition: max-height 0.3s cubic-bezier(0.9, 0, 0.8, 0.2);
+    transition: max-height 0.5s cubic-bezier(0.9, 0, 0.8, 0.6);
 }
 
 .read-more-container:has(.read-more.closed) {
