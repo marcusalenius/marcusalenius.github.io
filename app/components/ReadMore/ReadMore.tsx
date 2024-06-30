@@ -7,9 +7,11 @@ type Props = {
 
 function ReadMore({ isShowingAll, children }: Props) {
   return (
-    <span className={isShowingAll ? "read-more" : "read-more closed"}>
-      {children}
-    </span>
+    <div className="read-more-container">
+      <span className={isShowingAll ? "read-more" : "read-more closed"}>
+        {children}
+      </span>
+    </div>
   );
 }
 

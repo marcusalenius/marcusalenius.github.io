@@ -1,6 +1,46 @@
-.read-more.closed {
+.read-more-container {
+    max-height: 500px;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.9, 0, 0.8, 0.2);
+}
+
+.read-more-container:has(.read-more.closed) {
+    max-height: 110px;
+    transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+}
+
+.read-more {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: initial;
     overflow: hidden;
+    text-overflow: ellipsis;
+    animation: open 0.1s linear 0s forwards;
 }
+
+.read-more.closed {
+    /* -webkit-line-clamp: 5; */
+    animation: close 0.1s linear 0.1s forwards;
+}
+
+@keyframes open {
+    from {
+      line-clamp: 5;
+      -webkit-line-clamp: 5;
+    }
+    to {
+      line-clamp: initial;
+      -webkit-line-clamp: initial;
+    }
+  }
+  
+  @keyframes close {
+    from {
+      line-clamp: initial;
+      -webkit-line-clamp: initial;
+    }
+    to {
+      line-clamp: 5;
+      -webkit-line-clamp: 5;
+    }
+  }
