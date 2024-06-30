@@ -3,7 +3,8 @@ import { useState } from "react";
 import "./ModalContentCard.css";
 
 import Card from "../Card/Card";
-import ReadMoreLineCount from "../ReadMore/ReadMore";
+import ReadMore from "../ReadMore/ReadMore";
+import ExpandCollapseButton from "../ExpandCollapseButton/ExpandCollapseButton";
 
 type Props = {
   projectData: { [key: string]: any };
@@ -16,15 +17,17 @@ function ModalContentCard({ projectData }: Props) {
     <Card
       className="modal-content-card card-region-child"
       individualEffect={false}
-      // temp (only link should be clickable)?
-      onClick={() => setIsShowingAll(!isShowingAll)}
     >
       <h3>{projectData.title}</h3>
       <p className="paragraph-small">
-        <ReadMoreLineCount isShowingAll={isShowingAll}>
+        <ReadMore isShowingAll={isShowingAll}>
           {projectData.description}
-        </ReadMoreLineCount>
+        </ReadMore>
       </p>
+      <ExpandCollapseButton
+        collapse={isShowingAll} // collapse button if showing all
+        onClick={() => setIsShowingAll(!isShowingAll)}
+      />
     </Card>
   );
 }
