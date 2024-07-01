@@ -12,7 +12,6 @@ type Props = {
 function AppearanceDropDownItem({ option, toggleAppearanceDropdown }: Props) {
   const optionLower = option.toLowerCase();
   const { theme, setTheme } = useTheme();
-  console.log("theme:", theme, "optionLower:", optionLower);
 
   return (
     <div
