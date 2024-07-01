@@ -103,6 +103,12 @@ nav {
 /* iPad 11" Portrait */
 @media (max-width: 873px) {
 
+    .modal-overlay {
+        padding-left: 8px;
+        padding-right: 8px;
+        padding-bottom: 8px;
+    }
+
     .modal-content { width: 679px; }
 
 }
@@ -118,6 +124,12 @@ nav {
 @media (max-width: 666px) {
 
     .modal-content { width: 394px; }
+
+    .modal-card .plus-cross-container {
+        right: 24px;
+        top: 24px;
+    }
+    
 
 }
 
