@@ -8,6 +8,7 @@
     border-radius: 30px;
     padding: 26px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15), 0px 0px 15px rgba(0, 0, 0, 0.20);
+    transition: box-shadow 0.3s;
 }
 
 .modal-content-card:has(.read-more:not(.closed)) {
@@ -18,29 +19,39 @@
 .modal-content-card-container:has(.read-more:not(.closed)) ~ 
 .modal-content-card-container .modal-content-card {
     box-shadow: 0px 0px 4px rgba(204, 204, 204, 0.15), 0px 0px 15px rgba(204, 204, 204, 0.20);
+    transition: box-shadow 0.3s;
 }
 
 /* when one card is expanded, reduce shadows of cards before */ 
 .modal-content-card-container:has(~ .modal-content-card-container .read-more:not(.closed)) 
 .modal-content-card {
     box-shadow: 0px 0px 4px rgba(204, 204, 204, 0.15), 0px 0px 15px rgba(204, 204, 204, 0.20);
+    transition: box-shadow 0.3s;
 }
 
 /* increase shadow of expanded card */
 .modal-content-card:has(.read-more:not(.closed)) {
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15), 0px 0px 15px rgba(0, 0, 0, 0.25);
+    transition: box-shadow 0.3s;
+}
+
+.modal-content-card-content {
+    opacity: 1;
+    transition: opacity 0.3s;
 }
 
 /* when one card is expanded, decrease opacity of card contents of cards after */
 .modal-content-card-container:has(.read-more:not(.closed)) ~
 .modal-content-card-container .modal-content-card-content {
     opacity: 0.3;
+    transition: opacity 0.3s;
 }
 
 /* when one card is expanded, decrease opacity of card contents of cards before */
 .modal-content-card-container:has(~ .modal-content-card-container .read-more:not(.closed)) 
 .modal-content-card-content {
     opacity: 0.3;
+    transition: opacity 0.3s;
 }
 
 
