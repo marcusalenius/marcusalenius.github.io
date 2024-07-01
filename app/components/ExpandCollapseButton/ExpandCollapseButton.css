@@ -15,11 +15,15 @@
 
 }
 
-
 .expand-collapse-button p.card-link {
     font-weight: 500;
     color: var(--lightFooterText);
 }
+
+.dark .expand-collapse-button p.card-link {
+    color: var(--darkFooterText);
+}
+
 
 .expand-chevron {
     width: 12px;
