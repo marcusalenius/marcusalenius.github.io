@@ -9,6 +9,13 @@
     margin-left: auto;
 }
 
+@media (hover: hover) {
+
+    .expand-collapse-button:hover { filter: brightness(1.2); }
+
+}
+
+
 .expand-collapse-button p.card-link {
     font-weight: 500;
     color: var(--lightFooterText);
@@ -17,8 +24,10 @@
 .expand-chevron {
     width: 12px;
     height: 6px;
+    transition: transform 0.3s;
 }
 
 .expand-chevron.collapse {
-    transform: rotate(180deg);
+    transform: rotate(-180deg);
+    transition: transform 0.3s;
 }
