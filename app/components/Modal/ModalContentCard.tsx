@@ -45,21 +45,23 @@ function ModalContentCard({ projectData }: Props) {
         className="modal-content-card card-region-child"
         individualEffect={false}
       >
-        <h3>{projectData.title}</h3>
-        <p className="paragraph-small">
-          <ReadMore isShowingAll={isShowingAll}>
-            {projectData.description}
-          </ReadMore>
-        </p>
-        {projectData.link && isShowingAll ? (
-          <NavLink href={projectData.link}>
-            <p className="card-link">Learn More</p>
-          </NavLink>
-        ) : null}
-        <ExpandCollapseButton
-          collapse={isShowingAll} // collapse-button if showing all
-          onClick={() => setIsShowingAll(!isShowingAll)}
-        />
+        <div className="modal-content-card-content">
+          <h3>{projectData.title}</h3>
+          <p className="paragraph-small">
+            <ReadMore isShowingAll={isShowingAll}>
+              {projectData.description}
+            </ReadMore>
+          </p>
+          {projectData.link && isShowingAll ? (
+            <NavLink href={projectData.link}>
+              <p className="card-link">Learn More</p>
+            </NavLink>
+          ) : null}
+          <ExpandCollapseButton
+            collapse={isShowingAll} // collapse-button if showing all
+            onClick={() => setIsShowingAll(!isShowingAll)}
+          />
+        </div>
       </Card>
     </div>
   );
