@@ -74,7 +74,7 @@ function ModalContentCard({ projectData }: Props) {
         individualEffect={false}
       >
         <div className="modal-content-card-content">
-          <h3>{projectData.title}</h3>
+          <h4>{projectData.title}</h4>
           <p className="paragraph-small">
             <ReadMore isExpanded={isExpanded}>
               {projectData.description}
