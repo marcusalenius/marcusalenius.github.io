@@ -1,6 +1,5 @@
 .modal-content-card-container {
     position: relative;
-    border: 1px solid red;
 }
 
 .modal-content-card {
@@ -12,8 +11,7 @@
 }
 
 .modal-content-card:has(.read-more:not(.closed)) {
-    border: 1px solid blue;
-    z-index: 1100;
+    z-index: 1200;
 }
 
 .modal-content-card p.paragraph-small {
@@ -21,3 +19,26 @@
     margin-bottom: 6px;
 }
 
+
+
+.modal-cards-container {
+    position: relative;
+}
+
+.modal-cards-overlay {
+    position: absolute;
+    width: 104%;
+    height: 104%;
+    top: -2%;
+    left: -2%;
+    z-index: 1100;
+    background-color: var(--lightBackground);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.modal-cards-container:has(.read-more:not(.closed)) .modal-cards-overlay {
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
