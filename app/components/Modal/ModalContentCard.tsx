@@ -53,11 +53,6 @@ function ModalContentCard({ projectData }: Props) {
             </ReadMore>
           </p>
           <ModalLinks projectData={projectData} />
-          {/* {projectData.link && isShowingAll ? (
-            <NavLink href={projectData.link}>
-              <p className="card-link">Learn More</p>
-            </NavLink>
-          ) : null} */}
           <ExpandCollapseButton
             collapse={isShowingAll} // collapse-button if showing all
             onClick={() => setIsShowingAll(!isShowingAll)}

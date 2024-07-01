@@ -1,7 +1,7 @@
 import "./ActordentifyCard.css";
 
 import Card from "../Card/Card";
-import NavLink from "../NavLink/NavLink";
+import InternalLink from "../Links/InternalLink";
 import Video from "../Media/Video";
 
 type Props = {
@@ -30,9 +30,9 @@ function ActordentifyCard({ cardData }: Props) {
         <div className="frosted-pane">
           <h3>{cardData.title}</h3>
           <p className="paragraph-small">{cardData.subtitle}</p>
-          <NavLink href="">
+          <InternalLink href="">
             <p className="card-link">Learn more</p>
-          </NavLink>
+          </InternalLink>
         </div>
       </div>
     </Card>

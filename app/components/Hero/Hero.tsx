@@ -1,6 +1,6 @@
 import "./Hero.css";
 
-import NavLink from "../NavLink/NavLink";
+import InternalLink from "../Links/InternalLink";
 import HeroCard from "./HeroCard";
 
 type Props = {
@@ -17,9 +17,9 @@ function Hero({ data }: Props) {
           I’m Marcus
         </h1>
         <p className="paragraph-large">{data.brief}</p>
-        <NavLink href="/">
+        <InternalLink href="/">
           <p className="paragraph-large">Learn more about me</p>
-        </NavLink>
+        </InternalLink>
       </div>
       <div id="hero-right">
         <HeroCard />

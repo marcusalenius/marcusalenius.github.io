@@ -1,4 +1,4 @@
-.nav-link {
+.nav-link, .external-link {
     display: flex;
     flex-direction: row;
     align-items: first baseline;
@@ -6,16 +6,18 @@
 }
 @media (hover: hover) {
 
-    .nav-link:hover { filter: brightness(1.1); }
+    .nav-link:hover, .external-link:hover { filter: brightness(1.1); }
 
 }
 
-.nav-link p { 
+.nav-link p, .external-link p { 
     padding-right: 5px;
     color: var(--lightNavLink) !important;
     width: fit-content !important;
 }
-.dark .nav-link p { color: var(--darkNavLink) !important; }
+.dark .nav-link p, .dark .external-link p { 
+    color: var(--darkNavLink) !important; 
+}
 
 p.paragraph-large + .nav-link-chevron {
     width: 5.5px;

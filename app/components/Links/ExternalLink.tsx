@@ -1,4 +1,4 @@
-import "./NavLink.css";
+import "./Links.css";
 
 import Link from "next/link";
 import ThemedImage from "../Media/ThemedImage";
@@ -9,26 +9,26 @@ type Props = {
 };
 
 // If href is an empty string, the component will render a div element instead of a Link element.
-function NavLink({ href, children }: Props) {
+function ExternalLink({ href, children }: Props) {
   const content = (
     <>
       {children}
       <ThemedImage
-        lightSrc="/icons/nav-link-chevron-light-mode.svg"
-        darkSrc="/icons/nav-link-chevron-dark-mode.svg"
+        lightSrc="/icons/external-link-icon-light-mode.svg"
+        darkSrc="/icons/external-link-icon-dark-mode.svg"
         draggable={false}
-        className="nav-link-chevron"
+        className="external-link-ico"
       />
     </>
   );
 
   return href !== "" ? (
-    <Link href={href} className="nav-link">
+    <Link href={href} className="external-link" target="_blank">
       {content}
     </Link>
   ) : (
-    <div className="nav-link">{content}</div>
+    <div className="external-link">{content}</div>
   );
 }
 
-export default NavLink;
+export default ExternalLink;
