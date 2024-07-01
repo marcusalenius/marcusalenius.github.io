@@ -3,6 +3,7 @@
     flex-direction: row;
     align-items: first baseline;
     width: fit-content;
+    user-select: none;
 }
 @media (hover: hover) {
 
@@ -24,7 +25,17 @@ p.paragraph-large + .nav-link-chevron {
     height: 11px;
 }
 
+p.paragraph-large + .external-link-icon {
+    width: 12px;
+    height: 12px;
+}
+
 p.card-link + .nav-link-chevron {
     width: 4.5px;
     height: 9px;
+}
+
+p.card-link + .external-link-icon {
+    width: 10px;
+    height: 10px;
 }

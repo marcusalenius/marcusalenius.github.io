@@ -17,7 +17,7 @@ function ExternalLink({ href, children }: Props) {
         lightSrc="/icons/external-link-icon-light-mode.svg"
         darkSrc="/icons/external-link-icon-dark-mode.svg"
         draggable={false}
-        className="external-link-ico"
+        className="external-link-icon"
       />
     </>
   );
