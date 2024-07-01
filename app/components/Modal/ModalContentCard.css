@@ -4,9 +4,9 @@
 
 .modal-content-card {
     position: absolute;
+    height: auto;
     background-color: var(--lightCard);
     border-radius: 30px;
-    padding: 26px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15), 0px 0px 15px rgba(0, 0, 0, 0.20);
     transition: box-shadow 200ms ease;
 }
@@ -49,6 +49,9 @@
 .modal-content-card-content {
     opacity: 1;
     transition: opacity 0.3s;
+    padding: 26px;
+    z-index: 15;
+    position: relative;
 }
 
 /* when one card is expanded, decrease opacity of card contents of cards after */
@@ -65,6 +68,10 @@
     transition: opacity 0.3s;
 }
 
+.modal-content-card p {
+    margin-left: 0;
+    margin-top: 0;
+}
 
 .modal-content-card p.paragraph-small {
     margin-top: 6px;

@@ -70,7 +70,7 @@ function ModalContentCard({ projectData }: Props) {
       ref={cardContainerRef}
     >
       <Card
-        className="modal-content-card card-region-child"
+        className="card modal-content-card card-region-child"
         individualEffect={false}
       >
         <div className="modal-content-card-content">
