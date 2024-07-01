@@ -1,14 +1,14 @@
 import "./ReadMore.css";
 
 type Props = {
-  isShowingAll: boolean;
+  isExpanded: boolean;
   children: React.ReactNode;
 };
 
-function ReadMore({ isShowingAll, children }: Props) {
+function ReadMore({ isExpanded, children }: Props) {
   return (
     <div className="read-more-container">
-      <span className={isShowingAll ? "read-more" : "read-more closed"}>
+      <span className={isExpanded ? "read-more" : "read-more closed"}>
         {children}
       </span>
     </div>

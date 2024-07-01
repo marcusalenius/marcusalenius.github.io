@@ -16,17 +16,21 @@
 }
 
 /* when one card is expanded, reduce shadows of cards after */
+/* (and disable pointer events) */
 .modal-content-card-container:has(.read-more:not(.closed)) ~ 
 .modal-content-card-container .modal-content-card {
     box-shadow: 0px 0px 4px rgba(204, 204, 204, 0.15), 0px 0px 15px rgba(204, 204, 204, 0.20);
     transition: box-shadow 0.3s;
+    pointer-events: none;
 }
 
 /* when one card is expanded, reduce shadows of cards before */ 
+/* (and disable pointer events) */
 .modal-content-card-container:has(~ .modal-content-card-container .read-more:not(.closed)) 
 .modal-content-card {
     box-shadow: 0px 0px 4px rgba(204, 204, 204, 0.15), 0px 0px 15px rgba(204, 204, 204, 0.20);
     transition: box-shadow 0.3s;
+    pointer-events: none;
 }
 
 /* increase shadow of expanded card */

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import "./ModalContentCard.css";
 
@@ -12,10 +12,43 @@ type Props = {
 };
 
 function ModalContentCard({ projectData }: Props) {
-  const [isShowingAll, setIsShowingAll] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const cardContainerRef = useRef<HTMLDivElement>(null);
+
+  // Hook for click outside (on modal overlay) to close modal
+  useEffect(function mount() {
+    function onClick(event: MouseEvent) {
+      if (!isExpanded) {
+        return;
+      }
+
+      const thisCardContainer = cardContainerRef.current;
+      if (!thisCardContainer) {
+        return;
+      }
+
+      const modalCards = Array.from(
+        document.querySelectorAll(".modal-card")
+      ) as HTMLElement[];
+
+      for (const card of modalCards) {
+        if (
+          card.contains(event.target as HTMLElement) &&
+          !thisCardContainer.contains(event.target as HTMLElement)
+        ) {
+          setIsExpanded(!isExpanded);
+        }
+      }
+    }
+
+    document.addEventListener("click", onClick);
+
+    return function unMount() {
+      document.removeEventListener("click", onClick);
+    };
+  });
 
   // Set container height to height of card when collapsed
-
   function getCollapsedCardHeight() {
     const cards = Array.from(
       document.querySelectorAll(".modal-content-card")
@@ -36,11 +69,15 @@ function ModalContentCard({ projectData }: Props) {
   const cardHeight = getCollapsedCardHeight();
 
   const style = {
-    height: isShowingAll && cardHeight !== -1 ? "auto" : `${cardHeight}px`,
+    height: isExpanded && cardHeight !== -1 ? "auto" : `${cardHeight}px`,
   };
 
   return (
-    <div className="modal-content-card-container" style={style}>
+    <div
+      className="modal-content-card-container"
+      style={style}
+      ref={cardContainerRef}
+    >
       <Card
         className="modal-content-card card-region-child"
         individualEffect={false}
@@ -48,14 +85,14 @@ function ModalContentCard({ projectData }: Props) {
         <div className="modal-content-card-content">
           <h3>{projectData.title}</h3>
           <p className="paragraph-small">
-            <ReadMore isShowingAll={isShowingAll}>
+            <ReadMore isExpanded={isExpanded}>
               {projectData.description}
             </ReadMore>
           </p>
           <ModalLinks projectData={projectData} />
           <ExpandCollapseButton
-            collapse={isShowingAll} // collapse-button if showing all
-            onClick={() => setIsShowingAll(!isShowingAll)}
+            collapse={isExpanded} // collapse-button if showing all
+            onClick={() => setIsExpanded(!isExpanded)}
           />
         </div>
       </Card>
