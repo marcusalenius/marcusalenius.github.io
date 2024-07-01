@@ -27,17 +27,8 @@ function ModalContentCard({ projectData }: Props) {
         return;
       }
 
-      const modalCards = Array.from(
-        document.querySelectorAll(".modal-card")
-      ) as HTMLElement[];
-
-      for (const card of modalCards) {
-        if (
-          card.contains(event.target as HTMLElement) &&
-          !thisCardContainer.contains(event.target as HTMLElement)
-        ) {
-          setIsExpanded(!isExpanded);
-        }
+      if (!thisCardContainer.contains(event.target as HTMLElement)) {
+        setIsExpanded(false);
       }
     }
 
