@@ -109,6 +109,10 @@ nav {
         padding-bottom: 8px;
     }
 
+    .modal-card {
+        min-height: calc(100vh - 60px - 8px); /* minus padding top and bottom */
+    }
+
     .modal-content { width: 679px; }
 
 }
@@ -122,6 +126,16 @@ nav {
 
 /* iPhone Plus */
 @media (max-width: 666px) {
+
+    .modal-overlay {
+        padding-left: 2px;
+        padding-right: 2px;
+        padding-bottom: 2px;
+    }
+
+    .modal-card {
+        min-height: calc(100vh - 60px - 2px); /* minus padding top and bottom */
+    }
 
     .modal-content { width: 394px; }
 
