@@ -60,7 +60,7 @@ function ModalContentCard({ projectData }: Props) {
   const cardHeight = getCollapsedCardHeight();
 
   const style = {
-    height: isExpanded && cardHeight !== -1 ? "auto" : `${cardHeight}px`,
+    height: cardHeight === -1 ? "auto" : `${cardHeight}px`,
   };
 
   return (
@@ -85,7 +85,7 @@ function ModalContentCard({ projectData }: Props) {
           </p>
           <ModalLinks projectData={projectData} />
           <ExpandCollapseButton
-            collapse={isExpanded} // collapse-button if showing all
+            collapse={isExpanded} // collapse-button if expanded
             onClick={() => setIsExpanded(!isExpanded)}
           />
         </div>

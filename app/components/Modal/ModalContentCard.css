@@ -1,5 +1,6 @@
 .modal-content-card-container {
     position: relative;
+    border: 1px solid red;
 }
 
 .modal-content-card {
