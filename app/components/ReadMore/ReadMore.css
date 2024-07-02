@@ -44,3 +44,12 @@
         -webkit-line-clamp: 5;
     }
 }
+
+/* iPhone Plus */
+@media (max-width: 666px) {
+
+    .read-more-container:has(.read-more.closed) {
+        max-height: 105px;
+    }
+
+}
