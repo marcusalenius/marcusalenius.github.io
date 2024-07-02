@@ -11,7 +11,9 @@ function ModalContent({ categoryData }: Props) {
       <h2>{categoryData.title} Projects</h2>
       <CardRegion className="card-layout">
         {categoryData.projects.map((projectData: { [key: string]: any }) => {
-          return <ModalContentCard projectData={projectData} />;
+          return (
+            <ModalContentCard projectData={projectData} key={projectData.id} />
+          );
         })}
       </CardRegion>
     </div>

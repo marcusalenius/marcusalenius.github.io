@@ -7,11 +7,11 @@ type Props = {
 
 function ReadMore({ isExpanded, children }: Props) {
   return (
-    <div className="read-more-container">
+    <p className="paragraph-small read-more-container">
       <span className={isExpanded ? "read-more" : "read-more closed"}>
         {children}
       </span>
-    </div>
+    </p>
   );
 }
 
