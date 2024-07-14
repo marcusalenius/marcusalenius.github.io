@@ -2,6 +2,18 @@
     "firstName": "Marcus",
     "lastName": "Alenius",
     "brief": "I’m a junior at Carnegie Mellon University, where I am studying Artificial Intelligence. I have a deep passion for building innovative solutions and teaching others. My primary interests lie in machine learning, natural language processing, and software engineering.",
+    "heroButtons" : [
+        {
+            "id": 0,
+            "type": "contact",
+            "text": "Contact and Links"
+        },
+        {
+            "id": 1,
+            "type": "about",
+            "text": "More About Me"
+        }
+    ],
     "locations": [
         {
             "name": "Pittsburgh, PA",

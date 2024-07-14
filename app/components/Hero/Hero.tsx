@@ -1,6 +1,7 @@
 import "./Hero.css";
 
-import InternalLink from "../Links/InternalLink";
+import CardRegion from "../Card/CardRegion";
+import HeroButton from "./HeroButton";
 import HeroCard from "./HeroCard";
 
 type Props = {
@@ -17,9 +18,11 @@ function Hero({ data }: Props) {
           I’m Marcus
         </h1>
         <p className="paragraph-large">{data.brief}</p>
-        <InternalLink href="/">
-          <p className="paragraph-large">Learn more about me</p>
-        </InternalLink>
+        <div id="hero-buttons-container">
+          {data.heroButtons.map((buttonData: { [key: string]: any }) => {
+            return <HeroButton buttonData={buttonData} key={buttonData.id} />;
+          })}
+        </div>
       </div>
       <div id="hero-right">
         <HeroCard />
