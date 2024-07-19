@@ -9,7 +9,11 @@ type Props = {
 
 function HeroButton({ buttonData }: Props) {
   return (
-    <Card className="card hero-button card-region-child" tabIndex={0}>
+    <Card
+      className="card hero-button card-region-child"
+      tabIndex={0}
+      individualEffect={false}
+    >
       <div className="hero-button-content">
         <div className="button-text">{buttonData.text}</div>
         <PlusCrossButton />

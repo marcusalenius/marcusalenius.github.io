@@ -18,11 +18,11 @@ function Hero({ data }: Props) {
           I’m Marcus
         </h1>
         <p className="paragraph-large">{data.brief}</p>
-        <div id="hero-buttons-container">
+        <CardRegion id="hero-buttons-container">
           {data.heroButtons.map((buttonData: { [key: string]: any }) => {
             return <HeroButton buttonData={buttonData} key={buttonData.id} />;
           })}
-        </div>
+        </CardRegion>
       </div>
       <div id="hero-right">
         <HeroCard />

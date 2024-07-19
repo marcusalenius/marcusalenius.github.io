@@ -70,7 +70,7 @@
 /* background hover element, only in dark mode */
 .dark .category-card .card-border {
     background: radial-gradient(
-        circle 150px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.7), 
+        circle 200px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.7), 
         transparent 40%
     );
     z-index: 9;
