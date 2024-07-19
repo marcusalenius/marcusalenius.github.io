@@ -30,6 +30,24 @@
 
 }
 
+/* foreground hover element, dark mode */
+.dark .hero-button::after {
+    background: radial-gradient(
+        circle 200px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.02), 
+        transparent 40%
+    );
+    z-index: 20;
+}
+
+/* foreground hover element, light mode */
+.hero-button::after {
+    background: radial-gradient(
+        circle 200px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.2), 
+        transparent 40%
+    );
+    z-index: 20;
+}
+
 /* background hover element, only in dark mode */
 .dark .hero-button .card-border {
     opacity: 1;
