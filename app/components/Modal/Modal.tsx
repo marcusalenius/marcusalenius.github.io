@@ -6,12 +6,12 @@ import PlusCrossButton from "../PlusCrossButton/PlusCrossButton";
 import ModalContent from "./ModalContent";
 
 type Props = {
-  categoryData: { [key: string]: any };
+  modalData: { [key: string]: any };
   isModalOpen: boolean;
   setIsModalOpen: (arg: boolean) => void;
 };
 
-function Modal({ categoryData, isModalOpen, setIsModalOpen }: Props) {
+function Modal({ modalData, isModalOpen, setIsModalOpen }: Props) {
   // Hook for click outside (on modal overlay) to close modal
   useEffect(function mount() {
     function onClick(event: MouseEvent) {
@@ -37,7 +37,7 @@ function Modal({ categoryData, isModalOpen, setIsModalOpen }: Props) {
     };
   });
 
-  const titleLowerDashed = categoryData.title.toLowerCase().replace(" ", "-");
+  const titleLowerDashed = modalData.title.toLowerCase().replace(" ", "-");
   return (
     <div
       className={isModalOpen ? "modal-overlay" : "modal-overlay hidden"}
@@ -48,7 +48,7 @@ function Modal({ categoryData, isModalOpen, setIsModalOpen }: Props) {
           cross={true}
           onClick={() => setIsModalOpen(!isModalOpen)}
         />
-        <ModalContent categoryData={categoryData} />
+        <ModalContent modalData={modalData} />
       </div>
     </div>
   );

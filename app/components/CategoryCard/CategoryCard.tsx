@@ -28,7 +28,7 @@ function CategoryCard({ categoryData }: Props) {
         </div>
       </Card>
       <Modal
-        categoryData={categoryData}
+        modalData={categoryData}
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
       />

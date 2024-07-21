@@ -6,12 +6,19 @@
         {
             "id": 0,
             "type": "contact",
-            "text": "Contact and Links"
+            "text": "Contact and Links",
+            "modal" : {
+                "title": "Contact and Links",
+                "email": "alenius@cmue.edu"
+            }
         },
         {
             "id": 1,
             "type": "about",
-            "text": "More About Me"
+            "text": "More About Me",
+            "modal" : {
+                "title": "About Me"
+            }
         }
     ],
     "locations": [

@@ -29,10 +29,7 @@ function HeroButton({ buttonData }: Props) {
         </div>
       </Card>
       <Modal
-        categoryData={{
-          title: "AI/ML",
-          projects: [],
-        }}
+        modalData={buttonData.modal}
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
       />
