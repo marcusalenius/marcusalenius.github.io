@@ -9,3 +9,7 @@
 .contact-link a:hover p {
     color: var(--lightFooterText);
 }
+
+.dark .contact-link a:hover p {
+    color: var(--darkFooterText);
+}
