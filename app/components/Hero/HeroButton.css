@@ -50,12 +50,17 @@
 
 /* background hover element, only in dark mode */
 .dark .hero-button .card-border {
-    opacity: 1;
     background: radial-gradient(
         circle 100px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.7), 
         transparent 40%
     );
     z-index: 9;
+}
+
+@media (hover: hover) {
+    #hero-buttons-container:hover .hero-button .card-border {
+        opacity: 1;
+    }
 }
 
 
