@@ -87,3 +87,44 @@
     width: 18px;
     height: 18px;
 }
+
+/* iPad 13" Portrait */
+@media (max-width: 1008px) {
+
+    .hero-button-content {
+        gap: 10px;
+    } 
+
+}
+
+/* iPad 11" Portrait */
+@media (max-width: 873px) {
+
+    #hero-buttons-container {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .hero-button {
+        width: 60%;
+    }
+    
+}
+
+/* iPad Mini Portrait */
+@media (max-width: 747px) {
+
+    .hero-button {
+        width: 65%;
+    }
+
+}
+
+/* iPhone Plus */
+@media (max-width: 666px) {
+
+    .hero-button {
+        width: 100%;
+    }
+
+}
