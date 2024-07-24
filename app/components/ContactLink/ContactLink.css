@@ -1,0 +1,11 @@
+.contact-link {
+    margin-top: 34px;
+}
+
+.contact-link p {
+    margin-top: 2px !important;
+}
+
+.contact-link a:hover p {
+    color: var(--lightFooterText);
+}

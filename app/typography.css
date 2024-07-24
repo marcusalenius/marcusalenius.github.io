@@ -118,7 +118,6 @@ p.small-header {
     color: var(--lightBodyText);
 }
 
-
 a { color: var(--lightFooterText); }
 
 .dark a { color: var(--darkFooterText); }

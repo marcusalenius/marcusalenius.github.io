@@ -1,5 +1,6 @@
 import CardRegion from "../Card/CardRegion";
 import ModalContentCard from "./ModalContentCard";
+import ContactLink from "../ContactLink/ContactLink";
 
 type Props = {
   modalData: { [key: string]: any };
@@ -11,14 +12,7 @@ function ModalContent({ modalData }: Props) {
       <div className="modal-content">
         <h2>{modalData.title}</h2>
         {modalData.content.map((contentData: { [key: string]: any }) => {
-          return (
-            <div className="contact-link" key={contentData.id}>
-              <p className="small-header">{contentData.title.toUpperCase()}</p>
-              <a href={contentData.link} target="_blank">
-                <p className="paragraph-large">{contentData.text}</p>
-              </a>
-            </div>
-          );
+          return <ContactLink contactData={contentData} key={contentData.id} />;
         })}
       </div>
     );
