@@ -109,6 +109,16 @@ p.card-link {
     z-index: 15;
 }
 
+p.small-header {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    z-index: 15;
+    color: var(--lightBodyText);
+}
+
+
 a { color: var(--lightFooterText); }
 
 .dark a { color: var(--darkFooterText); }

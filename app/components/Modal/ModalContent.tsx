@@ -10,6 +10,16 @@ function ModalContent({ modalData }: Props) {
     return (
       <div className="modal-content">
         <h2>{modalData.title}</h2>
+        {modalData.content.map((contentData: { [key: string]: any }) => {
+          return (
+            <div className="contact-link" key={contentData.id}>
+              <p className="small-header">{contentData.title.toUpperCase()}</p>
+              <a href={contentData.link} target="_blank">
+                <p className="paragraph-large">{contentData.text}</p>
+              </a>
+            </div>
+          );
+        })}
       </div>
     );
   } else if (modalData.title === "About Me") {
