@@ -70,12 +70,13 @@ body:has(.modal-overlay:not(.hidden)) {
 }
 
 body:has(.modal-overlay:not(.hidden)) nav {
-    top: -100px;
-    transition: top 0.5s;
+    /* transform because setting top: -100px didn't work scrolled to top */
+    transform: translateY(-100px);
+    transition: transform 0.5s;
 }
 
 nav {
-    transition: top 0.5s;
+    transition: transform 0.5s;
 }
 
 .modal-content {

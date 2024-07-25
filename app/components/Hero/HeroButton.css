@@ -102,7 +102,7 @@
 
     #hero-buttons-container {
         flex-wrap: wrap;
-        gap: 12px;
+        gap: 18px;
     }
 
     .hero-button {

@@ -5,7 +5,7 @@
     min-height: 522px;
     max-height: 640px;
     align-items: center;
-    padding-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 #hero-left { width: 559px; }
@@ -84,8 +84,7 @@
         height: fit-content;
         align-items: center;
         flex-direction: column;
-        transform: translateY(-50px);
-        margin-bottom: 0;
+        margin-bottom: 80px;
     }
     
     #hero-left { width: 100%; }
@@ -94,7 +93,7 @@
         display: none;
     }
 
-    #hero h1 { margin-top: 100px; }
+    #hero h1 { margin-top: 50px; }
 
 }
 

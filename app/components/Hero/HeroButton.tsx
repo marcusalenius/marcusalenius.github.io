@@ -19,7 +19,6 @@ function HeroButton({ buttonData }: Props) {
     <>
       <Card
         className="card hero-button card-region-child"
-        tabIndex={0}
         individualEffect={false}
         onClick={() => setIsModalOpen(!isModalOpen)}
       >
