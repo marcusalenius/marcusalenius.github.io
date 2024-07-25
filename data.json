@@ -132,7 +132,22 @@
     },
     "Publications": {
       "id": 1,
-      "cards": []
+      "cards": [
+        {
+          "title": "CRScore: Grounding the Evaluation of Code Review Comments in Code Claims and Smells",
+          "authors": "Atharva Naik & Marcus Alenius",
+          "conference": "Conference",
+          "year": "2024",
+          "link": ""
+        },
+        {
+          "title": "Community College Information Technology Education: Curriculum Mapping, a Learning Science Framework, and AI Learning Technologies",
+          "authors": "Bruce McLaren, Lauren Herckis, Leah Teffera, Lee Branstetter, Carolyn Rose, Majd Sakr, Matthew Kisow, Reis Reis, Michael Rinsem, Marcus Alenius, & Lex Miller",
+          "conference": "American Educational Research Association",
+          "year": "2024",
+          "link": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fOZk6agAAAAJ&citation_for_view=fOZk6agAAAAJ:u5HHmVD_uO8C"
+        }
+      ]
     },
     "Experience": {
       "id": 2,

@@ -1,7 +1,7 @@
 import CardRegion from "../Card/CardRegion";
 import ActordentifyCard from "../CustomCards/ActordentifyCard";
 import CategoryCard from "../CategoryCard/CategoryCard";
-import Modal from "../Modal/Modal";
+import PublicationCard from "../PublicationCard/PublicationCard";
 
 type Props = {
   sectionData: { [key: string]: any };
@@ -9,7 +9,7 @@ type Props = {
 };
 
 function Section({ sectionData, name }: Props) {
-  const cardMap: { [key: string]: any } = {
+  const customCardMap: { [key: string]: any } = {
     Actordentify: ActordentifyCard,
   };
 
@@ -18,8 +18,14 @@ function Section({ sectionData, name }: Props) {
       <h2>{name}</h2>
       <CardRegion className="card-layout">
         {sectionData.cards.map((cardData: { [key: string]: any }) => {
-          const ThisCard = cardMap[cardData.title];
-          return <ThisCard cardData={cardData} />;
+          if (name === "Projects") {
+            const ThisCard = customCardMap[cardData.title];
+            return <ThisCard cardData={cardData} />;
+          } else if (name === "Publications") {
+            return <PublicationCard cardData={cardData} />;
+          } else if (name === "Experience") {
+            return null;
+          }
         })}
         {sectionData.categories
           ? sectionData.categories.map(
