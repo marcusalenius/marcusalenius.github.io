@@ -5,6 +5,7 @@
     align-items: first baseline;
     width: fit-content;
     user-select: none;
+    cursor: pointer;
 }
 @media (hover: hover) {
 

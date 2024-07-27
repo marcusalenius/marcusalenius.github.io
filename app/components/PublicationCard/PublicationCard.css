@@ -1,6 +1,7 @@
 .publication-card {
     height: 296px;
     padding-right: 36px;
+    cursor: auto;
 }
 
 .publication-card p.paragraph-small {
