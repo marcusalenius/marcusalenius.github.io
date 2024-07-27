@@ -2,13 +2,13 @@ import "../typography.css";
 
 import data from "../../data.json";
 
-import PostContainer from "../components/PostPage/PostContainer";
+import Post from "../components/PostPage/Post";
 import Footer from "../components/Footer/Footer";
 
 function Home() {
   return (
     <>
-      <PostContainer data={data} />
+      <Post postData={data.posts.actordentify} />
       <Footer />
     </>
   );

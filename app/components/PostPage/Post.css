@@ -1,0 +1,35 @@
+.post {
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 60px;
+    margin-bottom: 90px;
+}
+
+.post-image {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 45px;
+    z-index: 10;
+}
+
+.post h2 {
+    position: relative;
+    z-index: 11;
+}
+
+/* Post intro */
+
+.post-intro p.paragraph-small {
+    color: var(--lightText);
+}
+
+.dark .post-intro p.paragraph-small {
+    color: var(--darkText);
+}
+
+
+/* Actordentify */
+
+#actordentify-hero {
+    width: 100%;
+}
