@@ -19,7 +19,8 @@
     font-weight: 400;
 }
 
-.publication-card .external-link {
+.publication-card .external-link,
+.publication-card .external-link img {
     z-index: 15;
 }
 
