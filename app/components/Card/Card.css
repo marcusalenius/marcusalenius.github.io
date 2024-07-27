@@ -47,13 +47,13 @@ a.card {
 
 .card {
     background: var(--lightCard);
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25), 0px 0px 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.08), 0px 0px 20px rgba(0, 0, 0, 0.1);
     transition: scale 200ms ease, box-shadow 200ms ease; /* transition for hover */
 }
 
 @media (hover: hover) {
     .card:hover {
-        box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.25), 0px 0px 32px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.08), 0px 0px 32px rgba(0, 0, 0, 0.1);
         scale: 1.0005;
         transition: scale 200ms ease, box-shadow 200ms ease;
     }

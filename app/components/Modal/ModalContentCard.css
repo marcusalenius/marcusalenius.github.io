@@ -8,13 +8,13 @@
     background-color: var(--lightCard);
     border-radius: 30px;
     cursor: auto;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15), 0px 0px 15px rgba(0, 0, 0, 0.20);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.08), 0px 0px 15px rgba(0, 0, 0, 0.1);
     transition: box-shadow 200ms ease;
 }
 
 @media (hover: hover) {
     .modal-content-card:hover {
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1), 0px 0px 30px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.08), 0px 0px 30px rgba(0, 0, 0, 0.1);
         transition: box-shadow 200ms ease;
     }
 
