@@ -1,8 +1,4 @@
-"use client";
-
 import "./HeroButton.css";
-
-import { useState } from "react";
 
 import Card from "../Card/Card";
 import PlusCrossButton from "../PlusCrossButton/PlusCrossButton";
@@ -10,11 +6,11 @@ import Modal from "../Modal/Modal";
 
 type Props = {
   buttonData: { [key: string]: any };
+  isModalOpen: boolean;
+  setIsModalOpen: (arg: boolean) => void;
 };
 
-function HeroButton({ buttonData }: Props) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
+function HeroButton({ buttonData, isModalOpen, setIsModalOpen }: Props) {
   return (
     <>
       <Card

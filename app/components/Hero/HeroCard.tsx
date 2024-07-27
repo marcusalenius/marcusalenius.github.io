@@ -1,8 +1,13 @@
 import Card from "../Card/Card";
 
-function HeroCard() {
+type Props = {
+  isModalOpen: boolean;
+  setIsModalOpen: (arg: boolean) => void;
+};
+
+function HeroCard({ isModalOpen, setIsModalOpen }: Props) {
   return (
-    <Card id="hero-card" href="https://www.google.com/">
+    <Card id="hero-card" onClick={() => setIsModalOpen(!isModalOpen)}>
       <img
         src="/images/hero-image.jpg"
         id="hero-image"

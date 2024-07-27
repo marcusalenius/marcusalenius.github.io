@@ -1,4 +1,8 @@
+"use client";
+
 import "./Hero.css";
+
+import { useState } from "react";
 
 import CardRegion from "../Card/CardRegion";
 import HeroButton from "./HeroButton";
@@ -9,6 +13,9 @@ type Props = {
 };
 
 function Hero({ data }: Props) {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
+
   return (
     <div id="hero">
       <div id="hero-left">
@@ -20,12 +27,28 @@ function Hero({ data }: Props) {
         <p className="paragraph-large">{data.brief}</p>
         <CardRegion id="hero-buttons-container">
           {data.heroButtons.map((buttonData: { [key: string]: any }) => {
-            return <HeroButton buttonData={buttonData} key={buttonData.id} />;
+            return (
+              <HeroButton
+                buttonData={buttonData}
+                isModalOpen={
+                  buttonData.id === 0 ? isContactModalOpen : isAboutModalOpen
+                }
+                setIsModalOpen={
+                  buttonData.id === 0
+                    ? setIsContactModalOpen
+                    : setIsAboutModalOpen
+                }
+                key={buttonData.id}
+              />
+            );
           })}
         </CardRegion>
       </div>
       <div id="hero-right">
-        <HeroCard />
+        <HeroCard
+          isModalOpen={isAboutModalOpen}
+          setIsModalOpen={setIsAboutModalOpen}
+        />
       </div>
     </div>
   );
