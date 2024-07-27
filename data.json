@@ -151,7 +151,36 @@
     },
     "Experience": {
       "id": 2,
-      "cards": []
+      "cards": [
+        {
+          "title": "Head Teaching Assistant",
+          "organization": "15-112 Fundamentals of CS, CMU",
+          "start": "August 2023",
+          "end": "Present",
+          "location": "Pittsburgh, PA"
+        },
+        {
+          "title": "Software Engineering Intern",
+          "organization": "Höganäs Borgestad",
+          "start": "June 2024",
+          "end": "August 2024",
+          "location": "Gävle, Sweden"
+        },
+        {
+          "title": "Research Assistant",
+          "organization": "Language Technologies Institute, CMU",
+          "start": "May 2024",
+          "end": "August 2024",
+          "location": "Remote"
+        },
+        {
+          "title": "Software Engineering Intern",
+          "organization": "McLearn Lab, HCII CMU",
+          "start": "May 2023",
+          "end": "August 2023",
+          "location": "Pittsburgh, PA"
+        }
+      ]
     }
   }
 }

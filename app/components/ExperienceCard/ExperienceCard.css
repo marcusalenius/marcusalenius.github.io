@@ -1,0 +1,53 @@
+.experience-card {
+    height: 166px;
+    padding-right: 36px;
+}
+
+/* iPad 11" Landscape */
+@media (max-width: 1080px) {
+
+    .experience-card {
+        height: 198px;
+    }
+
+}
+
+/* iPad 13" Portrait */
+@media (max-width: 1008px) {
+
+    .experience-card {
+        height: 190px;
+        padding-right: 30px;
+    }
+
+}
+
+/* iPad 11" Portrait */
+@media (max-width: 873px) {
+
+    .experience-card {
+        height: 200px;
+        padding-right: 28px;
+    }
+
+}
+
+/* iPad Mini Portrait */
+@media (max-width: 747px) {
+
+    .experience-card {
+        height: 194px;
+        padding-right: 24px;
+    }
+
+}
+
+/* iPhone Plus */
+@media (max-width: 666px) {
+
+    .experience-card {
+        height: fit-content;
+        padding-bottom: 27px;
+    }
+
+}

@@ -2,6 +2,7 @@ import CardRegion from "../Card/CardRegion";
 import ActordentifyCard from "../CustomCards/ActordentifyCard";
 import CategoryCard from "../CategoryCard/CategoryCard";
 import PublicationCard from "../PublicationCard/PublicationCard";
+import ExperienceCard from "../ExperienceCard/ExperienceCard";
 
 type Props = {
   sectionData: { [key: string]: any };
@@ -24,7 +25,7 @@ function Section({ sectionData, name }: Props) {
           } else if (name === "Publications") {
             return <PublicationCard cardData={cardData} />;
           } else if (name === "Experience") {
-            return null;
+            return <ExperienceCard cardData={cardData} />;
           }
         })}
         {sectionData.categories

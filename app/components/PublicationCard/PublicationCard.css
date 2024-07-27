@@ -79,14 +79,12 @@
 @media (max-width: 666px) {
 
     .publication-card {
-        height: 296px;
-        padding-right: 26px;
+        height: fit-content;
+        padding-bottom: 27px;
     }
 
     .publication-card p.paragraph-small {
         margin-top: 29px;
     }
-
-
 
 }
