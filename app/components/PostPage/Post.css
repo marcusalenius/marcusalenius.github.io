@@ -19,7 +19,10 @@
 
 /* Post intro */
 
-.post-intro { margin-top: 12px; }
+.post-intro p.paragraph-small { 
+    margin-top: 12px; 
+    margin-bottom: 8px;
+}
 
 .post-intro p.paragraph-small {
     line-height: 24px;
@@ -39,6 +42,14 @@
     color: var(--darkFooterText);
 }
 
+iframe {
+    border: none;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin-top: 30px;
+}
+
+
 /* Post body */
 
 .post-body h3 {
@@ -53,7 +64,7 @@
 .body-image {
     position: relative;
     width: fit-content;
-    margin: 40px auto;
+    margin: 30px auto;
 }
 
 .body-image-side-by-side {
@@ -75,6 +86,30 @@
     width: 440px;
     margin-top: 14px;
 }
+
+blockquote {
+    margin-left: 4px;
+    padding-left: 14px;
+    border-left: 1px solid var(--lightBodyText);
+}
+   
+.dark blockquote {
+    border-left: 1px solid var(--darkBodyText);
+}
+
+.post ol, ul { margin-left: 28px; }
+
+.post li { padding-left: 8px; }
+
+.light-mode .post li::marker { color: var(--lightBodyText); }
+
+.dark-mode .post li::marker { color: var(--darkBodyText); }
+
+.post li { margin-top: 6px; }
+
+.post li:first-child { margin-top: 11px; }
+
+
 
 
 
@@ -104,17 +139,43 @@
     box-shadow: none;
 }
 
+/* Kenboard */
 
-/* iPhone 14 Plus */
-@media (max-width: 740px) {
+#kenboard-naive-approach { width: 60%; }
+
+#kenboard-letter-combinations { width: 85%; }
+
+#kenboard-pattern-skew { width: 95%; }
+
+#kenboard-naive-approach,
+#kenboard-letter-combinations,
+#kenboard-pattern-skew {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.03);
+}
+
+.dark #kenboard-naive-approach,
+.dark #kenboard-letter-combinations,
+.dark #kenboard-pattern-skew {
+    box-shadow: none;
+}
+
+
+
+/* iPhone Plus */
+@media (max-width: 666px) {
 
     .post {  width: 100%;  }
 
     .body-image .image-text { width: 360px; }
 
+    #kenboard-naive-approach { width: 80%; }
+
+    #kenboard-letter-combinations { width: 95%; }
+
+
 }
 
-/* iPhone 14 */
+/* iPhone */
 @media (max-width: 424px) {
 
     .post { width: 340px; }

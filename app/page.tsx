@@ -10,7 +10,7 @@ import Footer from "./components/Footer/Footer";
 
 export const metadata: Metadata = {};
 
-function Home() {
+function HomePage() {
   return (
     <>
       <Nav data={data} homePage={true} />
@@ -20,4 +20,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomePage;

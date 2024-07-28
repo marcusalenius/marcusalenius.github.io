@@ -193,7 +193,16 @@
       "links" : {
         "github_link": "https://github.com/rwelgosh/ActorRecognizer"
       },
+      "youtube_link": null,
       "markdown": "actordentify.md"
+    },
+    "kenboard": {
+      "title": "Kenboard",
+      "intro": "A virtual keyboard with a custom typing error correction system. My term project for Carnegie Mellon's 15-112 Fundamentals of Programming and Computer Science. Written in Python using the Kivy app development framework.",
+      "date": "April 2023",
+      "links": null,
+      "youtube_link": "https://www.youtube.com/embed/GL7kLWBDsWU",
+      "markdown": "kenboard.md"
     }
   }
 }

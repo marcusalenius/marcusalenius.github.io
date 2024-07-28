@@ -13,7 +13,7 @@ function Post({ postData }: Props) {
     <div id="container">
       <div className="post">
         <div className="post-image">
-          {postData.image_type === "image" ? (
+          {/* {postData.image_type === "image" ? (
             <img
               src={`images/${postData.image}`}
               alt=""
@@ -24,16 +24,25 @@ function Post({ postData }: Props) {
               src={`videos/${postData.image}`}
               id={postData.image.split(".")[0]}
             />
-          )}
+          )} */}
         </div>
         <h2>{postData.title}</h2>
         <div className="post-intro">
           <p className="paragraph-small">{postData.intro}</p>
+          {postData.links ? <PostLinks postLinkData={postData.links} /> : null}
+          <div className="post-date">
+            <p>{postData.date}</p>
+          </div>
+          {postData.youtube_link ? (
+            <iframe
+              src="https://www.youtube.com/embed/GL7kLWBDsWU"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          ) : null}
         </div>
-        {postData.links ? <PostLinks postLinkData={postData.links} /> : null}
-        <div className="post-date">
-          <p>{postData.date}</p>
-        </div>
+
         <PostBody markdown={postData.markdown} />
       </div>
     </div>
