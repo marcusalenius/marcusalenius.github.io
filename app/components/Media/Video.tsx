@@ -47,6 +47,8 @@ function Video({
     }
 
     window.addEventListener("scroll", onScroll);
+    // in case video in viewport on page load
+    onScroll();
 
     return function unMount() {
       window.removeEventListener("scroll", onScroll);
