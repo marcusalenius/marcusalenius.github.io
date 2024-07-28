@@ -1,6 +1,7 @@
 import CardRegion from "../Card/CardRegion";
 import ModalContentCard from "./ModalContentCard";
 import ContactLink from "../ContactLink/ContactLink";
+import AboutMeModal from "./AboutMeModal";
 
 type Props = {
   modalData: { [key: string]: any };
@@ -18,9 +19,10 @@ function ModalContent({ modalData }: Props) {
     );
   } else if (modalData.title === "About Me") {
     return (
-      <div className="modal-content">
-        <h2>{modalData.title}</h2>
-      </div>
+      <AboutMeModal modalData={modalData} />
+      // <div className="modal-content">
+      //   <h2>{modalData.title}</h2>
+      // </div>
     );
   } else {
     return (

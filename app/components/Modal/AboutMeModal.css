@@ -1,0 +1,35 @@
+.about-me-row {
+    display: grid;
+    grid-gap: 20px;
+    margin-top: 20px;
+}
+
+.about-me-row:not(:first-child) {
+    margin-top: 80px;
+}
+
+.about-me-row:nth-child(even) {
+    grid-template-columns: 2fr 1fr;
+}
+
+.about-me-row:nth-child(odd) {
+    grid-template-columns: 1fr 2fr;
+}
+
+
+.about-me-text {
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-me-text p.paragraph-small {
+    line-height: 25px;
+}
+
+.about-me-image {
+    border-radius: 25px;
+    border: 2px solid blue;
+    height: 380px;
+}

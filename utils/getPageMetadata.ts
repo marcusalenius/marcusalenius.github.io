@@ -2,7 +2,7 @@ function getPageMetadata(
   data: { [key: string]: any },
   page: string
 ): { [key: string]: any } {
-  const title = `${data.firstName} ${data.lastName} — ${
+  const title = `Marcus Alenius — ${
     page.charAt(0).toUpperCase() + page.slice(1)
   }`;
   const description = data.posts[page].intro;
