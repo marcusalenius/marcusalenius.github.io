@@ -9,12 +9,13 @@ type Props = {
 };
 
 function ActordentifyCard({ cardData }: Props) {
+  const actordentifyPostLink = "/actordentify";
   return (
     <Card
       className="card card-region-child"
       id="actordentify-card"
       individualEffect={false}
-      href="https://google.com/"
+      href={actordentifyPostLink}
     >
       <div className="card-images">
         <Video
@@ -30,7 +31,7 @@ function ActordentifyCard({ cardData }: Props) {
         <div className="frosted-pane">
           <h3>{cardData.title}</h3>
           <p className="paragraph-small">{cardData.subtitle}</p>
-          <InternalLink href="">
+          <InternalLink href={actordentifyPostLink}>
             <p className="card-link">Learn more</p>
           </InternalLink>
         </div>
