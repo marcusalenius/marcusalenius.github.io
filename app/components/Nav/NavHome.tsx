@@ -3,12 +3,21 @@ import "./NavHome.css";
 import Image from "next/image";
 import Card from "../Card/Card";
 
-function NavHome() {
+type Props = {
+  homePage: boolean;
+};
+
+function NavHome({ homePage }: Props) {
   return (
     <Card
       id="navbutton-home"
       tabIndex={0}
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      href={homePage ? "" : "/"}
+      onClick={
+        homePage
+          ? () => window.scrollTo({ top: 0, behavior: "smooth" })
+          : () => {}
+      }
     >
       <Image
         src="/images/navbar-headshot.png"

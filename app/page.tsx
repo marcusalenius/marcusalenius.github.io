@@ -9,7 +9,7 @@ import Footer from "./components/Footer/Footer";
 function Home() {
   return (
     <>
-      <Nav data={data} />
+      <Nav data={data} homePage={true} />
       <HomeContainer data={data} />
       <Footer />
     </>

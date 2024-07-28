@@ -8,14 +8,15 @@ import NavRight from "./NavRight";
 
 type Props = {
   data: { [key: string]: any };
+  homePage: boolean;
 };
 
-function Nav({ data }: Props) {
+function Nav({ data, homePage }: Props) {
   return (
     <nav>
-      <NavHome />
-      <NavMobile data={data} />
-      <NavRight data={data} />
+      <NavHome homePage={homePage} />
+      {homePage ? <NavMobile data={data} /> : null}
+      <NavRight data={data} homePage={homePage} />
     </nav>
   );
 }

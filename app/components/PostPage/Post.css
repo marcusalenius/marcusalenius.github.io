@@ -22,6 +22,7 @@
 .post-intro { margin-top: 12px; }
 
 .post-intro p.paragraph-small {
+    line-height: 24px;
     color: var(--lightText);
 }
 
@@ -95,3 +96,20 @@
 }
 
 
+/* iPhone 14 Plus */
+@media (max-width: 740px) {
+
+    .post {  width: 100%;  }
+
+    .body-image .image-text { width: 360px; }
+
+}
+
+/* iPhone 14 */
+@media (max-width: 424px) {
+
+    .post { width: 340px; }
+
+    .body-image .image-text { width: 324px; }
+
+}
