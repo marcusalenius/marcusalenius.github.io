@@ -2,7 +2,7 @@ import "./Post.css";
 
 import Video from "../Media/Video";
 import PostBody from "./PostBody";
-import ExternalLink from "../Links/ExternalLink";
+import PostLinks from "./PostLinks";
 
 type Props = {
   post: string;
@@ -31,9 +31,10 @@ function Post({ post, postData }: Props) {
         <div className="post-intro">
           <p className="paragraph-small">{postData.intro}</p>
         </div>
-        <ExternalLink href={postData.github_link}>
-          <p className="card-link">View on GitHub</p>
-        </ExternalLink>
+        {postData.links ? <PostLinks postLinkData={postData.links} /> : null}
+        <div className="post-date">
+          <p>{postData.date}</p>
+        </div>
         <PostBody post={post} />
       </div>
     </div>

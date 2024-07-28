@@ -30,6 +30,15 @@
     color: var(--darkText);
 }
 
+.post-date {
+    margin-top: 4px;
+    color: var(--lightFooterText);
+}
+
+.dark .post-date {
+    color: var(--darkFooterText);
+}
+
 /* Post body */
 
 .post-body h3 {

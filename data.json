@@ -189,7 +189,10 @@
       "image_type": "video",
       "image": "actordentify-hero.mp4",
       "intro": "A Chrome extension that identifies and overlays information about actors in TV shows. Uses Amazon Rekognition and TMDB APIs to identify actors and provide details.",
-      "github_link": "https://github.com/rwelgosh/ActorRecognizer"
+      "date" : "August 2023",
+      "links" : {
+        "github_link": "https://github.com/rwelgosh/ActorRecognizer"
+      }
     }
   }
 }
