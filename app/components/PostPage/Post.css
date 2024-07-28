@@ -109,8 +109,33 @@ blockquote {
 
 .post li:first-child { margin-top: 11px; }
 
+.colored-section {
+    position: relative;
+    margin-top: 30px;
+}
 
+.colored-section-background {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    z-index: 1;
+    left: 50%;
+    margin-left: -50vw;
+    background-color: var(--lightFooter);
+}
 
+.dark .colored-section-background {
+    background-color: var(--darkFooter);
+}
+
+.colored-section-content {
+    z-index: 2;
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.colored-section h3 { margin-top: 0; }
 
 
 /* Actordentify */

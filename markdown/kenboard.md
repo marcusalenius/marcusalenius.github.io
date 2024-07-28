@@ -10,6 +10,11 @@ Reading Ken Kocienda's book Creative Selection made me realize that this was a f
 
 When it was time to decide what to do for my term project in CMU's CS course 15-112, I thought: Wouldn't it be cool to end my first year at CMU by recreating the technology that made me want to come here in the first place?
 
+
+<div class="colored-section">
+<div class="colored-section-background"></div>
+<div class="colored-section-content">
+
 ### Creative Selection
 
 In 2018 Ken Kocienda, the engineer behind the original iPhone's software keyboard, published a book about his time at Apple. Expecting a goldmine of fascinating stories, I ordered it as soon as it became available.
@@ -21,6 +26,9 @@ Kocienda's process of developing the keyboard is a centerpiece of the book. It's
 Beyond his work on *Purple*, Kocienda describes what it was like to demo for Steve Jobs and how a team of three engineers developed the original Safari web browser.
 
 I can't do this book justice here — if you are interested in software engineering, product design, or just fascinating stories I highly recommend this book. The physical book contains incredible illustrations while the audiobook is read by Kocienda himself: [creativeselection.io](http://creativeselection.io/).
+
+</div>
+</div>
 
 ### My First Approach
 
