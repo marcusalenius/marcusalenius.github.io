@@ -19,6 +19,10 @@ function PostBody({ post }: Props) {
       const { node, src, ...rest } = props;
       return <img src={`images/${src}`} id={src.split(".")[0]} {...rest} />;
     },
+    a(props: any) {
+      const { node, ...rest } = props;
+      return <a {...rest} target="_blank" />;
+    },
   };
 
   return (

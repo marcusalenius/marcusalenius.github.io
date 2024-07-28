@@ -1,6 +1,6 @@
 ### Motivation
 
-This project is a collaboration between me and my friend Raymond Welgosh, a fellow CMU student. We had an idea of how we could improve the experience of watching movies and TV shows and decided to give our best shot at making our vision a reality.
+This project is a collaboration between me and my friend [Raymond Welgosh](https://www.linkedin.com/in/raymond-welgosh-47b44117b/), a fellow CMU student. We had an idea of how we could improve the experience of watching movies and TV shows and decided to give our best shot at making our vision a reality.
 
 How many times have you watched a movie or TV show and wondered who’s playing a character? You look up the movie or the show and scroll through all the actors that come up trying to find the one that looks like the person you saw on screen. If it’s a minor role, or worse yet, a guest appearance on a TV show, you might not find the actor at all.
 
