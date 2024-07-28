@@ -10,7 +10,7 @@ function Home() {
   return (
     <>
       <Nav data={data} homePage={false} />
-      <Post postData={data.posts.actordentify} post={"actordentify"} />
+      <Post postData={data.posts.actordentify} />
       <Footer />
     </>
   );

@@ -5,11 +5,10 @@ import PostBody from "./PostBody";
 import PostLinks from "./PostLinks";
 
 type Props = {
-  post: string;
   postData: { [key: string]: any };
 };
 
-function Post({ post, postData }: Props) {
+function Post({ postData }: Props) {
   return (
     <div id="container">
       <div className="post">
@@ -35,7 +34,7 @@ function Post({ post, postData }: Props) {
         <div className="post-date">
           <p>{postData.date}</p>
         </div>
-        <PostBody post={post} />
+        <PostBody markdown={postData.markdown} />
       </div>
     </div>
   );

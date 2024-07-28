@@ -5,11 +5,11 @@ import { readFileSync } from "fs";
 import Video from "../Media/Video";
 
 type Props = {
-  post: string;
+  markdown: string;
 };
 
-function PostBody({ post }: Props) {
-  const markdown = readFileSync(`markdown/${post}.md`, "utf-8");
+function PostBody({ markdown }: Props) {
+  const content = readFileSync(`markdown/${markdown}`, "utf-8");
   const markdownComponents = {
     video(props: any) {
       const { node, src, ...rest } = props;
@@ -28,7 +28,7 @@ function PostBody({ post }: Props) {
   return (
     <div className="post-body">
       <Markdown rehypePlugins={[rehypeRaw]} components={markdownComponents}>
-        {markdown}
+        {content}
       </Markdown>
     </div>
   );

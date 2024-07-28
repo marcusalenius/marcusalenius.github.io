@@ -192,7 +192,8 @@
       "date" : "August 2023",
       "links" : {
         "github_link": "https://github.com/rwelgosh/ActorRecognizer"
-      }
+      },
+      "markdown": "actordentify.md"
     }
   }
 }
