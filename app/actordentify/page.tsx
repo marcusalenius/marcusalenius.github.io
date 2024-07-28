@@ -8,7 +8,7 @@ import Footer from "../components/Footer/Footer";
 function Home() {
   return (
     <>
-      <Post postData={data.posts.actordentify} />
+      <Post postData={data.posts.actordentify} post={"actordentify"} />
       <Footer />
     </>
   );

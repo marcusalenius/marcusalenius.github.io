@@ -1,18 +1,24 @@
 import "./Post.css";
 
 import Video from "../Media/Video";
+import PostBody from "./PostBody";
 
 type Props = {
+  post: string;
   postData: { [key: string]: any };
 };
 
-function Post({ postData }: Props) {
+function Post({ post, postData }: Props) {
   return (
     <div id="container">
       <div className="post">
         <div className="post-image">
           {postData.image_type === "image" ? (
-            <></>
+            <img
+              src={`images/${postData.image}`}
+              alt=""
+              id={postData.image.split(".")[0]}
+            />
           ) : (
             <Video
               src={`videos/${postData.image}`}
@@ -24,6 +30,7 @@ function Post({ postData }: Props) {
         <div className="post-intro">
           <p className="paragraph-small">{postData.intro}</p>
         </div>
+        <PostBody post={post} />
       </div>
     </div>
   );
