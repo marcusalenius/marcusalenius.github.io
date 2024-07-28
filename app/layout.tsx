@@ -16,11 +16,6 @@ export const metadata: Metadata = {
     title: "Marcus Alenius",
     siteName: "Marcus Alenius",
     description: "Lorem ipsum.",
-    images: [
-      {
-        url: "",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -28,11 +23,6 @@ export const metadata: Metadata = {
     creator: "@creator",
     title: "Marcus Alenius",
     description: "Lorem ipsum.",
-    images: [
-      {
-        url: "",
-      },
-    ],
   },
 };
 
