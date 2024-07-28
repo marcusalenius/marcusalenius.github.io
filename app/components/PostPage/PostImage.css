@@ -1,0 +1,78 @@
+.post-image {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 45px;
+    z-index: 10;
+}
+
+/* Actordentify */
+
+#actordentify-hero {
+    width: 100%;
+}
+
+/* Kenboard */
+
+.post-image:has(#kenboard-demo-image-full-length) {
+    height: 347px;
+}
+
+#kenboard-demo-image-full-length {
+    position: absolute;
+    width: 366px;
+    left: -32px;
+    top: -42px;
+}
+
+#kenboard-demo-video {
+    position: absolute;
+    width: 262px;
+    left: 16px;
+    top: 87px;
+}
+
+#kenboard-splash {
+    position: absolute;
+    width: 180px;
+    left: 346px;
+    top: -3px;
+}
+
+#kenboard-debug {
+    position: absolute;
+    width: 180px;
+    left: 426px;
+    top: -3px;
+}
+
+#kenboard-splash,
+#kenboard-debug {
+    filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.3));
+    transform: translateZ(0); /* to fix safari drop-shadow rendering issue */
+}
+
+.dark #kenboard-splash,
+.dark #kenboard-debug {
+    filter: none;
+}
+
+/* iPhone Plus */
+@media (max-width: 666px) {
+
+    #kenboard-demo-image-full-length { left: 14px; }
+    
+    #kenboard-demo-video { left: 62px; }
+    
+    #kenboard-splash,
+    #kenboard-debug { display: none; }
+
+}
+
+/* iPhone */
+@media (max-width: 424px) {
+
+    #kenboard-demo-image-full-length { left: -14px; }
+
+    #kenboard-demo-video { left: 34px; }
+
+}

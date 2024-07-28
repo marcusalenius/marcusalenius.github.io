@@ -1,6 +1,6 @@
 import "./Post.css";
 
-import Video from "../Media/Video";
+import PostImage from "./PostImage";
 import PostBody from "./PostBody";
 import PostLinks from "./PostLinks";
 
@@ -12,20 +12,7 @@ function Post({ postData }: Props) {
   return (
     <div id="container">
       <div className="post">
-        <div className="post-image">
-          {/* {postData.image_type === "image" ? (
-            <img
-              src={`images/${postData.image}`}
-              alt=""
-              id={postData.image.split(".")[0]}
-            />
-          ) : (
-            <Video
-              src={`videos/${postData.image}`}
-              id={postData.image.split(".")[0]}
-            />
-          )} */}
-        </div>
+        <PostImage post={postData.markdown.split(".")[0]} />
         <h2>{postData.title}</h2>
         <div className="post-intro">
           <p className="paragraph-small">{postData.intro}</p>
@@ -42,7 +29,6 @@ function Post({ postData }: Props) {
             ></iframe>
           ) : null}
         </div>
-
         <PostBody markdown={postData.markdown} />
       </div>
     </div>
