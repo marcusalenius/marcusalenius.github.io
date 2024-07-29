@@ -8,37 +8,48 @@ function AboutMeModal({ modalData }: Props) {
   return (
     <div className="modal-content">
       <h2>{modalData.title}</h2>
-      <div className="about-me-row">
+      <div className="about-me-row" id="about-me-row-0">
         <div className="about-me-text">
-          <p className="paragraph-small">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nulla
-            ante, sollicitudin et felis non, elementum placerat arcu. Etiam arcu
-            enim, porttitor in congue et, tincidunt ac mauris. Nullam porttitor,
-            est ac luctus vehicula, dui justo pharetra arcu, id interdum risus
-            lorem sed erat. Duis at lectus id ex sagittis gravida tristique ac
-            libero. Fusce faucibus turpis sed porttitor sagittis. Curabitur arcu
-            risus, egestas in dignissim nec, ullamcorper sit amet lorem. Quisque
-            in dui ultrices, viverra odio a, viverra sem. Aliquam iaculis ac
-            augue at ornare.
-          </p>
+          {modalData.content.row_0.map((paragraph: string) => (
+            <p className="paragraph-small">{paragraph}</p>
+          ))}
         </div>
-        <div className="about-me-image">Image</div>
+        <div className="about-me-image">
+          <img
+            src="images/about-me-sweden.jpg"
+            alt="Image of me in Sweden"
+            draggable={false}
+          />
+        </div>
       </div>
-      <div className="about-me-row">
-        <div className="about-me-image">Image</div>
-        <div className="about-me-text">
-          <p className="paragraph-small">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nulla
-            ante, sollicitudin et felis non, elementum placerat arcu. Etiam arcu
-            enim, porttitor in congue et, tincidunt ac mauris. Nullam porttitor,
-            est ac luctus vehicula, dui justo pharetra arcu, id interdum risus
-            lorem sed erat. Duis at lectus id ex sagittis gravida tristique ac
-            libero. Fusce faucibus turpis sed porttitor sagittis. Curabitur arcu
-            risus, egestas in dignissim nec, ullamcorper sit amet lorem. Quisque
-            in dui ultrices, viverra odio a, viverra sem. Aliquam iaculis ac
-            augue at ornare.
-          </p>
+      <div className="about-me-row" id="about-me-row-1">
+        <div className="about-me-image">
+          <img
+            src="images/about-me-swim.jpg"
+            alt="Image of me in swimming"
+            draggable={false}
+          />
         </div>
+        <div className="about-me-text">
+          {modalData.content.row_1.map((paragraph: string) => (
+            <p className="paragraph-small">{paragraph}</p>
+          ))}
+        </div>
+      </div>
+      <div className="about-me-row" id="about-me-row-2"></div>
+      <div className="about-me-text">
+        {/* I don't love that this is hardcoded */}
+        <p className="paragraph-small">
+          Feel free to reach out to me at{" "}
+          <a href="mailto:alenius@cmu.edu" target="_blank">
+            alenius@cmu.edu
+          </a>{" "}
+          or connect with me on{" "}
+          <a href="https://www.linkedin.com/in/marcusalenius/" target="_blank">
+            LinkedIn
+          </a>
+          .
+        </p>
       </div>
     </div>
   );

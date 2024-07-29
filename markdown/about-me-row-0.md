@@ -1,0 +1,3 @@
+Hi again, I’m Marcus Alenius. I am a Swedish American studying Artificial Intelligence at Carnegie Mellon University. I am passionate about creating technology that unlocks our full potential while making it less obtrusive and almost invisible to us.
+
+Currently, I serve as a head teaching assistant for CMU’s largest course, a Bloomberg top 5 U.S. computer science class. I am also a published machine learning researcher, having recently co-created a novel LLM-based metric for automated code reviews. My software engineering experience includes internships at Höganäs Borgestad and the McLearn Lab at CMU’s HCII. In my free time, I love working on projects. Take a look at some of them below.

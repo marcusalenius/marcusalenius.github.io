@@ -18,12 +18,7 @@ function ModalContent({ modalData }: Props) {
       </div>
     );
   } else if (modalData.title === "About Me") {
-    return (
-      <AboutMeModal modalData={modalData} />
-      // <div className="modal-content">
-      //   <h2>{modalData.title}</h2>
-      // </div>
-    );
+    return <AboutMeModal modalData={modalData} />;
   } else {
     return (
       <div className="modal-content">
