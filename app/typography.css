@@ -61,16 +61,6 @@ p.paragraph-small {
 
 .dark p.paragraph-small { color: var(--darkBodyText); }
 
-/* .location-text {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
-    white-space: nowrap;
-    color: var(--lightText);
-} */
-
-/* .dark .location-text { color: var(--darkText); } */
-
 .button-text {
     font-style: normal;
     font-weight: 500;
@@ -182,8 +172,6 @@ p.url-card-website {
         font-size: 20px;
         line-height: 27px;
     }
-
-    /* .location-text { font-size: 28px; } */
         
 }
 
@@ -219,8 +207,6 @@ p.url-card-website {
         font-size: 18px;
         line-height: 21px;
     }
-
-    /* .location-text { font-size: 18px; } */
     
     .button-text {
         font-size: 18px;

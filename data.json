@@ -55,16 +55,6 @@
       }
     }
   ],
-  "locations": [
-    {
-      "name": "Pittsburgh, PA",
-      "link": "https://goo.gl/maps/bNiQi64BXmRpJvmT6"
-    },
-    {
-      "name": "Gävle, Sweden",
-      "link": "https://goo.gl/maps/P4SXTrr1t84QU3kj7"
-    }
-  ],
   "sections": {
     "Projects": {
       "id": 0,
