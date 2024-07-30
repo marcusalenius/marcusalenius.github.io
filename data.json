@@ -90,7 +90,7 @@
               "id": 0,
               "title": "Dynamic Memory Allocator",
               "short_title": "Memory Allocator",
-              "description": "A custom heap allocator supporting malloc, free, realloc, and calloc functions. Written in C as a segregated free list dynamic memory allocator. This involved analyzing the tradeoffs between throughput and utilization, ultimately achieving a fast design with minimal heap fragmentation. My implementation ranked in the top 8% of my computer systems class at CMU.",
+              "description": "Custom heap allocator supporting malloc, free, realloc, and calloc functions. Written in C as a segregated free list dynamic memory allocator. This involved analyzing the tradeoffs between throughput and utilization, ultimately achieving a fast design with minimal heap fragmentation. My implementation ranked in the top 8% of my computer systems class at CMU.",
               "post_link": null,
               "github_link": null
             },
@@ -98,9 +98,9 @@
               "id": 1,
               "title": "Web Proxy Server",
               "short_title": "Web Proxy Server",
-              "description": "Etiam velit ligula, aliquam a lobortis in, convallis vitae libero. Integer auctor, felis sit amet venenatis elementum, magna lectus consectetur lectus, gravida gravida odio eros eu nunc. Suspendisse potenti. Donec lacus elit, ullamcorper eu interdum ut, convallis vel risus. In eu tortor viverra, sollicitudin magna ut, interdum metus. Nulla eu dui vitae magna pulvinar elementum. Nullam sollicitudin laoreet volutpat. Fusce sed justo imperdiet, egestas justo non, tincidunt nisi.",
+              "description": "Multithreaded web proxy server forwarding client requests to the server and relaying responses back to the client. Implemented in C using sockets and pthreads, the proxy  features a thread-safe, protocol-independent design that processes multiple HTTP requests concurrently, achieving 100% of performance objectives.",
               "post_link": null,
-              "github_link": "https://github.com/marcusalenius"
+              "github_link": null
             },
             {
               "id": 2,
@@ -114,7 +114,7 @@
               "id": 3,
               "title": "Linux Shell",
               "short_title": "Linux Shell",
-              "description": "Etiam ac lorem ipsum. Praesent sed ante eros. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc eu euismod tellus, sit amet cursus erat. Mauris aliquet semper dictum. Nunc varius commodo nibh vitae congue. Donec consequat arcu pretium, ultrices purus eu, vehicula justo.",
+              "description": "Wrote my own Linux shell with signal-based job control, supporting foreground and background processes. The shell also features I/O redirection and handling of SIGINT and SIGTSTP signals on foreground jobs. Written in C, the shell employs a safe, resource-efficient design, achieved by reaping terminated processes and protecting against race conditions.",
               "post_link": null,
               "github_link": null
             },
