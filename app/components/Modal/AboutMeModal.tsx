@@ -10,8 +10,10 @@ function AboutMeModal({ modalData }: Props) {
       <h2>{modalData.title}</h2>
       <div className="about-me-row" id="about-me-row-0">
         <div className="about-me-text">
-          {modalData.content.row_0.map((paragraph: string) => (
-            <p className="paragraph-small">{paragraph}</p>
+          {modalData.content.row_0.map((paragraph: { [key: string]: any }) => (
+            <p className="paragraph-small" key={paragraph.id}>
+              {paragraph.text}
+            </p>
           ))}
         </div>
         <div className="about-me-image">
@@ -31,8 +33,10 @@ function AboutMeModal({ modalData }: Props) {
           />
         </div>
         <div className="about-me-text">
-          {modalData.content.row_1.map((paragraph: string) => (
-            <p className="paragraph-small">{paragraph}</p>
+          {modalData.content.row_1.map((paragraph: { [key: string]: any }) => (
+            <p className="paragraph-small" key={paragraph.id}>
+              {paragraph.text}
+            </p>
           ))}
         </div>
       </div>

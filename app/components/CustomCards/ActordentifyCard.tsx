@@ -31,7 +31,8 @@ function ActordentifyCard({ cardData }: Props) {
         <div className="frosted-pane">
           <h3>{cardData.title}</h3>
           <p className="paragraph-small">{cardData.subtitle}</p>
-          <InternalLink href={actordentifyPostLink}>
+          {/* href empty so that InternalLink gets rendered as a div */}
+          <InternalLink href="">
             <p className="card-link">Learn more</p>
           </InternalLink>
         </div>

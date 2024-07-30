@@ -45,11 +45,20 @@
         "title": "About Me",
         "content": {
           "row_0": [
-            "Hi again, I’m Marcus Alenius. I am a Swedish American studying Artificial Intelligence at Carnegie Mellon University. I am passionate about creating technology that unlocks our full potential while making it less obtrusive and almost invisible to us.",
-            "Currently, I serve as a head teaching assistant for CMU’s largest course, a Bloomberg top 5 U.S. computer science class. I am also a published machine learning researcher, having recently co-created a novel LLM-based metric for automated code reviews. My software engineering experience includes internships at Höganäs Borgestad and the McLearn Lab at CMU’s HCII. In my free time, I love working on projects. Take a look at some of them below."
+            {
+              "id": 0,
+              "text" : "Hi again, I’m Marcus Alenius. I am a Swedish American studying Artificial Intelligence at Carnegie Mellon University. I am passionate about creating technology that unlocks our full potential while making it less obtrusive and almost invisible to us."
+            },
+            {
+              "id": 1,
+              "text" : "Currently, I serve as a head teaching assistant for CMU’s largest course, a Bloomberg top 5 U.S. computer science class. I am also a published machine learning researcher, having recently co-created a novel LLM-based metric for automated code reviews. My software engineering experience includes internships at Höganäs Borgestad and the McLearn Lab at CMU’s HCII. In my free time, I love working on projects. Take a look at some of them below."
+            }
           ],
           "row_1": [
-            "Outside of technology, I am passionate about swimming, a sport I have loved my entire life. I am a former Swedish Age Group Champion in the 100 and 200 meters breaststroke. During my freshman year at Carnegie Mellon, I swam on the varsity swim team. For two years, I coached swimmers aged 7–11. Most recently, I announced swim meets in Sundsvall, Sweden, in 2022 and 2024, for which I developed an application to collect live stats for the announcer. In 2024, I also served as one of the announcers for the Swedish Age Group Championships."
+            {
+              "id": 0,
+              "text" : "Outside of technology, I am passionate about swimming, a sport I have loved my entire life. I am a former Swedish Age Group Champion in the 100 and 200 meters breaststroke. During my freshman year at Carnegie Mellon, I swam on the varsity swim team. For two years, I coached swimmers aged 7–11. Most recently, I announced swim meets in Sundsvall, Sweden, in 2022 and 2024, for which I developed an application to collect live stats for the announcer. In 2024, I also served as one of the announcers for the Swedish Age Group Championships."
+            }
           ]
         }
       }
