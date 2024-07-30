@@ -5,7 +5,7 @@
 }
 
 .read-more-container:has(.read-more.closed) {
-    max-height: 110px;
+    max-height: 120px;
     transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
 }
 
@@ -19,9 +19,9 @@
 }
 
 .read-more.closed {
-    /* -webkit-line-clamp: 5; */
     animation: close 0.1s linear 0.1s forwards;
 }
+
 
 @keyframes open {
     from {

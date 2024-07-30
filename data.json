@@ -90,9 +90,9 @@
               "id": 0,
               "title": "Dynamic Memory Allocator",
               "short_title": "Memory Allocator",
-              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et orci at purus egestas lobortis eget non nisi. Fusce fringilla sodales odio vel convallis. Sed eget est at turpis blandit vulputate eu a tortor. Vestibulum ullamcorper tellus urna, tincidunt pretium dui hendrerit non. Quisque placerat magna at maximus sodales. Pellentesque sed fringilla dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
-              "post_link": "/",
-              "github_link": "https://github.com/marcusalenius"
+              "description": "A custom heap allocator supporting malloc, free, realloc, and calloc functions. Written in C as a segregated free list dynamic memory allocator. This involved analyzing the tradeoffs between throughput and utilization, ultimately achieving a fast design with minimal heap fragmentation. My implementation ranked in the top 8% of my computer systems class at CMU.",
+              "post_link": null,
+              "github_link": null
             },
             {
               "id": 1,
