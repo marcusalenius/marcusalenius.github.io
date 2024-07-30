@@ -53,6 +53,10 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
+.dark .about-me-image img {
+    box-shadow: none;
+}
+
 /* iPad 13" Portrait */
 @media (max-width: 1008px) {
 
