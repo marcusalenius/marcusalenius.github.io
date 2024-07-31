@@ -96,22 +96,6 @@
             },
             {
               "id": 1,
-              "title": "Web Proxy Server",
-              "short_title": "Web Proxy Server",
-              "description": "Multithreaded web proxy server forwarding client requests to the server and relaying responses back to the client. Implemented in C using sockets and pthreads, the proxy  features a thread-safe, protocol-independent design that processes multiple HTTP requests concurrently, achieving 100% of performance objectives.",
-              "post_link": null,
-              "github_link": null
-            },
-            {
-              "id": 2,
-              "title": "Multithreaded File System",
-              "short_title": "File System",
-              "description": "Praesent quis justo nulla. Morbi pulvinar finibus diam sit amet consectetur. Vivamus condimentum nunc non justo commodo, in pharetra lacus cursus. Vivamus quis pharetra mauris. Morbi eros neque, efficitur sed ipsum sit amet, maximus ultrices mauris. Sed eget sapien vel nisi blandit congue. Vestibulum placerat velit sed viverra lacinia. Praesent et rhoncus ipsum. Vestibulum eget dolor eu tellus blandit ornare a lacinia tortor. Vestibulum quis tortor molestie erat pretium varius. In aliquam justo erat, ac aliquam urna rutrum eu. Aliquam auctor eu odio non faucibus.",
-              "post_link": null,
-              "github_link": null
-            },
-            {
-              "id": 3,
               "title": "Linux Shell",
               "short_title": "Linux Shell",
               "description": "Wrote my own Linux shell with signal-based job control, supporting foreground and background processes. The shell also features I/O redirection and handling of SIGINT and SIGTSTP signals on foreground jobs. Written in C, the shell employs a safe, resource-efficient design, achieved by reaping terminated processes and protecting against race conditions.",
@@ -119,18 +103,34 @@
               "github_link": null
             },
             {
+              "id": 2,
+              "title": "Multithreaded File System",
+              "short_title": "File System",
+              "description": "Reengineered a FAT-style file system for full concurrency, creating a multithreaded design using C and pthreads. Implemented a two-pronged synchronization strategy with mutex for system-level synchronization and readers–writer locks for file-level access, which allows exclusive access to each file to be controlled independently. This significantly enhanced system reliability and performance, resolving 100% of race conditions identified by LLVM task graph tooling.",
+              "post_link": null,
+              "github_link": null
+            },
+            {
+              "id": 3,
+              "title": "Web Proxy Server",
+              "short_title": "Web Proxy Server",
+              "description": "Multithreaded web proxy server forwarding client requests to the server and relaying responses back to the client. Implemented in C using sockets and pthreads, the proxy  features a thread-safe, protocol-independent design that processes multiple HTTP requests concurrently, achieving 100% of performance objectives.",
+              "post_link": null,
+              "github_link": null
+            },
+            {
               "id": 4,
               "title": "Cache Memory Simulator",
               "short_title": "Cache Simulator",
-              "description": "In interdum molestie finibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras sollicitudin pretium eleifend. Aenean ac magna sit amet lectus convallis tristique. Duis a lorem nec mauris tempus ullamcorper. Aenean mattis mauris sapien, ut pretium mauris commodo sed. Sed non scelerisque nisi, a varius turpis. Curabitur eu ultricies sem. Quisque eu erat quis lacus venenatis lobortis eu vitae neque.",
+              "description": "Command-line tool written in C for simulating the behavior of a hardware cache given memory-access traces. It uses the LRU (least-recently used) replacement policy when choosing which cache line to evict, and follows a write-back, write-allocate policy. Given an arbitrary size and associativity, the number of cache hits, misses, evictions, dirty bytes, and evicted dirty bytes are reported.",
               "post_link": null,
-              "github_link": "https://github.com/marcusalenius"
+              "github_link": null
             },
             {
               "id": 5,
               "title": "Virtual Machine",
               "short_title": "Virtual Machine",
-              "description": "Suspendisse libero tortor, convallis eu libero eu, lobortis auctor nunc. Sed euismod massa sed urna commodo, et mollis arcu tincidunt. Morbi justo magna, placerat vel mauris ac, ornare tincidunt lacus. Sed quis dignissim metus. Duis scelerisque mollis magna, pretium suscipit turpis venenatis sed. Duis euismod, erat quis egestas hendrerit, odio velit faucibus felis, sed sollicitudin mauris arcu vel nunc. Praesent vel felis ac nunc sagittis facilisis. Morbi placerat libero non neque scelerisque, quis viverra quam pulvinar. Sed vulputate ultrices accumsan. Nulla vitae elementum metus. Nam vitae tellus nec tortor mattis pellentesque. Nullam imperdiet suscipit nunc, in egestas arcu mattis id. Ut tempor ex sit amet tellus fermentum venenatis. Nullam turpis lacus, tincidunt id odio ac, pulvinar tristique sapien. Nam dictum varius neque, eget tempor nunc eleifend nec.",
+              "description": "Virtual machine for the C0 and C1 languages, which are safe subsets of C. Influenced by the JVM, it is implemented as a stack machine in C and uses an operand stack, call stack, local variable array, program counter, and constant and function pools. It runs arbitrary C0/C1 code with dynamic safety checks for heap allocation, array accesses, pointer casts and dereferences, and more.",
               "post_link": null,
               "github_link": null
             }
