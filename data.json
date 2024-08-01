@@ -1,7 +1,7 @@
 {
   "firstName": "Marcus",
   "lastName": "Alenius",
-  "brief": "I’m a junior at Carnegie Mellon University, where I am studying Artificial Intelligence. I have a deep passion for building innovative solutions and teaching others. My primary interests lie in machine learning, natural language processing, and software engineering.",
+  "brief": "I’m a junior at Carnegie Mellon University studying Artificial Intelligence. I am a developer, published ML researcher, and head teaching assistant.",
   "heroButtons": [
     {
       "id": 0,
@@ -113,7 +113,7 @@
           ]
         },
         {
-          "title": "Fullstack",
+          "title": "Front & Backend",
           "projects": [
             {
               "id": 0,

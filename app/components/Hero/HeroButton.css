@@ -101,8 +101,9 @@
 @media (max-width: 873px) {
 
     #hero-buttons-container {
+        margin-top: 16px;
         flex-wrap: wrap;
-        gap: 18px;
+        gap: 10px;
     }
 
     .hero-button {
@@ -122,6 +123,11 @@
 
 /* iPhone Plus */
 @media (max-width: 666px) {
+
+    #hero-buttons-container {
+        gap: 16px;
+    }
+
 
     .hero-button {
         width: 100%;
