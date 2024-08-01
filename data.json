@@ -77,11 +77,85 @@
       "categories": [
         {
           "title": "AI/ML",
-          "projects": []
+          "projects": [
+            {
+              "id": 1,
+              "title": "Actordentify",
+              "short_title": "Actordentify",
+              "description": "Chrome extension that identifies and overlays information about actors in TV shows. Built with JavaScript and uses Amazon Rekognition to identify and position actors on the screen and TMDB APIs to query actor details. Intelligently places actor information next to each actor without obscuring other details or actors. This is achieved using a backtracking algorithm.",
+              "post_link": "/actordentify",
+              "github_link": "https://github.com/rwelgosh/ActorRecognizer"
+            },
+            {
+              "id": 2,
+              "title": "Handwriting Neural Network",
+              "short_title": "Neural Network",
+              "description": "Feedforward neural network with backpropagation and stochastic gradient descent implemented from scratch using Python and NumPy. Trained on 60,000 handwritten digits in the MNIST dataset, this network achieved an accuracy of 95%. I then reimplemented the network with PyTorch and improved it using cross-entropy loss and regularization. The updated network can recognize handwritten digits with 98% accuracy.",
+              "post_link": null,
+              "github_link": "https://github.com/marcusalenius/handwriting-nn"
+            },
+            {
+              "id": 3,
+              "title": "Kenboard",
+              "short_title": "Kenboard",
+              "description": "Virtual keyboard with a custom typing error correction system. My term project for Carnegie Mellon's 15-112 Fundamentals of Programming and Computer Science. Inspired by Ken Kocienda's book Creative Selection, it combines a Manhattan distance-based algorithm and word usage frequency to suggest a most probable user-intended word, enabling up to 80% faster typing.",
+              "post_link": "/kenboard",
+              "github_link": null
+            },
+            {
+              "id": 4,
+              "title": "Minesweeper Solver",
+              "short_title": "Minesweeper Solver",
+              "description": "I developed a Minesweeper solver in Standard ML by representing board states as a series of boolean equations. Flags are denoted as 0, safe squares as 1, and for each safe square, an equation sets the warning number on the square equal to the sum of the values of the variables representing its neighbors. To solve these boolean equations, I implemented a SAT solver using unit propagation and the DPLL algorithm. This solver takes the boolean equations and produces a sequence of all satisfying assignments of variables. From these assignments, I then identify a safe square to reveal.",
+              "post_link": null,
+              "github_link": null
+            }
+          ]
         },
         {
           "title": "Fullstack",
-          "projects": []
+          "projects": [
+            {
+              "id": 0,
+              "title": "Incident Tracking System",
+              "short_title": "Tracking System",
+              "description": "A multi-user web application with a Ruby on Rails backend and a React frontend. Built with test-driven development, achieving 100% unit test coverage. The backend ensures maintainability and scalability, while the frontend offers a dynamic user interface. Additionally, I developed and documented 12 RESTful API endpoints with token-based authentication, authorization, and versioning. This system streamlines incident tracking and management, providing a seamless user experience with ensured data integrity and security.",
+              "post_link": null,
+              "github_link": null
+            },
+            {
+              "id": 1,
+              "title": "Swim Info",
+              "short_title": "Swim Info",
+              "description": "App designed to collect swim statistics for announcers at swim meets, consisting of a web scraper and interface built with Python and Beautiful Soup. It processes start lists and scrapes online meet results to provide splits for each swimmer’s best time. I developed the app to enhance the audience experience during the swim meets I announced in 2024.",
+              "post_link": null,
+              "github_link": "https://github.com/marcusalenius/swim-info"
+            },
+            {
+              "id": 2,
+              "title": "Actordentify",
+              "short_title": "Actordentify",
+              "description": "Chrome extension that identifies and overlays information about actors in TV shows. Built with JavaScript and uses Amazon Rekognition to identify and position actors on the screen and TMDB APIs to query actor details. Intelligently places actor information next to each actor without obscuring other details or actors. This is achieved using a backtracking algorithm.",
+              "post_link": "/actordentify",
+              "github_link": "https://github.com/rwelgosh/ActorRecognizer"
+            },
+            {
+              "id": 3,
+              "title": "Personal Website",
+              "short_title": "Personal Website",
+              "description": "This website. Designed and built from scratch using React and NextJS. Inspired by olivierifrah.com and apple.com, with a focus on a responsive design that looks great in light and dark appearance with effortless and lightweight interactions. This project is a chance for me to explore my more creative side.",
+              "post_link": null,
+              "github_link": null
+            },
+            {
+              "id": 4,
+              "title": "Local Business Website",
+              "short_title": "Business Website",
+              "description": "A comprehensive redesign of a local business's website, tailored to meet the needs of the business and its customers. The project involved designing and developing the website from the ground up, guided by user stories and validated through usability testing and think-alouds. A significant emphasis was placed on adhering to best practices in web accessibility to ensure an inclusive experience for all users.",
+              "post_link": null,
+              "github_link": null
+            }
+          ]
         },
         {
           "title": "Computer Systems",
@@ -194,7 +268,7 @@
   "posts": {
     "actordentify": {
       "title": "Actordentify",
-      "intro": "A Chrome extension that identifies and overlays information about actors in TV shows. Uses Amazon Rekognition and TMDB APIs to identify actors and provide details.",
+      "intro": "Chrome extension that identifies and overlays information about actors in TV shows. Uses Amazon Rekognition and TMDB APIs to identify actors and provide details.",
       "date": "August 2023",
       "links": {
         "github_link": "https://github.com/rwelgosh/ActorRecognizer"
@@ -204,7 +278,7 @@
     },
     "kenboard": {
       "title": "Kenboard",
-      "intro": "A virtual keyboard with a custom typing error correction system. My term project for Carnegie Mellon's 15-112 Fundamentals of Programming and Computer Science. Written in Python using the Kivy app development framework.",
+      "intro": "Virtual keyboard with a custom typing error correction system. My term project for Carnegie Mellon's 15-112 Fundamentals of Programming and Computer Science. Written in Python using the Kivy app development framework.",
       "date": "April 2023",
       "links": null,
       "youtube_link": "https://www.youtube.com/embed/GL7kLWBDsWU",

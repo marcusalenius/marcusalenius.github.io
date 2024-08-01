@@ -121,8 +121,8 @@
 }
 
 
-/* iPad 11" Portrait */
-@media (max-width: 873px) {
+/* iPad 13" Portrait */
+@media (max-width: 1008px) {
 
     .modal-content-card-content h4 .short-title {
         display: block;
