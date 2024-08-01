@@ -76,13 +76,20 @@
         height: fit-content;
         align-items: center;
         flex-direction: column;
-        margin-bottom: 80px;
+        gap: 20px;
+        max-height: none;
+        margin-bottom: 131px;
     }
     
     #hero-left { width: 100%; }
 
-    #hero-right {
-        display: none;
+    #hero-card {
+        width: 394px;
+        height: 280px;
+    }   
+
+    #hero-image {
+        object-position: 50% 30%;
     }
 
     #hero h1 { margin-top: 50px; }
@@ -91,6 +98,11 @@
 
 /* iPhone */
 @media (max-width: 424px) {
+
+    #hero-card {
+        width: 353px;
+        height: 260px;
+    }
 
     #hero p { width: 345px; }
     
