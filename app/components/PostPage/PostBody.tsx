@@ -1,8 +1,12 @@
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import { readFileSync } from "fs";
+import dynamic from "next/dynamic";
 
-import Video from "../Media/Video";
+// import Video from "../Media/Video";
+const Video = dynamic(() => import("../Media/Video"), {
+  ssr: false,
+});
 
 type Props = {
   markdown: string;

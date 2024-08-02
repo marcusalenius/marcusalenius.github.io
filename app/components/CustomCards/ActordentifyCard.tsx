@@ -1,8 +1,13 @@
 import "./ActordentifyCard.css";
 
+import dynamic from "next/dynamic";
+
 import Card from "../Card/Card";
 import InternalLink from "../Links/InternalLink";
-import Video from "../Media/Video";
+// import Video from "../Media/Video";
+const Video = dynamic(() => import("../Media/Video"), {
+  ssr: false,
+});
 
 type Props = {
   cardData: { [key: string]: any };

@@ -1,6 +1,11 @@
 import "./PostImage.css";
 
-import Video from "../Media/Video";
+import dynamic from "next/dynamic";
+
+// import Video from "../Media/Video";
+const Video = dynamic(() => import("../Media/Video"), {
+  ssr: false,
+});
 
 type Props = {
   post: string;
