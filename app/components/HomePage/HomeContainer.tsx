@@ -10,7 +10,11 @@ function HomeContainer({ data }: Props) {
     <div id="container">
       <Hero data={data} />
       {Object.keys(data.sections).map((sectionName: string) => (
-        <Section sectionData={data.sections[sectionName]} name={sectionName} />
+        <Section
+          sectionData={data.sections[sectionName]}
+          name={sectionName}
+          key={data.sections[sectionName].id}
+        />
       ))}
     </div>
   );
