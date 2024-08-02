@@ -1,8 +1,13 @@
 import "./HeroButton.css";
 
+import dynamic from "next/dynamic";
+
 import Card from "../Card/Card";
 import PlusCrossButton from "../PlusCrossButton/PlusCrossButton";
-import Modal from "../Modal/Modal";
+// import Modal from "../Modal/Modal";
+const Modal = dynamic(() => import("../Modal/Modal"), {
+  ssr: false,
+});
 
 type Props = {
   buttonData: { [key: string]: any };
