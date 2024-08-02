@@ -16,14 +16,14 @@ export const metadata: Metadata = {
     url: "https://alenius.io",
     title: "Marcus Alenius",
     siteName: "Marcus Alenius",
-    description: "Lorem ipsum.",
+    description: "",
   },
   twitter: {
     card: "summary_large_image",
     site: "@site",
     creator: "@creator",
     title: "Marcus Alenius",
-    description: "Lorem ipsum.",
+    description: "",
   },
 };
 

@@ -14,6 +14,12 @@ import Footer from "./components/Footer/Footer";
 
 export const metadata: Metadata = {
   description: data.brief,
+  openGraph: {
+    description: data.brief,
+  },
+  twitter: {
+    description: data.brief,
+  },
 };
 
 function HomePage() {
