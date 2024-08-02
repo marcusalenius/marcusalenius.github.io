@@ -12,7 +12,9 @@ const Nav = dynamic(() => import("./components/Nav/Nav"), {
 import HomeContainer from "./components/HomePage/HomeContainer";
 import Footer from "./components/Footer/Footer";
 
-export const metadata: Metadata = {};
+export const metadata: Metadata = {
+  description: data.brief,
+};
 
 function HomePage() {
   return (
