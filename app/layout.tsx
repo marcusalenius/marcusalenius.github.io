@@ -6,6 +6,7 @@ import "./globals.css";
 const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://alenius.io"),
   title: "Marcus Alenius",
   description: "Lorem ipsum.",
   authors: [{ name: "Marcus Alenius" }],
