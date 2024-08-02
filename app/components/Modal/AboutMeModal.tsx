@@ -1,5 +1,7 @@
 import "./AboutMeModal.css";
 
+import Image from "next/image";
+
 type Props = {
   modalData: { [key: string]: any };
 };
@@ -17,19 +19,25 @@ function AboutMeModal({ modalData }: Props) {
           ))}
         </div>
         <div className="about-me-image">
-          <img
-            src="images/about-me-sweden.jpg"
+          <Image
+            src="/images/about-me-sweden.jpg"
             alt="Image of me in Sweden"
+            width={0}
+            height={0}
             draggable={false}
+            unoptimized={true}
           />
         </div>
       </div>
       <div className="about-me-row" id="about-me-row-1">
         <div className="about-me-image">
-          <img
-            src="images/about-me-swim.jpg"
-            alt="Image of me in swimming"
+          <Image
+            src="/images/about-me-swim.jpg"
+            alt="Image of me swimming"
+            width={0}
+            height={0}
             draggable={false}
+            unoptimized={true}
           />
         </div>
         <div className="about-me-text">

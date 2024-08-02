@@ -2,6 +2,7 @@ import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import { readFileSync } from "fs";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 // import Video from "../Media/Video";
 const Video = dynamic(() => import("../Media/Video"), {
@@ -21,7 +22,17 @@ function PostBody({ markdown }: Props) {
     },
     img(props: any) {
       const { node, src, ...rest } = props;
-      return <img src={`images/${src}`} id={src.split(".")[0]} {...rest} />;
+      return (
+        <Image
+          src={`/images/${src}`}
+          id={src.split(".")[0]}
+          width={0}
+          height={0}
+          unoptimized={true}
+          style={{ height: "auto" }}
+          {...rest}
+        />
+      );
     },
     a(props: any) {
       const { node, ...rest } = props;

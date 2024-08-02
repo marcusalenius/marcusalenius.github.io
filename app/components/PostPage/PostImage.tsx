@@ -1,6 +1,7 @@
 import "./PostImage.css";
 
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 // import Video from "../Media/Video";
 const Video = dynamic(() => import("../Media/Video"), {
@@ -18,14 +19,34 @@ function PostImage({ post }: Props) {
     ),
     kenboard: (
       <>
-        <img
+        <Image
           src="images/kenboard-demo-full-length.png"
           alt=""
           id="kenboard-demo-image-full-length"
+          width={0}
+          height={0}
+          unoptimized={true}
+          style={{ height: "auto" }}
         />
         <Video src="videos/kenboard-demo.mp4" id="kenboard-demo-video" />
-        <img src="images/kenboard-splash.png" alt="" id="kenboard-splash" />
-        <img src="images/kenboard-debug.png" alt="" id="kenboard-debug" />
+        <Image
+          src="images/kenboard-splash.png"
+          alt=""
+          id="kenboard-splash"
+          width={0}
+          height={0}
+          unoptimized={true}
+          style={{ height: "auto" }}
+        />
+        <Image
+          src="images/kenboard-debug.png"
+          alt=""
+          id="kenboard-debug"
+          width={0}
+          height={0}
+          unoptimized={true}
+          style={{ height: "auto" }}
+        />
       </>
     ),
   };
