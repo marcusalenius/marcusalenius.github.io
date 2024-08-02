@@ -69,6 +69,7 @@
       "id": 0,
       "cards": [
         {
+          "id": 0,
           "title": "Actordentify",
           "subtitle": "Chrome extension that identifies actors in TV shows",
           "link": "/actordentify"
@@ -76,6 +77,7 @@
       ],
       "categories": [
         {
+          "id": 0,
           "title": "AI/ML",
           "projects": [
             {
@@ -113,6 +115,7 @@
           ]
         },
         {
+          "id": 1,
           "title": "Front & Backend",
           "projects": [
             {
@@ -158,6 +161,7 @@
           ]
         },
         {
+          "id": 2,
           "title": "Computer Systems",
           "projects": [
             {
@@ -216,6 +220,7 @@
       "id": 2,
       "cards": [
         {
+          "id" : 0,
           "title": "Head Teaching Assistant",
           "organization": "15-112 Fundamentals of CS, CMU",
           "start": "August 2023",
@@ -223,6 +228,7 @@
           "location": "Pittsburgh, PA"
         },
         {
+          "id" : 1,
           "title": "Software Engineering Intern",
           "organization": "Höganäs Borgestad",
           "start": "June 2024",
@@ -230,6 +236,7 @@
           "location": "Gävle, Sweden"
         },
         {
+          "id" : 2,
           "title": "Research Assistant",
           "organization": "Language Technologies Institute, CMU",
           "start": "May 2024",
@@ -237,6 +244,7 @@
           "location": "Remote"
         },
         {
+          "id" : 3,
           "title": "Software Engineering Intern",
           "organization": "McLearn Lab, HCII CMU",
           "start": "May 2023",
@@ -249,6 +257,7 @@
       "id": 1,
       "cards": [
         {
+          "id": 0,
           "title": "Community College Information Technology Education: Curriculum Mapping, a Learning Science Framework, and AI Learning Technologies",
           "authors": "Bruce McLaren, Lauren Herckis, Leah Teffera, Lee Branstetter, Carolyn Rose, Majd Sakr, Matthew Kisow, Reis Reis, Michael Rinsem, Marcus Alenius, & Lex Miller",
           "conference": "American Educational Research Association",

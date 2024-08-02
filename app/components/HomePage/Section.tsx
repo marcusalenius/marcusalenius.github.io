@@ -21,17 +21,22 @@ function Section({ sectionData, name }: Props) {
         {sectionData.cards.map((cardData: { [key: string]: any }) => {
           if (name === "Projects") {
             const ThisCard = customCardMap[cardData.title];
-            return <ThisCard cardData={cardData} />;
+            return <ThisCard cardData={cardData} key={cardData.id} />;
           } else if (name === "Publications") {
-            return <PublicationCard cardData={cardData} />;
+            return <PublicationCard cardData={cardData} key={cardData.id} />;
           } else if (name === "Experience") {
-            return <ExperienceCard cardData={cardData} />;
+            return <ExperienceCard cardData={cardData} key={cardData.id} />;
           }
         })}
         {sectionData.categories
           ? sectionData.categories.map(
               (categoryData: { [key: string]: any }) => {
-                return <CategoryCard categoryData={categoryData} />;
+                return (
+                  <CategoryCard
+                    categoryData={categoryData}
+                    key={categoryData.id}
+                  />
+                );
               }
             )
           : null}
