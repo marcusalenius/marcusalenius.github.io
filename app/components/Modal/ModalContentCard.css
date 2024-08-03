@@ -105,6 +105,10 @@
     opacity: 0.2;
 }
 
+.modal-content-card h4 {
+    white-space: nowrap;
+}
+
 .modal-content-card-content h4 .short-title {
     display: none;
 }
