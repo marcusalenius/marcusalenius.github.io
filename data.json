@@ -1,7 +1,7 @@
 {
   "firstName": "Marcus",
   "lastName": "Alenius",
-  "brief": "I’m a junior at Carnegie Mellon University studying Artificial Intelligence. I am a developer, published ML researcher, and head teaching assistant.",
+  "brief": "I’m a junior at Carnegie Mellon University studying Artificial Intelligence and Information Systems. I am a developer, published ML researcher, and head teaching assistant.",
   "heroButtons": [
     {
       "id": 0,
@@ -47,7 +47,7 @@
           "row_0": [
             {
               "id": 0,
-              "text" : "Hi again, I’m Marcus Alenius. I am a Swedish American studying Artificial Intelligence at Carnegie Mellon University. I am passionate about creating technology that unlocks our full potential while making it less obtrusive and almost invisible to us."
+              "text" : "Hi again, I’m Marcus Alenius. I am a Swedish American studying Artificial Intelligence and Information Systems at Carnegie Mellon University. I am passionate about creating technology that unlocks our full potential while making it less obtrusive and almost invisible to us."
             },
             {
               "id": 1,
