@@ -87,6 +87,12 @@ nav {
     padding-bottom: 280px;
 }
 
+#hero .modal-content {
+    padding-bottom: 90px;
+}
+
+
+
 /* iPad 11" Landscape */
 @media (max-width: 1080px) {
 
