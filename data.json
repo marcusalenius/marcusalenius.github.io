@@ -258,6 +258,14 @@
       "cards": [
         {
           "id": 0,
+          "title": "CRScore: Grounding Automated Evaluation of Code Review Comments in Code Claims and Smells",
+          "authors": "Atharva Naik, Marcus Alenius, Daniel Fried, Carolyn Rose",
+          "conference": "Submitted to NAACL",
+          "year": "2025",
+          "link": "https://arxiv.org/abs/2409.19801"
+        },
+        {
+          "id": 1,
           "title": "Community College Information Technology Education: Curriculum Mapping, a Learning Science Framework, and AI Learning Technologies",
           "authors": "Bruce McLaren, Lauren Herckis, Leah Teffera, Lee Branstetter, Carolyn Rose, Majd Sakr, Matthew Kisow, Reis Reis, Michael Rinsem, Marcus Alenius, & Lex Miller",
           "conference": "American Educational Research Association",
