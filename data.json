@@ -82,6 +82,14 @@
           "projects": [
             {
               "id": 1,
+              "title": "Sentiment Auto-Complete",
+              "short_title": "Auto-Complete",
+              "description": "Fined-tuned GPT-2 to auto-completes customer reviews given a partial review and a sentiment. The model was fine-tuned on the Yelp reviews dataset consisting of 650,000 customer reviews. The model achieved clear qualitative improvements over the baseline model. Quantitative evaluation using a BERT-based sentiment classifier showed a 20% reduction in cross-entropy loss from the one-hot encodings of the intended sentiments, when compared to the baseline.",
+              "post_link": null,
+              "github_link": null
+            },
+            {
+              "id": 2,
               "title": "Actordentify",
               "short_title": "Actordentify",
               "description": "Chrome extension that identifies and overlays information about actors in TV shows. Built with JavaScript and uses Amazon Rekognition to identify and position actors on the screen and TMDB APIs to query actor details. Intelligently places actor information next to each actor without obscuring other details or actors. This is achieved using a backtracking algorithm.",
@@ -89,7 +97,7 @@
               "github_link": "https://github.com/rwelgosh/ActorRecognizer"
             },
             {
-              "id": 2,
+              "id": 3,
               "title": "Handwriting Neural Network",
               "short_title": "Neural Network",
               "description": "Feedforward neural network with backpropagation and stochastic gradient descent implemented from scratch using Python and NumPy. Trained on 60,000 handwritten digits in the MNIST dataset, this network achieved an accuracy of 95%. I then reimplemented the network with PyTorch and improved it using cross-entropy loss and regularization. The updated network can recognize handwritten digits with 98% accuracy.",
@@ -97,7 +105,7 @@
               "github_link": "https://github.com/marcusalenius/handwriting-nn"
             },
             {
-              "id": 3,
+              "id": 4,
               "title": "Kenboard",
               "short_title": "Kenboard",
               "description": "Virtual keyboard with a custom typing error correction system. My term project for Carnegie Mellon's 15-112 Fundamentals of Programming and Computer Science. Inspired by Ken Kocienda's book Creative Selection, it combines a Manhattan distance-based algorithm and word usage frequency to suggest a most probable user-intended word, enabling up to 80% faster typing.",
@@ -105,7 +113,7 @@
               "github_link": null
             },
             {
-              "id": 4,
+              "id": 5,
               "title": "Minesweeper Solver",
               "short_title": "Minesweeper Solver",
               "description": "I developed a Minesweeper solver in Standard ML by representing board states as a series of boolean equations. Flags are denoted as 0, safe squares as 1, and for each safe square, an equation sets the warning number on the square equal to the sum of the values of the variables representing its neighbors. To solve these boolean equations, I implemented a SAT solver using unit propagation and the DPLL algorithm. This solver takes the boolean equations and produces a sequence of all satisfying assignments of variables. From these assignments, I then identify a safe square to reveal.",
@@ -257,7 +265,13 @@
       "id": 1,
       "cards": [
         {
-          "id": 0,
+          "title": "CRScore: Grounding the Evaluation of Code Review Comments in Code Claims and Smells",
+          "authors": "Atharva Naik & Marcus Alenius",
+          "conference": "Conference",
+          "year": "2024",
+          "link": ""
+        },
+        {
           "title": "Community College Information Technology Education: Curriculum Mapping, a Learning Science Framework, and AI Learning Technologies",
           "authors": "Bruce McLaren, Lauren Herckis, Leah Teffera, Lee Branstetter, Carolyn Rose, Majd Sakr, Matthew Kisow, Reis Reis, Michael Rinsem, Marcus Alenius, & Lex Miller",
           "conference": "American Educational Research Association",
