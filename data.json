@@ -84,7 +84,7 @@
               "id": 1,
               "title": "Sentiment Auto-Complete",
               "short_title": "Auto-Complete",
-              "description": "Fined-tuned GPT-2 to auto-completes customer reviews given a partial review and a sentiment. The model was fine-tuned on the Yelp reviews dataset consisting of 650,000 customer reviews. The model achieved clear qualitative improvements over the baseline model. Quantitative evaluation using a BERT-based sentiment classifier showed a 20% reduction in cross-entropy loss from the one-hot encodings of the intended sentiments, when compared to the baseline.",
+              "description": "Fined-tuned GPT-2 to auto-complete customer reviews given a partial review and a sentiment. The model was fine-tuned on the Yelp reviews dataset of 650,000 customer reviews. The model achieved clear qualitative improvements over the baseline model. Quantitative evaluation using a BERT-based sentiment classifier showed a 20% reduction in cross-entropy loss from the one-hot encodings of the intended sentiments compared to the baseline.",
               "post_link": null,
               "github_link": null
             },
