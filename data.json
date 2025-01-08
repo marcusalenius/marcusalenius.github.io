@@ -1,7 +1,7 @@
 {
   "firstName": "Marcus",
   "lastName": "Alenius",
-  "brief": "I’m a junior at Carnegie Mellon University studying Artificial Intelligence and Information Systems. I am a developer, published ML researcher, and Head Teaching Assistant.",
+  "brief": "I’m a junior at Carnegie Mellon University studying Artificial Intelligence and Information Systems. I am an incoming AI/ML Software Development Engineer Intern at Amazon, published ML researcher, and Head Teaching Assistant.",
   "heroButtons": [
     {
       "id": 0,
@@ -47,17 +47,17 @@
           "row_0": [
             {
               "id": 0,
-              "text" : "Hi again, I’m Marcus Alenius. I am a Swedish American studying Artificial Intelligence and Information Systems at Carnegie Mellon University. I am passionate about creating technology that unlocks our full potential while making it less obtrusive and almost invisible to us. My primary interests lie in machine learning, natural language processing, and software engineering."
+              "text": "Hi again, I’m Marcus Alenius. I am a Swedish American studying Artificial Intelligence and Information Systems at Carnegie Mellon University. I am passionate about creating technology that unlocks our full potential while making it less obtrusive and almost invisible to us. My primary interests lie in machine learning, natural language processing, and software engineering."
             },
             {
               "id": 1,
-              "text" : "Currently, I serve as a Head Teaching Assistant for CMU’s largest course, a Bloomberg top 5 U.S. computer science class. I am also a published machine learning researcher, having recently co-created a novel LLM-based metric for automated code reviews. My software engineering experience includes internships at Höganäs Borgestad and the McLearn Lab at CMU’s HCII. In my free time, I love working on projects. Take a look at some of them below."
+              "text": "Currently, I serve as a Head Teaching Assistant for CMU’s largest course, a Bloomberg top 5 U.S. computer science class. I am also a published machine learning researcher, having recently co-created a novel LLM-based metric for automated code reviews. My software engineering experience includes internships at Höganäs Borgestad and the McLearn Lab at CMU’s HCII. In my free time, I love working on projects. Take a look at some of them below."
             }
           ],
           "row_1": [
             {
               "id": 0,
-              "text" : "Outside of technology, I am passionate about swimming, a sport I have loved my entire life. I am a former Swedish Age Group Champion in the 100 and 200 meters breaststroke. During my freshman year at Carnegie Mellon, I swam on the varsity swim team. For two years, I coached swimmers aged 7–11. Most recently, I announced swim meets in Sundsvall, Sweden, in 2022 and 2024, for which I developed an application to collect live stats for the announcer. In 2024, I also served as one of the announcers for the Swedish Age Group Championships."
+              "text": "Outside of technology, I am passionate about swimming, a sport I have loved my entire life. I am a former Swedish Age Group Champion in the 100 and 200 meters breaststroke. During my freshman year at Carnegie Mellon, I swam on the varsity swim team. For two years, I coached swimmers aged 7–11. Most recently, I announced swim meets in Sundsvall, Sweden, in 2022 and 2024, for which I developed an application to collect live stats for the announcer. In 2024, I also served as one of the announcers for the Swedish Age Group Championships."
             }
           ]
         }
@@ -228,7 +228,15 @@
       "id": 2,
       "cards": [
         {
-          "id" : 0,
+          "id": 0,
+          "title": "Incoming AI/ML SDE Intern",
+          "organization": "Amazon",
+          "start": "May 2025",
+          "end": "August 2025",
+          "location": "Santa Clara, CA"
+        },
+        {
+          "id": 1,
           "title": "Head Teaching Assistant",
           "organization": "15-112 Fundamentals of CS, CMU",
           "start": "August 2023",
@@ -236,7 +244,7 @@
           "location": "Pittsburgh, PA"
         },
         {
-          "id" : 1,
+          "id": 2,
           "title": "Software Engineering Intern",
           "organization": "Höganäs Borgestad",
           "start": "June 2024",
@@ -244,7 +252,7 @@
           "location": "Gävle, Sweden"
         },
         {
-          "id" : 2,
+          "id": 3,
           "title": "Research Assistant",
           "organization": "Language Technologies Institute, CMU",
           "start": "May 2024",
@@ -252,7 +260,7 @@
           "location": "Remote"
         },
         {
-          "id" : 3,
+          "id": 4,
           "title": "Software Engineering Intern",
           "organization": "McLearn Lab, HCII CMU",
           "start": "May 2023",
