@@ -82,6 +82,46 @@
           "projects": [
             {
               "id": 1,
+              "title": "Speech Recognition Transformer",
+              "short_title": "ASR Transformer",
+              "description": "An encoder-decoder Transformer for automatic speech recognition. Implemented all components from scratch using PyTorch, including multi-head self- and cross-attention, positional encoding, and data pipeline. Applied CTC auxiliary loss, beam search decoding, and filter bank feature downsampling strategies to optimize convergence, accuracy, and inference speed. Tuned hyperparameters through ablation studies informed by recent ASR research, achieving 8.5 CER under a 30M parameter constraint and placing in the top 10% of a Carnegie Mellon graduate-level Kaggle competition.",
+              "post_link": null,
+              "github_link": null
+            },
+            {
+              "id": 1,
+              "title": "Transformer Langue Model",
+              "short_title": "Transformer LM",
+              "description": "Built a decoder-only Transformer language model from scratch in PyTorch, including character and subword tokenization, causal and pad masking, sinusoidal positional encodings, and multi-head self-attention. Trained the model using a custom trainer, achieving a per-character perplexity of 3.4.",
+              "post_link": null,
+              "github_link": null
+            },
+            {
+              "id": 1,
+              "title": "MyTorch",
+              "short_title": "MyTorch",
+              "description": "Deep learning and automatic differentiation library with a PyTorch-like interface. Implemented core components using NumPy, including linear and convolutional layers, activation functions, loss functions, and optimizers. Engineered a reverse-mode automatic differentiation engine from scratch with operation-level backpropagation and gradient tracking via a custom buffer system. Built and tested modules such as RNN cells and GRUs, scaled dot-product attention and multi-head attention, and validated them against PyTorch reference implementations.",
+              "post_link": null,
+              "github_link": null
+            },
+            {
+              "id": 1,
+              "title": "Phoneme Transcriber",
+              "short_title": "Phoneme Transcriber",
+              "description": "Sequence-to-sequence model that transcribes speech utterances into phoneme sequences using LSTMs and beam search decoding. Developed entirely in PyTorch under strict RNN-only constraints and a 20M parameter budget, and trained with CTC loss, the system incorporates data augmentation (SpecAugment and Gaussian noise) and regularization strategies (including locked dropout), all optimized through ablation studies. Achieved a 4.6 Levenshtein distance on held-out data.",
+              "post_link": null,
+              "github_link": null
+            },
+            {
+              "id": 1,
+              "title": "Face Identifier and Classifier",
+              "short_title": "Face Identifier",
+              "description": "Built and trained a face classification and verification model under a 30M parameter constraint, leveraging modified ResNet-50 and ConvNeXt architectures. The system was optimized for open-set identity recognition through ArcFace loss fine-tuning, which improved the discriminability of face embeddings. Data augmentation was handled through a custom RandAugment pipeline incorporating geometric and photometric transformations. The final model achieved a 2.4 Equal Error Rate (EER) on the verification task and placed in the top 5% of a Carnegie Mellon graduate-level Kaggle competition.",
+              "post_link": null,
+              "github_link": null
+            },
+            {
+              "id": 1,
               "title": "Review Auto-Complete",
               "short_title": "Auto-Complete",
               "description": "Fined-tuned GPT-2 to auto-complete customer reviews given a partial review and a sentiment. The model was fine-tuned on the Yelp reviews dataset of 650,000 customer reviews. The model achieved clear qualitative improvements over the baseline model. Quantitative evaluation using a BERT-based sentiment classifier showed a 20% reduction in cross-entropy loss from the one-hot encodings of the intended sentiments compared to the baseline.",
