@@ -78,6 +78,8 @@ function ModalContentCard({ projectData }: Props) {
             <span className="title">{projectData.title}</span>
             <span className="short-title">{projectData.short_title}</span>
           </h4>
+          <h5>{projectData.date}</h5>
+          {/* <p>{projectData.date}</p> */}
           <ReadMore isExpanded={isExpanded}>{projectData.description}</ReadMore>
           <ModalLinks projectData={projectData} />
           <ExpandCollapseButton

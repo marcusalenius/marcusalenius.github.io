@@ -40,6 +40,18 @@ h4 {
 
 .dark h4 { color: var(--darkText); }
 
+h5 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    z-index: 15;
+    color: var(--lightFooterText);
+    margin-bottom: 5px;
+}
+
+.dark h5 { color: var(--darkFooterText); }
+
 p.paragraph-large {
     font-style: normal;
     font-weight: 400;
