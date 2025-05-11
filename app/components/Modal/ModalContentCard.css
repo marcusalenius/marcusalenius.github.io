@@ -159,3 +159,17 @@
     }
 
 }
+
+/* iPhone Plus */
+@media (max-width: 424px) {
+
+    .modal-content-card-content h4 .short-title {
+        display: block;
+    }
+
+    .modal-content-card-content h4 .title {
+        display: none;
+    }
+
+}
+

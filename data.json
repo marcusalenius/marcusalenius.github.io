@@ -82,7 +82,7 @@
           "projects": [
             {
               "id": 1,
-              "title": "Sentiment Auto-Complete",
+              "title": "Review Auto-Complete",
               "short_title": "Auto-Complete",
               "description": "Fined-tuned GPT-2 to auto-complete customer reviews given a partial review and a sentiment. The model was fine-tuned on the Yelp reviews dataset of 650,000 customer reviews. The model achieved clear qualitative improvements over the baseline model. Quantitative evaluation using a BERT-based sentiment classifier showed a 20% reduction in cross-entropy loss from the one-hot encodings of the intended sentiments compared to the baseline.",
               "post_link": null,
@@ -98,14 +98,6 @@
             },
             {
               "id": 3,
-              "title": "Handwriting Neural Network",
-              "short_title": "Neural Network",
-              "description": "Feedforward neural network with backpropagation and stochastic gradient descent implemented from scratch using Python and NumPy. Trained on 60,000 handwritten digits in the MNIST dataset, this network achieved an accuracy of 95%. I then reimplemented the network with PyTorch and improved it using cross-entropy loss and regularization. The updated network can recognize handwritten digits with 98% accuracy.",
-              "post_link": null,
-              "github_link": "https://github.com/marcusalenius/handwriting-nn"
-            },
-            {
-              "id": 4,
               "title": "Kenboard",
               "short_title": "Kenboard",
               "description": "Virtual keyboard with a custom typing error correction system. My term project for Carnegie Mellon's 15-112 Fundamentals of Programming and Computer Science. Inspired by Ken Kocienda's book Creative Selection, it combines a Manhattan distance-based algorithm and word usage frequency to suggest a most probable user-intended word, enabling up to 80% faster typing.",
@@ -113,10 +105,10 @@
               "github_link": null
             },
             {
-              "id": 5,
+              "id": 4,
               "title": "Minesweeper Solver",
               "short_title": "Minesweeper Solver",
-              "description": "I developed a Minesweeper solver in Standard ML by representing board states as a series of boolean equations. Flags are denoted as 0, safe squares as 1, and for each safe square, an equation sets the warning number on the square equal to the sum of the values of the variables representing its neighbors. To solve these boolean equations, I implemented a SAT solver using unit propagation and the DPLL algorithm. This solver takes the boolean equations and produces a sequence of all satisfying assignments of variables. From these assignments, I then identify a safe square to reveal.",
+              "description": "Developed a Minesweeper solver in Standard ML by representing board states as a series of boolean equations. Flags are denoted as 0, safe squares as 1, and for each safe square, an equation sets the warning number on the square equal to the sum of the values of the variables representing its neighbors. To solve these boolean equations, I implemented a SAT solver using unit propagation and the DPLL algorithm. This solver takes the boolean equations and produces a sequence of all satisfying assignments of variables. From these assignments, I then identify a safe square to reveal.",
               "post_link": null,
               "github_link": null
             }
@@ -128,9 +120,9 @@
           "projects": [
             {
               "id": 0,
-              "title": "Incident Tracking System",
+              "title": "Investigation Tracking System",
               "short_title": "Tracking System",
-              "description": "A multi-user web application with a Ruby on Rails backend and a React frontend. Built with test-driven development, achieving 100% unit test coverage. The backend ensures maintainability and scalability, while the frontend offers a dynamic user interface. Additionally, I developed and documented 12 RESTful API endpoints with token-based authentication, authorization, and versioning. This system streamlines incident tracking and management, providing a seamless user experience with ensured data integrity and security.",
+              "description": "Developed a full-stack, multi-user web application using Ruby on Rails and SQLite for the backend, and React for the frontend for quick access to case data in a simulated criminal investigation database. Built with test-driven development, achieving 100% unit test coverage. The backend ensures maintainability and scalability, while the frontend offers a dynamic user interface. Additionally, I developed and documented 12 REST API endpoints with token-based authentication, authorization, and versioning. This system streamlines investigation tracking and provides a seamless user experience with data integrity and security.",
               "post_link": null,
               "github_link": null
             },
@@ -176,7 +168,7 @@
               "id": 0,
               "title": "Dynamic Memory Allocator",
               "short_title": "Memory Allocator",
-              "description": "Custom heap allocator supporting malloc, free, realloc, and calloc functions. Written in C as a segregated free list dynamic memory allocator. This involved analyzing the tradeoffs between throughput and utilization, ultimately achieving a fast design with minimal heap fragmentation. My implementation ranked in the top 8% of my computer systems class at CMU.",
+              "description": "Custom heap allocator supporting malloc, free, realloc, and calloc functions. Written in C as a segregated free list dynamic memory allocator. This involved analyzing the tradeoffs between throughput and utilization, ultimately achieving a fast design with minimal heap fragmentation. My implementation ranked in the top 8% of the computer systems class at Carnegie Mellon.",
               "post_link": null,
               "github_link": null
             },
@@ -192,15 +184,15 @@
               "id": 2,
               "title": "Multithreaded File System",
               "short_title": "File System",
-              "description": "Reengineered a FAT-style file system for full concurrency, creating a multithreaded design using C and pthreads. Implemented a two-pronged synchronization strategy with mutex for system-level synchronization and readers–writer locks for file-level access, which allows exclusive access to each file to be controlled independently. This significantly enhanced system reliability and performance, resolving 100% of race conditions identified by LLVM task graph tooling.",
+              "description": "Reengineered a FAT-style file system for full concurrency, creating a multithreaded design using C and POSIX threads. Implemented a two-pronged synchronization strategy with mutex for system-level synchronization and readers–writer locks for file-level access, allowing exclusive access to each file to be controlled independently. This significantly enhanced system reliability and performance, resolving 100% of race conditions identified by LLVM task graph tooling.",
               "post_link": null,
               "github_link": null
             },
             {
               "id": 3,
-              "title": "Web Proxy Server",
-              "short_title": "Web Proxy Server",
-              "description": "Multithreaded web proxy server forwarding client requests to the server and relaying responses back to the client. Implemented in C using sockets and pthreads, the proxy  features a thread-safe, protocol-independent design that processes multiple HTTP requests concurrently, achieving 100% of performance objectives.",
+              "title": "Concurrent Web Proxy",
+              "short_title": "Web Proxy",
+              "description": "Multithreaded HTTP proxy server featuring a thread-safe, protocol-independent design capable of handling multiple concurrent client connections using POSIX threads. Devised robust request parsing and error handling, including custom HTTP parser integration and validation mechanisms to ensure proper communication between clients and servers while achieving 100% of performance objectives.",
               "post_link": null,
               "github_link": null
             },
