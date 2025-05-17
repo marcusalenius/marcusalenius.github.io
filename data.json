@@ -1,7 +1,7 @@
 {
   "firstName": "Marcus",
   "lastName": "Alenius",
-  "brief": "I’m a junior at Carnegie Mellon University studying Artificial Intelligence. I am an incoming AI/ML Software Development Engineer Intern at Amazon, published ML researcher, and Head Teaching Assistant.",
+  "brief": "I’m a junior at Carnegie Mellon University studying Artificial Intelligence. I am a current Software Development Engineer Intern at Amazon, published ML researcher, and Head Teaching Assistant.",
   "heroButtons": [
     {
       "id": 0,
@@ -281,10 +281,10 @@
       "cards": [
         {
           "id": 0,
-          "title": "Incoming AI/ML SDE Intern",
+          "title": "SDE Intern, AI/ML",
           "organization": "Amazon",
           "start": "May 2025",
-          "end": "August 2025",
+          "end": "Present",
           "location": "Santa Clara, CA"
         },
         {
