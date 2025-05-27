@@ -361,6 +361,14 @@
       "links": null,
       "youtube_link": "https://www.youtube.com/embed/GL7kLWBDsWU",
       "markdown": "kenboard.md"
+    },
+    "attention": {
+      "title": "Attention Title",
+      "intro": "Attention Intro",
+      "date": "Date",
+      "links": null,
+      "youtube_link": null,
+      "markdown": "attention.md"
     }
   }
 }
