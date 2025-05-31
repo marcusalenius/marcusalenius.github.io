@@ -8,7 +8,7 @@
 
 .hero-button {
     border-radius: 45px;
-    height: 43px;
+    height: 43px !important;
     width: fit-content;
     display: flex;
     flex-direction: column;
