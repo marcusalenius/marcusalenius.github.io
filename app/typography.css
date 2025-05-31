@@ -47,7 +47,7 @@ h5 {
     line-height: 18px;
     z-index: 15;
     color: var(--lightFooterText);
-    margin-bottom: 5px;
+    margin-bottom: 7px;
 }
 
 .dark h5 { color: var(--darkFooterText); }
