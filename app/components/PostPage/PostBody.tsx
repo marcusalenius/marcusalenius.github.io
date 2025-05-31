@@ -6,7 +6,6 @@ import "katex/dist/katex.min.css"; // import KaTeX CSS
 import dynamic from "next/dynamic";
 import Image from "next/image";
 
-// import Video from "../Media/Video";
 const Video = dynamic(() => import("../Media/Video"), {
   ssr: false,
 });

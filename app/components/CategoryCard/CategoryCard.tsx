@@ -1,13 +1,13 @@
 "use client";
 
+import "./CategoryCard.css";
+
 import { useState } from "react";
 import dynamic from "next/dynamic";
 
-import "./CategoryCard.css";
-
 import Card from "../Card/Card";
 import PlusCrossButton from "../PlusCrossButton/PlusCrossButton";
-// import Modal from "../Modal/Modal";
+
 const Modal = dynamic(() => import("../Modal/Modal"), {
   ssr: false,
 });

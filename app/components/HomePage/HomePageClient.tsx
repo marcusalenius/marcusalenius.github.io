@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+
 import HomeContainer from "../HomePage/HomeContainer";
 import Footer from "../Footer/Footer";
 

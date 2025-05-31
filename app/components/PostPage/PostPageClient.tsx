@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+
 import Post from "../../components/PostPage/Post";
 import Footer from "../Footer/Footer";
 
