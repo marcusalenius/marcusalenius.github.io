@@ -24,7 +24,7 @@ Fortunately, the Amazon Rekognition API provides the location of the face on the
 
 <div class="body-image">
     <video src="actordentify-slideshow.mp4"></video>
-    <div class="image-text">We wanted to place the actor's name by their face</div>
+    <div class="image-text">We wanted to place the actor's name by their face.</div>
 </div>
 
 It turns out that finding the best card placements is very similar to solving a puzzle, where the solution is placing the cards such that they don’t overlap with any faces, other cards, or go off the screen. What algorithm is great for solving puzzles? [Backtracking](https://en.wikipedia.org/wiki/Backtracking).
@@ -37,7 +37,7 @@ We were inspired by the design of [windows in visionOS](https://developer.apple.
 
 <div class="body-image">
     <img src="actordentify-card-background.jpg" alt="Card background letting the background come through">
-    <div class="image-text">Cards allow the background to come through</div>
+    <div class="image-text">Cards allow the background to come through.</div>
 </div>
 
 
@@ -45,6 +45,5 @@ Another key to not obstructing the content was to present a condensed version of
 
 <div class="body-image">
     <video src="actordentify-expand.mp4"></video>
-    <div class="image-text">Cards expand to reveal more information
-</div>
+    <div class="image-text">Cards expand to reveal more information.</div>
 </div>
