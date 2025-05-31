@@ -15,7 +15,7 @@ type Props = {
   cardData: { [key: string]: any };
 };
 
-function ActordentifyCard({ cardData }: Props) {
+export default function ActordentifyCard({ cardData }: Props) {
   const actordentifyPostLink = "/actordentify";
   return (
     <Card
@@ -47,5 +47,3 @@ function ActordentifyCard({ cardData }: Props) {
     </Card>
   );
 }
-
-export default ActordentifyCard;

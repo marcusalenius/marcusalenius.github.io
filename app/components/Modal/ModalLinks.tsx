@@ -7,23 +7,21 @@ type Props = {
   projectData: { [key: string]: any };
 };
 
-function ModalLinks({ projectData }: Props) {
-  const post_link = projectData.post_link;
-  const github_link = projectData.github_link;
+export default function ModalLinks({ projectData }: Props) {
+  const postLink = projectData.post_link;
+  const githubLink = projectData.github_link;
   return (
     <div className="modal-links">
-      {post_link ? (
-        <InternalLink href={post_link}>
+      {postLink ? (
+        <InternalLink href={postLink}>
           <p className="card-link">Learn More</p>
         </InternalLink>
       ) : null}
-      {github_link ? (
-        <ExternalLink href={github_link}>
+      {githubLink ? (
+        <ExternalLink href={githubLink}>
           <p className="card-link">View on GitHub</p>
         </ExternalLink>
       ) : null}
     </div>
   );
 }
-
-export default ModalLinks;

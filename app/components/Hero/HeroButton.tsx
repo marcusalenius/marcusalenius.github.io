@@ -15,7 +15,11 @@ type Props = {
   setIsModalOpen: (arg: boolean) => void;
 };
 
-function HeroButton({ buttonData, isModalOpen, setIsModalOpen }: Props) {
+export default function HeroButton({
+  buttonData,
+  isModalOpen,
+  setIsModalOpen,
+}: Props) {
   return (
     <>
       <Card
@@ -36,5 +40,3 @@ function HeroButton({ buttonData, isModalOpen, setIsModalOpen }: Props) {
     </>
   );
 }
-
-export default HeroButton;

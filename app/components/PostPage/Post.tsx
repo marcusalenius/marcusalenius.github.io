@@ -10,7 +10,7 @@ type Props = {
   markdown: string; // This should be the markdown content as a string
 };
 
-function Post({ postData, postName, markdown }: Props) {
+export default function Post({ postData, postName, markdown }: Props) {
   return (
     <div id="container">
       <div className="post">
@@ -24,7 +24,7 @@ function Post({ postData, postName, markdown }: Props) {
           </div>
           {postData.youtube_link ? (
             <iframe
-              src="https://www.youtube.com/embed/GL7kLWBDsWU"
+              src={postData.youtube_link}
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
@@ -36,5 +36,3 @@ function Post({ postData, postName, markdown }: Props) {
     </div>
   );
 }
-
-export default Post;

@@ -5,7 +5,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-function ReadMore({ isExpanded, children }: Props) {
+export default function ReadMore({ isExpanded, children }: Props) {
   return (
     <p className="paragraph-small read-more-container">
       <span className={isExpanded ? "read-more" : "read-more closed"}>
@@ -14,5 +14,3 @@ function ReadMore({ isExpanded, children }: Props) {
     </p>
   );
 }
-
-export default ReadMore;

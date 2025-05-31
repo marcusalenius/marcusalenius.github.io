@@ -9,7 +9,7 @@ type Props = {
   name: string;
 };
 
-function Section({ sectionData, name }: Props) {
+export default function Section({ sectionData, name }: Props) {
   const customCardMap: { [key: string]: any } = {
     Actordentify: ActordentifyCard,
   };
@@ -44,5 +44,3 @@ function Section({ sectionData, name }: Props) {
     </div>
   );
 }
-
-export default Section;

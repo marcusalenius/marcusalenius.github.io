@@ -10,7 +10,7 @@ type Props = {
   toggleAppearanceDropdown: () => void;
 };
 
-function AppearanceDropDown({
+export default function AppearanceDropDown({
   yUnhideAppearanceDropdown,
   toggleAppearanceDropdown,
 }: Props) {
@@ -102,5 +102,3 @@ function AppearanceDropDown({
     </Card>
   );
 }
-
-export default AppearanceDropDown;

@@ -6,7 +6,11 @@ type Props = {
   children: React.ReactNode;
 };
 
-function CardRegion({ id = "", className = "", children }: Props) {
+export default function CardRegion({
+  id = "",
+  className = "",
+  children,
+}: Props) {
   return (
     <div
       className={className}
@@ -30,5 +34,3 @@ function CardRegion({ id = "", className = "", children }: Props) {
     </div>
   );
 }
-
-export default CardRegion;

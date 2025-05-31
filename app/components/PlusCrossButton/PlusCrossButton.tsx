@@ -9,7 +9,10 @@ type Props = {
   onClick?: () => void;
 };
 
-function PlusCrossButton({ cross = false, onClick = () => {} }: Props) {
+export default function PlusCrossButton({
+  cross = false,
+  onClick = () => {},
+}: Props) {
   return (
     <div className="plus-cross-container" onClick={onClick}>
       <ThemedImage
@@ -20,5 +23,3 @@ function PlusCrossButton({ cross = false, onClick = () => {} }: Props) {
     </div>
   );
 }
-
-export default PlusCrossButton;

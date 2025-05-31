@@ -7,7 +7,7 @@ type Props = {
   onClick: () => void;
 };
 
-function ExpandCollapseButton({ collapse, onClick }: Props) {
+export default function ExpandCollapseButton({ collapse, onClick }: Props) {
   return (
     <div className="expand-collapse-button" onClick={onClick}>
       <p className="card-link">{collapse ? "Collapse" : "Expand"}</p>
@@ -20,5 +20,3 @@ function ExpandCollapseButton({ collapse, onClick }: Props) {
     </div>
   );
 }
-
-export default ExpandCollapseButton;

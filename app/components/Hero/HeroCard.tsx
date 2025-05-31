@@ -7,7 +7,7 @@ type Props = {
   setIsModalOpen: (arg: boolean) => void;
 };
 
-function HeroCard({ isModalOpen, setIsModalOpen }: Props) {
+export default function HeroCard({ isModalOpen, setIsModalOpen }: Props) {
   return (
     <Card id="hero-card" onClick={() => setIsModalOpen(!isModalOpen)}>
       <Image
@@ -22,5 +22,3 @@ function HeroCard({ isModalOpen, setIsModalOpen }: Props) {
     </Card>
   );
 }
-
-export default HeroCard;

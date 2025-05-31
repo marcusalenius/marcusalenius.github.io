@@ -6,7 +6,7 @@ type Props = {
   modalData: { [key: string]: any };
 };
 
-function AboutMeModal({ modalData }: Props) {
+export default function AboutMeModal({ modalData }: Props) {
   return (
     <div className="modal-content">
       <h2>{modalData.title}</h2>
@@ -66,5 +66,3 @@ function AboutMeModal({ modalData }: Props) {
     </div>
   );
 }
-
-export default AboutMeModal;

@@ -3,7 +3,7 @@ import { useState } from "react";
 import NavButtonAppearance from "./NavButtonAppearance";
 import AppearanceDropDown from "./NavAppearanceDropDown";
 
-function AppearanceComponents() {
+export default function AppearanceComponents() {
   const [yUnhideAppearanceDropdown, setYUnhideAppearanceDropdown] =
     useState(-1); // -1 means not set
 
@@ -43,5 +43,3 @@ function AppearanceComponents() {
     </>
   );
 }
-
-export default AppearanceComponents;

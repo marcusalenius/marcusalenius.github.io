@@ -55,7 +55,7 @@ const getMostInView = (itemSectionMap: { [key: string]: any }) => {
   return mostInView;
 };
 
-function NavMobile({ data }: Props) {
+export default function NavMobile({ data }: Props) {
   // Hook for scroll event to update navmenu item selection
   useEffect(function mount() {
     function onScroll() {
@@ -225,5 +225,3 @@ function NavMobile({ data }: Props) {
     </Card>
   );
 }
-
-export default NavMobile;

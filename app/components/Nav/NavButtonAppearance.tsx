@@ -6,7 +6,9 @@ type Props = {
   toggleAppearanceDropdown: () => void;
 };
 
-function NavButtonAppearance({ toggleAppearanceDropdown }: Props) {
+export default function NavButtonAppearance({
+  toggleAppearanceDropdown,
+}: Props) {
   return (
     <div
       className="navbutton card-region-child drop-down-hidden"
@@ -34,5 +36,3 @@ function NavButtonAppearance({ toggleAppearanceDropdown }: Props) {
     </div>
   );
 }
-
-export default NavButtonAppearance;

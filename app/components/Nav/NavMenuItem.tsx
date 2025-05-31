@@ -5,7 +5,7 @@ type Props = {
   isDefault?: boolean;
 };
 
-function NavMenuItem({
+export default function NavMenuItem({
   name,
   hideNavmenu,
   unhideNavmenu,
@@ -46,5 +46,3 @@ function NavMenuItem({
     </div>
   );
 }
-
-export default NavMenuItem;

@@ -7,7 +7,7 @@ type Props = {
   modalData: { [key: string]: any };
 };
 
-function ModalContent({ modalData }: Props) {
+export default function ModalContent({ modalData }: Props) {
   if (modalData.title === "Contact and Links") {
     return (
       <div className="modal-content">
@@ -37,5 +37,3 @@ function ModalContent({ modalData }: Props) {
     );
   }
 }
-
-export default ModalContent;

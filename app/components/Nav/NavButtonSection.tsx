@@ -1,6 +1,6 @@
 import Card from "../Card/Card";
 
-function NavButtonSection({ name }: { name: string }) {
+export default function NavButtonSection({ name }: { name: string }) {
   const nameLowerDashed = name.toLowerCase().replace(" ", "-");
 
   return (
@@ -24,5 +24,3 @@ function NavButtonSection({ name }: { name: string }) {
     </Card>
   );
 }
-
-export default NavButtonSection;

@@ -11,7 +11,7 @@ type Props = {
   homePage: boolean;
 };
 
-function Nav({ data, homePage }: Props) {
+export default function Nav({ data, homePage }: Props) {
   return (
     <nav>
       <NavHome homePage={homePage} />
@@ -20,5 +20,3 @@ function Nav({ data, homePage }: Props) {
     </nav>
   );
 }
-
-export default Nav;

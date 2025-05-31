@@ -6,7 +6,7 @@ type Props = {
   cardData: { [key: string]: any };
 };
 
-function ExperienceCard({ cardData }: Props) {
+export default function ExperienceCard({ cardData }: Props) {
   return (
     <Card className="experience-card card card-region-child">
       <h3>{cardData.title}</h3>
@@ -17,5 +17,3 @@ function ExperienceCard({ cardData }: Props) {
     </Card>
   );
 }
-
-export default ExperienceCard;

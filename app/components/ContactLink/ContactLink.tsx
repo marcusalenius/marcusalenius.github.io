@@ -4,7 +4,7 @@ type Props = {
   contactData: { [key: string]: any };
 };
 
-function ContactLink({ contactData }: Props) {
+export default function ContactLink({ contactData }: Props) {
   return (
     <div className="contact-link" key={contactData.id}>
       <p className="small-header">{contactData.title.toUpperCase()}</p>
@@ -14,5 +14,3 @@ function ContactLink({ contactData }: Props) {
     </div>
   );
 }
-
-export default ContactLink;

@@ -16,7 +16,7 @@ type Props = {
 };
 
 // https://github.com/pacocoursey/next-themes?tab=readme-ov-file
-function ThemedImage({
+export default function ThemedImage({
   lightSrc,
   darkSrc,
   alt = "",
@@ -66,5 +66,3 @@ function ThemedImage({
     />
   );
 }
-
-export default ThemedImage;

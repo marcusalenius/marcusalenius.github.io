@@ -11,7 +11,11 @@ type Props = {
   setIsModalOpen: (arg: boolean) => void;
 };
 
-function Modal({ modalData, isModalOpen, setIsModalOpen }: Props) {
+export default function Modal({
+  modalData,
+  isModalOpen,
+  setIsModalOpen,
+}: Props) {
   // Hook for click outside (on modal overlay) to close modal
   useEffect(function mount() {
     function onClick(event: MouseEvent) {
@@ -53,5 +57,3 @@ function Modal({ modalData, isModalOpen, setIsModalOpen }: Props) {
     </div>
   );
 }
-
-export default Modal;

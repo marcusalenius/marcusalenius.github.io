@@ -12,7 +12,7 @@ type Props = {
   data: { [key: string]: any };
 };
 
-function Hero({ data }: Props) {
+export default function Hero({ data }: Props) {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
 
@@ -53,5 +53,3 @@ function Hero({ data }: Props) {
     </div>
   );
 }
-
-export default Hero;

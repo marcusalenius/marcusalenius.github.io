@@ -9,7 +9,7 @@ type Props = {
 };
 
 // If href is an empty string, the component will render a div element instead of a Link element.
-function InternalLink({ href, children }: Props) {
+export default function InternalLink({ href, children }: Props) {
   const content = (
     <>
       {children}
@@ -30,5 +30,3 @@ function InternalLink({ href, children }: Props) {
     <div className="nav-link">{content}</div>
   );
 }
-
-export default InternalLink;

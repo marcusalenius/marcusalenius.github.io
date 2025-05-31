@@ -11,7 +11,7 @@ type Props = {
   projectData: { [key: string]: any };
 };
 
-function ModalContentCard({ projectData }: Props) {
+export default function ModalContentCard({ projectData }: Props) {
   const [isExpanded, setIsExpanded] = useState(false);
   const cardContainerRef = useRef<HTMLDivElement>(null);
 
@@ -79,7 +79,6 @@ function ModalContentCard({ projectData }: Props) {
             <span className="short-title">{projectData.short_title}</span>
           </h4>
           <h5>{projectData.date}</h5>
-          {/* <p>{projectData.date}</p> */}
           <ReadMore isExpanded={isExpanded}>{projectData.description}</ReadMore>
           <ModalLinks projectData={projectData} />
           <ExpandCollapseButton
@@ -91,5 +90,3 @@ function ModalContentCard({ projectData }: Props) {
     </div>
   );
 }
-
-export default ModalContentCard;

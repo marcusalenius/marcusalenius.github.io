@@ -6,7 +6,7 @@ type Props = {
   postLinkData: { [key: string]: any };
 };
 
-function PostLinks({ postLinkData }: Props) {
+export default function PostLinks({ postLinkData }: Props) {
   const github_link = postLinkData.github_link;
   return (
     <div className="post-links">
@@ -18,5 +18,3 @@ function PostLinks({ postLinkData }: Props) {
     </div>
   );
 }
-
-export default PostLinks;

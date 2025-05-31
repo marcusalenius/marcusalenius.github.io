@@ -16,7 +16,7 @@ type Props = {
   categoryData: { [key: string]: any };
 };
 
-function CategoryCard({ categoryData }: Props) {
+export default function CategoryCard({ categoryData }: Props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -39,5 +39,3 @@ function CategoryCard({ categoryData }: Props) {
     </>
   );
 }
-
-export default CategoryCard;

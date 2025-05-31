@@ -5,7 +5,7 @@ type Props = {
   data: { [key: string]: any };
 };
 
-function HomeContainer({ data }: Props) {
+export default function HomeContainer({ data }: Props) {
   return (
     <div id="container">
       <Hero data={data} />
@@ -19,5 +19,3 @@ function HomeContainer({ data }: Props) {
     </div>
   );
 }
-
-export default HomeContainer;

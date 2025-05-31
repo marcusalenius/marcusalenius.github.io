@@ -14,7 +14,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-function Card({
+export default function Card({
   id = "",
   className = "card",
   individualEffect = true,
@@ -62,5 +62,3 @@ function Card({
     </div>
   );
 }
-
-export default Card;

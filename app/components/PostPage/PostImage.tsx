@@ -12,7 +12,7 @@ type Props = {
   post: string;
 };
 
-function PostImage({ post }: Props) {
+export default function PostImage({ post }: Props) {
   const content: { [key: string]: JSX.Element } = {
     actordentify: (
       <Video src="videos/actordentify-hero.mp4" id="actordentify-hero" />
@@ -53,5 +53,3 @@ function PostImage({ post }: Props) {
 
   return <div className="post-image">{content[post]}</div>;
 }
-
-export default PostImage;

@@ -7,7 +7,7 @@ type Props = {
   homePage: boolean;
 };
 
-function NavHome({ homePage }: Props) {
+export default function NavHome({ homePage }: Props) {
   return (
     <Card
       id="navbutton-home"
@@ -30,5 +30,3 @@ function NavHome({ homePage }: Props) {
     </Card>
   );
 }
-
-export default NavHome;

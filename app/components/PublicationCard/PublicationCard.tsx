@@ -7,7 +7,7 @@ type Props = {
   cardData: { [key: string]: any };
 };
 
-function PublicationCard({ cardData }: Props) {
+export default function PublicationCard({ cardData }: Props) {
   return (
     <Card className="publication-card card card-region-child">
       <p className="paragraph-small">{cardData.title}</p>
@@ -21,5 +21,3 @@ function PublicationCard({ cardData }: Props) {
     </Card>
   );
 }
-
-export default PublicationCard;

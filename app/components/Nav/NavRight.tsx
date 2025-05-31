@@ -7,7 +7,7 @@ type Props = {
   homePage: boolean;
 };
 
-function NavRight({ data, homePage }: Props) {
+export default function NavRight({ data, homePage }: Props) {
   if (homePage) {
     return (
       <CardRegion id="nav-right">
@@ -28,5 +28,3 @@ function NavRight({ data, homePage }: Props) {
     );
   }
 }
-
-export default NavRight;

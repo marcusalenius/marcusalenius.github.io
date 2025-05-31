@@ -15,8 +15,7 @@ type Props = {
   markdown: string; // This should be the markdown content as a string
 };
 
-function PostBody({ markdown }: Props) {
-  // const content = readFileSync(`markdown/${markdown}`, "utf-8");
+export default function PostBody({ markdown }: Props) {
   const markdownComponents = {
     video(props: any) {
       const { node, src, ...rest } = props;
@@ -54,5 +53,3 @@ function PostBody({ markdown }: Props) {
     </div>
   );
 }
-
-export default PostBody;

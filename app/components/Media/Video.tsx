@@ -10,7 +10,7 @@ type Props = {
 };
 
 // className provided in case there is a group of videos that need to play in sync
-function Video({
+export default function Video({
   src,
   id = "",
   className = "",
@@ -68,5 +68,3 @@ function Video({
     />
   );
 }
-
-export default Video;

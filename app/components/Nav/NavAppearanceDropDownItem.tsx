@@ -9,7 +9,10 @@ type Props = {
   toggleAppearanceDropdown: () => void;
 };
 
-function AppearanceDropDownItem({ option, toggleAppearanceDropdown }: Props) {
+export default function AppearanceDropDownItem({
+  option,
+  toggleAppearanceDropdown,
+}: Props) {
   const optionLower = option.toLowerCase();
   const { theme, setTheme } = useTheme();
 
@@ -38,5 +41,3 @@ function AppearanceDropDownItem({ option, toggleAppearanceDropdown }: Props) {
     </div>
   );
 }
-
-export default AppearanceDropDownItem;
