@@ -1,3 +1,5 @@
+"use client";
+
 import "./ActordentifyCard.css";
 
 import dynamic from "next/dynamic";

@@ -1,28 +1,18 @@
 import "../typography.css";
 
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
+import fs from "fs";
+import path from "path";
+
+import PostPageClient from "../components/PostPage/PostPageClient";
 import getPageMetadata from "../../utils/getPageMetadata.ts";
-
 import data from "../../data.json";
-
-// import Nav from "../components/Nav/Nav";
-const Nav = dynamic(() => import("../components/Nav/Nav"), {
-  ssr: false,
-});
-import Post from "../components/PostPage/Post";
-import Footer from "../components/Footer/Footer";
 
 export const metadata: Metadata = getPageMetadata(data, "kenboard");
 
-function KenboardPage() {
-  return (
-    <>
-      <Nav data={data} homePage={false} />
-      <Post postData={data.posts.kenboard} />
-      <Footer />
-    </>
-  );
+export default async function KenboardPage() {
+  const markdownFile = "kenboard.md";
+  const filePath = path.join(process.cwd(), "markdown", markdownFile);
+  const markdown = fs.readFileSync(filePath, "utf-8");
+  return <PostPageClient data={data} postName="kenboard" markdown={markdown} />;
 }
-
-export default KenboardPage;

@@ -1,6 +1,8 @@
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
-import { readFileSync } from "fs";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import "katex/dist/katex.min.css"; // import KaTeX CSS
 import dynamic from "next/dynamic";
 import Image from "next/image";
 
@@ -10,11 +12,11 @@ const Video = dynamic(() => import("../Media/Video"), {
 });
 
 type Props = {
-  markdown: string;
+  markdown: string; // This should be the markdown content as a string
 };
 
 function PostBody({ markdown }: Props) {
-  const content = readFileSync(`markdown/${markdown}`, "utf-8");
+  // const content = readFileSync(`markdown/${markdown}`, "utf-8");
   const markdownComponents = {
     video(props: any) {
       const { node, src, ...rest } = props;
@@ -42,8 +44,12 @@ function PostBody({ markdown }: Props) {
 
   return (
     <div className="post-body">
-      <Markdown rehypePlugins={[rehypeRaw]} components={markdownComponents}>
-        {content}
+      <Markdown
+        rehypePlugins={[rehypeRaw, rehypeKatex]}
+        remarkPlugins={[remarkMath]}
+        components={markdownComponents}
+      >
+        {markdown}
       </Markdown>
     </div>
   );

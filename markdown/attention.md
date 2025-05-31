@@ -23,4 +23,7 @@ We can now see that the problem has reduced to making the context vector for "a"
 ### An Initial Idea
 
 
+$\sqrt{2}$
+
+
 

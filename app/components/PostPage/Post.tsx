@@ -6,13 +6,15 @@ import PostLinks from "./PostLinks";
 
 type Props = {
   postData: { [key: string]: any };
+  postName: string; // This is the name of the post, e.g., "actordentify"
+  markdown: string; // This should be the markdown content as a string
 };
 
-function Post({ postData }: Props) {
+function Post({ postData, postName, markdown }: Props) {
   return (
     <div id="container">
       <div className="post">
-        <PostImage post={postData.markdown.split(".")[0]} />
+        <PostImage post={postName} />
         <h2>{postData.title}</h2>
         <div className="post-intro">
           <p className="paragraph-small">{postData.intro}</p>
@@ -29,7 +31,7 @@ function Post({ postData }: Props) {
             ></iframe>
           ) : null}
         </div>
-        <PostBody markdown={postData.markdown} />
+        <PostBody markdown={markdown} />
       </div>
     </div>
   );
