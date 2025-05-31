@@ -9,9 +9,9 @@ Say we give our model the phrase "once upon a". We want it to predict the next w
 
 We will let this notion of information be represented by a vector which we will call a _context vector_. Given this vector, how do we actually predict the next word? This is just multiclass classification, where the classes are all the words in our vocabulary.
 
-For simple multiclass classification, we learn some weight matrix that, when multiplied with a context vector, gives us a score for each word in the vocabulary. More precisely, we take the dot product between the context vector and every row of the weight matrix. As there is a row corresponding to every word in our vocabulary, this dot product gives us a score of how much the model believes that each word is next. 
+For a simple form of multiclass classification, we learn some weight matrix that, when multiplied with a context vector, gives us a score for each word in the vocabulary. More precisely, we take the dot product between the context vector and every row of the weight matrix. As there is a row corresponding to every word in our vocabulary, this dot product gives us a score of how much the model believes that each word is next. Then, we select the word with the highest score as the model's prediction of the next word.
 
-We would hope that given "a"'s context vector, the dot product between it and the row corresponding to the word "time" would be the highest. So, we would hope that the context vector for "a" is most similar to that row.
+We would hope that given "a"'s context vector (which we will call $\vec{v_a}$), the dot product between it and the row in the weight matrix corresponding to the word "time" would be the highest. So, we would hope that the context vector for "a" is most similar to that row.
 
 <div class="body-image">
     <img src="" alt="">
@@ -20,10 +20,40 @@ We would hope that given "a"'s context vector, the dot product between it and th
 
 We can now see that the problem has reduced to making the context vector for "a" and the row corresponding to "time" as similar as possible.
 
+### Colored? A Note About Similarity
+
+Dot product is measure of similarity...
+
 ### An Initial Idea
 
+Our first idea may be to represent "a" with some fixed vector. We will call this the embedding of "a". Then, we learn the weights in the matrix such that the row for "time" becomes as similar as possible to the embedding of "a". There is an issue with this approach though: we only look at the word "a" to determine the next word. So if we were able to train the model to output "time" given the embedding of "a", it would correctly complete the phrase "once upon a time" but it would incorrectly complete a phrase like "the sun is a star" and instead output "the sun is a time". 
 
-$\sqrt{2}$
+We would like to consider all the words that came before it. So, instead of letting the context vector for "a" just be the embedding of "a", we could define the context vector for "a" to be the average of the embeddings of "once", "upon", and "a". That way, when we feed the context vector into our classifier, it has baked in information about all preceding words. 
+
+This is a lot better. It solves our "the sun is a time" problem. But it raises another issue. Take the phrase "another words for big is" which we train to complete with "large". Recall that this means that we have learned the weights in matrix such that the context vector associated with "is", which is the average of the embeddings for "another", "word", "for", "big", "is", is most similar to the row corresponding to "large".
+
+Now consider the phrase "another word for help is". All but one words are the same, so the average embedding will be very similar to that of the previous phrase. Hence, it is likely that our classifier will output "large" here as well. So, we'd get "another word for help is large" instead of the desired "another word for help is assist". 
+
+<div class="body-image">
+    <img src="" alt="">
+    <div class="image-text">Some figure where I show the classification with very similar vectors outputting the same predicted word.</div>
+</div>
+
+What happened here? The issue was that all words were weighted equally. We would like to weigh certain words more than others. In the example above, we would have liked to weigh the words "big" and "help" more in their respective phrases. But how do we know how much to weight each word? To develop an answer to that question, it will help to get visual.
+
+### Embeddings
+
+When we said that we would represent "a" by some fixed vector, that we would *embed* "a", what did we mean by that? We want to associate each word in our vocabulary with a list of numbers. For now, we will say a list of two numbers. But how should we assign numbers to words? We could of course assign two random numbers to each word. Take the words "banana", "pear", and "phone". We may randomly assign them the numbers $[+0.8, +0.5]$, $[+3.9, +2.6]$, and $[+2.1, +4.2]$. We can plot these on the Cartesian plane.
+
+<div class="body-image">
+    <img src="" alt="">
+    <div class="image-text">We can plot our random embeddings on the Cartesian plane.</div>
+</div>
+
+Let's consider whether we can do something more meaningful. A property we might hope to have is that similar words have similar embeddings, and very different words have very different embeddings.
+
+
+
 
 
 

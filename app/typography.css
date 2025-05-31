@@ -135,6 +135,11 @@ a { color: var(--lightFooterText); }
     color: var(--lightBodyText);
 }
 
+.post-body .katex {
+    font-size: 17px;
+
+}
+
 .dark .post-body p { color: var(--darkBodyText); }
 
 .post-body ol {
@@ -165,7 +170,6 @@ p.url-card-website {
 }
 
 .dark p.url-card-website { color: var(--darkBodyText); }
-
 
 /* Tablet */
 @media (max-width: 1080px) {
