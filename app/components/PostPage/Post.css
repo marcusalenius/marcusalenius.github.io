@@ -173,6 +173,12 @@ blockquote {
     box-shadow: none;
 }
 
+/* Attention */
+
+.attention-video {
+    width: 96%;
+}
+
 
 
 /* iPhone Plus */

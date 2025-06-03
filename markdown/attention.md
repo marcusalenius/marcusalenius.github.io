@@ -3,7 +3,7 @@
 Say we give our model the phrase "once upon a". We want it to predict the next word "time". That is, given all the words before it, it should generate the next word in the sequence. We're going to make a conceptual simplification to this: given some *information* associated with the current word, predict the next word. The information associated with a word can be influenced by earlier words, but each word's information is responsible for predicting the next word. So in our example, the information associated with the word "a" is used to make the prediction of the next word being "time". Similarly, if we wanted to predict the next word "a" given the sequence "once upon", the information associated with the word "upon" is used to predict "a". And, for predicting "upon" given "once", the information for "once" is used to predict "upon".
 
 <div class="body-image">
-    <img src="" alt="">
+    <video src="attention-predict.mp4"></video>
     <div class="image-text">With each word we associate some <em>information</em> which is used to predict the next word.</div>
 </div>
 
@@ -50,10 +50,37 @@ When we said that we would represent "a" by some fixed vector, that we would *em
     <div class="image-text">We can plot our random embeddings on the Cartesian plane.</div>
 </div>
 
-Let's consider whether we can do something more meaningful. A property we might hope to have is that similar words have similar embeddings, and very different words have very different embeddings.
+Let's consider whether we can do something more meaningful. A property we might hope to have is that similar words have similar embeddings, and very different words have very different embeddings. Why? As we've seen, very similar inputs to our classifier produces the same or very similar outputs. So, we want words that could have the same next word to have very similar embeddings, and words that should not have the next word in common to have very distinct embeddings.
+
+In our "banana", "pear", and "phone" example we would like "banana" and "pear" to have similar embeddings, that is be near each other on the Cartesian plane, because they are both fruits, and "phone" to have a very different embedding. To make sense of this distinction, we can assign the idea of *fruitiness* to one of the axes and the idea of *techiness* to the other axis.
+
+<div class="body-image">
+    <img src="" alt="">
+    <div class="image-text">A more meaningful embedding where similar words are near each other. [maybe add a laptop as well?]</div>
+</div>
 
 
+### Words Pulling Words
 
+Now let's think about where to place the word "apple". Where should we put it? It depends on how it is used. If it appears in the phrase "I ate a banana and an apple" it should go near the fruits, but if it is in the phrase "I got a new phone from apple" it should go by the technology devices. So, there is no one great choice for the embedding of "apple". The best we can do is place it somewhere between the two. So that's what we will do in our generic embedding.
+
+<div class="body-image">
+    <img src="" alt="">
+    <div class="image-text">Generic embedding of "apple".</div>
+</div>
+
+When we are given the phrase it appears in, we would like to adjust the embedding of of "apple" to better represent how the word is used in that phrase. In the first example we would like to move "apple" closer to the fruits, and in the second closer to the technology devices. 
+
+How do we know that is where we want to move it? Some of the other words in the phrases give very good clues about what meaning of "apple" was intended. In "I ate a banana and an apple" the word "banana" tells us that it is talking about the fruit. And in "I got a new phone from apple", the word "phone" indicates that it meant the technology brand. 
+
+Going back to the plane, what we would like is for "banana" to pull "apple" closer to it. And in the second example, we want "phone" to pull "apple" closer to it. 
+
+<div class="body-image">
+    <img src="" alt="">
+    <div class="image-text">On the left "apple" is pulled by "banana" and on the right it is pulled by "phone".</div>
+</div>
+
+What about the other words? How do we know that "banana" is the word that should pull "apple" and not any of the other words? Let's plot the embeddings of the other words. They are not very close to "apple" because they are not very similar to "apple". The most similar words to "apple" should pull it the most. All words exert some amount of pulling force, but the effect is dominated by the closest words. I like to compare this to gravity (where the objects have same mass). Objects that are closer exert more gravitational force on each other than objects that are far away. 
 
 
 

@@ -18,7 +18,14 @@ export default function PostBody({ markdown }: Props) {
   const markdownComponents = {
     video(props: any) {
       const { node, src, ...rest } = props;
-      return <Video src={`videos/${src}`} id={src.split(".")[0]} {...rest} />;
+      return (
+        <Video
+          src={`videos/${src}`}
+          id={src.split(".")[0]}
+          className={src.split("-")[0] + "-video"}
+          {...rest}
+        />
+      );
     },
     img(props: any) {
       const { node, src, ...rest } = props;
