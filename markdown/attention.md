@@ -55,8 +55,8 @@ Let's consider whether we can do something more meaningful. A property we might 
 In our "banana", "pear", and "phone" example we would like "banana" and "pear" to have similar embeddings, that is be near each other on the Cartesian plane, because they are both fruits, and "phone" to have a very different embedding. To make sense of this distinction, we can assign the idea of *fruitiness* to one of the axes and the idea of *techiness* to the other axis.
 
 <div class="body-image">
-    <img src="" alt="">
-    <div class="image-text">A more meaningful embedding where similar words are near each other. [maybe add a laptop as well?]</div>
+    <img src="attention-meaningful-embedding.png" alt="Meaningful embedding">
+    <div class="image-text">A more meaningful embedding where similar words are near each other.</div>
 </div>
 
 
@@ -65,7 +65,7 @@ In our "banana", "pear", and "phone" example we would like "banana" and "pear" t
 Now let's think about where to place the word "apple". Where should we put it? It depends on how it is used. If it appears in the phrase "I ate a banana and an apple" it should go near the fruits, but if it is in the phrase "I got a new phone from apple" it should go by the technology devices. So, there is no one great choice for the embedding of "apple". The best we can do is place it somewhere between the two. So that's what we will do in our generic embedding.
 
 <div class="body-image">
-    <img src="" alt="">
+    <img src="attention-generic-apple-embedding.png" alt='Generic embedding of "apple"'>
     <div class="image-text">Generic embedding of "apple".</div>
 </div>
 
@@ -76,11 +76,17 @@ How do we know that is where we want to move it? Some of the other words in the 
 Going back to the plane, what we would like is for "banana" to pull "apple" closer to it. And in the second example, we want "phone" to pull "apple" closer to it. 
 
 <div class="body-image">
-    <img src="" alt="">
+    <video src="attention-apple-pulled-side-by-side.mp4"></video>
     <div class="image-text">On the left "apple" is pulled by "banana" and on the right it is pulled by "phone".</div>
 </div>
 
-What about the other words? How do we know that "banana" is the word that should pull "apple" and not any of the other words? Let's plot the embeddings of the other words. They are not very close to "apple" because they are not very similar to "apple". The most similar words to "apple" should pull it the most. All words exert some amount of pulling force, but the effect is dominated by the closest words. I like to compare this to gravity (where the objects have same mass). Objects that are closer exert more gravitational force on each other than objects that are far away. 
+What about the other words? How do we know that "banana" is the word that should pull "apple" and not any of the other words? Let's plot the embeddings of the other words. They are not very close to "apple" because they are not very similar to "apple". The most similar words to "apple" pull it the most. All words exert some amount of pulling force, but the effect is dominated by the closest words. I like to compare this to gravity (where the objects have same mass). Objects that are closer exert more gravitational force on each other than objects that are far away. 
+
+<div class="body-image">
+    <img src="" alt="">
+    <div class="image-text">The other words are not very similar to "apple", so they don't exert as much pulling force.</div>
+</div>
+
 
 
 
