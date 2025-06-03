@@ -175,7 +175,8 @@ blockquote {
 
 /* Attention */
 
-.attention-video {
+.attention-video,
+.attention-image {
     width: 96%;
 }
 

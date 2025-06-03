@@ -33,6 +33,7 @@ export default function PostBody({ markdown }: Props) {
         <Image
           src={`/images/${src}`}
           id={src.split(".")[0]}
+          className={src.split("-")[0] + "-image"}
           width={0}
           height={0}
           unoptimized={true}

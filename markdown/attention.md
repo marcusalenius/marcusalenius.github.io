@@ -14,7 +14,7 @@ For a simple form of multiclass classification, we learn some weight matrix that
 We would hope that given "a"'s context vector (which we will call $\vec{v_a}$), the dot product between it and the row in the weight matrix corresponding to the word "time" would be the highest. So, we would hope that the context vector for "a" is most similar to that row.
 
 <div class="body-image">
-    <img src="" alt="">
+    <video src="attention-classification.mp4"></video>
     <div class="image-text">We perform multiclass classification on the context vector associated with "a".</div>
 </div>
 
@@ -46,7 +46,7 @@ What happened here? The issue was that all words were weighted equally. We would
 When we said that we would represent "a" by some fixed vector, that we would *embed* "a", what did we mean by that? We want to associate each word in our vocabulary with a list of numbers. For now, we will say a list of two numbers. But how should we assign numbers to words? We could of course assign two random numbers to each word. Take the words "banana", "pear", and "phone". We may randomly assign them the numbers $[+0.8, +0.5]$, $[+3.9, +2.6]$, and $[+2.1, +4.2]$. We can plot these on the Cartesian plane.
 
 <div class="body-image">
-    <img src="" alt="">
+    <img src="attention-random-embedding.png" alt="Random embedding">
     <div class="image-text">We can plot our random embeddings on the Cartesian plane.</div>
 </div>
 
