@@ -135,12 +135,14 @@ a { color: var(--lightFooterText); }
     color: var(--lightBodyText);
 }
 
+.dark .post-body p { color: var(--darkBodyText); }
+
 .post-body .katex {
     font-size: 17px;
-
+    color: var(--lightBodyText);
 }
 
-.dark .post-body p { color: var(--darkBodyText); }
+.dark .post-body .katex { color: var(--darkBodyText); }
 
 .post-body ol {
     font-style: normal;

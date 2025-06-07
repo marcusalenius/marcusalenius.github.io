@@ -80,12 +80,49 @@ Going back to the plane, what we would like is for "banana" to pull "apple" clos
     <div class="image-text">On the left "apple" is pulled by "banana" and on the right it is pulled by "phone".</div>
 </div>
 
+REWRITE THIS A BIT FOR CLARITY:
 What about the other words? How do we know that "banana" is the word that should pull "apple" and not any of the other words? Let's plot the embeddings of the other words. They are not very close to "apple" because they are not very similar to "apple". The most similar words to "apple" pull it the most. All words exert some amount of pulling force, but the effect is dominated by the closest words. I like to compare this to gravity (where the objects have same mass). Objects that are closer exert more gravitational force on each other than objects that are far away. 
 
 <div class="body-image">
     <img src="" alt="">
     <div class="image-text">The other words are not very similar to "apple", so they don't exert as much pulling force.</div>
 </div>
+
+Maybe a subheader (and colored section?) here
+
+Let's walk through the actual math to see how we determine where to move "apple", that is how much each other word pulls "apple". We start by computing the similarity between "apple" and every other word. We will use dot product as our measure of similarity. As we would expect, "apple" and "banana" have the highest dot product, so they are most similar. 
+
+<div class="body-image">
+    <img src="" alt="">
+    <div class="image-text">We compute the dot product between "apple" and every other word as our measure of similarity.</div>
+</div>
+
+We want to use these dot products to determine how much we should nudge "apple" in the direction of each word. At an extreme, where we want "apple" to go completely to "banana", we would simply set 100% of the new "apple" vector to the coordinates of the "banana" vector. We can write this as the following linear combination: 
+
+```math
+\vec{v_{\text{apple}}}' = 0 \vec{v_{\text{I}}} + 0 \vec{v_{\text{ate}}} + 0 \vec{v_{\text{a}}} + 1 \vec{v_{\text{banana}}} + 0 \vec{v_{\text{and}}} + 0 \vec{v_{\text{an}}}
+```
+
+What series of dot products would suggest this linear combination? One dot product should be incredibly large (the one between "apple" and "banana") and the rest should be incredibly small. If instead all the dot products were pretty similar, meaning that "apple" as equally similar to all words, we would want all words to pull "apple" equally. So we'd want a linear combination like this:
+
+```math
+\vec{v_{\text{apple}}}' = \frac{1}{6} \vec{v_{\text{I}}} + \frac{1}{6} \vec{v_{\text{ate}}} + \frac{1}{6} \vec{v_{\text{a}}} + \frac{1}{6} \vec{v_{\text{banana}}} + \frac{1}{6} \vec{v_{\text{and}}} + \frac{1}{6} \vec{v_{\text{an}}}
+```
+
+We see that we want all coefficients to be between 0 and 1, and for them to sum to 1. There's another characteristic that would be nice to have: emphasize the highest dot products. Those are the most similar words, so we want them to pull more, and perhaps more than what the a linear interpretation of the dot product would suggest. A function that accomplishes this is the exponential function $f(x) = e^x$. We will exponentiate each dot product. Finally, we want them all to sum to 1. We can achieve that by diving each term by the sum of all terms. This is called normalization. The function we have described is referred to as *softmax* and is usually written like this:
+
+```math
+\text{softmax}(\bold{x})_i = \frac{e^{x_i}}{\sum_j e^{x_j}}
+```
+
+<div class="body-image">
+    <img src="" alt="">
+    <div class="image-text">We apply softmax to turn the dot products into coefficients for the linear combination.</div>
+</div>
+
+
+
+
 
 
 
