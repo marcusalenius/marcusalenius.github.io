@@ -39,11 +39,11 @@ Now consider the phrase "another word for help is". All but one words are the sa
     <div class="image-text">Some figure where I show the classification with very similar vectors outputting the same predicted word.</div>
 </div>
 
-What happened here? The issue was that all words were weighted equally. We would like to weigh certain words more than others. In the example above, we would have liked to weigh the words "big" and "help" more in their respective phrases. But how do we know how much to weight each word? To develop an answer to that question, it will help to get visual.
+What happened here? The issue was that all words were weighted equally. We would like to weigh certain words more than others. In the example above, we would have liked to weigh the words "big" and "help" more in their respective phrases. But how do we know how much to weigh each word? To develop an answer to that question, it will help to get visual.
 
 ### Embeddings
 
-When we said that we would represent "a" by some fixed vector, that we would *embed* "a", what did we mean by that? We want to associate each word in our vocabulary with a list of numbers. For now, we will say a list of two numbers. But how should we assign numbers to words? We could of course assign two random numbers to each word. Take the words "banana", "pear", and "phone". We may randomly assign them the numbers $[+0.8, +0.5]$, $[+3.9, +2.6]$, and $[+2.1, +4.2]$. We can plot these on the Cartesian plane.
+When we said that we would represent "a" by some fixed vector, that we would *embed* "a", what did we mean by that? We want to associate each word in our vocabulary with a list of numbers. For now, we will say a list of two numbers. But how should we assign numbers to words? We could of course assign two random numbers to each word. Take the words "banana", "pear", and "phone". We may randomly assign them the numbers $[+0.3, +0.2]$, $[+1.4, +1.0]$, and $[+0.8, +1.6]$. We can plot these on the Cartesian plane.
 
 <div class="body-image">
     <img src="attention-random-embedding.png" alt="Random embedding">
@@ -80,50 +80,69 @@ Going back to the plane, what we would like is for "banana" to pull "apple" clos
     <div class="image-text">On the left "apple" is pulled by "banana" and on the right it is pulled by "phone".</div>
 </div>
 
-REWRITE THIS A BIT FOR CLARITY:
-What about the other words? How do we know that "banana" is the word that should pull "apple" and not any of the other words? Let's plot the embeddings of the other words. They are not very close to "apple" because they are not very similar to "apple". The most similar words to "apple" pull it the most. All words exert some amount of pulling force, but the effect is dominated by the closest words. I like to compare this to gravity (where the objects have same mass). Objects that are closer exert more gravitational force on each other than objects that are far away. 
+What about the other words? How do we know that "banana" is the word that should pull "apple" and not any of the other words? Let's plot the embeddings of the other words. We can see that they are not very close close to "apple" because they are not very similar to "apple". The words that are most similar to "apple" pull it the most. So, all words exert some amount of pulling force, but the effect is dominated by the most similar words. I like to compare this to gravity (where the objects have same mass). Objects that are closer exert more gravitational force on each other than objects that are far away. 
 
 <div class="body-image">
-    <img src="" alt="">
+    <video src="attention-all-embeddings.mp4"></video>
     <div class="image-text">The other words are not very similar to "apple", so they don't exert as much pulling force.</div>
 </div>
 
-Maybe a subheader (and colored section?) here
+-> Maybe a subheader (and colored section?) here
 
-Let's walk through the actual math to see how we determine where to move "apple", that is how much each other word pulls "apple". We start by computing the similarity between "apple" and every other word. We will use dot product as our measure of similarity. As we would expect, "apple" and "banana" have the highest dot product, so they are most similar. 
+Let's walk through the actual math to see how we determine where to move "apple" — that is how much each word pulls "apple". We start by computing the similarity between "apple" and every word. We will use dot product as our measure of similarity. As we would expect, other than "apple" and "apple", "apple" and "banana" have the highest dot product, so they are most similar. 
 
 <div class="body-image">
-    <img src="" alt="">
-    <div class="image-text">We compute the dot product between "apple" and every other word as our measure of similarity.</div>
+    <video src="attention-all-dot-product.mp4"></video>
+    <div class="image-text">We compute the dot product between "apple" and every word as our measure of similarity.</div>
 </div>
 
-We want to use these dot products to determine how much we should nudge "apple" in the direction of each word. At an extreme, where we want "apple" to go completely to "banana", we would simply set 100% of the new "apple" vector to the coordinates of the "banana" vector. We can write this as the following linear combination: 
+We want to use these dot products to determine how much we should nudge "apple" in the direction of each word. At an extreme, where we want "apple" to move completely to "banana", we would simply set 100% of the new "apple" vector to the coordinates of the "banana" vector. We can write this as the following linear combination: 
 
 ```math
-\vec{v_{\text{apple}}}' = 0 \vec{v_{\text{I}}} + 0 \vec{v_{\text{ate}}} + 0 \vec{v_{\text{a}}} + 1 \vec{v_{\text{banana}}} + 0 \vec{v_{\text{and}}} + 0 \vec{v_{\text{an}}}
+\vec{v_{\text{apple}}}' = 0 \vec{v_{\text{I}}} + 0 \vec{v_{\text{ate}}} + 0 \vec{v_{\text{a}}} + 1 \vec{v_{\text{banana}}} + 0 \vec{v_{\text{and}}} + 0 \vec{v_{\text{an}}} + 0 \vec{v_{\text{apple}}}
 ```
 
-What series of dot products would suggest this linear combination? One dot product should be incredibly large (the one between "apple" and "banana") and the rest should be incredibly small. If instead all the dot products were pretty similar, meaning that "apple" as equally similar to all words, we would want all words to pull "apple" equally. So we'd want a linear combination like this:
+What series of dot products would suggest this linear combination? One dot product should be incredibly large (the one between "apple" and "banana") and the rest should be incredibly small. 
+
+If we instead want "banana" to pull "apple" halfway between it and the original position for "apple", we would want this linear combination:
 
 ```math
-\vec{v_{\text{apple}}}' = \frac{1}{6} \vec{v_{\text{I}}} + \frac{1}{6} \vec{v_{\text{ate}}} + \frac{1}{6} \vec{v_{\text{a}}} + \frac{1}{6} \vec{v_{\text{banana}}} + \frac{1}{6} \vec{v_{\text{and}}} + \frac{1}{6} \vec{v_{\text{an}}}
+\vec{v_{\text{apple}}}' = 0 \vec{v_{\text{I}}} + 0 \vec{v_{\text{ate}}} + 0 \vec{v_{\text{a}}} + \frac{1}{2} \vec{v_{\text{banana}}} + 0 \vec{v_{\text{and}}} + 0 \vec{v_{\text{an}}} + \frac{1}{2} \vec{v_{\text{apple}}}
 ```
 
-We see that we want all coefficients to be between 0 and 1, and for them to sum to 1. There's another characteristic that would be nice to have: emphasize the highest dot products. Those are the most similar words, so we want them to pull more, and perhaps more than what the a linear interpretation of the dot product would suggest. A function that accomplishes this is the exponential function $f(x) = e^x$. We will exponentiate each dot product. Finally, we want them all to sum to 1. We can achieve that by diving each term by the sum of all terms. This is called normalization. The function we have described is referred to as *softmax* and is usually written like this:
+We want this if the dot products between "apple" and "apple", and "apple" and "banana" are large and pretty equal, and the rest are very small in comparison. If instead all the dot products were pretty similar, meaning that "apple" is equally similar to all words, we would want all words to pull "apple" equally. So we'd want a linear combination like this:
+
+```math
+\vec{v_{\text{apple}}}' = \frac{1}{6} \vec{v_{\text{I}}} + \frac{1}{6} \vec{v_{\text{ate}}} + \frac{1}{6} \vec{v_{\text{a}}} + \frac{1}{6} \vec{v_{\text{banana}}} + \frac{1}{6} \vec{v_{\text{and}}} + \frac{1}{6} \vec{v_{\text{an}}} + \frac{1}{6} \vec{v_{\text{apple}}}
+```
+
+We see that we want all coefficients to be between 0 and 1, and for them to sum to 1. There's another characteristic that would be nice to have: emphasize the highest dot products. Those are the most similar words, so we want them to pull more. A function that accomplishes this is the exponential function $f(x) = e^x$. So, we will exponentiate each dot product. Finally, we want them all to sum to 1. We can achieve that by diving each term by the sum of all tne terms. This is called normalization. The function we have described is referred to as *softmax* and is usually written like this:
 
 ```math
 \text{softmax}(\bold{x})_i = \frac{e^{x_i}}{\sum_j e^{x_j}}
 ```
 
 <div class="body-image">
-    <img src="" alt="">
+    <video src="attention-all-softmax.mp4"></video>
     <div class="image-text">We apply softmax to turn the dot products into coefficients for the linear combination.</div>
 </div>
 
+These coefficients are referred to as *attention scores*. They tell us how much to pay attention to each word — that is how much each word should pull "apple". We can now compute the linear combination to get the updated vector for "apple".
 
+<div class="body-image">
+    <video src="attention-update-apple.mp4"></video>
+    <div class="image-text">We compute the updated vector for "apple" using the attention scores.</div>
+</div>
 
+The process we have just developed is called *attention*. Specifically, it is one iteration of attention. We can repeat this process multiple times to further refine the vector for "apple".
 
+### Some Header
 
+Let's now turn back to the question we aimed to answer. To predict the next word in a sequence, we feed the context vector associated with the last word into a multiclass classifier. To have it output the correct word, we need the row corresponding to the correct next word in the weight matrix and the context vector to be as similar as possible. We realized that simply using the embedding of the last word as the context vector associated with that word was not ideal. It would incorrectly predict the next same word for both "once upon a" and "the star is a", for example "time", as we're only looking at the word "a" to determine the next word. 
+
+Next, we considered defining the context vector of the last word to be the average of the embeddings of all the words that came before it, including the last word itself. This was better and solved the ...
+
+We figured that we do not want to weigh each word equally. Certain words have higher relevance when predicting the next word. The question we didn't know how to answer was how to determine how much to weigh each word. But now we have a method of computing a weighted average of the embeddings of words. The concept of words pulling words — of *attention* — is just about computing a weighted average. Computing the similarity between words through the dot product and then applying softmax gives us the weights for the weighted average. 
 
 
 
