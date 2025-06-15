@@ -144,5 +144,29 @@ Next, we considered defining the context vector of the last word to be the avera
 
 We figured that we do not want to weigh each word equally. Certain words have higher relevance when predicting the next word. The question we didn't know how to answer was how to determine how much to weigh each word. But now we have a method of computing a weighted average of the embeddings of words. The concept of words pulling words — of *attention* — is just about computing a weighted average. Computing the similarity between words through the dot product and then applying softmax gives us the weights for the weighted average. 
 
+### The Whole Phrase 
+
+So far, we've only focused on the word "apple" getting pulled. That is, we've only applied attention to update the vector for "apple" based on the other words. But in practice, we want to apply attention to all words in the phrase. We want each word to get pulled to a better place for it, given the surrounding words. Why? There are two main reasons:
+
+1. As we've eluded to, we often apply multiple iterations of attention to refine the vector for a word. Let's modify our example phrase: "I ate an orange and an apple". Here, we want "orange" to give context to "apple", but we also want "apple" to give context to "orange". We want "apple" to tell "orange" that it is being used as the fruit and not the color. So, when "apple" is pulled by the words in the phrase, we want it to ultimately be pulled by the updated vector for "orange" that has more fruitiness than the original vector.
+1. During training we predict the next word at every position, not just the last one. So, given the phrase "I ate a banana and an apple", we ask it to predict every next word in the sequence. Given "I", predict "ate". Given "I ate", predict "an". Given "I ate an", predict "orange". And so on. As we're making predictions at every word, need the vector for every word to be as informative as possible.
+
+-> A note to remove or place somewhere else: In masked self-attention a word can only attend to previous words, not future ones. For example, in the sentence "I ate an orange and an apple", when the model processes "orange", it can attend to "I", "ate", and "an", but not to "apple". Even though "orange" can't look forward to "apple", it still needs to be updated based on everything that came before it. That way later words like "apple" can attend to a contextually rich version of "orange". If we didn’t contextualize "orange", then "apple" would be attending to a less informative representation. For example we still want "ate" to have influenced "orange". 
+
+
+
+### A Better Space for Pulling Words
+
+<!-- Let's return to the example where we have one cluster of fruits and another cluster of technology devices, and we apply attention to move the embedding of "apple". In this example we used the traditional Cartesian vector space. Any 2x2 matrix represents some linear transformation to this space that transforms the square created by the coordinate axes to some other parallelogram.
+
+With that an interesting question arises: Are any of these transformed spaces better for pulling words? -->
+
+Can we transform the plane to get more bang for our buck when pulling words? 
+
+Develop into how some planes are better than others for pulling words.
+
+
+### Asymmetric Pull 
+
 
 
