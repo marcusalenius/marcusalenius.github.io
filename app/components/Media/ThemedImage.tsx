@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 type Props = {
   lightSrc: string;
@@ -28,6 +29,31 @@ export default function ThemedImage({
   draggable = true,
 }: Props) {
   const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const placeholderSrc =
+    "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+
+  // Don't render until mounted to avoid hydration mismatch
+  if (!mounted) {
+    return (
+      <Image
+        src={placeholderSrc}
+        width={0}
+        height={0}
+        alt={alt}
+        className={className}
+        draggable={draggable}
+        style={{ width: "auto" }}
+        quality={100}
+      />
+    );
+  }
+
   let src;
   let id;
   let resolvedClassName;
@@ -45,8 +71,7 @@ export default function ThemedImage({
       break;
     default:
       // Fallback to a transparent image
-      src =
-        "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+      src = placeholderSrc;
       id = "";
       resolvedClassName = className;
       break;
