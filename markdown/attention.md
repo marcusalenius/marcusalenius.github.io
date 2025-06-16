@@ -153,6 +153,32 @@ So far, we've only focused on the word "apple" getting pulled. That is, we've on
 
 -> A note to remove or place somewhere else: In masked self-attention a word can only attend to previous words, not future ones. For example, in the sentence "I ate an orange and an apple", when the model processes "orange", it can attend to "I", "ate", and "an", but not to "apple". Even though "orange" can't look forward to "apple", it still needs to be updated based on everything that came before it. That way later words like "apple" can attend to a contextually rich version of "orange". If we didn’t contextualize "orange", then "apple" would be attending to a less informative representation. For example we still want "ate" to have influenced "orange". 
 
+We can visualize what we have done so far in computing attention scores for "apple" by creating a column for every word in the phrase and creating a row for "apple". We fill in the row by computing the dot product of "apple" and the word in each column. We can now extend this to more words. We will add a row for each other word and repeat the same computation steps.
+
+<div class="body-image">
+    <img src="" alt="">
+    <div class="image-text">For each row, we compute the the product with the word in each column.</div>
+</div>
+
+We now have a table of dot products which tell us how similar each word is to every other word. Using some linear algebra notation we can write this table of dot products in a succinct way. If we take all embedding vectors of our words and stack them as rows in a matrix that we will call $X$, we can compute the matrix of dot products by doing matrix multiplication of $X$ and a transposed version of $X$. That is $XX^T$.
+
+Just as before, the next step is to apply softmax. Previously, we only did so to the "apple" row, but now we do it to every row. We often write $\text{softmax}(XX^T)$ to mean that we apply softmax to each row.
+
+<div class="body-image">
+    <img src="" alt="">
+    <div class="image-text">We apply softmax to each row.</div>
+</div>
+
+This gives us a matrix of attention scores. Finally, just as before, we use the attention scores to compute a linear combination of all vectors. This can be written as $\text{softmax}(XX^T)X$. 
+
+<div class="body-image">
+    <img src="" alt="">
+    <div class="image-text">We compute the weighted sum along each row.</div>
+</div>
+
+The rows of this final matrix contain the updated vectors for each word.
+
+
 
 
 ### A Better Space for Pulling Words
