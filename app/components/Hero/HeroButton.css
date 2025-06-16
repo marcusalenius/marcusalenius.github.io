@@ -21,6 +21,10 @@
     transition: scale 200ms ease, box-shadow 200ms ease;
 }
 
+.dark .hero-button {
+    background: var(--darkCardRim) !important;
+}
+
 @media (hover: hover) {
     .hero-button:hover {
         box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.08), 0px 0px 24px rgba(0, 0, 0, 0.1);
