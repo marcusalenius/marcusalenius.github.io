@@ -156,7 +156,7 @@ So far, we've only focused on the word "apple" getting pulled. That is, we've on
 We can visualize what we have done so far in computing attention scores for "apple" by creating a column for every word in the phrase and creating a row for "apple". We fill in the row by computing the dot product of "apple" and the word in each column. We can now extend this to more words. We will add a row for each other word and repeat the same computation steps.
 
 <div class="body-image">
-    <img src="" alt="">
+    <video src="attention-table-dot-products.mp4"></video>
     <div class="image-text">For each row, we compute the the product with the word in each column.</div>
 </div>
 
@@ -165,14 +165,14 @@ We now have a table of dot products which tell us how similar each word is to ev
 Just as before, the next step is to apply softmax. Previously, we only did so to the "apple" row, but now we do it to every row. We often write $\text{softmax}(XX^T)$ to mean that we apply softmax to each row.
 
 <div class="body-image">
-    <img src="" alt="">
+    <video src="attention-table-softmax.mp4"></video>
     <div class="image-text">We apply softmax to each row.</div>
 </div>
 
 This gives us a matrix of attention scores. Finally, just as before, we use the attention scores to compute a linear combination of all vectors. This can be written as $\text{softmax}(XX^T)X$. 
 
 <div class="body-image">
-    <img src="" alt="">
+    <video src="attention-table-weighted-sum.mp4"></video>
     <div class="image-text">We compute the weighted sum along each row.</div>
 </div>
 
