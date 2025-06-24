@@ -30,16 +30,16 @@ Our first idea may be to represent "a" with some fixed vector. We will call this
 
 We would like to consider all the words that came before it. So, instead of letting the context vector for "a" just be the embedding of "a", we could define the context vector for "a" to be the average of the embeddings of "once", "upon", and "a". That way, when we feed the context vector into our classifier, it has baked in information about all preceding words. 
 
-This is a lot better. It solves our "the sun is a time" problem. But it raises another issue. Take the phrase "another words for big is" which we train to complete with "large". Recall that this means that we have learned the weights in matrix such that the context vector associated with "is", which is the average of the embeddings for "another", "word", "for", "big", "is", is most similar to the row corresponding to "large".
+This is a lot better. It solves our "the sun is a time" problem. But it raises another issue. Take the phrase "the capital of France is" which we train to complete with "Paris". Recall that this means that we have learned the weights in the matrix such that the context vector associated with "is", which is the average of the embeddings for "the", "capital", "of", "France", "is", is most similar to the row corresponding to "Paris".
 
-Now consider the phrase "another word for help is". All but one words are the same, so the average embedding will be very similar to that of the previous phrase. Hence, it is likely that our classifier will output "large" here as well. So, we'd get "another word for help is large" instead of the desired "another word for help is assist". 
+Now consider the phrase "the capital of Spain is". All but one words are the same, so the average embedding will be very similar to that of the previous phrase. Hence, it is likely that our classifier will output "Paris" here as well. So, we'd get "the capital of Spain is Paris" instead of the desired "the capital of Spain is Madrid". 
 
 <div class="body-image">
     <img src="" alt="">
     <div class="image-text">Some figure where I show the classification with very similar vectors outputting the same predicted word.</div>
 </div>
 
-What happened here? The issue was that all words were weighted equally. We would like to weigh certain words more than others. In the example above, we would have liked to weigh the words "big" and "help" more in their respective phrases. But how do we know how much to weigh each word? To develop an answer to that question, it will help to get visual.
+What happened here? The issue was that all words were weighted equally. We would like to weigh certain words more than others. In the example above, we would have liked to weigh the words "France" and "Spain" more in their respective phrases. But how do we know how much to weigh each word? To develop an answer to that question, it will help to get visual.
 
 ### Embeddings
 
@@ -149,7 +149,7 @@ We figured that we do not want to weigh each word equally. Certain words have hi
 So far, we've only focused on the word "apple" getting pulled. That is, we've only applied attention to update the vector for "apple" based on the other words. But in practice, we want to apply attention to all words in the phrase. We want each word to get pulled to a better place for it, given the surrounding words. Why? There are two main reasons:
 
 1. As we've eluded to, we often apply multiple iterations of attention to refine the vector for a word. Let's modify our example phrase: "I ate an orange and an apple". Here, we want "orange" to give context to "apple", but we also want "apple" to give context to "orange". We want "apple" to tell "orange" that it is being used as the fruit and not the color. So, when "apple" is pulled by the words in the phrase, we want it to ultimately be pulled by the updated vector for "orange" that has more fruitiness than the original vector.
-1. During training we predict the next word at every position, not just the last one. So, given the phrase "I ate a banana and an apple", we ask it to predict every next word in the sequence. Given "I", predict "ate". Given "I ate", predict "an". Given "I ate an", predict "orange". And so on. As we're making predictions at every word, need the vector for every word to be as informative as possible.
+1. During training we predict the next word at every position, not just the last one. So, given the phrase "I ate a banana and an apple", we ask it to predict every next word in the sequence. Given "I", predict "ate". Given "I ate", predict "an". Given "I ate an", predict "orange". And so on. As we're making predictions at every word, we need the vector for every word to be as informative as possible.
 
 -> A note to remove or place somewhere else: In masked self-attention a word can only attend to previous words, not future ones. For example, in the sentence "I ate an orange and an apple", when the model processes "orange", it can attend to "I", "ate", and "an", but not to "apple". Even though "orange" can't look forward to "apple", it still needs to be updated based on everything that came before it. That way later words like "apple" can attend to a contextually rich version of "orange". If we didn’t contextualize "orange", then "apple" would be attending to a less informative representation. For example we still want "ate" to have influenced "orange". 
 
@@ -157,7 +157,7 @@ We can visualize what we have done so far in computing attention scores for "app
 
 <div class="body-image">
     <video src="attention-table-dot-products.mp4"></video>
-    <div class="image-text">For each row, we compute the the product with the word in each column.</div>
+    <div class="image-text">For each row, we compute the the dot product with the word in each column.</div>
 </div>
 
 We now have a table of dot products which tell us how similar each word is to every other word. Using some linear algebra notation we can write this table of dot products in a succinct way. If we take all embedding vectors of our words and stack them as rows in a matrix that we will call $X$, we can compute the matrix of dot products by doing matrix multiplication of $X$ and a transposed version of $X$. That is $XX^T$.
@@ -183,13 +183,30 @@ The rows of this final matrix contain the updated vectors for each word.
 
 ### A Better Space for Pulling Words
 
-<!-- Let's return to the example where we have one cluster of fruits and another cluster of technology devices, and we apply attention to move the embedding of "apple". In this example we used the traditional Cartesian vector space. Any 2x2 matrix represents some linear transformation to this space that transforms the square created by the coordinate axes to some other parallelogram.
+Let's return to the example we used when introducing the idea of words pulling words. Recall how we had one cluster of fruits and another cluster of technology devices, and we applied attention to move the embedding of "apple". In this example we used a traditional coordinate system where the axes were perfectly vertical and horizontal and the ticks on both axes represented the same distance.
 
-With that an interesting question arises: Are any of these transformed spaces better for pulling words? -->
+<div class="body-image">
+    <img src="attention-generic-apple-embedding.png" alt='Generic embedding of "apple"'>
+    <div class="image-text">Our embeddings used a traditional coordinate system.</div>
+</div>
 
-Can we transform the plane to get more bang for our buck when pulling words? 
+Another way to see this is that the shape created by the vectors $[0, 1]$, $[1, 0]$, which are known as the unit basis vectors, is a square. We can apply a linear transformation to this space. That is multiply each vector by some 2x2 matrix. Then, the unit basis vectors get sent to some other points, and the square is transformed into some other parallelogram. 
 
-Develop into how some planes are better than others for pulling words.
+<div class="body-image">
+    <img src="" alt="">
+    <div class="image-text">Applying a linear transformation to a vector space transforms a unit square into some other parallelogram.</div>
+</div>
+
+With that an interesting question arises: can we find a transformed space that is better for pulling words? Let's look at three spaces: our original space and two transformed spaces. 
+
+<div class="body-image">
+    <video src="attention-three-transformed-spaces.mp4"></video>
+    <div class="image-text">Our original space and two transformed spaces.</div>
+</div>
+
+Is one space better than the others for pulling the word "apple"? In space B, the attention step barely distinguishes the two meanings of "apple" whereas in space C the two updated vectors for "apple" are very far apart. So, here space C is better. In space C, we get more bang for our buck when pulling words.
+
+-> Some examples of how the transformations may get crafted
 
 
 ### Asymmetric Pull 
