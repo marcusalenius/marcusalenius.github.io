@@ -183,21 +183,37 @@ The rows of this final matrix contain the updated vectors for each word.
 
 ### A Better Space for Pulling Words
 
-Let's return to the example we used when introducing the idea of words pulling words. Recall how we had one cluster of fruits and another cluster of technology devices, and we applied attention to move the embedding of "apple". In this example we used a traditional coordinate system where the axes were perfectly vertical and horizontal and the ticks on both axes represented the same distance.
+Let's return to the example we used when introducing the idea of words pulling words. Recall how the embedding space one cluster of fruits and another cluster of technology devices, and we applied attention to move the embedding of "apple". 
 
 <div class="body-image">
     <img src="attention-generic-apple-embedding.png" alt='Generic embedding of "apple"'>
-    <div class="image-text">Our embeddings used a traditional coordinate system.</div>
+    <div class="image-text">Our original embedding space</div>
 </div>
 
-Another way to see this is that the shape created by the vectors $[0, 1]$, $[1, 0]$, which are known as the unit basis vectors, is a square. We can apply a linear transformation to this space. That is multiply each vector by some 2x2 matrix. Then, the unit basis vectors get sent to some other points, and the square is transformed into some other parallelogram. 
+Were these the most optimal embeddings for this purpose? The embeddings are learned to be great general purpose embeddings, but they may not be the best we can do for this very specific use case of separating the two meanings of "apple". We will soon explore what a better embedding space for this purpose might look like. 
+
+But first let's discuss how we can obtain new embeddings given our original embeddings. What we want is some function that given a vector outputs a different vector. Linear transformations do exactly this. A linear transformation simply multiplies the input vector by some matrix to obtain an output vector:
+
+```math
+T(\vec{v}) = M \vec{v}
+```
+
+In our case with two dimensional embedding vectors, any 2x2 matrix $M$ will transform the embedding vector $\vec{v}$ into a new two dimensional vector.
 
 <div class="body-image">
-    <img src="" alt="">
-    <div class="image-text">Applying a linear transformation to a vector space transforms a unit square into some other parallelogram.</div>
+    <video src="attention-apply-transformation.mp4"></video>
+    <div class="image-text">Applying a linear transformation to each embedding vector.</div>
 </div>
 
-With that an interesting question arises: can we find a transformed space that is better for pulling words? Let's look at three spaces: our original space and two transformed spaces. 
+When we apply a linear transformation to every vector, that is to a whole vector space, we often transform the axes as well. What we mean by this is that we transform the vectors $[0, 1]$ and $[1, 0]$, which are known as the unit basis vectors and define the coordinate system. This makes it easy to visualize a linear transformation and to plot the transformed vectors. For example, to plot the transformed version of the vector $[1, 2]$, we can simply plot it at the point $(1, 2)$ defined by the new axes.
+
+<div class="body-image">
+    <video src="attention-transform-axes.mp4"></video>
+    <div class="image-text">We often transform the axes as well.</div>
+</div>
+
+
+Now that we have an understanding on how we can use a linear transformation to obtain new embedding spaces, let's think about why this would be useful. Let's look at three spaces: our original space and two transformed spaces. 
 
 <div class="body-image">
     <video src="attention-three-transformed-spaces.mp4"></video>
