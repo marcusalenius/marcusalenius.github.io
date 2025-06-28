@@ -178,9 +178,6 @@ This gives us a matrix of attention scores. Finally, just as before, we use the 
 
 The rows of this final matrix contain the updated vectors for each word.
 
-
-
-
 ### A Better Space for Pulling Words
 
 Let's return to the example we used when introducing the idea of words pulling words. Recall how the embedding space one cluster of fruits and another cluster of technology devices, and we applied attention to move the embedding of "apple". 
@@ -226,6 +223,25 @@ Is one space better than the others for pulling the word "apple"? In space B, th
 
 
 ### Asymmetric Pull 
+
+As we've discussed, it is not only "apple" that gets pulled. Each word in the phrase pulls each other word. So, just as "banana" pulls "apple", "apple" also pulls "banana". This is true even after we have transformed the embedding vectors.
+
+The pulling force that one word exerts on the other is completely determined by the similarity of the words. This means that it is always the case that "banana" pulls "apple" just as much "apple" pulls "banana". This may not always be desirable. We can find examples where we'd want asymmetric pull. Take the words "bride" and "ring". If a phrase contains the word "bride", it is very likely that the word "ring" will appear. So, we want "bride" exert a strong pulling force on "ring". On the other hand, if a phrase contains the word "ring", it is no where near as likely that the word "bride" will appear. It could be referring to a piece of jewelry, a boxing ring, or perhaps a phone call. So, we want "ring" to exert a less strong pulling force on "bride".
+
+Let's introduce some vocabulary to describe this. We will call the word that is pulled the *query* and the word that pulls the *key*. In our "bride" and "ring" example we want this:
+
+- When "ring" is the query and "bride" is the key, that is when "ring" is pulled by "bride", we want a strong pulling force.
+- When "bride" is the query and "ring" is the key, that is when "bride" is pulled by "ring", we want a weak pulling force.
+
+<div class="body-image">
+    <img src="" alt="">
+    <div class="image-text">Our desired asymmetric pulling forces.</div>
+</div>
+
+
+-> Bride 👰 and Ring 💍
+Bride almost always pulls ring into context.
+But ring might refer to jewelry, boxing, or a phone call — not necessarily a bride.
 
 
 

@@ -144,7 +144,7 @@ a { color: var(--lightFooterText); }
 
 .dark .post-body .katex { color: var(--darkBodyText); }
 
-.post-body ol {
+.post-body ol, .post-body ul {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -153,7 +153,7 @@ a { color: var(--lightFooterText); }
     color: var(--lightBodyText);
 }
 
-.dark .post-body ol { color: var(--darkBodyText); }
+.dark .post-body ol, .dark .post-body ul { color: var(--darkBodyText); }
 
 p.url-card-header {
     font-size: 13px;
