@@ -230,18 +230,34 @@ The pulling force that one word exerts on the other is completely determined by 
 
 Let's introduce some vocabulary to describe this. We will call the word that is pulled the *query* and the word that pulls the *key*. In our "bride" and "ring" example we want this:
 
-- When "ring" is the query and "bride" is the key, that is when "ring" is pulled by "bride", we want a strong pulling force.
-- When "bride" is the query and "ring" is the key, that is when "bride" is pulled by "ring", we want a weak pulling force.
+- When "bride" is the key and "ring" is the query, that is when "bride" pulls "ring", we want a strong pulling force.
+- When "ring" is the key and "bride" is the query , that is when "ring" pulls "bride", we want a weak pulling force.
 
 <div class="body-image">
-    <img src="" alt="">
+    <img src="attention-asymmetric-forces.png" alt="Asymmetric pulling forces">
     <div class="image-text">Our desired asymmetric pulling forces.</div>
 </div>
 
+How do we create these asymmetric forces? We know that the only thing that determines the pulling force is the similarity between the embedding vectors (or the transformed embedding vectors). So, we have to make the similarity different depending on which vector is acting as the query and which is acting as the key. What if we applied one transformation to the queries and another one to the keys? Let's have a look.
 
--> Bride 👰 and Ring 💍
-Bride almost always pulls ring into context.
-But ring might refer to jewelry, boxing, or a phone call — not necessarily a bride.
+We will start by placing "bride" and "ring" in a two-dimensional embedding space. Then, we make a copy of this space. We will call the left space the keys and right space the queries. When we calculate the force that "bride" pulls "ring", we will use the "bride" vector from key space (remember keys pull) and the "ring" vector from the query space (queries are pulled). And when we compute the force that "ring" pulls "bride", we use the "ring" vector from key space and the "bride" vector from the query space. Since these spaces are currently identical, the two pairs of vectors are equally similar.
+
+<div class="body-image">
+    <video src="attention-key-query-transformation-part-one.mp4"></video>
+    <div class="image-text">When we compute the pulling force, that is the similarity (dot product), one vector comes from the key space and the other from the query space.</div>
+</div>
+
+Where this gets interesting when we apply different transformations to the key and query spaces. Let's apply a transformation that squashes the x-axis to the key space and one that squashes the y-axis to the query space. Now, when we take the "bride" vector from the key space and the "ring" vector from the query space, we see that they are very similar. So, they have a high dot product. This means that "bride" will exert a strong pulling force on "ring". But when we take the "ring" vector from the key space and the "bride" vector from the query space we get two vectors that are not as similar. They have a lower dot product. So, the pulling force that "ring" exerts on "bride" is much weaker.
+
+<div class="body-image">
+    <video src="attention-key-query-transformation-part-two.mp4"></video>
+    <div class="image-text">Applying different transformations to the key and query spaces gives us asymmetric pulling forces.</div>
+</div>
+
+-> Some examples of how the transformations may get crafted
+
+
+
 
 
 
