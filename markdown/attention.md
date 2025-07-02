@@ -256,6 +256,10 @@ Where this gets interesting when we apply different transformations to the key a
 
 -> Some examples of how the transformations may get crafted
 
+### Heading
+
+Using the key and query transformations, we are able to compute the optimal pulling forces. But on what space do we actually do the pulling? Or put another way: the keys and queries help us determine the coefficients in the weighted average that determines the updated vector, but what should the vectors in it be? Of course, we could use the unmodified embedding vectors. But we can achieve better results if we transform these vectors before we include them in the linear transformation. The transformed version of these vectors are referred to as *values*.
+
 
 
 
