@@ -46,6 +46,7 @@ p.experience-description {
 
     .experience-card {
         padding-right: 30px;
+        padding-bottom: 28px !important;
     }
 
     .experience-card h4 {
@@ -82,6 +83,7 @@ p.experience-description {
 
     .experience-card {
         padding-right: 24px;
+        padding-bottom: 24px !important;
     }
 
     .experience-card h4 {
@@ -99,7 +101,8 @@ p.experience-description {
 @media (max-width: 666px) {
 
     .experience-card {
-        padding-bottom: 27px;
+        padding-right: 26px;
+        padding-bottom: 26px !important;
     }
 
     .experience-card h4 {

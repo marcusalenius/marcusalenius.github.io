@@ -1,11 +1,12 @@
 .publication-card {
-    height: 296px;
+    height: auto;
     padding-right: 36px;
+    padding-bottom: 30px !important;
     cursor: auto;
 }
 
 .publication-card p.paragraph-small {
-    margin-top: 36px;
+    margin-top: 30px;
 }
 
 .publication-card p {
@@ -29,9 +30,7 @@
 /* iPad 11" Landscape */
 @media (max-width: 1080px) {
 
-    .publication-card {
-        height: 314px;
-    }
+    /* Nothing */
 
 }
 
@@ -39,12 +38,12 @@
 @media (max-width: 1008px) {
 
     .publication-card {
-        height: 328px;
         padding-right: 30px;
+        padding-bottom: 28px !important;
     }
 
     .publication-card p.paragraph-small {
-        margin-top: 32px;
+        margin-top: 28px;
     }
 
 }
@@ -53,12 +52,11 @@
 @media (max-width: 873px) {
 
     .publication-card {
-        height: 344px;
         padding-right: 28px;
     }
 
     .publication-card p.paragraph-small {
-        margin-top: 30px;
+        margin-top: 28px;
     }
 
 }
@@ -67,12 +65,12 @@
 @media (max-width: 747px) {
 
     .publication-card {
-        height: 336px;
         padding-right: 24px;
+        padding-bottom: 24px !important;
     }
 
     .publication-card p.paragraph-small {
-        margin-top: 25px;
+        margin-top: 24px;
     }
 
 }
@@ -82,11 +80,12 @@
 
     .publication-card {
         height: fit-content;
-        padding-bottom: 27px;
+        padding-right: 26px;
+        padding-bottom: 26px !important;
     }
 
     .publication-card p.paragraph-small {
-        margin-top: 29px;
+        margin-top: 26px;
     }
 
 }
