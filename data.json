@@ -281,19 +281,21 @@
       "cards": [
         {
           "id": 0,
-          "title": "SDE Intern, AI/ML",
-          "organization": "Amazon",
+          "title": "Software Development Engineer Intern, AI/ML",
+          "organization": "Amazon Web Services",
           "start": "May 2025",
           "end": "Present",
-          "location": "Santa Clara, CA"
+          "location": "San Francisco Bay Area, CA",
+          "description": "Bedrock Model Optimization Team. Heterogeneous disaggregated inference."
         },
         {
           "id": 1,
           "title": "Head Teaching Assistant",
-          "organization": "15-112 Fundamentals of CS, CMU",
+          "organization": "School of Computer Science, CMU",
           "start": "August 2023",
           "end": "Present",
-          "location": "Pittsburgh, PA"
+          "location": "Pittsburgh, PA",
+          "description": "15-112 Fundamentals of Programming & Computer Science."
         },
         {
           "id": 2,
@@ -301,7 +303,8 @@
           "organization": "Höganäs Borgestad",
           "start": "June 2024",
           "end": "August 2024",
-          "location": "Gävle, Sweden"
+          "location": "Gävle, Sweden",
+          "description": "Project management system."
         },
         {
           "id": 3,
@@ -309,15 +312,17 @@
           "organization": "Language Technologies Institute, CMU",
           "start": "May 2024",
           "end": "August 2024",
-          "location": "Remote"
+          "location": "Remote",
+          "description": "LLM-based metric for automated code reviews. Paper accepted to NAACL."
         },
         {
           "id": 4,
-          "title": "Software Engineering Intern",
-          "organization": "McLearn Lab, HCII CMU",
+          "title": "Research Software Developer Intern",
+          "organization": "CMU Human-Computer Interaction Institute",
           "start": "May 2023",
           "end": "August 2023",
-          "location": "Pittsburgh, PA"
+          "location": "Pittsburgh, PA",
+          "description": "Intelligent Tutoring System for community college. Paper accepted to AERA."
         }
       ]
     },
