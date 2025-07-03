@@ -1,32 +1,34 @@
 .experience-card {
     height: auto;
+    padding-left: 36px;
     padding-right: 36px;
+    padding-top: 30px;
     padding-bottom: 30px !important;
     cursor: auto;
 }
 
 .experience-card h4 {
-    padding-left: 36px;
-    padding-top: 30px;
     position: relative;
     line-height: 30px;
 }
 
 .experience-card h5 {
-    padding-left: 36px;
     margin-top: 0;
     margin-bottom: 0;
+    line-height: 20px;
 }
 
 p.experience-organization {
+    margin-left: 0;
     margin-top: 5px;
-    margin-bottom: 4px;
+    margin-bottom: 7px;
     font-weight: 500 !important;
     font-size: 19px !important;
 }
 
 p.experience-description {
-    margin-top: 7px;
+    margin-left: 0;
+    margin-top: 3px;
     font-size: 16px !important;
 }
 
@@ -34,9 +36,7 @@ p.experience-description {
 /* iPad 11" Landscape */
 @media (max-width: 1080px) {
 
-    .experience-card {
-        height: 198px;
-    }
+    /* Nothing */
 
 }
 
@@ -44,8 +44,10 @@ p.experience-description {
 @media (max-width: 1008px) {
 
     .experience-card {
-        height: 190px;
-        padding-right: 30px;
+        padding-left: 32px;
+        padding-right: 32px;
+        padding-top: 28px;
+        padding-bottom: 28px !important;
     }
 
 }
@@ -54,8 +56,10 @@ p.experience-description {
 @media (max-width: 873px) {
 
     .experience-card {
-        height: 200px;
-        padding-right: 28px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 28px;
+        padding-bottom: 28px !important;
     }
 
 }
@@ -64,8 +68,10 @@ p.experience-description {
 @media (max-width: 747px) {
 
     .experience-card {
-        height: 194px;
-        padding-right: 24px;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-top: 24px;
+        padding-bottom: 24px !important;
     }
 
 }
@@ -74,7 +80,7 @@ p.experience-description {
 @media (max-width: 666px) {
 
     .experience-card {
-        height: fit-content;
+        /* height: fit-content; */
         padding-bottom: 27px;
     }
 
