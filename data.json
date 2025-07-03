@@ -1,7 +1,7 @@
 {
   "firstName": "Marcus",
   "lastName": "Alenius",
-  "brief": "I’m a junior at Carnegie Mellon University studying Artificial Intelligence. I am a current Software Development Engineer Intern at Amazon, published ML researcher, and Head Teaching Assistant.",
+  "brief": "I’m a senior at Carnegie Mellon University studying Artificial Intelligence. I am a current AI/ML Software Development Engineer Intern at AWS, published ML researcher, and Head Teaching Assistant.",
   "heroButtons": [
     {
       "id": 0,
@@ -304,7 +304,7 @@
           "start": "June 2024",
           "end": "August 2024",
           "location": "Gävle, Sweden",
-          "description": "Project management system."
+          "description": "Internal project management software."
         },
         {
           "id": 3,
