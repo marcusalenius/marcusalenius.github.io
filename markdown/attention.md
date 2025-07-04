@@ -1,13 +1,13 @@
 ### Our Hope
 
-Say we give our model the phrase "once upon a". We want it to predict the next word "time". That is, given all the words before it, it should generate the next word in the sequence. We're going to make a conceptual simplification to this: given some *information* associated with the current word, predict the next word. The information associated with a word can be influenced by earlier words, but each word's information is responsible for predicting the next word. So in our example, the information associated with the word "a" is used to make the prediction of the next word being "time". Similarly, if we wanted to predict the next word "a" given the sequence "once upon", the information associated with the word "upon" is used to predict "a". And, for predicting "upon" given "once", the information for "once" is used to predict "upon".
+Say we give our model the phrase "once upon a". We want it to predict the next word "time". That is, given all the words that come before the word we want it to predict, it should generate the next word in the sequence. We're going to make a conceptual simplification to this: given some *information* associated with the current word, we want to predict the next word. The information associated with a word can be influenced by earlier words, but each word's information is responsible for predicting the next word. So in our example, the information associated with the word "a" is used to make the prediction of the next word being "time". Similarly, if we wanted to predict the next word "a" given the sequence "once upon", the information associated with the word "upon" would be used to predict "a". And, for predicting "upon" given "once", the information for "once" would be used to predict "upon".
 
 <div class="body-image">
     <video src="attention-predict.mp4"></video>
     <div class="image-text">With each word we associate some <em>information</em> which is used to predict the next word.</div>
 </div>
 
-We will let this notion of information be represented by a vector which we will call a _context vector_. Given this vector, how do we actually predict the next word? This is just multiclass classification, where the classes are all the words in our vocabulary.
+We will let this notion of information be represented by a vector which we will call a _context vector_. Given this vector, how do we actually predict the next word? It turns out that this is just multiclass classification, where the classes are all the words in our vocabulary.
 
 For a simple form of multiclass classification, we learn some weight matrix that, when multiplied with a context vector, gives us a score for each word in the vocabulary. More precisely, we take the dot product between the context vector and every row of the weight matrix. As there is a row corresponding to every word in our vocabulary, this dot product gives us a score of how much the model believes that each word is next. Then, we select the word with the highest score as the model's prediction of the next word.
 
@@ -20,9 +20,7 @@ We would hope that given "a"'s context vector (which we will call $\vec{v_a}$), 
 
 We can now see that the problem has reduced to making the context vector for "a" and the row corresponding to "time" as similar as possible.
 
-### Colored? A Note About Similarity
-
-Dot product is measure of similarity...
+-> Some note about similarity? Dot product is measure of similarity...
 
 ### An Initial Idea
 
@@ -80,7 +78,7 @@ Going back to the plane, what we would like is for "banana" to pull "apple" clos
     <div class="image-text">On the left "apple" is pulled by "banana" and on the right it is pulled by "phone".</div>
 </div>
 
-What about the other words? How do we know that "banana" is the word that should pull "apple" and not any of the other words? Let's plot the embeddings of the other words. We can see that they are not very close close to "apple" because they are not very similar to "apple". The words that are most similar to "apple" pull it the most. So, all words exert some amount of pulling force, but the effect is dominated by the most similar words. I like to compare this to gravity (where the objects have same mass). Objects that are closer exert more gravitational force on each other than objects that are far away. 
+What about the other words? How do we know that "banana" is the word that should pull "apple" and not any of the other words? Let's plot the embeddings of the other words. We can see that they are not very close close to "apple" because they are not very similar to "apple". The words that are most similar to "apple" pull it the most. So, all words exert some amount of pulling force, but the effect is dominated by the most similar words. I like to compare this to gravity (where the objects have the same mass). Objects that are closer exert more gravitational force on each other than objects that are far away. 
 
 <div class="body-image">
     <video src="attention-all-embeddings.mp4"></video>
@@ -116,7 +114,7 @@ We want this if the dot products between "apple" and "apple", and "apple" and "b
 \vec{v_{\text{apple}}}' = \frac{1}{6} \vec{v_{\text{I}}} + \frac{1}{6} \vec{v_{\text{ate}}} + \frac{1}{6} \vec{v_{\text{a}}} + \frac{1}{6} \vec{v_{\text{banana}}} + \frac{1}{6} \vec{v_{\text{and}}} + \frac{1}{6} \vec{v_{\text{an}}} + \frac{1}{6} \vec{v_{\text{apple}}}
 ```
 
-We see that we want all coefficients to be between 0 and 1, and for them to sum to 1. There's another characteristic that would be nice to have: emphasize the highest dot products. Those are the most similar words, so we want them to pull more. A function that accomplishes this is the exponential function $f(x) = e^x$. So, we will exponentiate each dot product. Finally, we want them all to sum to 1. We can achieve that by diving each term by the sum of all tne terms. This is called normalization. The function we have described is referred to as *softmax* and is usually written like this:
+We see that we want all coefficients to be between 0 and 1. We also want to emphasize the highest dot products. Those are the most similar words, so we want them to pull more. A function that accomplishes all of this is the exponential function $f(x) = e^x$. So, we will exponentiate each dot product. Finally, we want them all to sum to 1. We can achieve that by diving each term by the sum of all the terms. This is called normalization. The function we have described is referred to as *softmax* and is usually written like this:
 
 ```math
 \text{softmax}(\bold{x})_i = \frac{e^{x_i}}{\sum_j e^{x_j}}
@@ -136,7 +134,7 @@ These coefficients are referred to as *attention scores*. They tell us how much 
 
 The process we have just developed is called *attention*. Specifically, it is one iteration of attention. We can repeat this process multiple times to further refine the vector for "apple".
 
-### Some Header
+### Attention is a Weighted Average
 
 Let's now turn back to the question we aimed to answer. To predict the next word in a sequence, we feed the context vector associated with the last word into a multiclass classifier. To have it output the correct word, we need the row corresponding to the correct next word in the weight matrix and the context vector to be as similar as possible. We realized that simply using the embedding of the last word as the context vector associated with that word was not ideal. It would incorrectly predict the next same word for both "once upon a" and "the star is a", for example "time", as we're only looking at the word "a" to determine the next word. 
 
@@ -148,7 +146,7 @@ We figured that we do not want to weigh each word equally. Certain words have hi
 
 So far, we've only focused on the word "apple" getting pulled. That is, we've only applied attention to update the vector for "apple" based on the other words. But in practice, we want to apply attention to all words in the phrase. We want each word to get pulled to a better place for it, given the surrounding words. Why? There are two main reasons:
 
-1. As we've eluded to, we often apply multiple iterations of attention to refine the vector for a word. Let's modify our example phrase: "I ate an orange and an apple". Here, we want "orange" to give context to "apple", but we also want "apple" to give context to "orange". We want "apple" to tell "orange" that it is being used as the fruit and not the color. So, when "apple" is pulled by the words in the phrase, we want it to ultimately be pulled by the updated vector for "orange" that has more fruitiness than the original vector.
+1. As we've eluded to, we often apply multiple iterations of attention to refine the vector for a word. Let's modify our example phrase: "I ate an orange and an apple". Here, we want "orange" to give context to "apple", but we also want "apple" to give context to "orange". We want "apple" to tell "orange" that it is being used as the fruit and not the color. This will ultimately benefit the context vector for "apple". When it is pulled by the words in the phrase in the next iteration of attention, it will be pulled by the updated vector for "orange" that has more fruit characteristics than the original vector.
 1. During training we predict the next word at every position, not just the last one. So, given the phrase "I ate a banana and an apple", we ask it to predict every next word in the sequence. Given "I", predict "ate". Given "I ate", predict "an". Given "I ate an", predict "orange". And so on. As we're making predictions at every word, we need the vector for every word to be as informative as possible.
 
 -> A note to remove or place somewhere else: In masked self-attention a word can only attend to previous words, not future ones. For example, in the sentence "I ate an orange and an apple", when the model processes "orange", it can attend to "I", "ate", and "an", but not to "apple". Even though "orange" can't look forward to "apple", it still needs to be updated based on everything that came before it. That way later words like "apple" can attend to a contextually rich version of "orange". If we didn’t contextualize "orange", then "apple" would be attending to a less informative representation. For example we still want "ate" to have influenced "orange". 
@@ -178,9 +176,9 @@ This gives us a matrix of attention scores. Finally, just as before, we use the 
 
 The rows of this final matrix contain the updated vectors for each word.
 
-### A Better Space for Pulling Words
+### Transforming the Embeddings
 
-Let's return to the example we used when introducing the idea of words pulling words. Recall how the embedding space one cluster of fruits and another cluster of technology devices, and we applied attention to move the embedding of "apple". 
+Let's return to the example we used when introducing the idea of words pulling words. Recall how the embedding space had one cluster of fruits and another cluster of technology devices, and we applied attention to move the embedding of "apple". 
 
 <div class="body-image">
     <img src="attention-generic-apple-embedding.png" alt='Generic embedding of "apple"'>
@@ -209,8 +207,9 @@ When we apply a linear transformation to every vector, that is to a whole vector
     <div class="image-text">We often transform the axes as well.</div>
 </div>
 
+-> Move this next part to the value section?
 
-Now that we have an understanding on how we can use a linear transformation to obtain new embedding spaces, let's think about why this would be useful. Let's look at three spaces: our original space and two transformed spaces. 
+Now that we have an understanding of how we can use a linear transformation to obtain new embedding spaces, let's think about why this would be useful. Let's look at three spaces: our original space and two transformed spaces. 
 
 <div class="body-image">
     <video src="attention-three-transformed-spaces.mp4"></video>
