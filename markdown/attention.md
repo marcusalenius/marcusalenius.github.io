@@ -1,6 +1,6 @@
 ### Our Hope
 
-Say we give our model the phrase "once upon a". We want it to predict the next word "time". That is, given all the words that come before the word we want it to predict, it should generate the next word in the sequence. We're going to make a conceptual simplification to this: given some *information* associated with the current word, we want to predict the next word. The information associated with a word can be influenced by earlier words, but each word's information is responsible for predicting the next word. So in our example, the information associated with the word "a" is used to make the prediction of the next word being "time". Similarly, if we wanted to predict the next word "a" given the sequence "once upon", the information associated with the word "upon" would be used to predict "a". And, for predicting "upon" given "once", the information for "once" would be used to predict "upon".
+Say we give our model the phrase "once upon a". We want it to predict the next word "time". That is, given all the words currently in the sequence, it should generate the next word in the sequence. We're going to make a conceptual simplification to this: given some *information* associated with the current word, we want to predict the next word. The information associated with a word can be influenced by earlier words, but each word's information is responsible for predicting the next word. So in our example, the information associated with the word "a" is used to make the prediction of the next word being "time". Similarly, if we wanted to predict the next word "a" given the sequence "once upon", the information associated with the word "upon" would be used to predict "a". And, for predicting "upon" given "once", the information for "once" would be used to predict "upon".
 
 <div class="body-image">
     <video src="attention-predict.mp4"></video>
@@ -11,7 +11,9 @@ We will let this notion of information be represented by a vector which we will 
 
 For a simple form of multiclass classification, we learn some weight matrix that, when multiplied with a context vector, gives us a score for each word in the vocabulary. More precisely, we take the dot product between the context vector and every row of the weight matrix. As there is a row corresponding to every word in our vocabulary, this dot product gives us a score of how much the model believes that each word is next. Then, we select the word with the highest score as the model's prediction of the next word.
 
-We would hope that given "a"'s context vector (which we will call $\vec{v_a}$), the dot product between it and the row in the weight matrix corresponding to the word "time" would be the highest. So, we would hope that the context vector for "a" is most similar to that row.
+We would hope that given "a"'s context vector (which we will call $\vec{x}_\text{a}$), the dot product between it and the row in the weight matrix corresponding to the word "time" would be the highest. So, we would hope that the context vector for "a" is most similar to that row.
+
+-> change to \vec{x}_\text{a}
 
 <div class="body-image">
     <video src="attention-classification.mp4"></video>
@@ -97,7 +99,7 @@ Let's walk through the actual math to see how we determine where to move "apple"
 We want to use these dot products to determine how much we should nudge "apple" in the direction of each word. At an extreme, where we want "apple" to move completely to "banana", we would simply set 100% of the new "apple" vector to the coordinates of the "banana" vector. We can write this as the following linear combination: 
 
 ```math
-\vec{v_{\text{apple}}}' = 0 \vec{v_{\text{I}}} + 0 \vec{v_{\text{ate}}} + 0 \vec{v_{\text{a}}} + 1 \vec{v_{\text{banana}}} + 0 \vec{v_{\text{and}}} + 0 \vec{v_{\text{an}}} + 0 \vec{v_{\text{apple}}}
+\vec{x}_{\text{apple}}' = 0 \vec{x}_{\text{I}} + 0 \vec{x}_{\text{ate}} + 0 \vec{x}_{\text{a}} + 1 \vec{x}_{\text{banana}} + 0 \vec{x}_{\text{and}} + 0 \vec{x}_{\text{an}} + 0 \vec{x}_{\text{apple}}
 ```
 
 What series of dot products would suggest this linear combination? One dot product should be incredibly large (the one between "apple" and "banana") and the rest should be incredibly small. 
@@ -105,13 +107,13 @@ What series of dot products would suggest this linear combination? One dot produ
 If we instead want "banana" to pull "apple" halfway between it and the original position for "apple", we would want this linear combination:
 
 ```math
-\vec{v_{\text{apple}}}' = 0 \vec{v_{\text{I}}} + 0 \vec{v_{\text{ate}}} + 0 \vec{v_{\text{a}}} + \frac{1}{2} \vec{v_{\text{banana}}} + 0 \vec{v_{\text{and}}} + 0 \vec{v_{\text{an}}} + \frac{1}{2} \vec{v_{\text{apple}}}
+\vec{x}_{\text{apple}}' = 0 \vec{x}_{\text{I}} + 0 \vec{x}_{\text{ate}} + 0 \vec{x}_{\text{a}} + \frac{1}{2} \vec{x}_{\text{banana}} + 0 \vec{x}_{\text{and}} + 0 \vec{x}_{\text{an}} + \frac{1}{2} \vec{x}_{\text{apple}}
 ```
 
 We want this if the dot products between "apple" and "apple", and "apple" and "banana" are large and pretty equal, and the rest are very small in comparison. If instead all the dot products were pretty similar, meaning that "apple" is equally similar to all words, we would want all words to pull "apple" equally. So we'd want a linear combination like this:
 
 ```math
-\vec{v_{\text{apple}}}' = \frac{1}{6} \vec{v_{\text{I}}} + \frac{1}{6} \vec{v_{\text{ate}}} + \frac{1}{6} \vec{v_{\text{a}}} + \frac{1}{6} \vec{v_{\text{banana}}} + \frac{1}{6} \vec{v_{\text{and}}} + \frac{1}{6} \vec{v_{\text{an}}} + \frac{1}{6} \vec{v_{\text{apple}}}
+\vec{x}_{\text{apple}}' = \frac{1}{6} \vec{x}_{\text{I}} + \frac{1}{6} \vec{x}_{\text{ate}} + \frac{1}{6} \vec{x}_{\text{a}} + \frac{1}{6} \vec{x}_{\text{banana}} + \frac{1}{6} \vec{x}_{\text{and}} + \frac{1}{6} \vec{x}_{\text{an}} + \frac{1}{6} \vec{x}_{\text{apple}}
 ```
 
 We see that we want all coefficients to be between 0 and 1. We also want to emphasize the highest dot products. Those are the most similar words, so we want them to pull more. A function that accomplishes all of this is the exponential function $f(x) = e^x$. So, we will exponentiate each dot product. Finally, we want them all to sum to 1. We can achieve that by diving each term by the sum of all the terms. This is called normalization. The function we have described is referred to as *softmax* and is usually written like this:
@@ -190,7 +192,7 @@ Were these the most optimal embeddings for this purpose? The embeddings are lear
 But first let's discuss how we can obtain new embeddings given our original embeddings. What we want is some function that given a vector outputs a different vector. Linear transformations do exactly this. A linear transformation simply multiplies the input vector by some matrix to obtain an output vector:
 
 ```math
-T(\vec{v}) = M \vec{v}
+T(\vec{x}) = M \vec{x}
 ```
 
 In our case with two dimensional embedding vectors, any 2x2 matrix $M$ will transform the embedding vector $\vec{v}$ into a new two dimensional vector.
@@ -200,14 +202,14 @@ In our case with two dimensional embedding vectors, any 2x2 matrix $M$ will tran
     <div class="image-text">Applying a linear transformation to each embedding vector.</div>
 </div>
 
-When we apply a linear transformation to every vector, that is to a whole vector space, we often transform the axes as well. What we mean by this is that we transform the vectors $[0, 1]$ and $[1, 0]$, which are known as the unit basis vectors and define the coordinate system. This makes it easy to visualize a linear transformation and to plot the transformed vectors. For example, to plot the transformed version of the vector $[1, 2]$, we can simply plot it at the point $(1, 2)$ defined by the new axes.
+When we apply a linear transformation to every vector, that is to a whole vector space, we often transform the axes as well. What we mean by this is that we transform the vectors $[0, 1]$ and $[1, 0]$ which are known as the unit basis vectors and define the coordinate system. This makes it easy to visualize a linear transformation and to plot the transformed vectors. For example, to plot the transformed version of the vector $[1, 2]$, we can simply plot it at the point $(1, 2)$ defined by the new axes.
 
 <div class="body-image">
     <video src="attention-transform-axes.mp4"></video>
     <div class="image-text">We often transform the axes as well.</div>
 </div>
 
--> Move this next part to the value section?
+### A Better Space for Pulling Words
 
 Now that we have an understanding of how we can use a linear transformation to obtain new embedding spaces, let's think about why this would be useful. Let's look at three spaces: our original space and two transformed spaces. 
 
@@ -216,16 +218,26 @@ Now that we have an understanding of how we can use a linear transformation to o
     <div class="image-text">Our original space and two transformed spaces.</div>
 </div>
 
-Is one space better than the others for pulling the word "apple"? In space B, the attention step barely distinguishes the two meanings of "apple" whereas in space C the two updated vectors for "apple" are very far apart. So, here space C is better. In space C, we get more bang for our buck when pulling words.
+Is one space better than the others for pulling the word "apple"? Remember, our goal is to separate the two meanings of "apple". In space B, the attention step barely distinguishes the two meanings of "apple" whereas in space C the two updated vectors for "apple" move far apart. So, here space C is better. 
 
--> Some examples of how the transformations may get crafted
+Now, we will use the transformed vectors to move the vector for "apple". That is, we will transform the vectors before we use them in the linear combination. The transformed version of these vectors are referred to as *values*, denoted $v$, and the matrix used to compute them is referred to as $W_v$.
 
+<div class="body-image">
+    <video src="attention-values-lin-comb.mp4"></video>
+    <div class="image-text">We use transformed version of the vectors, called <em>values</em>, in the linear combination.</div>
+</div>
+
+-> Some examples of how the transformations may get crafted?
+
+What about computing the coefficients — that is how much each word should pull "apple"? Do we use the same transformed vectors for computing those? We certainly could and that would likely be better than using the untransformed vectors. But let's hold that thought for now.
 
 ### Asymmetric Pull 
 
-As we've discussed, it is not only "apple" that gets pulled. Each word in the phrase pulls each other word. So, just as "banana" pulls "apple", "apple" also pulls "banana". This is true even after we have transformed the embedding vectors.
+As we've discussed, it is not only "apple" that gets pulled. Each word in the phrase pulls each other word. So, just as "banana" pulls "apple", "apple" also pulls "banana".
 
-The pulling force that one word exerts on the other is completely determined by the similarity of the words. This means that it is always the case that "banana" pulls "apple" just as much "apple" pulls "banana". This may not always be desirable. We can find examples where we'd want asymmetric pull. Take the words "bride" and "ring". If a phrase contains the word "bride", it is very likely that the word "ring" will appear. So, we want "bride" exert a strong pulling force on "ring". On the other hand, if a phrase contains the word "ring", it is no where near as likely that the word "bride" will appear. It could be referring to a piece of jewelry, a boxing ring, or perhaps a phone call. So, we want "ring" to exert a less strong pulling force on "bride".
+The pulling force that one word exerts on the other is completely determined by the similarity of the words. This means that it is always the case that "banana" pulls "apple" just as much "apple" pulls "banana". This may not always be desirable. We can find examples where we'd want asymmetric pull. 
+
+Take the words "bride" and "ring". If a phrase contains the word "bride", it is quite likely that the word "ring" will appear. So, we want "bride" to exert a strong pulling force on "ring". On the other hand, if a phrase contains the word "ring", it is no where near as likely that the word "bride" will appear. It could be referring to a piece of jewelry, a boxing ring, or perhaps a phone call. So, we want "ring" to exert a less strong pulling force on "bride".
 
 Let's introduce some vocabulary to describe this. We will call the word that is pulled the *query* and the word that pulls the *key*. In our "bride" and "ring" example we want this:
 
@@ -246,21 +258,51 @@ We will start by placing "bride" and "ring" in a two-dimensional embedding space
     <div class="image-text">When we compute the pulling force, that is the similarity (dot product), one vector comes from the key space and the other from the query space.</div>
 </div>
 
-Where this gets interesting when we apply different transformations to the key and query spaces. Let's apply a transformation that squashes the x-axis to the key space and one that squashes the y-axis to the query space. Now, when we take the "bride" vector from the key space and the "ring" vector from the query space, we see that they are very similar. So, they have a high dot product. This means that "bride" will exert a strong pulling force on "ring". But when we take the "ring" vector from the key space and the "bride" vector from the query space we get two vectors that are not as similar. They have a lower dot product. So, the pulling force that "ring" exerts on "bride" is much weaker.
+This gets interesting when we apply different transformations to the key and query spaces. Let's apply a transformation that squashes the x-axis to the key space and one that squashes the y-axis to the query space. Now, when we take the "bride" vector from the key space and the "ring" vector from the query space, we see that they are very similar. So, they have a high dot product. This means that "bride" will exert a strong pulling force on "ring". But when we take the "ring" vector from the key space and the "bride" vector from the query space we get two vectors that are not as similar. They have a lower dot product. So, the pulling force that "ring" exerts on "bride" is much weaker.
 
 <div class="body-image">
     <video src="attention-key-query-transformation-part-two.mp4"></video>
     <div class="image-text">Applying different transformations to the key and query spaces gives us asymmetric pulling forces.</div>
 </div>
 
+Let's now apply this to our running example of how "apple" gets pulled in the phrase "I ate a banana and an apple". We want to compute the dot product between the query version of "apple" (it is pulled) and the key versions of all vectors (pull). We will denote queries by $q$ and values by $v$ and the matrices used to compute them as $W_q$ and $W_k$ respectively.
+
+<div class="body-image">
+    <video src="attention-key-query-dp.mp4"></video>
+    <div class="image-text">We compute the dot product between the query and the keys.</div>
+</div>
+
+These are now the dot products to which we apply softmax to generate the attentions scores, that is the coefficients in linear combination for the updated vector for "apple".
+
+
 -> Some examples of how the transformations may get crafted
 
-### Heading
+### Keys, Queries, and Values
 
-Using the key and query transformations, we are able to compute the optimal pulling forces. But on what space do we actually do the pulling? Or put another way: the keys and queries help us determine the coefficients in the weighted average that determines the updated vector, but what should the vectors in it be? Of course, we could use the unmodified embedding vectors. But we can achieve better results if we transform these vectors before we include them in the linear transformation. The transformed version of these vectors are referred to as *values*.
+We have now developed three different transformations that we apply to the embedding vectors: the transformations that produce the keys, queries, and values: 
+
+- $\vec{k} = W_k \vec{x}$
+- $\vec{q} = W_q \vec{x}$
+- $\vec{v} = W_v \vec{x}$
+
+Let's recap the purpose of each before we look at how this effects our application of attention to the whole phrase.
+
+The keys and queries work together to create the optimal spaces for computing the similarity between vectors. They can emphasize features that are important for measuring similarity and deemphasize those that are not. They can also combine features. All in a way to create the most optimal space to compute how strongly each word should pull each other word. Importantly, have two separate transformations allows for asymmetric pull. In our linear combination that computes the updated vector, the keys and query produce the coefficients. 
+
+The values create the most optimal space for actually moving the embedding of a word. They emphasize features that are important for distinguishing the different meanings of a word. Given the weights computed by the key and queries, we combine value vectors to compute the new vector for a word.
+
+### The Whole Phrase — with Keys, Queries, and Values
+
+Recall how we packaged all embedding vectors of the phrase as rows in a matrix we called $X$. We can multiply $X$ by $W_k$, $W_q$, and $W_v$ to turn the rows into keys, queries, and values, respectively. We will call these matrices $K$, $Q$, and $V$.
+
+- $K = X W_k$
+- $Q = X W_q$
+- $V = X W_v$
 
 
 
 
+
+### Multiple Key, Query, and Value Spaces
 
 
