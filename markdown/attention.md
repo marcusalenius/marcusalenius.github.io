@@ -299,10 +299,20 @@ Recall how we packaged all embedding vectors of the phrase as rows in a matrix w
 - $Q = X W_q$
 - $V = X W_v$
 
+Now, we take the dot product of each query vector with each key vector. We can write this as $QK^T$. Just as before, the next step is to apply softmax to each row: $\text{softmax}(QK^T)$. Finally, we use these attention scores to compute the linear combination along each row using the values. This can be written as $\text{softmax}(QK^T)V$.
 
+Let's see this in action. Let's use the same table structure as before. First, we transform the first row into keys and the first column into queries. Next, we take the dot product between each pair of keys and queries and apply softmax to each row. We now have the coefficient for the linear combination that computes the updated vectors. To get the vectors, we take a copy of our original vectors and transform that into values and then use them in the linear combination in each row.
 
-
+<div class="body-image">
+    <video src="attention-table-kqv.mp4"></video>
+    <div class="image-text">Attention using keys, queries, and values applied to the whole phrase.</div>
+</div>
 
 ### Multiple Key, Query, and Value Spaces
+
+
+### Increasing the Dimensionality  
+
+-> Introduce dividing by sqrt d_k here
 
 
