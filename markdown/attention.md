@@ -13,8 +13,6 @@ For a simple form of multiclass classification, we learn some weight matrix that
 
 We would hope that given "a"'s context vector (which we will call $\vec{x}_\text{a}$), the dot product between it and the row in the weight matrix corresponding to the word "time" would be the highest. So, we would hope that the context vector for "a" is most similar to that row.
 
--> change to \vec{x}_\text{a}
-
 <div class="body-image">
     <video src="attention-classification.mp4"></video>
     <div class="image-text">We perform multiclass classification on the context vector associated with "a".</div>
