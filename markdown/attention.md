@@ -394,8 +394,48 @@ Let's see this in action. Let's use the same table structure as before. First, w
 
 ### Multiple Key, Query, and Value Spaces
 
+So far, we’ve seen one set of transformed spaces: one for keys, one for queries, and one for values. Take the value space for example. It was great at separating two meanings of words, for example the two meanings of "apple". That is, it's good at determining the semantics of a word. However, this is not the only way words influence each other, and thus not the only thing we should take into account when updating the embeddings of the words.
+
+We would like to be able to simultaneously consider many different linguistic features. In addition to the considering the semantics, we also want to consider something like grammatical relations. For example, how adjectives modify nouns. We want to be able to distinguish a red apple from a green apple.
+
+How can we consider multiple linguistic features at once? Instead of using just one set of transformed spaces, we will use multiple. Each will update the embeddings in a unique way.
+
+
+
+Let's call the value transformation that we developed above the semantic space. It is really good at updating the embeddings according to how a word is used in a sentence. Take the phrase "I ate a banana and a red apple". The semantic expert works just as before: it gives the most effect of pulling "apple" towards "banana", separating it from the technology brand.
+
+<div class="body-image">
+    <video src="attention-semantic-transformation.mp4"></video>
+    <div class="image-text">The semantic space gives the most effect of pulling "apple" towards "banana".</div>
+</div>
+
+Next, let's develop a grammatical relations space. In this space, we want "apple" to be shifted in a way such that it embodies a red apple more than any other color of apple.
+
+<div class="body-image">
+    <video src="attention-grammatical-transformation.mp4"></video>
+    <div class="image-text">The grammatical relations space separates a red apple from a green apple, for example.</div>
+</div>
+
+We now have two different value transformations. Let's call the matrices for these $W_v^{(0)}$ and $W_v^{(1)}$. Similarly to how we developed these, we may realize that it would be useful to have two sets of key and query transformations as well: $W_k^{(0)}$ and $W_k^{(1)}$ as well as $W_q^{(0)}$ and $W_q^{(1)}$. 
+
+We will use the same index notation to separate the two sets of key, query, and value matrices:
+
+- $K^{(i)} = X W_k^{(i)}$
+- $Q^{(i)} = X W_q^{(i)}$
+- $V^{(i)} = X W_v^{(i)}$
+
+This gives us two formulas for attention — that is for computing the updated vectors: 
+
+- $\text{softmax}(Q^{(0)}(K^{(0)})^T)V^{(0)}$
+- $\text{softmax}(Q^{(1)}(K^{(1)})^T)V^{(1)}$
+
+But we know have two sets of updated embedding vectors: one from the first formula and another from the second. We still want only one set of embedding vectors. How do we combine them into one? 
+
+
 
 ### Increasing the Dimensionality  
+
+Transition from how above we were considering both the techiness/fruitiness and color on the same space, but it doesn't really work. We need separate directions => higher dimensionality.
 
 -> Introduce dividing by sqrt d_k here
 
