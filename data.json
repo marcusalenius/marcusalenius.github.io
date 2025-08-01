@@ -368,9 +368,9 @@
       "markdown": "kenboard.md"
     },
     "attention": {
-      "title": "Attention Title",
-      "intro": "Attention Intro",
-      "date": "Date",
+      "title": "Attention From Scratch: Developing Intuition Behind the Core Idea in Modern AI",
+      "intro": "How do large language models work? Together, we will develop intuition behind the core idea that makes them possible — attention.",
+      "date": "August 2025",
       "links": null,
       "youtube_link": null,
       "markdown": "attention.md"

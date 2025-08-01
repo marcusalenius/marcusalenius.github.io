@@ -8,7 +8,11 @@ import PostPageClient from "../components/PostPage/PostPageClient";
 import getPageMetadata from "../../utils/getPageMetadata.ts";
 import data from "../../data.json";
 
-// export const metadata: Metadata = getPageMetadata(data, "attention");
+export const metadata: Metadata = getPageMetadata(
+  data,
+  "attention",
+  "Attention From Scratch"
+);
 
 export default async function AttentionPage() {
   const markdownFile = "attention.md";

@@ -130,23 +130,30 @@ a { color: var(--lightFooterText); }
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    line-height: 23px;
+    line-height: 26px;
     z-index: 15;
     color: var(--lightBodyText);
 }
 
 .dark .post-body p { color: var(--darkBodyText); }
 
-.post-body ol {
+.post-body .katex {
+    font-size: 17px;
+    color: var(--lightBodyText);
+}
+
+.dark .post-body .katex { color: var(--darkBodyText); }
+
+.post-body ol, .post-body ul {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    line-height: 22px;
+    line-height: 26px;
     z-index: 15;
     color: var(--lightBodyText);
 }
 
-.dark .post-body ol { color: var(--darkBodyText); }
+.dark .post-body ol, .dark .post-body ul { color: var(--darkBodyText); }
 
 p.url-card-header {
     font-size: 13px;
@@ -165,7 +172,6 @@ p.url-card-website {
 }
 
 .dark p.url-card-website { color: var(--darkBodyText); }
-
 
 /* Tablet */
 @media (max-width: 1080px) {
