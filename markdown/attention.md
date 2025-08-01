@@ -1,5 +1,7 @@
 ### Our Hope ✅
 
+Before we begin, we need to establish what large language models (LLMs) are. LLMs are a type of artificial intelligence model trained to understand and generate human language. In particular, they do one task *really* well: predicting the next word in a sequence. With that in mind, let's develop a model that does exactly that.
+
 Suppose we give our model the phrase “once upon a”. We want it to predict the next word: “time”. In general, we want our model to generate the next word given all the words seen so far. To simplify the problem conceptually, let’s think of each word as being associated with some *information*. The information associated with a word may be influenced by earlier words but it is the information for the last word that is used to predict the next one. So in our example, the information associated with “a” is used to predict “time”. Similarly, the information for “upon” should help predict “a”, and that for “once” should help predict “upon”.
 
 <div class="body-image">
@@ -456,7 +458,7 @@ Let's make one last generalization before we are done developing attention. To m
 
 [DeepSeek-V3](https://arxiv.org/pdf/2412.19437#:~:text=dimension%20to%207168,head%20dimension) has an embedding dimension of 7168 (!). At this point, you may start to see how the attention mechanism can be so powerful. Imagine the number of ideas a model can consider with that many directions to its disposal.
 
-But it gets even better. The number of mutually independent directions in an $N$-dimensional is $N$ — that is if we require each pair of vectors to be exactly $90^{\circ}$ apart, the maximum number of vectors we can fit in an $N$-dimensional space is $N$. But it turns out that if we relax this requirement a little bit and let the vectors be between $89^{\circ}$ and $91^{\circ}$ apart, we can fit way more vectors. It follows from a mathematical lemma, called the [Johnson–Lindenstrauss lemma](https://www.cs.cmu.edu/afs/cs/academic/class/15750-s18/ScribeNotes/lecture23.pdf), that the maximum number of vectors is then about $e^{\epsilon \cdot N}$. So, it is not 7168 ideas but upwards of $e^{7168}$ ideas, which is a number with more than 3000 zeros (!!).
+But it gets even better. The number of mutually independent directions in an $N$-dimensional is $N$ — that is if we require each pair of vectors to be exactly $90^{\circ}$ apart, the maximum number of vectors we can fit in an $N$-dimensional space is $N$. But it turns out that if we relax this requirement a little bit and let the vectors be between $89^{\circ}$ and $91^{\circ}$ apart, we can fit way more vectors. It follows from a mathematical lemma, called the [Johnson–Lindenstrauss lemma](https://en.wikipedia.org/wiki/Johnson%E2%80%93Lindenstrauss_lemma), that the maximum number of vectors is then about $e^{\epsilon \cdot N}$. So, it is not 7168 ideas but upwards of $e^{7168}$ ideas, which is a number with more than 3000 zeros (!!).
 
 Finally, let's revisit our formula for attention: 
 
@@ -490,7 +492,7 @@ While we certainly have covered a lot, there are plenty of things we have skippe
 
 ### Acknowledgments  
 
-I first saw the idea of seeing attention as words pulling words in a [video](https://www.youtube.com/watch?v=RFdb2rKAqFw) by [Serrano Academy](https://www.youtube.com/@SerranoAcademy). Some of the examples I used are taken from Serrano Academy's videos on the topic.
+I first saw the idea of seeing viewing attention as words pulling words in a [video](https://www.youtube.com/watch?v=RFdb2rKAqFw) by [Serrano Academy](https://www.youtube.com/@SerranoAcademy). Some of the examples I used are taken from Serrano Academy's videos on the topic.
 
 
 
