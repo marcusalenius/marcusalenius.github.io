@@ -305,7 +305,9 @@ Now that we have an understanding of how we can use a linear transformation to o
 
 Is one space better than the others for pulling the word "apple"? Remember, our goal is to separate the two meanings of "apple". In space B, the attention step barely distinguishes the two meanings of "apple" whereas in space C the two updated vectors for "apple" are far apart. So here, space C is better. 
 
-We will now use the transformed vectors to move the vector for "apple". That is, we will transform the vectors before we use them in the linear combination that defines the new "apple" vector. The transformed version of these vectors are referred to as *values*, denoted $v$, and the matrix used to compute them is referred to as $W_v$.
+We will now use the transformed vectors to move the vector for "apple". That is, we will transform the vectors before we use them in the linear combination that defines the new "apple" vector. The transformed version of these vectors are referred to as *values*, denoted $v$, and the matrix used to compute them is referred to as $W_V$.
+
+-> Change to capital subscript.
 
 <div class="body-image">
     <video src="attention-values-lin-comb.mp4"></video>
@@ -350,7 +352,9 @@ This gets interesting when we apply different transformations to the key and que
     <div class="image-text">Applying different transformations to the key and query spaces gives us asymmetric pulling forces.</div>
 </div>
 
-Let's now apply this to our running example of how "apple" gets pulled in the phrase "I ate a banana and an apple". We want to compute the dot product between the query version of "apple" (it is pulled) and the key versions of all vectors (they pull). We will denote queries by $q$ and keys by $k$ and the matrices used to compute them as $W_q$ and $W_k$ respectively.
+Let's now apply this to our running example of how "apple" gets pulled in the phrase "I ate a banana and an apple". We want to compute the dot product between the query version of "apple" (it is pulled) and the key versions of all vectors (they pull). We will denote queries by $q$ and keys by $k$ and the matrices used to compute them as $W_Q$ and $W_K$ respectively.
+
+-> Change to capital subscript.
 
 <div class="body-image">
     <video src="attention-key-query-dp.mp4"></video>
@@ -365,9 +369,9 @@ These are the dot products to which we apply softmax to generate the attentions 
 
 We have now developed three different transformations that we apply to the embedding vectors: the transformations that produce the keys, queries, and values: 
 
-- $\vec{k} = W_k \vec{x}$
-- $\vec{q} = W_q \vec{x}$
-- $\vec{v} = W_v \vec{x}$
+- $\vec{k} = W_K \vec{x}$
+- $\vec{q} = W_Q \vec{x}$
+- $\vec{v} = W_V \vec{x}$
 
 Let's recap the purpose of each before we look at how this affects our application of attention to the whole phrase.
 
@@ -379,13 +383,15 @@ The values create the most optimal space for actually moving the embedding of a 
 
 Recall how we packaged all embedding vectors of the phrase as rows in a matrix we called $X$. We can multiply $X$ by $W_k$, $W_q$, and $W_v$ to turn the rows into keys, queries, and values, respectively. We will call these matrices $K$, $Q$, and $V$.
 
-- $K = X W_k$
-- $Q = X W_q$
-- $V = X W_v$
+- $K = X W_K$
+- $Q = X W_Q$
+- $V = X W_V$
 
 Now, we take the dot product of each query vector with each key vector. We can write this as $QK^T$. Just as before, the next step is to apply softmax to each row: $\text{softmax}(QK^T)$. Finally, we use these attention scores to compute the linear combination along each row using the values. This can be written as $\text{softmax}(QK^T)V$.
 
 Let's see this in action. Let's use the same table structure as before. First, we transform the first row into keys and the first column into queries. Next, we take the dot product between each pair of keys and queries and apply softmax to each row. We now have the coefficients for the linear combinations that computes the updated vectors. To get the vectors for these linear combinations, we take a copy of our original vectors and transform them into values.
+
+-> Change to capital subscript.
 
 <div class="body-image">
     <video src="attention-table-kqv.mp4"></video>
@@ -399,8 +405,6 @@ So far, we’ve seen one set of transformed spaces: one for keys, one for querie
 We would like to be able to simultaneously consider many different linguistic features. In addition to the considering the semantics, we also want to consider something like grammatical relations. For example, how adjectives modify nouns. We want to be able to distinguish a red apple from a green apple.
 
 How can we consider multiple linguistic features at once? Instead of using just one set of transformed spaces, we will use multiple. Each will update the embeddings in a unique way.
-
-
 
 Let's call the value transformation that we developed above the semantic space. It is really good at updating the embeddings according to how a word is used in a sentence. Take the phrase "I ate a banana and a red apple". The semantic expert works just as before: it gives the most effect of pulling "apple" towards "banana", separating it from the technology brand.
 
@@ -416,27 +420,198 @@ Next, let's develop a grammatical relations space. In this space, we want "apple
     <div class="image-text">The grammatical relations space separates a red apple from a green apple, for example.</div>
 </div>
 
-We now have two different value transformations. Let's call the matrices for these $W_v^{(0)}$ and $W_v^{(1)}$. Similarly to how we developed these, we may realize that it would be useful to have two sets of key and query transformations as well: $W_k^{(0)}$ and $W_k^{(1)}$ as well as $W_q^{(0)}$ and $W_q^{(1)}$. 
+We now have two different value transformations. Let's call the matrices for these $W_V^{(0)}$ and $W_V^{(1)}$. Similarly to how we developed these, we may realize that it would be useful to have two sets of key and query transformations as well: $W_K^{(0)}$ and $W_K^{(1)}$ as well as $W_Q^{(0)}$ and $W_Q^{(1)}$.
 
 We will use the same index notation to separate the two sets of key, query, and value matrices:
 
-- $K^{(i)} = X W_k^{(i)}$
-- $Q^{(i)} = X W_q^{(i)}$
-- $V^{(i)} = X W_v^{(i)}$
+- $K^{(i)} = X W_K^{(i)}$
+- $Q^{(i)} = X W_Q^{(i)}$
+- $V^{(i)} = X W_V^{(i)}$
 
 This gives us two formulas for attention — that is for computing the updated vectors: 
 
 - $\text{softmax}(Q^{(0)}(K^{(0)})^T)V^{(0)}$
 - $\text{softmax}(Q^{(1)}(K^{(1)})^T)V^{(1)}$
 
-But we know have two sets of updated embedding vectors: one from the first formula and another from the second. We still want only one set of embedding vectors. How do we combine them into one? 
+This is called two *heads* of attention.
+
+But we know have two sets of updated embedding vectors: one from each head. We still want only one set of embedding vectors. How do we combine them into one? 
+
+Of course, we could average the two. But by now we may recognize that we can get better and more meaningful results if we let the model learn how to combine the two sets of vectors. In some cases we may want the semantic space to have more influence and vice-versa.
+
+Let's call the two matrices of row vectors $X^{(0)}$ and $X^{(1)}$. If we concatenate them into one big matrix $X^{(0,1)}$, we can then multiply this larger matrix with a matrix of learnable weights that transforms it back down into a matrix of the correct shape. This way, the model can not only learn to emphasize and deemphasize the two spaces but it can also combine and reorient them as it sees fit.
+
+<div class="body-image">
+    <video src=""></video>
+    <div class="image-text">To combine the outputs of the two heads we concatenate them into one big matrix and use a matrix with learned weights to transform it down into a matrix of the correct shape.</div>
+</div>
+
+We can extend this beyond two heads. DeepSeek-V3, one of the leading models that also happens to be open source, has 128 attention heads according to the [technical report](https://arxiv.org/pdf/2412.19437#:~:text=dimension%20to%207168,head%20dimension). (Although it has a very clever optimization that essentially gives the effect of 128 heads while using less memory and compute. [This](https://www.youtube.com/watch?v=0VLAoVGf_74&t=709s) Welch Labs video provides an excellent explanation.) 
 
 
 
 ### Increasing the Dimensionality  
 
-Transition from how above we were considering both the techiness/fruitiness and color on the same space, but it doesn't really work. We need separate directions => higher dimensionality.
+Let's make one last generalization before we are done developing attention. To motivate the example above, we added colors to our embedding space. This doesn't make a whole lot of sense. We previously established that the axes may correspond to the ideas of fruitiness and techiness. How does the idea of color fit into this? It doesn't. What we really want is a third dimension for the idea of color. We can extend this further. We want each idea that we want to capture to have it's owen direction is space. 
 
--> Introduce dividing by sqrt d_k here
+[DeepSeek-V3](https://arxiv.org/pdf/2412.19437#:~:text=dimension%20to%207168,head%20dimension) has an embedding dimension of 7168 (!). At this point, you may start to see how the attention mechanism can be so powerful. Imagine the number of ideas a model can consider with that many directions to its disposal.
+
+But it gets even better. The number of mutually independent directions in an $N$-dimensional is $N$ — that is if we require each pair of vectors to be exactly $90^{\circ}$ apart, the maximum number of vectors we can fit in an $N$-dimensional space is $N$. But it turns out that if we relax this requirement a little bit and let the vectors be between $89^{\circ}$ and $91^{\circ}$ apart, we can fit way more vectors. It follows from a mathematical lemma, called the [Johnson–Lindenstrauss lemma](https://www.cs.cmu.edu/afs/cs/academic/class/15750-s18/ScribeNotes/lecture23.pdf), that the maximum number of vectors is then about $e^{\epsilon \cdot N}$. So, it is not 7168 ideas but upwards of $e^{7168}$ ideas, which is a number with more than 3000 zeros (!!).
+
+Finally, let's revisit our formula for attention: 
+
+```math
+\text{softmax}(QK^T)V
+```
+
+As we increase the dimension of the keys and queries, the number of terms in the dot product increases. This leads to larger magnitudes going into the softmax function which makes the output very peaky — that is close to one value being 1 and the rest 0. This makes the model harder to train.
+
+To mitigate this, it is common to divide the dot products by the square root of the dimension of the keys and queries, $d_k$. This gives us the final formula for attention:
+
+```math
+\text{softmax} \left( \frac{QK^T}{\sqrt{d_k}} \right) V
+```
+
+Because of the scaling factor $\frac{1}{\sqrt{d_k}}$, this is commonly referred to as scaled dot product attention. 
+
+There we have it. We have now developed the exact formula introduced by the famous 2017 paper [Attention Is All You Need](https://arxiv.org/pdf/1706.03762).
+
+
+### Some Things We Didn't Cover
+
+While we certainly have covered a lot, there are plenty of things we have skipped over. This includes:
+
+- __How embeddings are learned__: The way we described embeddings, it seems like they are manually crafted. In reality they are learned. How they are learned and the properties of the resulting embeddings are fascinating.
+- __Positional encodings__: The attention mechanism is by default permutation invariant. This means that the order of the words in a sequence doesn't matter — the attention mechanism will produce the same results regardless. For example, the model will not be able to distinguish "the dog chased the cat" and "the cat chased the dog". To fix this, a positional encoding is added to the embeddings. 
+- __Masking__: Especially when training the model, we do not want later words to influence earlier words. That is, when we train the model on predicting the next word, we do not want it to be able to cheat and simply look at what the next word is. To combat this, we mask out words that appear later than the word we are currently considering. We do so by making the attention scores associated with those words 0.
+- __Anything about how a model using attention is trained__: We kept referring to weights as being "learned" but we did not cover how this actually happens. Just like with most modern machine learning modes, a model using attention is trained with gradient descent and backpropagation. The good news is that if you gain understanding of gradient descent and backpropagation for simpler model architecture, you can apply those same concepts here.
+- __The feedforward layer in transformers__: Attention is commonly used in a model architecture called Transformers. Transformers interleave attention layers with so called feedforward layers. The feedforward layer is a standard neural network. We have not talked about how feedforward layers help improve a model's ability to generate text.
+- __Optimizations to attention__: Attention is very computationally expensive. It scales quadratically with the length of the input. To make it faster and more memory efficient, there several optimizations and tweaks have been developed. These include: multi-query attention (MQA), grouped-query attention (GQA), multi-head latent attention (MLA), FlashAttention, and PagedAttention.
+
+### Acknowledgments  
+
+I first saw the idea of seeing attention as words pulling words in a [video](https://www.youtube.com/watch?v=RFdb2rKAqFw) by [Serrano Academy](https://www.youtube.com/@SerranoAcademy). Some of the examples I used are taken from Serrano Academy's videos on the topic.
+
+
+
+### Appendix: All Formulas and Shapes
+
+It may be helpful to collect the formulas and the shapes of the matrices in one place. We will do so here.
+
+<div class="tight-list">
+
+First, for a __single head__:
+
+We will use the following notation: 
+
+- $T$: The number of embedding vectors
+- $d_{\text{model}}$: The dimension (length) of the embedding vectors
+- $d_k$: The dimension of the keys and queries
+- $d_v$: The dimension of the values
+
+Now, let's walk through the formulas and shapes in each step.
+
+__Step 1__: Computing keys, queries, and values.
+- Inputs: 
+    - $X$: $T \times d_{\text{model}}$
+        - The input matrix $X$ contains $T$ embedding vectors of length $d_{\text{model}}$ stacked as the rows of the matrix.
+    - $W_K$, $W_Q$: $d_{\text{model}} \times d_k$
+        - The key and query transformation matrices have $d_{\text{model}}$ rows and $d_k$ columns.
+    - $W_V$: $d_{\text{model}} \times d_v$
+        - The value transformation matrix has $d_{\text{model}}$ rows and $d_v$ columns. Note that $d_k$ and $d_v$ do not have to be the same.
+- Outputs: 
+    - $K = X W_K$, $Q = X W_Q$: $T \times d_k$
+        - We multiply a $T \times d_{\text{model}}$ matrix with a $d_{\text{model}} \times d_k$ matrix which produces a $T \times d_k$ matrix.
+    - $V = X W_V$: $T \times d_v$
+        - We multiply a $T \times d_{\text{model}}$ matrix with a $d_{\text{model}} \times d_v$ matrix which produces a $T \times d_v$ matrix.
+        
+__Step 2__: Computing attention scores.
+- Inputs: 
+    - $Q$: $T \times d_k$
+    - $K^T$: $d_k \times T$
+- Intermediate results:
+    - $QK^T$: $T \times T$
+        - We multiply a $T \times d_k$ matrix with a $d_k \times T$ matrix which produces a $T \times T$ matrix.
+    - $\frac{QK^T}{\sqrt{d_k}}$: $T \times T$
+        - Element-wise division preserves the shape.
+- Output:
+    - $A = \text{softmax} \left( \frac{QK^T}{\sqrt{d_k}} \right)$: $T \times T$
+        - Row-wise softmax preserves the shape.
+
+__Step 3__: Computing the weighted averages.
+- Inputs: 
+    - $A$ : $T \times T$
+    - $V$ : $T \times d_v$
+- Output: 
+    - $O = AV$: $T \times d_v$
+        - We multiply a $T \times T$ matrix with a $T \times d_v$ matrix which produces a $T \times d_v$ matrix.
+
+__Step 4__: Projecting the output back to the embedding dimension.
+- Inputs: 
+    - $O$: $T \times d_v$
+    - $W_O$: $d_v \times d_\text{model}$
+- Output: 
+    - $OW_O$: $T \times d_{\text{model}}$
+        - We multiply a $T \times d_v$ matrix with a $d_v \times d_\text{model}$ matrix which produces a $T \times d_{\text{model}}$ matrix. This is the result of one step of attention and it has the same shape as $X$.
+
+Next, let's look at __multiple heads__:
+
+We now have: 
+
+- $T$: The number of embedding vectors
+- $h$: The number of attention heads
+- $d_k$: The dimension of the keys and queries per head
+- $d_v$: The dimension of the values per head
+- $d_{\text{model}} = h \cdot d_v$ (usually, also $= h \cdot d_k$ in many implementations, though $d_v$ and $d_k$ can differ).
+
+
+Now, the steps look like this:
+
+__Step 1__: Computing per-head keys, queries, and values.
+
+- Inputs:
+    - $X$: $T \times d_{\text{model}}$
+    - For head $i$:
+        - $W^{(i)}_Q$, $W^{(i)}_K$: $d_{\text{model}} \times d_k$
+        - $W^{(i)}_V$: $d_{\text{model}} \times d_v$
+- Outputs (per head): 
+    - $K^{(i)} = X W_K^{(i)}$, $Q^{(i)} = X W_Q^{(i)}$: $T \times d_k$
+	- $V^{(i)} = X W_V^{(i)}$: $T \times d_v$
+
+__Step 2__: Computing attention scores for each head.
+
+- For head $i$:
+    - Inputs: 
+        - $Q^{(i)}$: $T \times d_k$
+        - $(K^{(i)})^T$: $d_k \times T$
+    - Intermediate results:
+        - $Q^{(i)} (K^{(i)})^T$: $T \times T$
+        - $\frac{Q^{(i)} (K^{(i)})^T}{\sqrt{d_k}}$: $T \times T$
+    - Output: 
+        - $A^{(i)} = \text{softmax} \left( \frac{Q^{(i)} (K^{(i)})^T}{\sqrt{d_k}} \right)$: $T \times T$
+
+__Step 3__: Computing the weighted averages per head.
+- For head $i$:
+    - Inputs: 
+        - $A^{(i)}$ : $T \times T$
+        - $V^{(i)}$ : $T \times d_v$
+    - Output: 
+        - $\text{head}^{(i)} = A^{(i)} V^{(i)}$: $T \times d_v$.
+
+__Step 4__: Concatenating and projecting the output back to the embedding dimension.
+- Inputs: 
+    - $W_O$: $(h \cdot d_v) \times d_\text{model}$
+    - For head $i$:
+        - $\text{head}^{(i)}$: $T \times d_v$
+- Intermediate result:
+    - $O = \text{Concat}(\text{head}^{(1)}, \dots, \text{head}^{(h)})$: $T \times (h \cdot d_v)$
+- Output:
+    - $OW_O$: $T \times d_{\text{model}}$
+
+Foo
+
+
+</div>
+
 
 

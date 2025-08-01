@@ -186,6 +186,10 @@ blockquote {
     box-shadow: none;
 }
 
+.tight-list li, .tight-list ul { margin-top: 3px; }
+
+.tight-list li:first-child { margin-top: 4px; }
+
 
 
 /* iPhone Plus */
