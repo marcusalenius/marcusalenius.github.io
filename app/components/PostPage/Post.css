@@ -190,6 +190,9 @@ blockquote {
 
 .tight-list li:first-child { margin-top: 4px; }
 
+.katex-display {
+    overflow-x: auto;
+}
 
 
 /* iPhone Plus */

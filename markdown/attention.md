@@ -488,7 +488,7 @@ While we certainly have covered a lot, there are plenty of things we have skippe
 - __Masking__: Especially when training the model, we do not want later words to influence earlier words. That is, when we train the model on predicting the next word, we do not want it to be able to cheat and simply look at what the next word is. To combat this, we mask out words that appear later than the word we are currently considering. We do so by making the attention scores associated with those words 0.
 - __Anything about how a model using attention is trained__: We kept referring to weights as being "learned" but we did not cover how this actually happens. Just like with most modern machine learning modes, a model using attention is trained with gradient descent and backpropagation. The good news is that if you gain understanding of gradient descent and backpropagation for simpler model architecture, you can apply those same concepts here.
 - __The feedforward layer in transformers__: Attention is commonly used in a model architecture called Transformers. Transformers interleave attention layers with so called feedforward layers. The feedforward layer is a standard neural network. We have not talked about how feedforward layers help improve a model's ability to generate text.
-- __Optimizations to attention__: Attention is very computationally expensive. It scales quadratically with the length of the input. To make it faster and more memory efficient, there several optimizations and tweaks have been developed. These include: multi-query attention (MQA), grouped-query attention (GQA), multi-head latent attention (MLA), FlashAttention, and PagedAttention.
+- __Optimizations to attention__: Attention is very computationally expensive. It scales quadratically with the length of the input. To make it faster and more memory efficient, several optimizations and tweaks have been developed. These include: multi-query attention (MQA), grouped-query attention (GQA), multi-head latent attention (MLA), FlashAttention, and PagedAttention.
 
 ### Acknowledgments  
 
@@ -509,7 +509,7 @@ We will use the following notation:
 - $T$: The number of embedding vectors
 - $d_{\text{model}}$: The dimension (length) of the embedding vectors
 - $d_k$: The dimension of the keys and queries
-- $d_v$: The dimension of the values
+    - Above, the keys and queries had the same dimension as the embedding vectors. In practice, the keys and queries are often projected down to a smaller dimension.
 
 Now, let's walk through the formulas and shapes in each step.
 
@@ -519,13 +519,13 @@ __Step 1__: Computing keys, queries, and values.
         - The input matrix $X$ contains $T$ embedding vectors of length $d_{\text{model}}$ stacked as the rows of the matrix.
     - $W_K$, $W_Q$: $d_{\text{model}} \times d_k$
         - The key and query transformation matrices have $d_{\text{model}}$ rows and $d_k$ columns.
-    - $W_V$: $d_{\text{model}} \times d_v$
-        - The value transformation matrix has $d_{\text{model}}$ rows and $d_v$ columns. Note that $d_k$ and $d_v$ do not have to be the same.
+    - $W_V$: $d_{\text{model}} \times d_{\text{model}}$
+        - The value transformation matrix has $d_{\text{model}}$ rows and $d_{\text{model}}$ columns.
 - Outputs: 
     - $K = X W_K$, $Q = X W_Q$: $T \times d_k$
         - We multiply a $T \times d_{\text{model}}$ matrix with a $d_{\text{model}} \times d_k$ matrix which produces a $T \times d_k$ matrix.
-    - $V = X W_V$: $T \times d_v$
-        - We multiply a $T \times d_{\text{model}}$ matrix with a $d_{\text{model}} \times d_v$ matrix which produces a $T \times d_v$ matrix.
+    - $V = X W_V$: $T \times d_{\text{model}}$
+        - We multiply a $T \times d_{\text{model}}$ matrix with a $d_{\text{model}} \times d_{\text{model}}$ matrix which produces a $T \times d_{\text{model}}$ matrix.
         
 __Step 2__: Computing attention scores.
 - Inputs: 
@@ -543,18 +543,10 @@ __Step 2__: Computing attention scores.
 __Step 3__: Computing the weighted averages.
 - Inputs: 
     - $A$ : $T \times T$
-    - $V$ : $T \times d_v$
+    - $V$ : $T \times d_{\text{model}}$
 - Output: 
-    - $O = AV$: $T \times d_v$
-        - We multiply a $T \times T$ matrix with a $T \times d_v$ matrix which produces a $T \times d_v$ matrix.
-
-__Step 4__: Projecting the output back to the embedding dimension.
-- Inputs: 
-    - $O$: $T \times d_v$
-    - $W_O$: $d_v \times d_\text{model}$
-- Output: 
-    - $OW_O$: $T \times d_{\text{model}}$
-        - We multiply a $T \times d_v$ matrix with a $d_v \times d_\text{model}$ matrix which produces a $T \times d_{\text{model}}$ matrix. This is the result of one step of attention and it has the same shape as $X$.
+    - $AV$: $T \times d_{\text{model}}$
+        - We multiply a $T \times T$ matrix with a $T \times d_{\text{model}}$ matrix which produces a $T \times d_{\text{model}}$ matrix. This is the result of one step of attention and it has the same shape as $X$.
 
 Next, let's look at __multiple heads__:
 
@@ -564,7 +556,7 @@ We now have:
 - $h$: The number of attention heads
 - $d_k$: The dimension of the keys and queries per head
 - $d_v$: The dimension of the values per head
-- $d_{\text{model}} = h \cdot d_v$ (usually, also $= h \cdot d_k$ in many implementations, though $d_v$ and $d_k$ can differ).
+- $d_{\text{model}} = hd_v$ (usually, also $= hd_k$ in many implementations, though $d_v$ and $d_k$ can differ).
 
 
 Now, the steps look like this:
@@ -602,15 +594,14 @@ __Step 3__: Computing the weighted averages per head.
 
 __Step 4__: Concatenating and projecting the output back to the embedding dimension.
 - Inputs: 
-    - $W_O$: $(h \cdot d_v) \times d_\text{model}$
+    - $W_O$: $h d_v \times d_\text{model}$
     - For head $i$:
         - $\text{head}^{(i)}$: $T \times d_v$
 - Intermediate result:
-    - $O = \text{Concat}(\text{head}^{(1)}, \dots, \text{head}^{(h)})$: $T \times (h \cdot d_v)$
+    - $O = \text{Concat}(\text{head}^{(1)}, \dots, \text{head}^{(h)})$: $T \times h d_v$
 - Output:
     - $OW_O$: $T \times d_{\text{model}}$
-
-Foo
+        - This is the result of one step of multi-head attention and it has the same shape as $X$.
 
 
 </div>

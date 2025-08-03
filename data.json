@@ -65,8 +65,19 @@
     }
   ],
   "sections": {
-    "Projects": {
+    "Explainers": {
       "id": 0,
+      "cards": [
+        {
+          "id": 0,
+          "title": "Attention From Scratch",
+          "subtitle": "Developing Intuition Behind the Core Idea in Modern AI",
+          "link": "/attention"
+        }
+      ]
+    },
+    "Projects": {
+      "id": 1,
       "cards": [
         {
           "id": 0,
@@ -327,7 +338,7 @@
       ]
     },
     "Publications": {
-      "id": 1,
+      "id": 3,
       "cards": [
         {
           "id": 0,

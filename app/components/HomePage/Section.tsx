@@ -1,5 +1,6 @@
 import CardRegion from "../Card/CardRegion";
 import ActordentifyCard from "../CustomCards/ActordentifyCard";
+import AttentionCard from "../CustomCards/AttentionCard";
 import CategoryCard from "../CategoryCard/CategoryCard";
 import PublicationCard from "../PublicationCard/PublicationCard";
 import ExperienceCard from "../ExperienceCard/ExperienceCard";
@@ -12,6 +13,7 @@ type Props = {
 export default function Section({ sectionData, name }: Props) {
   const customCardMap: { [key: string]: any } = {
     Actordentify: ActordentifyCard,
+    "Attention From Scratch": AttentionCard,
   };
 
   return (
@@ -19,7 +21,7 @@ export default function Section({ sectionData, name }: Props) {
       <h2>{name}</h2>
       <CardRegion className="card-layout">
         {sectionData.cards.map((cardData: { [key: string]: any }) => {
-          if (name === "Projects") {
+          if (name === "Projects" || name === "Explainers") {
             const ThisCard = customCardMap[cardData.title];
             return <ThisCard cardData={cardData} key={cardData.id} />;
           } else if (name === "Publications") {
