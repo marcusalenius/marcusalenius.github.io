@@ -309,8 +309,6 @@ Is one space better than the others for pulling the word "apple"? Remember, our 
 
 We will now use the transformed vectors to move the vector for "apple". That is, we will transform the vectors before we use them in the linear combination that defines the new "apple" vector. The transformed version of these vectors are referred to as *values*, denoted $v$, and the matrix used to compute them is referred to as $W_V$.
 
--> Change to capital subscript.
-
 <div class="body-image">
     <video src="attention-values-lin-comb.mp4"></video>
     <div class="image-text">We use transformed versions of the vectors, called <em>values</em>, in the linear combination.</div>
@@ -356,8 +354,6 @@ This gets interesting when we apply different transformations to the key and que
 
 Let's now apply this to our running example of how "apple" gets pulled in the phrase "I ate a banana and an apple". We want to compute the dot product between the query version of "apple" (it is pulled) and the key versions of all vectors (they pull). We will denote queries by $q$ and keys by $k$ and the matrices used to compute them as $W_Q$ and $W_K$ respectively.
 
--> Change to capital subscript.
-
 <div class="body-image">
     <video src="attention-key-query-dp.mp4"></video>
     <div class="image-text">We compute the dot product between the query and the keys.</div>
@@ -392,8 +388,6 @@ Recall how we packaged all embedding vectors of the phrase as rows in a matrix w
 Now, we take the dot product of each query vector with each key vector. We can write this as $QK^T$. Just as before, the next step is to apply softmax to each row: $\text{softmax}(QK^T)$. Finally, we use these attention scores to compute the linear combination along each row using the values. This can be written as $\text{softmax}(QK^T)V$.
 
 Let's see this in action. Let's use the same table structure as before. First, we transform the first row into keys and the first column into queries. Next, we take the dot product between each pair of keys and queries and apply softmax to each row. We now have the coefficients for the linear combinations that computes the updated vectors. To get the vectors for these linear combinations, we take a copy of our original vectors and transform them into values.
-
--> Change to capital subscript.
 
 <div class="body-image">
     <video src="attention-table-kqv.mp4"></video>
