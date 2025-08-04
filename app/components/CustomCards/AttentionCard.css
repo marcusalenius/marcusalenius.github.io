@@ -89,7 +89,7 @@
     }
 
     #attention-card-video {
-        right: -18px;
+        right: -30px;
     }
     
 }
@@ -103,7 +103,7 @@
     }
 
     #attention-card-video {
-        right: -117px;
+        right: -80px;
     }
 
 }
@@ -118,7 +118,7 @@
     #attention-card-video {
         width: 100%;
         height: auto;
-        top: -8px;
+        top: -23px;
         left: 0;
     }
 
@@ -166,8 +166,8 @@
     #attention-card-video {
         width: 110%;
         height: auto;
-        top: -8px;
-        left: 0;
+        top: -23px;
+        left: -10px;
     }
 
     #attention-card-video-bkg {
