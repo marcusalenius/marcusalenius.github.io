@@ -1,0 +1,180 @@
+#attention-card {
+    grid-column: span 2;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.08), 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dark #attention-card {
+    box-shadow: none;
+}
+
+/* foreground hover element */
+.dark #actordentify-card::after {
+    background: radial-gradient(
+        circle 800px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.05), 
+        transparent 40%
+    );
+    z-index: 20;
+    pointer-events: none;
+}
+
+
+#attention-card-video {
+    height: 100%;
+    position: absolute;
+    right: 0;
+}
+
+#attention-card-video-bkg {
+    height: 100%;
+    position: absolute;
+    left: 0;
+}
+
+#attention-card .frosted-pane {
+    padding-right: 10px;
+    position: absolute;
+    height: 100%;
+    width: 342px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+}
+
+.dark #attention-card .frosted-pane {
+    height: calc(100% - 2px);
+    left: 1px;
+    top: 1px;
+    border-radius: 29px 0 0 29px;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(20px);
+
+}
+
+#attention-card h3 { color: var(--lightText); }
+.dark #attention-card h3 { color: var(--darkText); }
+
+#attention-card p.paragraph-small { color: var(--lightBodyText); }
+.dark #attention-card p.paragraph-small { color: var(--darkBodyText); }
+
+#attention-card .nav-link p { color: var(--lightNavLink); }
+.dark #attention-card .nav-link p { color: var(--darkNavLink); }
+
+@media (hover: hover) {
+
+    #attention-card:hover {
+        /* do not scale attention card on hover */
+        scale: 1;
+        box-shadow: 0px 0px 11px rgba(0, 0, 0, 0.08), 0px 0px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .dark #attention-card:hover {
+        scale: 1;
+        box-shadow: none;
+    }
+    
+}
+
+/* iPad 11" Landscape */
+@media (max-width: 1080px) {
+
+    #attention-card .frosted-pane { width: 293px; }
+
+}
+
+/* iPad 13" Portrait */
+@media (max-width: 1008px) {
+    
+    #attention-card .frosted-pane { 
+        width: 252px; 
+        padding-right: 18px;
+    }
+
+    #attention-card-video {
+        right: -18px;
+    }
+    
+}
+
+/* iPad 11" Portrait */
+@media (max-width: 873px) {
+
+    #attention-card .frosted-pane { 
+        width: 221px; 
+        padding-right: 18px;
+    }
+
+    #attention-card-video {
+        right: -117px;
+    }
+
+}
+
+/* iPhone Plus */
+@media (max-width: 666px) {
+
+    #attention-card {
+        grid-column: span 1;
+    }
+
+    #attention-card-video {
+        width: 100%;
+        height: auto;
+        top: -8px;
+        left: 0;
+    }
+
+    #attention-card-video-bkg {
+        width: 100%;
+        height: auto;
+        bottom: 0;
+        left: 0;
+    }
+    
+    #attention-card .frosted-pane {
+        width: 100%;
+        height: 100px;
+        bottom: 0;
+        backdrop-filter: blur(80px);
+    }
+
+    .dark .frosted-pane {
+        width: calc(100% - 2px);
+        height: 100px;
+        left: 1px;
+        top: auto;
+        bottom: 1px;
+        border-radius: 0 0 29px 29px;
+    }
+    
+
+    .frosted-pane h3 {
+        padding-top: 18px;
+    }
+
+    .frosted-pane .paragraph-small {
+        display: none;
+    }
+
+    .frosted-pane p {
+        margin-top: 4px;
+    }
+    
+}
+
+/* iPhone */
+@media (max-width: 424px) {
+
+    #attention-card-video {
+        width: 110%;
+        height: auto;
+        top: -8px;
+        left: 0;
+    }
+
+    #attention-card-video-bkg {
+        width: 110%;
+        height: auto;
+        bottom: 0;
+        left: 0;
+    }
+
+}

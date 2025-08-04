@@ -1,6 +1,6 @@
 "use client";
 
-import "./ActordentifyCard.css";
+import "./AttentionCard.css";
 
 import dynamic from "next/dynamic";
 
@@ -16,28 +16,33 @@ type Props = {
 };
 
 export default function AttentionCard({ cardData }: Props) {
-  const actordentifyPostLink = "/attention";
+  const attentionPostLink = "/attention";
+  function formatSubtitle(subtitle?: string): string {
+    if (!subtitle) return "";
+    const normalized = subtitle.toLowerCase().replace(/\bai\b/g, "AI");
+    return normalized.charAt(0).toUpperCase() + normalized.slice(1);
+  }
   return (
     <Card
       className="card card-region-child"
-      id="actordentify-card"
+      id="attention-card"
       individualEffect={false}
-      href={actordentifyPostLink}
+      href={attentionPostLink}
     >
       <div className="card-images">
         <Video
-          src="videos/actordentify-hero.mp4"
-          id="actordentify-card-video-bkg"
-          className="actordentify-card-video"
+          src="videos/attention-apple-pulled-side-by-side.mp4"
+          id="attention-card-video-bkg"
+          className="attention-card-video"
         />
         <Video
-          src="videos/actordentify-hero.mp4"
-          id="actordentify-card-video"
-          className="actordentify-card-video"
+          src="videos/attention-apple-pulled-side-by-side.mp4"
+          id="attention-card-video"
+          className="attention-card-video"
         />
         <div className="frosted-pane">
           <h3>{cardData.title}</h3>
-          <p className="paragraph-small">{cardData.subtitle}</p>
+          <p className="paragraph-small">{formatSubtitle(cardData.subtitle)}</p>
           {/* href empty so that InternalLink gets rendered as a div */}
           <InternalLink href="">
             <p className="card-link">Read</p>
