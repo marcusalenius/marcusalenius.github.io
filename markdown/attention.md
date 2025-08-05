@@ -2,16 +2,16 @@
 
 Before we begin, we need to establish what large language models (LLMs) are. LLMs are a type of artificial intelligence model trained on large amounts of text to understand and generate human-like language. In particular, they do one task *really* well: predicting the next word in a sequence. With that in mind, let's develop a model that does exactly that.
 
-Suppose we give our model the phrase "once upon a". We want it to predict the next word: "time". More generally, we want the model to predict the next word given all previous words in the sequence. To simplify the problem conceptually, let’s think of each word as being associated with some *information*. The information associated with a word may be influenced by earlier words but it is the information for the last word that is used to predict the next one. In our example, the information associated with "a" is used to predict the next word, "time". Similarly, the information for "upon" should help predict "a", and that for "once" should help predict "upon".
+Suppose we give our model the phrase "once upon a". We want it to predict the next word: "time". More generally, we want the model to predict the next word given all previous words in the sequence. To simplify the problem conceptually, let's think of each word as being associated with some *information*. The information associated with a word may be influenced by earlier words but it is the information for the last word that is used to predict the next one. In our example, the information associated with "a" is used to predict the next word, "time". Similarly, the information for "upon" should help predict "a", and that for "once" should help predict "upon".
 
 <div class="body-image">
     <video src="attention-predict.mp4"></video>
     <div class="image-text">With each word we associate some <em>information</em> which is used to predict the next word.</div>
 </div>
 
-We will represent this notion of information with a vector, which we’ll call a *context vector*. Our goal is to predict the next word given the current word’s context vector. How do we do this? It turns out that this is just multiclass classification, where the classes are all the words in our vocabulary.
+We will represent this notion of information with a vector, which we'll call a *context vector*. Our goal is to predict the next word given the current word's context vector. How do we do this? It turns out that this is just multiclass classification, where the classes are all the words in our vocabulary.
 
-To do this, we can learn a weight matrix that transforms the context vector into a set of scores — one for each word in the vocabulary. More specifically, we compute the dot product between the context vector and each row of this matrix. Since there’s a row for every word in the vocabulary, we get a score indicating how likely the model thinks each word is to come next. Then, we select the word with the highest score as the model's prediction of the next word.
+To do this, we can learn a weight matrix that transforms the context vector into a set of scores — one for each word in the vocabulary. More specifically, we compute the dot product between the context vector and each row of this matrix. Since there's a row for every word in the vocabulary, we get a score indicating how likely the model thinks each word is to come next. Then, we select the word with the highest score as the model's prediction of the next word.
 
 We would hope that the dot product between the context vector for "a" (which we will call $\vec{x}_\text{a}$) and the row in the weight matrix corresponding to the word "time" is the highest. That is, we would hope that the context vector for "a" is most similar to that row.
 
@@ -28,7 +28,7 @@ Our first idea may be to represent "a" with some fixed vector. We will call this
 
 We would like to consider all the words that came before it. So instead of using just the embedding of "a", we could define its context vector as the average of the embeddings of "once", "upon", and "a". That way, when we feed the context vector into our classifier, it has baked in information about all preceding words. 
 
-This is a lot better. It solves our "the sun is a time" problem. But it raises another issue. Take the phrase "the capital of France is" which we train to complete with "Paris". That means we’ve learned the matrix so that the context vector for "is" — the average of the embeddings of "the", "capital", "of", "France", and "is" — is most similar to the row for "Paris".
+This is a lot better. It solves our "the sun is a time" problem. But it raises another issue. Take the phrase "the capital of France is" which we train to complete with "Paris". That means we've learned the matrix so that the context vector for "is" — the average of the embeddings of "the", "capital", "of", "France", and "is" — is most similar to the row for "Paris".
 
 Now consider the phrase "the capital of Spain is". All words except one are the same, so the average embedding vector will be nearly identical to the one for the France sentence. Hence, it is likely that our classifier will output "Paris" here as well. So, we'd get "the capital of Spain is Paris" instead of the desired "the capital of Spain is Madrid". 
 
@@ -48,7 +48,7 @@ Earlier, we said that we would represent "a" with a fixed vector — that we wou
     <div class="image-text">We can plot our random embeddings in a 2D space.</div>
 </div>
 
-Let's consider whether we can do something more meaningful. A property we might hope to have is that similar words have similar embeddings and very different words have very different embeddings. Why? As we’ve seen, very similar inputs to our classifier tend to produce the same or very similar outputs. So we want words that are likely to be followed by the same next word to have similar embeddings, and words that are unlikely to share the same next word to have very different embeddings.
+Let's consider whether we can do something more meaningful. A property we might hope to have is that similar words have similar embeddings and very different words have very different embeddings. Why? As we've seen, very similar inputs to our classifier tend to produce the same or very similar outputs. So we want words that are likely to be followed by the same next word to have similar embeddings, and words that are unlikely to share the same next word to have very different embeddings.
 
 In our "banana", "pear", and "phone" example, we would like "banana" and "pear" to have similar embeddings — that is be near each other in 2D space — because they are both fruits, and "phone" to have a very different embedding. To make sense of this distinction, we can assign the idea of *fruitiness* to one of the axes and the idea of *techiness* to the other axis.
 
@@ -84,7 +84,7 @@ What about the other words in the phrase? How do we know that "banana" is the wo
     <div class="image-text">The other words are not very similar to "apple", so they don't exert as much pulling force.</div>
 </div>
 
-Let’s now think about how to determine where exactly to move "apple" — that is how much each word pulls "apple". We start by computing the similarity between "apple" and every word. We will use the dot product as our measure of similarity. Two vectors have a very high dot product if they point in similar directions and have similar lengths, and a very low dot product if they point in opposite directions.
+Let's now think about how to determine where exactly to move "apple" — that is how much each word pulls "apple". We start by computing the similarity between "apple" and every word. We will use the dot product as our measure of similarity. Two vectors have a very high dot product if they point in similar directions and have similar lengths, and a very low dot product if they point in opposite directions.
 
 <div class="body-image">
     <video src="attention-all-dot-product.mp4"></video>
@@ -133,55 +133,55 @@ These coefficients are referred to as *attention scores*. They tell us how much 
 
 The process we have just developed is called *attention*. Specifically, it is one iteration of attention. We can repeat this process multiple times to further refine the vector for "apple".
 
-### Attention is a Weighted Average
+### Attention is a Weighted Average ✅
 
-Let's now return to our original goal: predicting the next word. To predict the next word in a sequence, we feed the context vector associated with the last word into a multiclass classifier. To have it output the correct word, we need the row corresponding to the correct next word in the weight matrix and the context vector to be as similar as possible. 
+Let's return to our original goal: predicting the next word in a sequence. To do this, we feed the context vector for the last word into a multiclass classifier. The classifier uses a weight matrix with one row per word in the vocabulary. For the model to output the correct word, the row corresponding to that word must be as similar as possible to the context vector.
 
-We realized that simply using the embedding of the last word as the context vector was not ideal. It would incorrectly predict the same next word for both "once upon a" and "the sun is a" as its only looking at the word "a" to determine the next word. 
+We realized that simply using the embedding of the last word as the context vector was not ideal. It would incorrectly predict the same next word for both "once upon a" and "the sun is a" — because it's only looking at the word "a" to make the prediction.
 
-Next, we considered defining the context vector of the last word to be the average of the embeddings of it and the words before it. This was better and solved our "the sun is a time" problem. However, sequences that share most words but have a few words that differ would be given the same next word, even if it is clear that they have very different next words. Two such sequences are "the capital of Spain is" and "the capital of France is".
+Next, we considered defining the context vector of the last word to be the average of the embeddings of it and the words before it. This was an improvement — it solved the "the sun is a time" problem. But it still had a weakness: sequences that differ by just one or two words, like "the capital of Spain is" and "the capital of France is", would end up with very similar context vectors and, therefore, the same prediction — even when the correct next words are very different.
 
-We figured that we do not want to weigh each word equally. Certain words have higher relevance when predicting the next word. The question we didn't know how to answer was how to determine how much to weigh each word. But we now have a method of computing a weighted average of the embeddings of words. The concept of words pulling words — of *attention* — is precisely about computing a weighted average. Computing the similarity between words through the dot product and applying softmax gives us the weights for the weighted average. 
+The takeaway was clear: not all words should be weighed equally. Some are far more relevant than others when predicting the next word. The question we didn't know how to answer was how to determine how much to weigh each word. That's exactly what attention gives us: a way to compute a weighted average of the embeddings. The idea of words "pulling" other words is realized mathematically by computing the dot product between embeddings, applying softmax, and using the resulting scores as weights. This is the core mechanism of attention.
 
-The result of attention, or of multiple iterations of attention, is an updated embedding vector that has soaked in the context that the word appears in. We use it as the context vector that we feed into our classifier. 
+The result of attention, or of multiple iterations of attention, is an updated embedding vector that has soaked in the context that the word appears in. We use it as the context vector that we feed into the classifier. 
 
-This is the basics of how the large language models that power ChatGPT and the other AI chatbots work. If you've followed most of what we've covered up to this point, you have a pretty good understanding of the mechanism that is at the core of modern AI models. 
+And that's the basic mechanism behind large language models like ChatGPT. If you've followed along this far, you now understand the core idea at the heart of today's most powerful AI systems.
 
-There are some improvements we will need to make to the attention mechanism to make it a really good system for completing sequences, to the point where it appears intelligent. Let's develop them together.
+But to turn this into an "intelligent" system — one that can complete sequences with nuance and coherence — we'll need to refine the mechanism further. Let's build those improvements together.
 
-### The Whole Phrase 
+### The Whole Phrase ✅
 
-So far, we've only focused on the word "apple" being pulled. That is, we've only applied attention to update the vector for "apple" based on the other words. But in practice we want to apply attention to all words in the phrase. We want each word to be pulled to a better place for it, given the surrounding words. Why? There are two main reasons:
+So far, we've only looked at how the word "apple" is pulled. That is, we've only applied attention to update the vector for "apple" based on the other words. But in practice, we want to apply attention to all words in the phrase. We want each word to be pulled to a better place for it, given the surrounding words. Why? There are two main reasons:
 
-1. As we've eluded to, we often apply multiple iterations of attention to refine the vector for a word. Consider the phrase "I ate an orange and an apple". Here, we want "orange" to give context to "apple", but we also want "apple" to give context to "orange". We want "apple" to tell "orange" that it is being used as the fruit and not the color. This will ultimately benefit the context vector for "apple". When it is pulled by all the words in the phrase in the next iteration of attention, it will be pulled by the updated vector for "orange" that has more fruit characteristic than the original vector.
-1. During training we predict the next word at every position, not just the last one. So, given the phrase "I ate a banana and an apple", we ask it to predict every next word in the sequence. Given "I", predict "ate". Given "I ate", predict "an". Given "I ate an", predict "orange". And so on. As we're making predictions at every word, we need the vector for every word to be as informative as possible.
+1. As we've alluded to, we often apply multiple iterations of attention to refine the vector for a word. Consider the phrase "I ate an orange and an apple". Here, we want "orange" to give context to "apple", but we also want "apple" to give context to "orange". We want "apple" to help "orange" understand that it’s being used as a fruit, not a color. This will ultimately benefit the context vector for "apple". When it is pulled by all the words in the phrase in the next iteration of attention, it will be pulled by the updated vector for "orange" that has more fruit characteristics than the original vector.
+1. During training, we predict the next word at every position, not just the last one. So, given the phrase "I ate a banana and an apple", we ask it to predict every next word in the sequence. For example: given "I", predict "ate"; given "I ate", predict "an"; and so on. As we're making predictions at every word, we need the vector for every word to be as informative as possible.
 
-We can visualize what we have done so far in computing attention scores for "apple" by creating a column for every word in the phrase and creating a row for "apple". We fill in the row by computing the dot product of "apple" and the word in each column. We can extend this to more words. We will add a row for each other word and repeat the same computation steps.
+We can visualize what we have done so far in computing attention scores for "apple" by creating a column for every word in the phrase and creating a row for "apple". We fill in the row by computing the dot product between "apple" and the word in each column. We can extend this to more words. We will add a row for each other word and repeat the same computation steps.
 
 <div class="body-image">
     <video src="attention-table-dot-products.mp4"></video>
     <div class="image-text">For each row, we compute the the dot product with the word in each column.</div>
 </div>
 
-We now have a table of dot products which tell us how similar each word is to every other word. Using some linear algebra notation we can write this table of dot products in a succinct way. If we take all embedding vectors of the words and stack them as rows in a matrix which we will call $X$, we can compute the matrix of dot products by doing matrix multiplication of $X$ and a transposed version of $X$. That is $XX^T$.
+We now have a table of dot products which tell us how similar each word is to every other word. Using linear algebra notation, we can write this table of dot products in a compact way. If we take all embedding vectors of the words and stack them as rows in a matrix, which we will call $X$, we can compute the matrix of dot products by doing matrix multiplication of $X$ and a transposed version of $X$. That is $XX^T$.
 
-Just as before, the next step is to apply softmax. Previously, we only did so to the "apple" row, but now we do it to every row. We often write $\text{softmax}(XX^T)$ to mean that we apply softmax to each row.
+Just as before, the next step is to apply softmax. Previously, we only did so to the "apple" row, but we now do it to every row. We often write $\text{softmax}(XX^T)$ to mean that we apply softmax to each row.
 
 <div class="body-image">
     <video src="attention-table-softmax.mp4"></video>
     <div class="image-text">We apply softmax to each row.</div>
 </div>
 
-This gives us a matrix of attention scores. Finally, just as before, we use the attention scores to compute a linear combination of all vectors. 
+This gives us a matrix of attention scores. Finally, just as before, we use each row of attention scores to compute a weighted average of all embedding vectors — one for each word.
 
 <div class="body-image">
     <video src="attention-table-weighted-sum.mp4"></video>
-    <div class="image-text">We compute the weighted sum along each row.</div>
+    <div class="image-text">We compute the weighted average along each row.</div>
 </div>
 
 This can be written as $\text{softmax}(XX^T)X$. The rows of this final matrix contain the updated vectors for each word.
 
-As a quick aside, it may not be obvious why this matrix multiplication gives us a row-wise weighted average. Let's work out a small example to make sense of it. Let $A = \text{softmax}(XX^T)$ for brevity. We will denote the entry in the $i^\text{th}$ row and the $j^\text{th}$ column in $A$ as $a_{ij}$ and in $X$ as $x_{ij}$. So, we have the two matrices:
+As a quick aside, it may not be obvious why this matrix multiplication gives us a row-wise weighted average. Let's work through a small example to see why it works. Let $A = \text{softmax}(XX^T)$ for brevity. We will denote the entry in the $i^\text{th}$ row and the $j^\text{th}$ column in $A$ as $a_{ij}$ and in $X$ as $x_{ij}$. So, we have the two matrices:
 
 ```math
 A = 
@@ -265,35 +265,35 @@ a_{21} \vec{x_1} + a_{22} \vec{x_2}
 \end{bmatrix}
 ```
 
-### Transforming the Embeddings
+### Transforming the Embeddings ✅
 
-Let's return to the example we used when introducing the idea of words pulling words. Recall how the embedding space had one cluster of fruits and another cluster of technology devices, and we applied attention to move the embedding of "apple". 
+Let’s revisit the embedding space we used when introducing the idea of words pulling words. We had one cluster of fruits and another cluster of technology devices, and we used attention to move the embedding of "apple".
 
 <div class="body-image">
     <img src="attention-generic-apple-embedding.png" alt='Generic embedding of "apple"'>
     <div class="image-text">Our original embedding space</div>
 </div>
 
-Were these the most optimal embeddings for this purpose? The embeddings are made to be great general purpose embeddings, but they may not be the best we can do for this very specific use case of separating the two meanings of "apple". We will soon explore what a better embedding space for this purpose might look like. 
+Were those the best embeddings for this task? The embeddings are made to be great general-purpose embeddings, but they may not be the best we can do for this very specific goal of separating the two meanings of "apple". Soon, we'll explore what a more useful embedding space might look like for this task.
 
-But first let's discuss how we can obtain new embeddings given our original embeddings. What we want is some function that given a vector outputs a different vector. Linear transformations do exactly this. A linear transformation simply multiplies the input vector by some matrix to obtain an output vector:
+But first, let's discuss how we can obtain new embeddings from our original embeddings. What we need is a function that, given a vector, outputs a different vector. Linear transformations provide a simple and powerful way to do this — they multiply a vector by a matrix to produce a new vector.
 
 ```math
 T(\vec{x}) = M \vec{x}
 ```
 
-In our case with two dimensional embedding vectors, any $2\!\times\!2$ matrix $M$ will transform the embedding vector $\vec{v}$ into a new two dimensional vector.
+In our case with two-dimensional embedding vectors, any $2\!\times\!2$ matrix $M$ will transform the embedding vector $\vec{x}$ into a new two-dimensional vector.
 
 <div class="body-image">
     <video src="attention-apply-transformation.mp4"></video>
     <div class="image-text">Applying a linear transformation to each embedding vector.</div>
 </div>
 
-When we apply a linear transformation to every vector — that is to a whole vector space — we often transform the axes as well. What we mean by that is that we transform the vectors $[0, 1]$ and $[1, 0]$ which are known as the unit basis vectors and define the coordinate system. This makes it easy to visualize a linear transformation and to plot the transformed vectors. For example, to plot the transformed version of the vector $[1, 2]$, we can simply plot it at the point $(1, 2)$ defined by the new axes.
+When we apply a linear transformation to the entire space — that is to every vector — we also transform the coordinate system itself. What we mean by that is that we transform the vectors $[0, 1]$ and $[1, 0]$, which are known as the unit basis vectors and define the coordinate system. This makes it easy to visualize a linear transformation and to plot the transformed vectors. For example, to plot the transformed version of the vector $[1, 2]$, we place it at the point $(1, 2)$ relative to the new (transformed) axes.
 
 <div class="body-image">
     <video src="attention-transform-axes.mp4"></video>
-    <div class="image-text">We often transform the axes as well.</div>
+    <div class="image-text">We transform the axes as well.</div>
 </div>
 
 ### A Better Space for Pulling Words
@@ -392,7 +392,7 @@ Let's see this in action. We will use the same table structure as before. First,
 
 ### Multiple Key, Query, and Value Spaces
 
-So far, we’ve seen one set of transformed spaces: one for keys, one for queries, and one for values. Take the value space for example. It was made to be great at separating different meanings of words, for example the two meanings of "apple". That is, it's good at determining the semantics of a word. However, this is not the only way words influence each other, and thus not the only thing we should take into account when updating the embeddings of the words.
+So far, we've seen one set of transformed spaces: one for keys, one for queries, and one for values. Take the value space for example. It was made to be great at separating different meanings of words, for example the two meanings of "apple". That is, it's good at determining the semantics of a word. However, this is not the only way words influence each other, and thus not the only thing we should take into account when updating the embeddings of the words.
 
 We would like to be able to simultaneously consider many different linguistic features. In addition to the semantics, we also want to consider something like grammatical relations. For example, how adjectives modify nouns. We want to be able to distinguish a red apple from a green apple.
 
@@ -473,6 +473,7 @@ There we have it. We have now developed the exact formula introduced by the famo
 
 While we certainly have covered a lot, there are plenty of things we have skipped over. This includes:
 
+- __Tokenization__:
 - __How embeddings are learned__: The way we described embeddings, it seems like they are manually crafted. In reality they are learned. How they are learned and the properties of the resulting embeddings are fascinating.
 - __Positional encodings__: The attention mechanism is by default permutation invariant. This means that the order of the words in a sequence doesn't matter — the attention mechanism will produce the same results regardless. For example, the model will not be able to distinguish "the dog chased the cat" and "the cat chased the dog". To fix this, a positional encoding is added to the embeddings. 
 - __Masking__: Especially when training the model, we do not want later words to influence earlier words. That is, when we train the model on predicting the next word, we do not want it to be able to cheat and simply look at what the next word is. To combat this, we mask out words that appear later than the word we are currently considering. We do so by making the attention scores associated with those words 0.
