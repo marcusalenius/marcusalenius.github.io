@@ -296,38 +296,38 @@ When we apply a linear transformation to the entire space — that is to every v
     <div class="image-text">We transform the axes as well.</div>
 </div>
 
-### A Better Space for Pulling Words
+### A Better Space for Pulling Words ✅
 
-Now that we have an understanding of how we can use linear transformations to obtain new embedding spaces, let's think about why this would be useful. Let's look at three spaces: our original space and two transformed spaces. 
+Now that we understand how linear transformations can create new embedding spaces, let's explore why that's useful. Consider three embedding spaces: the original and two transformed versions.
 
 <div class="body-image">
     <video src="attention-three-transformed-spaces.mp4"></video>
     <div class="image-text">Our original space and two transformed spaces.</div>
 </div>
 
-Is one space better than the others for pulling the word "apple"? Remember, our goal is to separate the two meanings of "apple". In space B, the attention step barely distinguishes the two meanings of "apple" whereas in space C the two updated vectors for "apple" are far apart. So here, space C is better. 
+Is one space better than the others for pulling the word "apple"? Remember, our goal is to separate the two meanings of "apple". In space B, attention barely distinguishes the two meanings of "apple" — the vectors end up too close. But in space C, they're pulled far apart, which is exactly what we want.
 
-We will now use the transformed vectors to move the vector for "apple". That is, we will transform the vectors before we use them in the linear combination that defines the new "apple" vector. The transformed version of these vectors are referred to as *values*, denoted $v$, and the matrix used to compute them is referred to as $W_V$.
+Let's now use transformed vectors — instead of the original ones — when computing the linear combination that defines the new "apple" vector. The transformed vectors are referred to as *values*, denoted $v$, and the matrix used to compute them is denoted $W_V$.
 
 <div class="body-image">
     <video src="attention-values-lin-comb.mp4"></video>
     <div class="image-text">We use transformed versions of the vectors, called <em>values</em>, in the linear combination.</div>
 </div>
 
-What about computing the coefficients — that is how much each word should pull "apple"? Do we use the same transformed vectors for computing those? We certainly could and that would likely be better than using the untransformed vectors. But let's hold that thought for now.
+But what about the coefficients — the attention scores that tell us how much each word should pull "apple"? Should we use these same transformed vectors to compute them too? We could — and that might already work better than using untransformed embeddings. But there's an even more powerful approach. We'll come back to that in a moment.
 
-### Asymmetric Pull 
+### Asymmetric Pull ✅
 
-As we've discussed, it is not only "apple" that gets pulled. Each word in the phrase pulls each other word. So, just as "banana" pulls "apple", "apple" also pulls "banana".
+As we've discussed, attention isn't just applied to a single word like "apple" — every word pulls and is pulled by every other word. So just as "banana" pulls "apple", "apple" also pulls "banana".
 
-The pulling force that one word exerts on the other is completely determined by the similarity of the words. This means that it is always the case that "banana" pulls "apple" just as much "apple" pulls "banana". This may not always be desirable. We can find examples where we'd want asymmetric pull. 
+The pulling force that one word exerts on another is completely determined by the similarity of the two words. This means that it is always the case that "banana" pulls "apple" just as much as "apple" pulls "banana". This symmetry is not always desirable. We can find examples where we'd want asymmetric pull. 
 
-Take the words "bride" and "ring". If a phrase contains the word "bride", it is quite likely that the word "ring" will appear. So, we want "bride" to exert a strong pulling force on "ring". On the other hand, if a phrase contains the word "ring", it is not as likely that the word "bride" will appear. It could be referring to a piece of jewelry, a boxing ring, or perhaps a phone call. So, we want "ring" to exert a less strong pulling force on "bride".
+Take the words "bride" and "ring". If a phrase contains the word "bride", it is quite likely that the word "ring" will appear. So, we want "bride" to exert a strong pulling force on "ring". On the other hand, if a phrase contains the word "ring", it is not as likely that the word "bride" will appear. It could be referring to a piece of jewelry, a boxing ring, or perhaps a phone call. So, we want "ring" to exert a weaker pulling force on "bride".
 
-Let's introduce some vocabulary to describe this. We will call the word that is pulled the *query* and the word that pulls the *key*. In our "bride" and "ring" example we want this:
+Let's introduce some vocabulary to describe this. We will call the word that is being pulled the *query*, and the word that pulls the *key*. In our "bride" and "ring" example, we want this:
 
 - When "bride" is the key and "ring" is the query — that is when "bride" pulls "ring" — we want a strong pulling force.
-- When "ring" is the key and "bride" is the query — that is when "ring" pulls "bride" — we want a weak pulling force.
+- But when "ring" is the key and "bride" is the query — that is when "ring" pulls "bride" — we want a weaker pulling force.
 
 <div class="body-image">
     <img src="attention-asymmetric-forces.png" alt="Asymmetric pulling forces">
@@ -336,28 +336,28 @@ Let's introduce some vocabulary to describe this. We will call the word that is 
 
 How do we create these asymmetric forces? We know that the only thing that determines the pulling force is the similarity between the embedding vectors. So, we have to make the similarity different depending on which vector is acting as the query and which is acting as the key. What if we applied one transformation to the queries and another one to the keys? Let's have a look.
 
-We will start by placing "bride" and "ring" in a two-dimensional embedding space. Then, we make a copy of this space. We will let the left space be the keys and right space be the queries. When we calculate the force that "bride" pulls "ring", we will use the "bride" vector from key space (remember keys pull) and the "ring" vector from the query space (queries are pulled). And when we compute the force that "ring" pulls "bride", we use the "ring" vector from key space and the "bride" vector from the query space. Since these spaces are currently identical, the two pairs of vectors are equally similar.
+We'll start by placing "bride" and "ring" in a shared 2D embedding space. Then, we’ll make a copy: the left will represent the key space, and the right will represent the query space. When we calculate the force that "bride" pulls "ring", we will use the "bride" vector from key space (remember keys pull) and the "ring" vector from the query space (queries are pulled). And when we compute the force that "ring" pulls "bride", we use the "ring" vector from the key space and the "bride" vector from the query space. Since these spaces are currently identical, the two pairs of vectors are equally similar.
 
 <div class="body-image">
     <video src="attention-key-query-transformation-part-one.mp4"></video>
     <div class="image-text">When we compute the pulling force — that is the similarity (dot product) — one vector comes from the key space and the other from the query space.</div>
 </div>
 
-This gets interesting when we apply different transformations to the key and query spaces. Let's apply a transformation that shrinks the x-axis to the key space and one that shrinks the y-axis to the query space. Now, when we take the "bride" vector from the key space and the "ring" vector from the query space, we see that they are very similar. So, they have a high dot product. This means that "bride" will exert a strong pulling force on "ring". But when we take the "ring" vector from the key space and the "bride" vector from the query space we get two vectors that are not as similar. They have a lower dot product. So, the pulling force that "ring" exerts on "bride" is much weaker.
+Here’s where things get interesting: by applying different transformations to the key and query spaces, we can make their similarity asymmetric. Let's apply a transformation squooshing the x-axis to the key space and one squooshing the y-axis to the query space. Now, when we take the "bride" vector from the key space and the "ring" vector from the query space, we see that they are very similar. So, they have a high dot product. This means that "bride" will exert a strong pulling force on "ring". But when we take the "ring" vector from the key space and the "bride" vector from the query space, we get two vectors that are not as similar. They have a lower dot product. So, the pulling force that "ring" exerts on "bride" is much weaker.
 
 <div class="body-image">
     <video src="attention-key-query-transformation-part-two.mp4"></video>
-    <div class="image-text">Applying different transformations to the key and query spaces gives us asymmetric pulling forces.</div>
+    <div class="image-text">Applying different transformations to the key and query spaces results in asymmetric pulling forces.</div>
 </div>
 
-Let's now apply this to our running example of how "apple" gets pulled in the phrase "I ate a banana and an apple". We want to compute the dot product between the query version of "apple" (it is pulled) and the key versions of all vectors (they pull). We will denote queries by $q$ and keys by $k$ and the matrices used to compute them as $W_Q$ and $W_K$ respectively.
+Let's now apply this to our running example of how "apple" gets pulled in the phrase "I ate a banana and an apple". We compute the dot product between the query vector for "apple" (the word being pulled) and the key vectors for every other word (the ones doing the pulling). We will denote queries by $q$ and keys by $k$, and the matrices used to compute them as $W_Q$ and $W_K$, respectively.
 
 <div class="body-image">
     <video src="attention-key-query-dp.mp4"></video>
     <div class="image-text">We compute the dot product between the query and the keys.</div>
 </div>
 
-These are the dot products to which we apply softmax to generate the attentions scores. That is the coefficients in the linear combination that is used to calculate the updated vector for "apple".
+We then apply softmax to these dot products to get the attention scores — the coefficients used in the weighted average that produces the new vector for "apple".
 
 ### Keys, Queries, and Values
 
