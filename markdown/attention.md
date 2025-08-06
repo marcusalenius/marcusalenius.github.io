@@ -359,31 +359,33 @@ Let's now apply this to our running example of how "apple" gets pulled in the ph
 
 We then apply softmax to these dot products to get the attention scores — the coefficients used in the weighted average that produces the new vector for "apple".
 
-### Keys, Queries, and Values
+### Keys, Queries, and Values ✅
 
-We have now developed three different transformations that we apply to the embedding vectors: the transformations that produce the keys, queries, and values: 
+We’ve now introduced three transformations applied to each embedding vector — producing the keys, queries, and values:
 
 - $\vec{k} = W_K \vec{x}$
 - $\vec{q} = W_Q \vec{x}$
 - $\vec{v} = W_V \vec{x}$
 
-Let's recap the purpose of each before we look at how this affects our application of attention to the whole phrase.
+Let's briefly recap the purpose of each before we look at how this affects our application of attention to the whole phrase.
 
-The keys and queries work together to create the optimal spaces for computing the similarity between vectors. They can emphasize features that are important for measuring similarity and deemphasize those that are not. They can also combine features. All in a way to create the most optimal space to compute how strongly each word should pull each other word. Importantly, having two separate transformations allows for asymmetric pull. In our linear combination that computes the updated vector, the keys and queries produce the coefficients. 
+Keys and queries define spaces that optimize how we measure similarity. They can highlight features that matter for similarity, suppress irrelevant ones, and even combine features in meaningful ways. All in a way to create the most optimal spaces to compute how strongly each word should pull the others. Importantly, having two separate transformations allows for asymmetric pull. In our linear combination that computes the updated vector, the keys and queries produce the coefficients — the attention scores.
 
-The values create the most optimal space for actually moving the embedding of a word. They emphasize features that are important for distinguishing the different meanings of a word. Given the weights computed by the keys and queries, we combine value vectors to compute the updated vector for a word.
+Values define the space in which we move the word embeddings. They emphasize features that help distinguish between different meanings — enabling attention to update vectors in contextually meaningful ways. Given the weights computed by the keys and queries, we combine value vectors to compute the updated vector for a word.
 
-### The Whole Phrase — with Keys, Queries, and Values
+Just like the weights in our classifier, the matrices $W_K$, $W_Q$, and $W_V$ are learned — adjusted during training on massive amounts of text — to optimize the behavior of attention.
 
-Recall how we packaged all embedding vectors of the phrase as rows in a matrix we called $X$. We can multiply $X$ by $W_K$, $W_Q$, and $W_V$ to turn the rows into keys, queries, and values, respectively. We will call these matrices $K$, $Q$, and $V$.
+### The Whole Phrase — with Keys, Queries, and Values ✅
+
+Recall that we stacked all the embedding vectors for the phrase as rows in a matrix, $X$. To generate the keys, queries, and values, we multiply $X$ by the three learned matrices $W_K$, $W_Q$, and $W_V$. We will call these new matrices $K$, $Q$, and $V$.
 
 - $K = X W_K$
 - $Q = X W_Q$
 - $V = X W_V$
 
-Now, we take the dot product of each query vector with each key vector. We can write this as $QK^T$. Just as before, the next step is to apply softmax to each row: $\text{softmax}(QK^T)$. Finally, we use these attention scores to compute the linear combination along each row using the values. This can be written as $\text{softmax}(QK^T)V$.
+Next, we compute the dot product between every query and every key. This is done efficiently via matrix multiplication: $QK^T$. Just as before, the next step is to apply softmax to each row: $\text{softmax}(QK^T)$. Finally, we use these weights to compute a weighted average of the values — one row at a time — which gives us the updated vectors. This can be written as $\text{softmax}(QK^T)V$.
 
-Let's see this in action. We will use the same table structure as before. First, we transform the first row into keys and the first column into queries. Next, we take the dot product between each pair of keys and queries and apply softmax to each row. We now have the coefficients for the linear combinations that compute the updated vectors. To get the vectors for these linear combinations, we take a copy of our original vectors and transform them into values.
+Let’s walk through this visually using the same table format from before. First, we apply our transformations to get keys and queries. Next, we take the dot product between each pair of keys and queries and apply softmax to each row. We now have the coefficients for the weighted average that computes the updated embedding vectors. To get the vectors for the weighted average, we take a copy of our original vectors and transform them into values.
 
 <div class="body-image">
     <video src="attention-table-kqv.mp4"></video>
