@@ -435,13 +435,11 @@ But we now have two sets of updated embedding vectors: one from each head. We st
 
 We could simply average the two results. But by now, we recognize a better option: let the model learn how to combine them.  In some contexts, semantics may be more important, while in others, grammatical relations are more important.
 
-Let's call the two matrices of updated row vectors $\text{head}^{(0)}$ and $\text{head}^{(1)}$. If we place them side-by-side in one big matrix $O$, we can then multiply this matrix by a learned weight matrix to project $O$ back down to the original embedding size. This way, the model can not only learn to emphasize and deemphasize the two spaces, but it can also combine and reorient the vectors.
-
--> Starts with with the final frame of attention-table-kqv (but with superscripts of (0)). Each v_i expands to a row vector with actual numbers in it. The row vectors simultaneously turn into the final, updated row vector. This matrix shrinks and is labeled head_0. A copy with different numbers appears next to it labeled head_1. They get concatenated into one big matrix O. A weight matrix appears and O and W_O are multiplied to produce a matrix with the size of X. The rows are highlighted or otherwise shown to be row vectors corresponding to the updated embedding vectors.
+Let's call the two matrices of updated row vectors $\text{head}^{(0)}$ and $\text{head}^{(1)}$. If we place them side-by-side in one big matrix $O$, we can then multiply this matrix by a learned weight matrix $W_O$ to project $O$ back down to the original embedding size. This way, the model can not only learn to emphasize and deemphasize the two spaces, but it can also combine and reorient the vectors.
 
 <div class="body-image">
-    <video src=""></video>
-    <div class="image-text">To combine the outputs of the two heads we concatenate them into one big matrix and use a learned weight matrix to project it down into a matrix of the correct shape.</div>
+    <video src="attention-multi-head-projection.mp4"></video>
+    <div class="image-text">To combine the outputs of the two heads we concatenate them into one big matrix and use a learned weight matrix to project it down into a matrix of the correct shape. This final matrix contains our updated embedding vectors.</div>
 </div>
 
 We can extend this beyond two heads. Modern models use many more heads. For example, DeepSeek-V3, a top-performing open-source model, uses 128 attention heads according to the [technical report](https://arxiv.org/pdf/2412.19437#:~:text=dimension%20to%207168,head%20dimension). (Although it has a very clever optimization that essentially gives the effect of 128 heads while using less memory and compute. [This](https://www.youtube.com/watch?v=0VLAoVGf_74&t=709s) Welch Labs video provides an excellent explanation.) 
