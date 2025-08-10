@@ -5,11 +5,18 @@
     z-index: 10;
 }
 
-/* Actordentify */
-
-#actordentify-hero {
+#actordentify-hero, #attention-hero {
     width: 100%;
 }
+
+#attention-hero {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.03);
+}
+
+.dark #attention-hero {
+    box-shadow: none;
+}
+
 
 /* Kenboard */
 

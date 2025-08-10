@@ -31,12 +31,12 @@ export default function AttentionCard({ cardData }: Props) {
     >
       <div className="card-images">
         <Video
-          src="videos/attention-apple-pulled-side-by-side.mp4"
+          src="videos/attention-hero.mp4"
           id="attention-card-video-bkg"
           className="attention-card-video"
         />
         <Video
-          src="videos/attention-apple-pulled-side-by-side.mp4"
+          src="videos/attention-hero.mp4"
           id="attention-card-video"
           className="attention-card-video"
         />

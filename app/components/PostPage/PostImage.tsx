@@ -13,6 +13,7 @@ type Props = {
 
 export default function PostImage({ post }: Props) {
   const content: { [key: string]: JSX.Element } = {
+    attention: <Video src="videos/attention-hero.mp4" id="attention-hero" />,
     actordentify: (
       <Video src="videos/actordentify-hero.mp4" id="actordentify-hero" />
     ),
