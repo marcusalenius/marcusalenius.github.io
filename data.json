@@ -1,7 +1,7 @@
 {
   "firstName": "Marcus",
   "lastName": "Alenius",
-  "brief": "I’m a senior at Carnegie Mellon University studying Artificial Intelligence. I am a current AI/ML Software Development Engineer Intern at AWS, published ML researcher, and Head Teaching Assistant.",
+  "brief": "I’m a senior at Carnegie Mellon University studying Artificial Intelligence. I am a former AI/ML Software Development Engineer Intern at AWS, published ML researcher, and Head Teaching Assistant.",
   "heroButtons": [
     {
       "id": 0,
@@ -13,8 +13,8 @@
           {
             "id": 0,
             "title": "Email",
-            "text": "alenius@cmu.edu",
-            "link": "mailto:alenius@cmu.edu"
+            "text": "marcus.alenius@gmail.com",
+            "link": "mailto:marcus.alenius@gmail.com"
           },
           {
             "id": 1,
@@ -47,11 +47,11 @@
           "row_0": [
             {
               "id": 0,
-              "text": "Hi again, I’m Marcus Alenius. I am a Swedish American studying Artificial Intelligence at Carnegie Mellon University. I am passionate about creating technology that unlocks our full potential while making it less obtrusive and almost invisible to us. My primary interests lie in machine learning, natural language processing, and software engineering."
+              "text": "Hi again — I’m Marcus Alenius, a Swedish American studying Artificial Intelligence at Carnegie Mellon University. I’m passionate about developing new machine learning technologies and sharing what I learn with others. My primary interests include natural language processing, machine learning systems, and LLM inference."
             },
             {
               "id": 1,
-              "text": "Currently, I serve as a Head Teaching Assistant for CMU’s largest course, a Bloomberg top 5 U.S. computer science class. I am also a published machine learning researcher, having recently co-created a novel LLM-based metric for automated code reviews. My software engineering experience includes internships at Höganäs Borgestad and the McLearn Lab at CMU’s HCII. In my free time, I love working on projects. Take a look at some of them below."
+              "text": "I currently serve as Head Teaching Assistant for CMU’s largest course, ranked among the top five U.S. computer science classes by Bloomberg. I am also a published machine learning researcher, having recently co-developed a novel LLM-based metric for automated code reviews. My industry experience includes an internship with AWS on the Bedrock Model Optimization team, where I worked on heterogeneous disaggregated inference."
             }
           ],
           "row_1": [
@@ -292,21 +292,21 @@
       "cards": [
         {
           "id": 0,
-          "title": "Software Development Engineer Intern, AI/ML",
-          "organization": "Amazon Web Services",
-          "start": "May 2025",
-          "end": "Present",
-          "location": "San Francisco Bay Area, CA",
-          "description": "Bedrock Model Optimization Team. Heterogeneous disaggregated inference."
-        },
-        {
-          "id": 1,
           "title": "Head Teaching Assistant",
           "organization": "School of Computer Science, CMU",
           "start": "August 2023",
           "end": "Present",
           "location": "Pittsburgh, PA",
           "description": "15-112 Fundamentals of Programming & Computer Science."
+        },
+        {
+          "id": 1,
+          "title": "Software Development Engineer Intern, AI/ML",
+          "organization": "Amazon Web Services",
+          "start": "May 2025",
+          "end": "August 2025",
+          "location": "San Francisco Bay Area, CA",
+          "description": "Bedrock Model Optimization Team. Heterogeneous disaggregated inference."
         },
         {
           "id": 2,

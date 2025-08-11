@@ -53,8 +53,8 @@ export default function AboutMeModal({ modalData }: Props) {
         {/* I don't love that this is hardcoded */}
         <p className="paragraph-small">
           Feel free to reach out to me at{" "}
-          <a href="mailto:alenius@cmu.edu" target="_blank">
-            alenius@cmu.edu
+          <a href="mailto:marcus.alenius@gmail.com" target="_blank">
+            marcus.alenius@gmail.com
           </a>{" "}
           or connect with me on{" "}
           <a href="https://www.linkedin.com/in/marcusalenius/" target="_blank">
