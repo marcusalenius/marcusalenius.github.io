@@ -201,6 +201,10 @@ nav {
 
     nav { width: 652px; }
 
+    #nav-right {
+        gap: 7px;
+    }
+
 }
 
 /* iPhone Plus */
