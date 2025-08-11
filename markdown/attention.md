@@ -1,4 +1,4 @@
-### Our Hope ✅
+### Our Hope
 
 Before we begin, we need to establish what large language models (LLMs) are. LLMs are a type of artificial intelligence model trained on large amounts of text to understand and generate human-like language. In particular, they do one task *really* well: predicting the next word in a sequence. With that in mind, let's develop a model that does exactly that.
 
@@ -22,7 +22,7 @@ We would hope that the dot product between the context vector for "a" (which we 
 
 We can now see that the problem has reduced to making the context vector for "a" and the row corresponding to "time" as similar as possible.
 
-### An Initial Idea ✅
+### An Initial Idea
 
 Our first idea may be to represent "a" with some fixed vector. We will call this the embedding of "a". Then, we learn the matrix weights so that the row for “time” becomes as similar as possible to the embedding of “a”. There is an issue with this approach though: we only look at the word "a" to determine the next word. So if we were able to train the model to output "time" given the embedding of "a", it would correctly complete the phrase "once upon a time", but it would incorrectly complete a phrase like "the sun is a star" and instead output "the sun is a time". 
 
@@ -39,7 +39,7 @@ Now consider the phrase "the capital of Spain is". All words except one are the 
 
 So what went wrong? The issue is that all words were weighted equally. We would like to weigh certain words more than others. In the example above, we would like to weigh the words "France" and "Spain" more in their respective phrases. But how do we decide how much to weigh each word? To develop an answer to that question, it will help to get visual.
 
-### Embeddings ✅
+### Embeddings
 
 Earlier, we said that we would represent "a" with a fixed vector — that we would *embed* it. But what exactly does that mean? We want to associate each word in our vocabulary with a list of numbers. For now, we will say a list of two numbers. But how should we assign numbers to words? To start, we could just assign each word two random numbers. Take the words "banana", "pear", and "phone". We may randomly assign them the numbers $[+0.3, +0.2]$, $[+1.4, +1.0]$, and $[+0.8, +1.6]$. We can plot these in a 2D space.
 
@@ -57,7 +57,7 @@ In our "banana", "pear", and "phone" example, we would like "banana" and "pear" 
     <div class="image-text">A more meaningful embedding where similar words are near each other.</div>
 </div>
 
-### Words Pulling Words ✅
+### Words Pulling Words
 
 Let's now think about where to place the word "apple". Where should we put it? It depends on how "apple" is used. If it appears in the phrase "I ate a banana and an apple", it should go near the fruits, but if it is in the phrase "I got a new phone from apple", it should be by the technology devices. So there is no one great choice for the embedding of "apple". The best we can do is place it somewhere between the two. That's what we will do in our generic embedding.
 
@@ -110,7 +110,7 @@ If we instead want "banana" to pull "apple" halfway between it and the original 
 We want this if the dot products between "apple" and "apple", and "apple" and "banana" are large and pretty equal, and the rest are very small in comparison. If instead all the dot products are pretty similar, meaning that "apple" is equally similar to all words, we would want all words to pull "apple" equally. So we'd want a linear combination like this:
 
 ```math
-\vec{x}_{\text{🍎}}' = \frac{1}{6} \vec{x}_{\text{I}} + \frac{1}{6} \vec{x}_{\text{ate}} + \frac{1}{6} \vec{x}_{\text{a}} + \frac{1}{6} \vec{x}_{\text{🍌}} + \frac{1}{6} \vec{x}_{\text{and}} + \frac{1}{6} \vec{x}_{\text{an}} + \frac{1}{6} \vec{x}_{\text{🍎}}
+\vec{x}_{\text{🍎}}' = \frac{1}{7} \vec{x}_{\text{I}} + \frac{1}{7} \vec{x}_{\text{ate}} + \frac{1}{7} \vec{x}_{\text{a}} + \frac{1}{7} \vec{x}_{\text{🍌}} + \frac{1}{7} \vec{x}_{\text{and}} + \frac{1}{7} \vec{x}_{\text{an}} + \frac{1}{7} \vec{x}_{\text{🍎}}
 ```
 
 We see that we want all coefficients to be between 0 and 1, and for them to sum to 1. We also want to emphasize the larger dot products. Those are the most similar words, so we want them to pull more. A function that accomplishes this is the exponential function $f(x) = e^x$. So, we will exponentiate each dot product. In order for the coefficients to sum to 1, we divide each term by the sum of all the terms. This is called normalization. The function we have described is referred to as *softmax* and is usually written like this:
@@ -133,7 +133,7 @@ These coefficients are referred to as *attention scores*. They tell us how much 
 
 The process we have just developed is called *attention*. Specifically, it is one iteration of attention. We can repeat this process multiple times to further refine the vector for "apple".
 
-### Attention is a Weighted Average ✅
+### Attention is a Weighted Average
 
 Let's return to our original goal: predicting the next word in a sequence. To do this, we feed the context vector for the last word into a multiclass classifier. The classifier uses a weight matrix with one row per word in the vocabulary. For the model to output the correct word, the row corresponding to that word must be as similar as possible to the context vector.
 
@@ -141,7 +141,7 @@ We realized that simply using the embedding of the last word as the context vect
 
 Next, we considered defining the context vector of the last word to be the average of the embeddings of it and the words before it. This was an improvement — it solved the "the sun is a time" problem. But it still had a weakness: sequences that differ by just one or two words, like "the capital of Spain is" and "the capital of France is", would end up with very similar context vectors and, therefore, the same prediction — even when the correct next words are very different.
 
-The takeaway was clear: not all words should be weighed equally. Some are far more relevant than others when predicting the next word. The question we didn't know how to answer was how to determine how much to weigh each word. That's exactly what attention gives us: a way to compute a weighted average of the embeddings. The idea of words "pulling" other words is realized mathematically by computing the dot product between embeddings, applying softmax, and using the resulting scores as weights. This is the core mechanism of attention.
+The takeaway was clear: not all words should be weighted equally. Some are far more relevant than others when predicting the next word. The question we didn't know how to answer was how to determine how much to weigh each word. That's exactly what attention gives us: a way to compute a weighted average of the embeddings. The idea of words "pulling" other words is realized mathematically by computing the dot product between embeddings, applying softmax, and using the resulting scores as weights. This is attention.
 
 The result of attention, or of multiple iterations of attention, is an updated embedding vector that has soaked in the context that the word appears in. We use it as the context vector that we feed into the classifier. 
 
@@ -149,7 +149,7 @@ And that's the basic mechanism behind large language models like ChatGPT. If you
 
 But to turn this into an "intelligent" system — one that can complete sequences with nuance and coherence — we'll need to refine the mechanism further. Let's build those improvements together.
 
-### The Whole Phrase ✅
+### The Whole Phrase
 
 So far, we've only looked at how the word "apple" is pulled. That is, we've only applied attention to update the vector for "apple" based on the other words. But in practice, we want to apply attention to all words in the phrase. We want each word to be pulled to a better place for it, given the surrounding words. Why? There are two main reasons:
 
@@ -265,7 +265,7 @@ a_{21} \vec{x_1} + a_{22} \vec{x_2}
 \end{bmatrix}
 ```
 
-### Transforming the Embeddings ✅
+### Transforming the Embeddings
 
 Let’s revisit the embedding space we used when introducing the idea of words pulling words. We had one cluster of fruits and another cluster of technology devices, and we used attention to move the embedding of "apple".
 
@@ -296,7 +296,7 @@ When we apply a linear transformation to the entire space — that is to every v
     <div class="image-text">We transform the axes as well.</div>
 </div>
 
-### A Better Space for Pulling Words ✅
+### A Better Space for Pulling Words
 
 Now that we understand how linear transformations can create new embedding spaces, let's explore why that's useful. Consider three embedding spaces: the original and two transformed versions.
 
@@ -316,7 +316,7 @@ Let's now use transformed vectors — instead of the original ones — when comp
 
 But what about the coefficients — the attention scores that tell us how much each word should pull "apple"? Should we use these same transformed vectors to compute them too? We could — and that might already work better than using untransformed embeddings. But there's an even more powerful approach. We'll come back to that in a moment.
 
-### Asymmetric Pull ✅
+### Asymmetric Pull
 
 As we've discussed, attention isn't just applied to a single word like "apple" — every word pulls and is pulled by every other word. So just as "banana" pulls "apple", "apple" also pulls "banana".
 
@@ -359,7 +359,7 @@ Let's now apply this to our running example of how "apple" gets pulled in the ph
 
 We then apply softmax to these dot products to get the attention scores — the coefficients used in the weighted average that produces the new vector for "apple".
 
-### Keys, Queries, and Values ✅
+### Keys, Queries, and Values
 
 We’ve now introduced three transformations applied to each embedding vector — producing the keys, queries, and values:
 
@@ -371,11 +371,11 @@ Let's briefly recap the purpose of each before we look at how this affects our a
 
 Keys and queries define spaces that optimize how we measure similarity. They can highlight features that matter for similarity, suppress irrelevant ones, and even combine features in meaningful ways. All in a way to create the most optimal spaces to compute how strongly each word should pull the others. Importantly, having two separate transformations allows for asymmetric pull. In our linear combination that computes the updated vector, the keys and queries produce the coefficients — the attention scores.
 
-Values define the space in which we move the word embeddings. They emphasize features that help distinguish between different meanings — enabling attention to update vectors in contextually meaningful ways. Given the weights computed by the keys and queries, we combine value vectors to compute the updated vector for a word.
+Values define the space in which we move the embeddings. They emphasize features that help distinguish between different meanings — enabling attention to update vectors in contextually meaningful ways. Given the weights computed by the keys and queries, we combine value vectors to compute the updated vector for a word.
 
 Just like the weights in our classifier, the matrices $W_K$, $W_Q$, and $W_V$ are learned — adjusted during training on massive amounts of text — to optimize the behavior of attention.
 
-### The Whole Phrase — with Keys, Queries, and Values ✅
+### The Whole Phrase — with Keys, Queries, and Values
 
 Recall that we stacked all the embedding vectors for the phrase as rows in a matrix, $X$. To generate the keys, queries, and values, we multiply $X$ by the three learned matrices $W_K$, $W_Q$, and $W_V$. We will call these new matrices $K$, $Q$, and $V$.
 
@@ -392,7 +392,7 @@ Let’s walk through this visually using the same table format from before. Firs
     <div class="image-text">Attention using keys, queries, and values applied to the whole phrase.</div>
 </div>
 
-### Multiple Key, Query, and Value Spaces ✅
+### Multiple Key, Query, and Value Spaces
 
 So far, we've seen one set of transformed spaces: one for keys, one for queries, and one for values. Take the value space, for example. It was made to separate different meanings of words, such as the two meanings of “apple.” In other words, it captures the semantics of a word. But semantics is not the only way words influence each other, and thus not the only thing we should take into account when updating the embedding of a word.
 
@@ -400,7 +400,7 @@ We would like to be able to simultaneously consider many different linguistic fe
 
 How can we consider multiple linguistic features at once? Instead of using just one value space, we will use multiple. Each space will capture a different linguistic pattern and update the embeddings in its own way.
 
-Let's call the value transformation we discussed earlier the *semantic* space. It is tuned to reflect how words are used in context. Take the phrase "I ate a banana and a red apple". The semantic space works just as before: it gives the most effect of pulling "apple" towards "banana", separating it from the technology brand.
+Let's call the value space we discussed earlier the *semantic* space. It is tuned to reflect how words are used in context. Take the phrase "I ate a banana and a red apple". The semantic space works just as before: it gives the most effect of pulling "apple" towards "banana", separating it from the technology brand.
 
 <div class="body-image">
     <video src="attention-semantic-transformation.mp4"></video>
@@ -414,7 +414,7 @@ Next, let's develop a *grammatical relations* space. In this space, we want "app
     <div class="image-text">The <em>grammatical relations</em> space separates a red apple from a green apple, for example.</div>
 </div>
 
-We have described two different value transformations. Let's call the weight matrix for the semantic space $W_V^{(0)}$ and for the grammatical relations space $W_V^{(1)}$. 
+We have described two different value spaces. Let's call the weight matrix for the semantic transformation $W_V^{(0)}$ and for the grammatical relations transformation $W_V^{(1)}$. 
 
 Similarly to how we developed these, we will find it useful to have two sets of key and query transformations as well: $W_K^{(0)}$ and $W_K^{(1)}$, and $W_Q^{(0)}$ and $W_Q^{(1)}$.
 
@@ -442,11 +442,11 @@ Let's call the two matrices of updated row vectors $\text{head}^{(0)}$ and $\tex
     <div class="image-text">To combine the outputs of the two heads we concatenate them into one big matrix and use a learned weight matrix to project it down into a matrix of the correct shape. This final matrix contains our updated embedding vectors.</div>
 </div>
 
-We can extend this beyond two heads. Modern models use many more heads. For example, DeepSeek-V3, a top-performing open-source model, uses 128 attention heads according to the [technical report](https://arxiv.org/pdf/2412.19437#:~:text=dimension%20to%207168,head%20dimension). (Although it has a very clever optimization that essentially gives the effect of 128 heads while using less memory and compute. [This](https://www.youtube.com/watch?v=0VLAoVGf_74&t=709s) Welch Labs video provides an excellent explanation.) 
+We can extend this beyond two heads. Modern models use many more heads. For example, DeepSeek-V3, a top-performing open-source model, uses 128 attention heads according to the [technical report](https://arxiv.org/pdf/2412.19437#:~:text=dimension%20to%207168,head%20dimension). (Although it has a very clever optimization that essentially gives the effect of 128 heads while using less memory and compute. [This](https://youtu.be/0VLAoVGf_74?si=fsOsG2dG8bOPurJF) Welch Labs video provides an excellent explanation.) 
 
 Using multiple heads in attention is called *multi-head attention* and it was one of the major breakthroughs in the famous 2017 paper [Attention Is All You Need](https://arxiv.org/pdf/1706.03762).
 
-### Increasing the Dimensionality ✅
+### Increasing the Dimensionality
 
 Let’s make one final generalization. To motivate the example above, we added colors to our embedding space. This doesn't make a whole lot of sense. Previously, we said the axes might correspond to ideas like *fruitiness* and *techiness*. So where does *color* fit in? It doesn’t — at least not in a 2D space. What we really want is a third dimension, one that captures color. More generally, we want each concept we care about to have its own direction in space.
 
@@ -475,23 +475,23 @@ Because of the scaling factor $\frac{1}{\sqrt{d_k}}$, this is commonly referred 
 And there it is — the exact formula introduced in the landmark 2017 paper [Attention Is All You Need](https://arxiv.org/pdf/1706.03762).
 
 
-### Some Things We Didn't Cover ✅
+### Some Things We Didn't Cover
 
 While we have covered a lot, there are plenty of things we have skipped over:
 
 - __Tokenization__: We've assumed that each word gets its own embedding vector. That's not quite true. In practice, models break the input into tokens. Common words like "apple" or "banana" might be a single token, but longer or rarer words — like "unbelievable" — may be split into multiple tokens (e.g., "un", "believ", and "able"). This lets the model handle rare or unknown words and share knowledge across similar ones (like "runner" and "runners").
 - __How embeddings are learned__: The way we described embeddings, it seems like they are manually crafted. In reality, they're actually learned during training. How this happens — and what kinds of structure the learned embeddings contain — is a fascinating topic of its own.
-- __Positional encodings__: Attention is permutation-invariant — meaning the word order doesn’t matter by default. Without additional information, the model sees “the dog chased the cat” the same as “the cat chased the dog.” To fix this, we add positional encodings to the embeddings, so the model knows where each token appears in the sequence.
-- __Masking__: Especially during training, we don’t want the model to cheat by looking ahead. For example, when predicting the next word, it shouldn’t be able to see future words in the sequence. To prevent this, we mask out future tokens — setting their attention scores to zero — so the model only attends to previous and current tokens.
+- __Positional encodings__: Attention is permutation-invariant — meaning the word order doesn’t matter. Without additional information, the model sees “the dog chased the cat” the same as “the cat chased the dog.” To fix this, we add positional encodings to the embeddings, so the model knows where each token appears in the sequence.
+- __Masking__: Especially during training, we don’t want the model to cheat by looking ahead. When predicting the next word, it shouldn’t be able to see future words in the sequence. To prevent this, we mask out future tokens — setting their attention scores to zero — so the model only attends to previous and current tokens.
 - __How attention is trained__: We've repeatedly said that the weights are *learned*, but we haven't said how. Like most modern machine learning models, attention-based models are trained with gradient descent and backpropagation. If you understand those techniques from simpler models, the same ideas apply here too.
 - __Feedforward layers in Transformers__: Attention is often used in a broader architecture called the *Transformer*. In Transformers, attention layers alternate with feedforward layers — standard neural networks that help refine the representation at each step. We haven't touched on how feedforward layers contribute to generating better text.
-- __Optimizations to attention__: Attention is very computationally expensive. It scales quadratically with input length. To make it faster and more memory efficient, several optimizations have been developed. These include: multi-query attention (MQA), grouped-query attention (GQA), and multi-head latent attention (MLA).
+- __Optimizations to attention__: Attention is computationally expensive. It scales quadratically with input length. To make it faster and more memory efficient, several optimizations have been developed. These include: multi-query attention (MQA), grouped-query attention (GQA), and multi-head latent attention (MLA).
 
-### Acknowledgments ✅
+### Acknowledgments
 
-The idea of interpreting attention as words pulling words was first introduced to me through this [video](https://www.youtube.com/watch?v=RFdb2rKAqFw) by [Serrano Academy](https://www.youtube.com/@SerranoAcademy). Some of the examples used in this post are adapted from Serrano Academy’s excellent videos on the topic.
+The idea of interpreting attention as words pulling words was first introduced to me through this [video](https://youtu.be/RFdb2rKAqFw?si=GVmaEPIWu0m4t-Ek) by [Serrano Academy](https://www.youtube.com/@SerranoAcademy). Some of the examples used in this post are adapted from Serrano Academy’s excellent videos on the topic.
 
-### Appendix: All Formulas and Shapes ✅
+### Appendix: All Formulas and Shapes
 
 It may be helpful to collect all the formulas and matrix shapes in one place. We'll do that here.
 
