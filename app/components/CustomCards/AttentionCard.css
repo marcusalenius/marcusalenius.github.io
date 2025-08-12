@@ -8,7 +8,8 @@
 }
 
 /* foreground hover element */
-.dark #actordentify-card::after {
+/* TODO: confirm that this is right */
+.dark #attention-card::after {
     background: radial-gradient(
         circle 800px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.05), 
         transparent 40%
@@ -16,7 +17,6 @@
     z-index: 20;
     pointer-events: none;
 }
-
 
 #attention-card-video {
     height: 100%;
@@ -30,7 +30,7 @@
     left: 0;
 }
 
-#attention-card .frosted-pane {
+.frosted-pane {
     padding-right: 10px;
     position: absolute;
     height: 100%;
@@ -39,14 +39,12 @@
     backdrop-filter: blur(20px);
 }
 
-.dark #attention-card .frosted-pane {
+.dark .frosted-pane {
     height: calc(100% - 2px);
     left: 1px;
     top: 1px;
     border-radius: 29px 0 0 29px;
     background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(20px);
-
 }
 
 #attention-card h3 { color: var(--lightText); }
@@ -76,14 +74,14 @@
 /* iPad 11" Landscape */
 @media (max-width: 1080px) {
 
-    #attention-card .frosted-pane { width: 293px; }
+    .frosted-pane { width: 293px; }
 
 }
 
 /* iPad 13" Portrait */
 @media (max-width: 1008px) {
     
-    #attention-card .frosted-pane { 
+    .frosted-pane { 
         width: 252px; 
         padding-right: 18px;
     }
@@ -97,7 +95,7 @@
 /* iPad 11" Portrait */
 @media (max-width: 873px) {
 
-    #attention-card .frosted-pane { 
+    .frosted-pane { 
         width: 221px; 
         padding-right: 18px;
     }
@@ -129,7 +127,7 @@
         left: 0;
     }
     
-    #attention-card .frosted-pane {
+    .frosted-pane {
         width: 100%;
         height: 100px;
         bottom: 0;
@@ -138,14 +136,13 @@
 
     .dark .frosted-pane {
         width: calc(100% - 2px);
-        height: 100px;
+        height: 100px !important;
         left: 1px;
-        top: auto;
+        top: auto !important;
         bottom: 1px;
-        border-radius: 0 0 29px 29px;
+        border-radius: 0 0 29px 29px !important;
     }
     
-
     .frosted-pane h3 {
         padding-top: 18px;
     }
