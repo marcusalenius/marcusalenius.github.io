@@ -7,17 +7,6 @@
     box-shadow: none;
 }
 
-/* foreground hover element */
-/* TODO: confirm that this is right */
-/* .dark #attention-card::after {
-    background: radial-gradient(
-        circle 800px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.05), 
-        transparent 40%
-    );
-    z-index: 20;
-    pointer-events: none;
-} */
-
 #attention-card-video {
     height: 100%;
     position: absolute;
