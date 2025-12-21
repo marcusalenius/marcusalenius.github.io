@@ -2,6 +2,7 @@ import CardRegion from "../Card/CardRegion";
 import ActordentifyCard from "../CustomCards/ActordentifyCard";
 import AttentionCard from "../CustomCards/AttentionCard";
 import CategoryCard from "../CategoryCard/CategoryCard";
+import AdditionalCard from "../AdditionalCard/AdditionalCard";
 import PublicationCard from "../PublicationCard/PublicationCard";
 import ExperienceCard from "../ExperienceCard/ExperienceCard";
 
@@ -42,6 +43,9 @@ export default function Section({ sectionData, name }: Props) {
               }
             )
           : null}
+        {sectionData.additional ? (
+          <AdditionalCard additionalData={sectionData.additional} key={0} />
+        ) : null}
       </CardRegion>
     </div>
   );
