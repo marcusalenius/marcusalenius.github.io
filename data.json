@@ -81,6 +81,18 @@
       "cards": [
         {
           "id": 0,
+          "title": "Needle",
+          "subtitle": "Foo",
+          "link": "/actordentify"
+        },
+        {
+          "id": 1,
+          "title": "Speech Transformer",
+          "subtitle": "Foo",
+          "link": "/actordentify"
+        },
+        {
+          "id": 2,
           "title": "Actordentify",
           "subtitle": "Chrome extension that identifies actors in TV shows",
           "link": "/actordentify"
@@ -285,7 +297,10 @@
             }
           ]
         }
-      ]
+      ],
+      "additional": {
+        "title": "Additional Projects"
+      }
     },
     "Experience": {
       "id": 2,

@@ -1,4 +1,6 @@
 import CardRegion from "../Card/CardRegion";
+import NeedleCard from "../CustomCards/NeedleCard";
+import SpeechTransformerCard from "../CustomCards/SpeechTransformerCard";
 import ActordentifyCard from "../CustomCards/ActordentifyCard";
 import AttentionCard from "../CustomCards/AttentionCard";
 import CategoryCard from "../CategoryCard/CategoryCard";
@@ -13,8 +15,10 @@ type Props = {
 
 export default function Section({ sectionData, name }: Props) {
   const customCardMap: { [key: string]: any } = {
-    Actordentify: ActordentifyCard,
     "Attention From Scratch": AttentionCard,
+    Needle: NeedleCard,
+    "Speech Transformer": SpeechTransformerCard,
+    Actordentify: ActordentifyCard,
   };
 
   return (
@@ -31,7 +35,7 @@ export default function Section({ sectionData, name }: Props) {
             return <ExperienceCard cardData={cardData} key={cardData.id} />;
           }
         })}
-        {sectionData.categories
+        {/* {sectionData.categories
           ? sectionData.categories.map(
               (categoryData: { [key: string]: any }) => {
                 return (
@@ -42,7 +46,7 @@ export default function Section({ sectionData, name }: Props) {
                 );
               }
             )
-          : null}
+          : null} */}
         {sectionData.additional ? (
           <AdditionalCard additionalData={sectionData.additional} key={0} />
         ) : null}

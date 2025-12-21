@@ -19,6 +19,8 @@ export default function ModalContent({ modalData }: Props) {
     );
   } else if (modalData.title === "About Me") {
     return <AboutMeModal modalData={modalData} />;
+  } else if (modalData.title === "Additional Projects") {
+    return <></>;
   } else if (modalData.title === "Additional Experience") {
     return <></>;
   } else {
