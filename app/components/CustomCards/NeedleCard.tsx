@@ -3,9 +3,11 @@
 import "./NeedleCard.css";
 
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 import Card from "../Card/Card";
 import InternalLink from "../Links/InternalLink";
+import NeedleCardSvg from "./NeedleCardSvg";
 
 const Video = dynamic(() => import("../Media/Video"), {
   ssr: false,
@@ -16,7 +18,6 @@ type Props = {
 };
 
 export default function NeedleCard({ cardData }: Props) {
-  const needlePostLink = "/needle";
   function formatSubtitle(subtitle?: string): string {
     if (!subtitle) return "";
     const normalized = subtitle.toLowerCase().replace(/\bai\b/g, "AI");
@@ -25,19 +26,18 @@ export default function NeedleCard({ cardData }: Props) {
   return (
     <Card
       className="card card-region-child"
-      id="attention-card"
+      id="needle-card"
       individualEffect={false}
-      href={needlePostLink}
+      href={cardData.link}
     >
       <div className="card-images">
-        <div className="frosted-pane">
-          <h3>{cardData.title}</h3>
-          <p className="paragraph-small">{formatSubtitle(cardData.subtitle)}</p>
-          {/* href empty so that InternalLink gets rendered as a div */}
-          <InternalLink href="">
-            <p className="card-link">Learn more</p>
-          </InternalLink>
-        </div>
+        <h3>{cardData.title}</h3>
+        <p className="paragraph-small">{cardData.subtitle}</p>
+        {/* href empty so that InternalLink gets rendered as a div */}
+        <InternalLink href="">
+          <p className="card-link">Learn more</p>
+        </InternalLink>
+        <NeedleCardSvg />
       </div>
     </Card>
   );

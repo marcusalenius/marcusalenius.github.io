@@ -82,7 +82,7 @@
         {
           "id": 0,
           "title": "Needle",
-          "subtitle": "Foo",
+          "subtitle": "A deep learning framework built from scratch, featuring a reverse-mode automatic differentiation engine and tensor operations accelerated on CPU, CUDA, and Metal",
           "link": "/actordentify"
         },
         {
