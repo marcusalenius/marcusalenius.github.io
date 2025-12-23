@@ -16,12 +16,12 @@
     top: 50%;
     transform: translateY(-50%);
     width: auto;
-    height: 65%;
+    height: 63%;
     color: rgba(178, 162, 111, 1);
 }
 
 #needle-card p {
-    width: 30%;
+    width: 33%;
 }
 
 

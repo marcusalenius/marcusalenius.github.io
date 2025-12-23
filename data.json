@@ -82,7 +82,7 @@
         {
           "id": 0,
           "title": "Needle",
-          "subtitle": "A deep learning framework built from scratch, with reverse-mode autodiff and hardware-accelerated tensor operations",
+          "subtitle": "A deep learning framework built from scratch with reverse-mode autodiff and hardware-accelerated tensor operations",
           "link": "/actordentify"
         },
         {
