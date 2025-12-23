@@ -82,13 +82,13 @@
         {
           "id": 0,
           "title": "Needle",
-          "subtitle": "A deep learning framework built from scratch, featuring a reverse-mode automatic differentiation engine and tensor operations accelerated on CPU, CUDA, and Metal",
+          "subtitle": "A deep learning framework built from scratch, with reverse-mode autodiff and hardware-accelerated tensor operations",
           "link": "/actordentify"
         },
         {
           "id": 1,
           "title": "Speech Transformer",
-          "subtitle": "Foo",
+          "subtitle": "An encoder-decoder Transformer for automatic speech recognition",
           "link": "/actordentify"
         },
         {
