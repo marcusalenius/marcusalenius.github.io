@@ -1,6 +1,13 @@
 #speech-transformer-card {
+    --speech-transformer-grad-start: rgb(52, 172, 94);
+    --speech-transformer-grad-end: rgb(49, 114, 61);
     grid-column: span 1;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.08), 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dark #speech-transformer-card {
+    --speech-transformer-grad-start: rgb(102, 170, 115);
+    --speech-transformer-grad-end: rgb(148, 221, 174);
 }
 
 #speech-transformer-svg {
