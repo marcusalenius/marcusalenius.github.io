@@ -18,13 +18,15 @@
 }
 
 #actordentify-card-video {
+    position: absolute;
     width: 100%;
     height: auto;
-    top: -4px;
+    top: 0;
     left: 0;
 }
 
 #actordentify-card-video-bkg {
+    position: absolute;
     width: 100%;
     height: auto;
     bottom: 0;
@@ -38,12 +40,10 @@
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(80px);
-
 }
 
 .dark #actordentify-card .frosted-pane {
     width: calc(100% - 2px);
-    height: 100px;
     left: 1px;
     top: auto;
     bottom: 1px;
@@ -81,4 +81,41 @@
         box-shadow: none;
     }
     
+}
+
+
+/* iPad 13" Portrait */
+@media (max-width: 1008px) {
+    
+    #actordentify-card .frosted-pane {
+        height: 130px;
+    }
+
+}
+
+/* iPad 11" Portrait */
+@media (max-width: 873px) {
+
+    #actordentify-card .frosted-pane {
+        height: 155px;
+    }
+
+}
+
+/* iPad Mini Portrait */
+@media (max-width: 747px) {
+
+    #actordentify-card .frosted-pane {
+        height: 166px;
+    }
+
+}
+
+/* iPhone Plus */
+@media (max-width: 666px) {
+
+    #actordentify-card .frosted-pane {
+        height: 100px;
+    }
+
 }
