@@ -17,12 +17,108 @@
     transform: translateY(-50%);
     width: auto;
     height: 63%;
-    color: rgba(178, 162, 111, 1);
 }
 
 #needle-card p {
     width: 33%;
 }
+
+/* iPad 11" Landscape */
+@media (max-width: 1080px) {
+
+    #needle-card p {
+        width: 30%;
+    }
+
+}
+
+/* iPad 13" Portrait */
+@media (max-width: 1008px) {
+    
+    #needle-card-svg {
+        height: 50%;
+    }
+
+    #needle-card p {
+        width: 33%;
+    }
+
+}
+
+/* iPad 11" Portrait */
+@media (max-width: 873px) {
+
+    #needle-card-svg {
+        right: 30px;
+        height: 45%;
+    }
+
+    #needle-card p {
+        width: 33%;
+    }
+
+}
+
+/* iPad Mini Portrait */
+@media (max-width: 747px) {
+
+    #needle-card-svg {
+        right: 25px;
+        height: 40%;
+    }
+
+    #needle-card p {
+        width: 35%;
+    }
+
+}
+
+/* iPhone Plus */
+@media (max-width: 666px) {
+
+    #needle-card-svg {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 22px;
+        height: 40%;
+        width: auto;
+    }
+
+    #needle-card h3 {
+        padding-top: 32%;
+    }
+
+    #needle-card p {
+        width: 85%;
+    }
+
+}
+
+/* iPhone */
+@media (max-width: 424px) {
+
+    #needle-card-svg {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 22px;
+        height: 35%;
+        width: auto;
+    }
+
+    #needle-card h3 {
+        padding-top: 30%;
+    }
+
+
+
+}
+
+
+
+
+    
+
+
 
 
 
