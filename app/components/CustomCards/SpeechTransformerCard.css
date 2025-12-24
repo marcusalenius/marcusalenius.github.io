@@ -22,3 +22,50 @@
 #speech-transformer-card p {
     width: 50%;
 }
+
+
+/* iPad 13" Portrait */
+@media (max-width: 1008px) {
+    
+    #speech-transformer-svg {
+        height: 65%;
+    }
+
+}
+
+/* iPad 11" Portrait */
+@media (max-width: 873px) {
+
+    #speech-transformer-svg {
+        right: 30px;
+        height: 62%;
+    }
+
+}
+
+/* iPad Mini Portrait */
+@media (max-width: 747px) {
+
+    #speech-transformer-svg {
+        right: 25px;
+        height: 58%;
+    }
+
+    #speech-transformer-card p {
+        width: 60%;
+    }
+
+}
+
+/* iPhone Plus */
+@media (max-width: 666px) {
+
+    #speech-transformer-svg {
+        right: 28px;
+        height: 65%;
+    }
+
+}
+
+
+

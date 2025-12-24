@@ -76,6 +76,10 @@
 /* iPhone Plus */
 @media (max-width: 666px) {
 
+    #needle-card {
+        grid-column: span 1;
+    }
+
     #needle-card-svg {
         left: 50%;
         transform: translateX(-50%);
