@@ -10,6 +10,7 @@
     padding-top: 30px;
     font-size: 20px !important;
     line-height: 28px !important;
+    max-width: 600px;
 }
 
 .publication-card h5 {
