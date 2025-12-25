@@ -35,18 +35,6 @@ export default function Section({ sectionData, name }: Props) {
             return <ExperienceCard cardData={cardData} key={cardData.id} />;
           }
         })}
-        {/* {sectionData.categories
-          ? sectionData.categories.map(
-              (categoryData: { [key: string]: any }) => {
-                return (
-                  <CategoryCard
-                    categoryData={categoryData}
-                    key={categoryData.id}
-                  />
-                );
-              }
-            )
-          : null} */}
         {sectionData.additional ? (
           <AdditionalCard additionalData={sectionData.additional} key={0} />
         ) : null}

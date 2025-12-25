@@ -9,13 +9,16 @@ type Props = {
 
 export default function PublicationCard({ cardData }: Props) {
   return (
-    <Card className="publication-card card card-region-child">
-      <p className="paragraph-small">{cardData.title}</p>
+    <Card
+      className="publication-card card card-region-child"
+      href={cardData.link}
+    >
+      <h4>{cardData.title}</h4>
       <p className="small-header">{cardData.authors}</p>
-      <p className="small-header">
+      <h5>
         {cardData.conference} ({cardData.year})
-      </p>
-      <ExternalLink href={cardData.link}>
+      </h5>
+      <ExternalLink href="">
         <p className="card-link">View Paper</p>
       </ExternalLink>
     </Card>

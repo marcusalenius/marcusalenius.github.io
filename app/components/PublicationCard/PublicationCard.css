@@ -3,8 +3,25 @@
     height: auto;
     padding-right: 36px;
     padding-bottom: 30px !important;
-    cursor: auto;
 }
+
+.publication-card h4 {
+    padding-left: 36px;
+    padding-top: 30px;
+    font-size: 20px !important;
+    line-height: 28px !important;
+}
+
+.publication-card h5 {
+    position: relative;
+    padding-left: 36px;
+    margin-top: 7px;
+    margin-bottom: 0;
+    line-height: 18px;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+}
+
 
 .publication-card p.paragraph-small {
     margin-top: 30px;
