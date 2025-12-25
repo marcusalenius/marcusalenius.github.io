@@ -1,7 +1,10 @@
+import { Fragment } from "react";
+
 import CardRegion from "../Card/CardRegion";
 import ModalContentCard from "./ModalContentCard";
 import ContactLink from "../ContactLink/ContactLink";
 import AboutMeModal from "./AboutMeModal";
+import AdditionalProjectsModal from "./AdditionalProjectsModal";
 
 type Props = {
   modalData: { [key: string]: any };
@@ -20,24 +23,10 @@ export default function ModalContent({ modalData }: Props) {
   } else if (modalData.title === "About Me") {
     return <AboutMeModal modalData={modalData} />;
   } else if (modalData.title === "Additional Projects") {
-    return <></>;
+    return <AdditionalProjectsModal modalData={modalData} />;
   } else if (modalData.title === "Additional Experience") {
     return <></>;
   } else {
-    return (
-      <div className="modal-content">
-        <h2>{modalData.title} Projects</h2>
-        <CardRegion className="card-layout">
-          {modalData.projects.map((projectData: { [key: string]: any }) => {
-            return (
-              <ModalContentCard
-                projectData={projectData}
-                key={projectData.id}
-              />
-            );
-          })}
-        </CardRegion>
-      </div>
-    );
+    return <></>;
   }
 }

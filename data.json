@@ -98,208 +98,154 @@
           "link": "/actordentify"
         }
       ],
-      "categories": [
-        {
-          "id": 0,
-          "title": "AI/ML",
-          "projects": [
-            {
-              "id": 0,
-              "title": "Speech Recognition Transformer",
-              "short_title": "ASR Transformer",
-              "description": "An encoder-decoder Transformer for automatic speech recognition. Implemented all components from scratch using PyTorch, including multi-head self- and cross-attention, positional encoding, and data pipeline. Applied CTC auxiliary loss, beam search decoding, and filter bank feature downsampling strategies to optimize convergence, accuracy, and inference speed. Tuned hyperparameters through ablation studies informed by recent ASR research, achieving 8.5 CER under a 30M parameter constraint and placing in the top 10% of a Carnegie Mellon graduate-level Kaggle competition.",
-              "date": "Apr 2025",
-              "post_link": null,
-              "github_link": null
-            },
-            {
-              "id": 1,
-              "title": "Transformer Langue Model",
-              "short_title": "Transformer LM",
-              "description": "Built a decoder-only Transformer language model from scratch in PyTorch, including character and subword tokenization, causal and pad masking, sinusoidal positional encodings, and multi-head self-attention. Trained the model using a custom trainer, achieving a per-character perplexity of 3.4.",
-              "date": "Apr 2025",
-              "post_link": null,
-              "github_link": null
-            },
-            {
-              "id": 2,
-              "title": "MyTorch",
-              "short_title": "MyTorch",
-              "description": "Deep learning and automatic differentiation library with a PyTorch-like interface. Implemented core components using NumPy, including linear and convolutional layers, activation functions, loss functions, and optimizers. Engineered a reverse-mode automatic differentiation engine from scratch with operation-level backpropagation and gradient tracking via a custom buffer system. Built and tested modules such as RNN cells and GRUs, scaled dot-product attention and multi-head attention, and validated them against PyTorch reference implementations.",
-              "date": "Jan 2025 – Apr 2025",
-              "post_link": null,
-              "github_link": null
-            },
-            {
-              "id": 3,
-              "title": "Phoneme Transcriber",
-              "short_title": "Phoneme Transcriber",
-              "description": "Sequence-to-sequence model that transcribes speech utterances into phoneme sequences using LSTMs and beam search decoding. Developed entirely in PyTorch under strict RNN-only constraints and a 20M parameter budget, and trained with CTC loss, the system incorporates data augmentation (SpecAugment and Gaussian noise) and regularization strategies (including locked dropout), all optimized through ablation studies. Achieved a 4.6 Levenshtein distance on held-out data.",
-              "date": "Mar 2025",
-              "post_link": null,
-              "github_link": null
-            },
-            {
-              "id": 4,
-              "title": "Face Identifier and Classifier",
-              "short_title": "Face Identifier",
-              "description": "Built and trained a face classification and verification model under a 30M parameter constraint, leveraging modified ResNet-50 and ConvNeXt architectures. The system was optimized for open-set identity recognition through ArcFace loss fine-tuning, which improved the discriminability of face embeddings. Data augmentation was handled through a custom RandAugment pipeline incorporating geometric and photometric transformations. The final model achieved a 2.4 Equal Error Rate (EER) on the verification task and placed in the top 5% of a Carnegie Mellon graduate-level Kaggle competition.",
-              "date": "Feb 2025",
-              "post_link": null,
-              "github_link": null
-            },
-            {
-              "id": 5,
-              "title": "Review Auto-Complete",
-              "short_title": "Auto-Complete",
-              "description": "Fined-tuned GPT-2 to auto-complete customer reviews given a partial review and a sentiment. The model was fine-tuned on the Yelp reviews dataset of 650,000 customer reviews. The model achieved clear qualitative improvements over the baseline model. Quantitative evaluation using a BERT-based sentiment classifier showed a 20% reduction in cross-entropy loss from the one-hot encodings of the intended sentiments compared to the baseline.",
-              "date": "Nov 2024 – Dec 2024",
-              "post_link": null,
-              "github_link": null
-            },
-            {
-              "id": 6,
-              "title": "Minesweeper Solver",
-              "short_title": "Minesweeper Solver",
-              "description": "Developed a Minesweeper solver in Standard ML by representing board states as a series of boolean equations. Flags are denoted as 0, safe squares as 1, and for each safe square, an equation sets the warning number on the square equal to the sum of the values of the variables representing its neighbors. To solve these boolean equations, I implemented a SAT solver using unit propagation and the DPLL algorithm. This solver takes the boolean equations and produces a sequence of all satisfying assignments of variables. From these assignments, I then identify a safe square to reveal.",
-              "date": "Nov 2023",
-              "post_link": null,
-              "github_link": null
-            },
-            {
-              "id": 7,
-              "title": "Actordentify",
-              "short_title": "Actordentify",
-              "description": "Chrome extension that identifies and overlays information about actors in TV shows. Built with JavaScript and uses Amazon Rekognition to identify and position actors on the screen and TMDB APIs to query actor details. Intelligently places actor information next to each actor without obscuring other details or actors. This is achieved using a backtracking algorithm.",
-              "date": "Jul 2023 – Aug 2023",
-              "post_link": "/actordentify",
-              "github_link": "https://github.com/rwelgosh/ActorRecognizer"
-            },
-            {
-              "id": 8,
-              "title": "Kenboard",
-              "short_title": "Kenboard",
-              "description": "Virtual keyboard with a custom typing error correction system. My term project for Carnegie Mellon's 15-112 Fundamentals of Programming and Computer Science. Inspired by Ken Kocienda's book Creative Selection, it combines a Manhattan distance-based algorithm and word usage frequency to suggest a most probable user-intended word, enabling up to 80% faster typing.",
-              "date": "Apr 2023",
-              "post_link": "/kenboard",
-              "github_link": null
-            }
-          ]
-        },
-        {
-          "id": 1,
-          "title": "Front and Backend",
-          "projects": [
-            {
-              "id": 0,
-              "title": "Swim Info",
-              "short_title": "Swim Info",
-              "description": "App designed to collect swim statistics for announcers at swim meets, consisting of a web scraper and interface built with Python and Beautiful Soup. It processes start lists and scrapes online meet results to provide splits for each swimmer’s best time. I developed the app to enhance the audience experience during the swim meets I announced in 2024.",
-              "date": "May 2024",
-              "post_link": null,
-              "github_link": "https://github.com/marcusalenius/swim-info"
-            },
-            {
-              "id": 1,
-              "title": "Personal Website",
-              "short_title": "Personal Website",
-              "description": "This website. Designed and built from scratch using React and NextJS. Inspired by olivierifrah.com and apple.com, with a focus on a responsive design that looks great in light and dark appearance with effortless and lightweight interactions. This project is a chance for me to explore my more creative side.",
-              "date": "May 2024",
-              "post_link": null,
-              "github_link": "https://github.com/marcusalenius/marcusalenius.github.io"
-            },
-            {
-              "id": 2,
-              "title": "Investigation Tracking System",
-              "short_title": "Tracking System",
-              "description": "Developed a full-stack, multi-user web application using Ruby on Rails and SQLite for the backend, and React for the frontend for quick access to case data in a simulated criminal investigation database. Built with test-driven development, achieving 100% unit test coverage. The backend ensures maintainability and scalability, while the frontend offers a dynamic user interface. Additionally, I developed and documented 12 REST API endpoints with token-based authentication, authorization, and versioning. This system streamlines investigation tracking and provides a seamless user experience with data integrity and security.",
-              "date": "Feb 2024 – Apr 2024",
-              "post_link": null,
-              "github_link": null
-            },
-            {
-              "id": 3,
-              "title": "Actordentify",
-              "short_title": "Actordentify",
-              "description": "Chrome extension that identifies and overlays information about actors in TV shows. Built with JavaScript and uses Amazon Rekognition to identify and position actors on the screen and TMDB APIs to query actor details. Intelligently places actor information next to each actor without obscuring other details or actors. This is achieved using a backtracking algorithm.",
-              "date": "Jul 2023 – Aug 2023",
-              "post_link": "/actordentify",
-              "github_link": "https://github.com/rwelgosh/ActorRecognizer"
-            },
-            {
-              "id": 4,
-              "title": "Local Business Website",
-              "short_title": "Business Website",
-              "description": "A comprehensive redesign of a local business's website, tailored to meet the needs of the business and its customers. The project involved designing and developing the website from the ground up, guided by user stories and validated through usability testing and think-alouds. A significant emphasis was placed on adhering to best practices in web accessibility to ensure an inclusive experience for all users.",
-              "date": "Mar 2023",
-              "post_link": null,
-              "github_link": null
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "title": "Computer Systems",
-          "projects": [
-            {
-              "id": 0,
-              "title": "Multithreaded File System",
-              "short_title": "File System",
-              "description": "Reengineered a FAT-style file system for full concurrency, creating a multithreaded design using C and POSIX threads. Implemented a two-pronged synchronization strategy with mutex for system-level synchronization and readers–writer locks for file-level access, allowing exclusive access to each file to be controlled independently. This significantly enhanced system reliability and performance, resolving 100% of race conditions identified by LLVM task graph tooling.",
-              "date": "Apr 2024",
-              "post_link": null,
-              "github_link": null
-            },
-            {
-              "id": 1,
-              "title": "Concurrent Web Proxy",
-              "short_title": "Web Proxy",
-              "description": "Multithreaded HTTP proxy server featuring a thread-safe, protocol-independent design capable of handling multiple concurrent client connections using POSIX threads. Devised robust request parsing and error handling, including custom HTTP parser integration and validation mechanisms to ensure proper communication between clients and servers while achieving 100% of performance objectives.",
-              "date": "Apr 2024",
-              "post_link": null,
-              "github_link": null
-            },
-            {
-              "id": 2,
-              "title": "Linux Shell",
-              "short_title": "Linux Shell",
-              "description": "Wrote my own Linux shell with signal-based job control, supporting foreground and background processes. The shell also features I/O redirection and handling of SIGINT and SIGTSTP signals on foreground jobs. Written in C, the shell employs a safe, resource-efficient design, achieved by reaping terminated processes and protecting against race conditions.",
-              "date": "Apr 2024",
-              "post_link": null,
-              "github_link": null
-            },
-            {
-              "id": 3,
-              "title": "Dynamic Memory Allocator",
-              "short_title": "Memory Allocator",
-              "description": "Custom heap allocator supporting malloc, free, realloc, and calloc functions. Written in C as a segregated free list dynamic memory allocator. This involved analyzing the tradeoffs between throughput and utilization, ultimately achieving a fast design with minimal heap fragmentation. My implementation ranked in the top 8% of the computer systems class at Carnegie Mellon.",
-              "date": "Mar 2024",
-              "post_link": null,
-              "github_link": null
-            },
-            {
-              "id": 4,
-              "title": "Cache Memory Simulator",
-              "short_title": "Cache Simulator",
-              "description": "Command-line tool written in C for simulating the behavior of a hardware cache given memory-access traces. It uses the LRU (least-recently used) replacement policy when choosing which cache line to evict, and follows a write-back, write-allocate policy. Given an arbitrary size and associativity, the number of cache hits, misses, evictions, dirty bytes, and evicted dirty bytes are reported.",
-              "date": "Feb 2024",
-              "post_link": null,
-              "github_link": null
-            },
-            {
-              "id": 5,
-              "title": "Virtual Machine",
-              "short_title": "Virtual Machine",
-              "description": "Virtual machine for the C0 and C1 languages, which are safe subsets of C. Influenced by the JVM, it is implemented as a stack machine in C and uses an operand stack, call stack, local variable array, program counter, and constant and function pools. It runs arbitrary C0/C1 code with dynamic safety checks for heap allocation, array accesses, pointer casts and dereferences, and more.",
-              "date": "Dec 2023",
-              "post_link": null,
-              "github_link": null
-            }
-          ]
-        }
-      ],
       "additional": {
-        "title": "Additional Projects"
+        "title": "Additional Projects",
+        "categories": [
+          {
+            "id": 0,
+            "title": "AI/ML",
+            "projects": [
+              {
+                "id": 0,
+                "title": "Transformer Langue Model",
+                "short_title": "Transformer LM",
+                "description": "Built a decoder-only Transformer language model from scratch in PyTorch, including character and subword tokenization, causal and pad masking, sinusoidal positional encodings, and multi-head self-attention. Trained the model using a custom trainer, achieving a per-character perplexity of 3.4.",
+                "date": "Apr 2025",
+                "post_link": null,
+                "github_link": null
+              },
+              {
+                "id": 1,
+                "title": "Phoneme Transcriber",
+                "short_title": "Phoneme Transcriber",
+                "description": "Sequence-to-sequence model that transcribes speech utterances into phoneme sequences using LSTMs and beam search decoding. Developed entirely in PyTorch under strict RNN-only constraints and a 20M parameter budget, and trained with CTC loss, the system incorporates data augmentation (SpecAugment and Gaussian noise) and regularization strategies (including locked dropout), all optimized through ablation studies. Achieved a 4.6 Levenshtein distance on held-out data.",
+                "date": "Mar 2025",
+                "post_link": null,
+                "github_link": null
+              },
+              {
+                "id": 2,
+                "title": "Face Identifier and Classifier",
+                "short_title": "Face Identifier",
+                "description": "Built and trained a face classification and verification model under a 30M parameter constraint, leveraging modified ResNet-50 and ConvNeXt architectures. The system was optimized for open-set identity recognition through ArcFace loss fine-tuning, which improved the discriminability of face embeddings. Data augmentation was handled through a custom RandAugment pipeline incorporating geometric and photometric transformations. The final model achieved a 2.4 Equal Error Rate (EER) on the verification task and placed in the top 5% of a Carnegie Mellon graduate-level Kaggle competition.",
+                "date": "Feb 2025",
+                "post_link": null,
+                "github_link": null
+              },
+              {
+                "id": 3,
+                "title": "Minesweeper Solver",
+                "short_title": "Minesweeper Solver",
+                "description": "Developed a Minesweeper solver in Standard ML by representing board states as a series of boolean equations. Flags are denoted as 0, safe squares as 1, and for each safe square, an equation sets the warning number on the square equal to the sum of the values of the variables representing its neighbors. To solve these boolean equations, I implemented a SAT solver using unit propagation and the DPLL algorithm. This solver takes the boolean equations and produces a sequence of all satisfying assignments of variables. From these assignments, I then identify a safe square to reveal.",
+                "date": "Nov 2023",
+                "post_link": null,
+                "github_link": null
+              },
+              {
+                "id": 4,
+                "title": "Kenboard",
+                "short_title": "Kenboard",
+                "description": "Virtual keyboard with a custom typing error correction system. My term project for Carnegie Mellon's 15-112 Fundamentals of Programming and Computer Science. Inspired by Ken Kocienda's book Creative Selection, it combines a Manhattan distance-based algorithm and word usage frequency to suggest a most probable user-intended word, enabling up to 80% faster typing.",
+                "date": "Apr 2023",
+                "post_link": "/kenboard",
+                "github_link": null
+              }
+            ]
+          },
+          {
+            "id": 1,
+            "title": "Computer Systems",
+            "projects": [
+              {
+                "id": 0,
+                "title": "Multithreaded File System",
+                "short_title": "File System",
+                "description": "Reengineered a FAT-style file system for full concurrency, creating a multithreaded design using C and POSIX threads. Implemented a two-pronged synchronization strategy with mutex for system-level synchronization and readers–writer locks for file-level access, allowing exclusive access to each file to be controlled independently. This significantly enhanced system reliability and performance, resolving 100% of race conditions identified by LLVM task graph tooling.",
+                "date": "Apr 2024",
+                "post_link": null,
+                "github_link": null
+              },
+              {
+                "id": 1,
+                "title": "Concurrent Web Proxy",
+                "short_title": "Web Proxy",
+                "description": "Multithreaded HTTP proxy server featuring a thread-safe, protocol-independent design capable of handling multiple concurrent client connections using POSIX threads. Devised robust request parsing and error handling, including custom HTTP parser integration and validation mechanisms to ensure proper communication between clients and servers while achieving 100% of performance objectives.",
+                "date": "Apr 2024",
+                "post_link": null,
+                "github_link": null
+              },
+              {
+                "id": 2,
+                "title": "Linux Shell",
+                "short_title": "Linux Shell",
+                "description": "Wrote my own Linux shell with signal-based job control, supporting foreground and background processes. The shell also features I/O redirection and handling of SIGINT and SIGTSTP signals on foreground jobs. Written in C, the shell employs a safe, resource-efficient design, achieved by reaping terminated processes and protecting against race conditions.",
+                "date": "Apr 2024",
+                "post_link": null,
+                "github_link": null
+              },
+              {
+                "id": 3,
+                "title": "Dynamic Memory Allocator",
+                "short_title": "Memory Allocator",
+                "description": "Custom heap allocator supporting malloc, free, realloc, and calloc functions. Written in C as a segregated free list dynamic memory allocator. This involved analyzing the tradeoffs between throughput and utilization, ultimately achieving a fast design with minimal heap fragmentation. My implementation ranked in the top 8% of the computer systems class at Carnegie Mellon.",
+                "date": "Mar 2024",
+                "post_link": null,
+                "github_link": null
+              },
+              {
+                "id": 4,
+                "title": "Cache Memory Simulator",
+                "short_title": "Cache Simulator",
+                "description": "Command-line tool written in C for simulating the behavior of a hardware cache given memory-access traces. It uses the LRU (least-recently used) replacement policy when choosing which cache line to evict, and follows a write-back, write-allocate policy. Given an arbitrary size and associativity, the number of cache hits, misses, evictions, dirty bytes, and evicted dirty bytes are reported.",
+                "date": "Feb 2024",
+                "post_link": null,
+                "github_link": null
+              },
+              {
+                "id": 5,
+                "title": "Virtual Machine",
+                "short_title": "Virtual Machine",
+                "description": "Virtual machine for the C0 and C1 languages, which are safe subsets of C. Influenced by the JVM, it is implemented as a stack machine in C and uses an operand stack, call stack, local variable array, program counter, and constant and function pools. It runs arbitrary C0/C1 code with dynamic safety checks for heap allocation, array accesses, pointer casts and dereferences, and more.",
+                "date": "Dec 2023",
+                "post_link": null,
+                "github_link": null
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "title": "Web Development",
+            "projects": [
+              {
+                "id": 0,
+                "title": "Swim Info",
+                "short_title": "Swim Info",
+                "description": "App designed to collect swim statistics for announcers at swim meets, consisting of a web scraper and interface built with Python and Beautiful Soup. It processes start lists and scrapes online meet results to provide splits for each swimmer’s best time. I developed the app to enhance the audience experience during the swim meets I announced in 2024.",
+                "date": "May 2024",
+                "post_link": null,
+                "github_link": "https://github.com/marcusalenius/swim-info"
+              },
+              {
+                "id": 1,
+                "title": "Personal Website",
+                "short_title": "Personal Website",
+                "description": "This website. Designed and built from scratch using React and NextJS. Inspired by olivierifrah.com and apple.com, with a focus on a responsive design that looks great in light and dark appearance with effortless and lightweight interactions. This project is a chance for me to explore my more creative side.",
+                "date": "May 2024",
+                "post_link": null,
+                "github_link": "https://github.com/marcusalenius/marcusalenius.github.io"
+              },
+              {
+                "id": 2,
+                "title": "Investigation Tracking System",
+                "short_title": "Tracking System",
+                "description": "Developed a full-stack, multi-user web application using Ruby on Rails and SQLite for the backend, and React for the frontend for quick access to case data in a simulated criminal investigation database. Built with test-driven development, achieving 100% unit test coverage. The backend ensures maintainability and scalability, while the frontend offers a dynamic user interface. Additionally, I developed and documented 12 REST API endpoints with token-based authentication, authorization, and versioning. This system streamlines investigation tracking and provides a seamless user experience with data integrity and security.",
+                "date": "Feb 2024 – Apr 2024",
+                "post_link": null,
+                "github_link": null
+              }
+            ]
+          }
+        ]
       }
     },
     "Experience": {
