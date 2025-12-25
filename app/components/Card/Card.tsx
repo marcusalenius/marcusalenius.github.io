@@ -40,25 +40,32 @@ export default function Card({
     </>
   );
 
-  return href !== "" ? (
-    <Link
-      className={className}
-      id={id}
-      tabIndex={tabIndex}
-      href={href}
-      onMouseMove={mouseMoveFunction as any}
-    >
-      {content}
-    </Link>
-  ) : (
-    <div
-      className={className}
-      id={id}
-      tabIndex={tabIndex}
-      onClick={onClick}
-      onMouseMove={mouseMoveFunction as any}
-    >
-      {content}
-    </div>
-  );
+  if (href === "") {
+    return (
+      <div
+        className={className}
+        id={id}
+        tabIndex={tabIndex}
+        onClick={onClick}
+        onMouseMove={mouseMoveFunction as any}
+      >
+        {content}
+      </div>
+    );
+  } else {
+    const external = href.startsWith("http");
+    return (
+      <Link
+        className={className}
+        id={id}
+        tabIndex={tabIndex}
+        href={href}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
+        onMouseMove={mouseMoveFunction as any}
+      >
+        {content}
+      </Link>
+    );
+  }
 }
