@@ -1,4 +1,5 @@
 .publication-card {
+    grid-column: span 2;
     height: auto;
     padding-right: 36px;
     padding-bottom: 30px !important;
