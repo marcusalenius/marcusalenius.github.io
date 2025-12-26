@@ -23,11 +23,6 @@
     font-weight: 400 !important;
 }
 
-
-.publication-card p.paragraph-small {
-    margin-top: 30px;
-}
-
 .publication-card p {
     margin-top: 6px;
 }
@@ -57,20 +52,25 @@
 /* iPad 11" Landscape */
 @media (max-width: 1080px) {
 
-    /* Nothing */
+    /* nothing */
 
 }
 
 /* iPad 13" Portrait */
 @media (max-width: 1008px) {
 
+    .publication-card h4 {
+        padding-left: 32px;
+        padding-top: 28px;
+    }
+
+    .publication-card h5 {
+        padding-left: 32px;
+    }
+
     .publication-card {
         padding-right: 30px;
         padding-bottom: 28px !important;
-    }
-
-    .publication-card p.paragraph-small {
-        margin-top: 28px;
     }
 
 }
@@ -84,6 +84,15 @@
 
     .publication-card p.paragraph-small {
         margin-top: 28px;
+    }
+
+    .publication-card h4 {
+        padding-left: 30px;
+        padding-top: 28px;
+    }
+
+    .publication-card h5 {
+        padding-left: 30px;
     }
 
 }
@@ -100,6 +109,15 @@
         margin-top: 24px;
     }
 
+    .publication-card h4 {
+        padding-left: 25px;
+        padding-top: 24px;
+    }
+
+    .publication-card h5 {
+        padding-left: 25px;
+    }
+
 }
 
 /* iPhone Plus */
@@ -113,6 +131,15 @@
 
     .publication-card p.paragraph-small {
         margin-top: 26px;
+    }
+
+    .publication-card h4 {
+        padding-left: 28px;
+        padding-top: 26px;
+    }
+
+    .publication-card h5 {
+        padding-left: 28px;
     }
 
 }
