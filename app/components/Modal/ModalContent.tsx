@@ -1,6 +1,7 @@
 import ContactLink from "../ContactLink/ContactLink";
 import AboutMeModal from "./AboutMeModal";
 import AdditionalProjectsModal from "./AdditionalProjectsModal";
+import AdditionalExperienceModal from "./AdditionalExperienceModal";
 import AdditionalPublicationsModal from "./AdditionalPublicationsModal";
 
 type Props = {
@@ -22,7 +23,7 @@ export default function ModalContent({ modalData }: Props) {
   } else if (modalData.title === "Additional Projects") {
     return <AdditionalProjectsModal modalData={modalData} />;
   } else if (modalData.title === "Additional Experience") {
-    return <></>;
+    return <AdditionalExperienceModal modalData={modalData} />;
   } else if (modalData.title === "Additional Publications") {
     return <AdditionalPublicationsModal modalData={modalData} />;
   } else {

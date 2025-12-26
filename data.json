@@ -258,7 +258,7 @@
           "start": "May 2025",
           "end": "August 2025",
           "location": "Santa Clara, CA",
-          "description": "Bedrock Model Optimization Team. Heterogeneous disaggregated inference."
+          "description": "Bedrock Model Optimization team. Heterogeneous disaggregated inference."
         },
         {
           "id": 1,
@@ -268,19 +268,30 @@
           "end": "August 2024",
           "location": "Remote",
           "description": "LLM-based metric for automated code reviews. Paper accepted to NAACL."
-        },
-        {
-          "id": 2,
-          "title": "Head Teaching Assistant",
-          "organization": "School of Computer Science, CMU",
-          "start": "August 2023",
-          "end": "December 2025",
-          "location": "Pittsburgh, PA",
-          "description": "15-112 Fundamentals of Programming & Computer Science."
         }
       ],
       "additional": {
-        "title": "Additional Experience"
+        "title": "Additional Experience",
+        "experience": [
+          {
+            "id": 0,
+            "title": "Head Teaching Assistant",
+            "organization": "School of Computer Science, CMU",
+            "start": "August 2023",
+            "end": "December 2025",
+            "location": "Pittsburgh, PA",
+            "description": "15-112 Fundamentals of Programming & Computer Science."
+          },
+          {
+            "id": 1,
+            "title": "Research Software Developer Intern",
+            "organization": "CMU Human-Computer Interaction Institute",
+            "start": "May 2023",
+            "end": "August 2023",
+            "location": "Pittsburgh, PA",
+            "description": "Intelligent Tutoring System for community college. Paper accepted to AERA."
+          }
+        ]
       }
     },
     "Publications": {
@@ -299,7 +310,7 @@
         "title": "Additional Publications",
         "publications": [
           {
-            "id": 1,
+            "id": 0,
             "title": "Community College Information Technology Education: Curriculum Mapping, a Learning Science Framework, and AI Learning Technologies",
             "authors": "Bruce McLaren, Lauren Herckis, Leah Teffera, Lee Branstetter, Carolyn Rose, Majd Sakr, Matthew Kisow, Reis Reis, Michael Rinsem, Marcus Alenius, Lex Miller",
             "conference": "American Educational Research Association",
