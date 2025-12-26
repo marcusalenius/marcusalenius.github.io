@@ -45,6 +45,14 @@
     z-index: 15;
 }
 
+/* Remove max-width for publication cards in modal */
+.modal-content .publication-card,
+.modal-content .publication-card h4,
+.modal-content .publication-card h5,
+.modal-content .publication-card p {
+    max-width: none !important;
+}
+
 
 /* iPad 11" Landscape */
 @media (max-width: 1080px) {

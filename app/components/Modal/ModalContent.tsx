@@ -1,10 +1,7 @@
-import { Fragment } from "react";
-
-import CardRegion from "../Card/CardRegion";
-import ModalContentCard from "./ModalContentCard";
 import ContactLink from "../ContactLink/ContactLink";
 import AboutMeModal from "./AboutMeModal";
 import AdditionalProjectsModal from "./AdditionalProjectsModal";
+import AdditionalPublicationsModal from "./AdditionalPublicationsModal";
 
 type Props = {
   modalData: { [key: string]: any };
@@ -27,7 +24,7 @@ export default function ModalContent({ modalData }: Props) {
   } else if (modalData.title === "Additional Experience") {
     return <></>;
   } else if (modalData.title === "Additional Publications") {
-    return <></>;
+    return <AdditionalPublicationsModal modalData={modalData} />;
   } else {
     return <></>;
   }
