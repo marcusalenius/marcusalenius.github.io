@@ -16,13 +16,12 @@ type Props = {
 };
 
 export default function ActordentifyCard({ cardData }: Props) {
-  const actordentifyPostLink = "/actordentify";
   return (
     <Card
       className="card card-region-child"
       id="actordentify-card"
       individualEffect={false}
-      href={actordentifyPostLink}
+      href={cardData.link}
     >
       <div className="card-images">
         <Video

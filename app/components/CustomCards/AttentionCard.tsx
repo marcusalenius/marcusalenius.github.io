@@ -16,7 +16,6 @@ type Props = {
 };
 
 export default function AttentionCard({ cardData }: Props) {
-  const attentionPostLink = "/attention";
   function formatSubtitle(subtitle?: string): string {
     if (!subtitle) return "";
     const normalized = subtitle.toLowerCase().replace(/\bai\b/g, "AI");
@@ -27,7 +26,7 @@ export default function AttentionCard({ cardData }: Props) {
       className="card card-region-child"
       id="attention-card"
       individualEffect={false}
-      href={attentionPostLink}
+      href={cardData.link}
     >
       <div className="card-images">
         <Video

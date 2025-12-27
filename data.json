@@ -83,13 +83,13 @@
           "id": 0,
           "title": "Needle",
           "subtitle": "A deep learning framework built from scratch with reverse-mode autodiff and hardware-accelerated tensor operations",
-          "link": "/actordentify"
+          "link": "/needle"
         },
         {
           "id": 1,
           "title": "Speech Transformer",
           "subtitle": "An encoder-decoder Transformer for automatic speech recognition",
-          "link": "/actordentify"
+          "link": "/speech-transformer"
         },
         {
           "id": 2,
