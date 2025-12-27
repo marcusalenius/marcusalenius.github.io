@@ -1,0 +1,9 @@
+#needle-card-svg {
+    --needle-grad-start: rgb(28, 152, 166);
+    --needle-grad-end: rgb(106, 152, 190);
+}
+
+.dark #needle-card-svg {
+    --needle-grad-start: rgb(198, 230, 220);
+    --needle-grad-end: rgb(132, 166, 192);
+}

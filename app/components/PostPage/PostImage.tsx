@@ -3,6 +3,8 @@ import "./PostImage.css";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 
+import NeedleCardSvg from "../CustomCards/NeedleCardSvg";
+
 const Video = dynamic(() => import("../Media/Video"), {
   ssr: false,
 });
@@ -14,6 +16,7 @@ type Props = {
 export default function PostImage({ post }: Props) {
   const content: { [key: string]: JSX.Element } = {
     attention: <Video src="videos/attention-hero.mp4" id="attention-hero" />,
+    needle: <NeedleCardSvg />,
     actordentify: (
       <Video src="videos/actordentify-hero.mp4" id="actordentify-hero" />
     ),

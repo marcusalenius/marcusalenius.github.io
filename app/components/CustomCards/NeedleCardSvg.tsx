@@ -1,3 +1,5 @@
+import "./NeedleCardSvg.css";
+
 export default function NeedleCardSvg() {
   return (
     <svg
