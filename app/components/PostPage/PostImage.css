@@ -17,6 +17,7 @@
     box-shadow: none;
 }
 
+
 .post-image:has(#needle-card-svg) {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.03);
     display: flex;
@@ -26,6 +27,21 @@
 
 #needle-card-svg {
     width: 94%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.post-image:has(#speech-transformer-card-svg) {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.03);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#speech-transformer-card-svg {
+    width: 33%;
     height: auto;
     margin-top: 20px;
     margin-bottom: 20px;

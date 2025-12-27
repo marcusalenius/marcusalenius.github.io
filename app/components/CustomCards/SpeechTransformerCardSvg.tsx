@@ -1,7 +1,9 @@
-export default function NeedleCardSvg() {
+import "./SpeechTransformerCardSvg.css";
+
+export default function SpeechTransformerCardSvg() {
   return (
     <svg
-      id="speech-transformer-svg"
+      id="speech-transformer-card-svg"
       width="1082"
       height="1452"
       viewBox="0 0 1082 1452"

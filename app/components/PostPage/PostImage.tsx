@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 
 import NeedleCardSvg from "../CustomCards/NeedleCardSvg";
+import SpeechTransformerCardSvg from "../CustomCards/SpeechTransformerCardSvg";
 
 const Video = dynamic(() => import("../Media/Video"), {
   ssr: false,
@@ -17,6 +18,7 @@ export default function PostImage({ post }: Props) {
   const content: { [key: string]: JSX.Element } = {
     attention: <Video src="videos/attention-hero.mp4" id="attention-hero" />,
     needle: <NeedleCardSvg />,
+    "speech-transformer": <SpeechTransformerCardSvg />,
     actordentify: (
       <Video src="videos/actordentify-hero.mp4" id="actordentify-hero" />
     ),

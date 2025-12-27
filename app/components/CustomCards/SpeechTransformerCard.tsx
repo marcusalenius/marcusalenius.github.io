@@ -4,13 +4,13 @@ import "./SpeechTransformerCard.css";
 
 import Card from "../Card/Card";
 import InternalLink from "../Links/InternalLink";
-import SpeechTransformerSvg from "./SpeechTransformerSvg";
+import SpeechTransformerCardSvg from "./SpeechTransformerCardSvg";
 
 type Props = {
   cardData: { [key: string]: any };
 };
 
-export default function NeedleCard({ cardData }: Props) {
+export default function SpeechTransformerCard({ cardData }: Props) {
   return (
     <Card
       className="card card-region-child"
@@ -25,7 +25,7 @@ export default function NeedleCard({ cardData }: Props) {
         <InternalLink href="">
           <p className="card-link">Learn more</p>
         </InternalLink>
-        <SpeechTransformerSvg />
+        <SpeechTransformerCardSvg />
       </div>
     </Card>
   );

@@ -3,7 +3,6 @@ import NeedleCard from "../CustomCards/NeedleCard";
 import SpeechTransformerCard from "../CustomCards/SpeechTransformerCard";
 import ActordentifyCard from "../CustomCards/ActordentifyCard";
 import AttentionCard from "../CustomCards/AttentionCard";
-import CategoryCard from "../CategoryCard/CategoryCard";
 import AdditionalCard from "../AdditionalCard/AdditionalCard";
 import PublicationCard from "../PublicationCard/PublicationCard";
 import ExperienceCard from "../ExperienceCard/ExperienceCard";

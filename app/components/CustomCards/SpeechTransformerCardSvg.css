@@ -1,0 +1,9 @@
+#speech-transformer-card-svg {
+    --speech-transformer-grad-start: rgb(52, 172, 94);
+    --speech-transformer-grad-end: rgb(49, 114, 61);
+}
+
+.dark #speech-transformer-card-svg {
+    --speech-transformer-grad-start: rgb(102, 170, 115);
+    --speech-transformer-grad-end: rgb(148, 221, 174);
+}
