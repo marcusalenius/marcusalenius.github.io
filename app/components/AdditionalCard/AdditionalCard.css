@@ -1,3 +1,110 @@
 .additional-card {
     grid-column: 1 / -1;
+    height: 72px;
+    background: var(--lightFooter);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: scale 200ms ease, box-shadow 200ms ease;
+}
+
+/* background card */
+.dark .additional-card {
+    background: var(--darkCardRim);
+    box-shadow: none;
+}
+
+/* foreground card */
+.dark .additional-card::before {
+    background-color: var(--darkCard);
+}
+
+@media (hover: hover) {
+    .additional-card:hover {
+        scale: 1.0005;
+        transition: scale 200ms ease, box-shadow 200ms ease;
+    }
+
+    .dark .additional-card:hover {
+        box-shadow: none;
+        scale: 1;
+    }
+}
+
+.additional-card h4 {
+    padding: 0;
+    color: var(--lightBodyText);
+}
+
+.dark .additional-card h4 {
+    color: var(--darkBodyText);
+}
+
+.additional-card-content {
+    padding-left: 36px;
+    padding-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* foreground hover element, dark mode */
+.dark .additional-card::after {
+    background: radial-gradient(
+        circle 400px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.02), 
+        transparent 40%
+    );
+    z-index: 20;
+}
+
+/* foreground hover element, light mode */
+.additional-card::after {
+    background: radial-gradient(
+        circle 400px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.2), 
+        transparent 40%
+    );
+    z-index: 20;
+}
+
+/* background hover element, only in dark mode */
+.dark .additional-card .card-border {
+    background: radial-gradient(
+        circle 200px at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.7), 
+        transparent 40%
+    );
+    z-index: 9;
+}
+
+/* iPad 13" Portrait */
+@media (max-width: 1008px) {
+
+    .additional-card-content { padding-left: 32px; }
+
+}
+
+/* iPad 11" Portrait */
+@media (max-width: 873px) {
+
+    .additional-card-content { padding-left: 30px; }
+
+}
+
+/* iPad Mini Portrait */
+@media (max-width: 747px) {
+    
+    .additional-card-content { padding-left: 25px; }
+    
+}
+
+/* iPhone Plus */
+@media (max-width: 666px) {
+
+    .additional-card {
+        height: 74px;
+    }   
+    
+    .additional-card-content {
+        padding-right: 13px;
+    }    
+
 }

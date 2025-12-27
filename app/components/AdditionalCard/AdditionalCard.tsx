@@ -1,6 +1,5 @@
 "use client";
 
-import "../CategoryCard/CategoryCard.css";
 import "./AdditionalCard.css";
 
 import { useState } from "react";
@@ -23,11 +22,11 @@ export default function AdditionalCard({ additionalData }: Props) {
   return (
     <>
       <Card
-        className="card category-card additional-card card-region-child"
+        className="card additional-card card-region-child"
         individualEffect={false}
         onClick={() => setIsModalOpen(!isModalOpen)}
       >
-        <div className="category-card-content">
+        <div className="additional-card-content">
           <h4>{additionalData.title}</h4>
           <PlusCrossButton />
         </div>
