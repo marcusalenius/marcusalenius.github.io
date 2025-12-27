@@ -347,6 +347,22 @@
       "links": null,
       "youtube_link": null,
       "markdown": "attention.md"
+    },
+    "needle": {
+      "title": "Needle",
+      "intro": "Foo.",
+      "date": "November 2025",
+      "links": null,
+      "youtube_link": null,
+      "markdown": "needle.md"
+    },
+    "speech-transformer": {
+      "title": "Speech Transformer",
+      "intro": "Foo.",
+      "date": "April 2025",
+      "links": null,
+      "youtube_link": null,
+      "markdown": "speech-transformer.md"
     }
   }
 }

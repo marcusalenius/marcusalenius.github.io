@@ -20,10 +20,11 @@ export default function HomePageClient({
     actordentify: data.posts.actordentify,
     attention: data.posts.attention,
     kenboard: data.posts.kenboard,
+    needle: data.posts.needle,
+    "speech-transformer": data.posts["speech-transformer"],
     // Add other post names and their corresponding data here if needed
   };
   const postData = postNameToPostData[postName];
-  console.log("Post Data:", postData);
   return (
     <>
       <Nav data={data} homePage={false} />
