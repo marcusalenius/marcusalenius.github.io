@@ -6,6 +6,7 @@
 }
 
 .publication-card h4 {
+    position: relative;
     padding-left: 36px;
     padding-top: 30px;
     font-size: 20px !important;
