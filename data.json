@@ -350,7 +350,7 @@
     },
     "needle": {
       "title": "Needle",
-      "intro": "Foo.",
+      "intro": "A deep learning framework built from scratch, featuring a reverse-mode automatic differentiation engine and tensor operations accelerated on CPU, CUDA, and Metal.",
       "date": "November 2025",
       "links": null,
       "youtube_link": null,
