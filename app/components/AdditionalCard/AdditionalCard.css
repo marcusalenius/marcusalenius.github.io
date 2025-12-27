@@ -108,3 +108,20 @@
     }    
 
 }
+
+/* iPhone */
+@media (max-width: 424px) {
+
+    #publications .additional-card h4 {
+        font-size: 0;
+        line-height: 0;
+        
+    }
+    
+    #publications .additional-card h4::before {
+        content: "Add. Publications";
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+}

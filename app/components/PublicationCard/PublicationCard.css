@@ -124,6 +124,7 @@
 @media (max-width: 666px) {
 
     .publication-card {
+        grid-column: span 1;
         height: fit-content;
         padding-right: 26px;
         padding-bottom: 26px !important;
