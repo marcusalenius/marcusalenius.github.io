@@ -31,6 +31,10 @@
 
 .modal-content-card-content p.read-more-container {
     color: #aeaeae;
+    /* transition: color 0.3s; */
+}
+
+.modal-content-card-content p.read-more-container .read-more {
     transition: color 0.3s;
 }
 

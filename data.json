@@ -109,7 +109,7 @@
                 "id": 0,
                 "title": "Transformer Langue Model",
                 "short_title": "Transformer LM",
-                "description": "Decoder-only Transformer language model implemented from scratch in PyTorch, achieving a per-character perplexity of 3.4. Built a decoder-only Transformer language model from scratch in PyTorch, including character- and subword-level tokenization, causal and padding masks, sinusoidal positional encodings, and multi-head self-attention. The model was trained using a custom training loop and achieved a final per-character perplexity of 3.4.",
+                "description": "Decoder-only Transformer language model built from scratch in PyTorch, achieving a per-character perplexity of 3.4. Built a decoder-only Transformer language model from scratch in PyTorch, including character- and subword-level tokenization, causal and padding masks, sinusoidal positional encodings, and multi-head self-attention. The model was trained using a custom training loop and achieved a final per-character perplexity of 3.4.",
                 "date": "Apr 2025",
                 "post_link": null,
                 "github_link": null
@@ -118,7 +118,7 @@
                 "id": 1,
                 "title": "Phoneme Transcriber",
                 "short_title": "Phoneme Transcriber",
-                "description": "RNN-based sequence-to-sequence speech-to-phoneme transcriber achieving a 4.6 Levenshtein distance under a 20M parameter budget. Sequence-to-sequence model that transcribes speech utterances into phoneme sequences using LSTMs and beam search decoding. Developed entirely in PyTorch under an RNN-only constraint and a 20M parameter budget. Trained with CTC loss, the system incorporates data augmentation techniques (SpecAugment and Gaussian noise) and regularization strategies, including locked dropout, all optimized through ablation studies. The final model achieved a Levenshtein distance of 4.6 on held-out data.",
+                "description": "RNN-based sequence-to-sequence speech-to-phoneme transcriber achieving a 4.6 Levenshtein distance under a 20M parameter budget. Developed a sequence-to-sequence model that transcribes speech utterances into phoneme sequences using LSTMs and beam search decoding. The system was implemented entirely in PyTorch under an RNN-only constraint and a 20M parameter budget. It was trained with CTC loss and incorporates data augmentation techniques (SpecAugment and Gaussian noise) and regularization strategies, including locked dropout, optimized through ablation studies. The final model achieved a Levenshtein distance of 4.6 on held-out data.",
                 "date": "Mar 2025",
                 "post_link": null,
                 "github_link": null
@@ -127,7 +127,7 @@
                 "id": 2,
                 "title": "Face Identifier and Classifier",
                 "short_title": "Face Identifier",
-                "description": "Face classification and verification model achieving a 2.4 Equal Error Rate (EER) under a 30M parameter constraint. Built and trained a face classification and verification model under a 30M parameter constraint, leveraging modified ResNet-50 and ConvNeXt architectures. The system was optimized for open-set identity recognition through ArcFace loss fine-tuning, improving the discriminability of learned face embeddings. Data augmentation was handled through a custom RandAugment pipeline incorporating geometric and photometric transformations. The final model placed in the top 5% of a Carnegie Mellon graduate-level Kaggle competition.",
+                "description": "Face classification and verification model achieving a 2.4 Equal Error Rate (EER) under a 30M parameter constraint. Built and trained a face classification and verification model under a 30M parameter constraint, leveraging modified ResNet-50 and ConvNeXt architectures. The system was optimized for open-set identity recognition through ArcFace loss fine-tuning, improving the discriminability of learned face embeddings. Data augmentation was handled through a custom RandAugment pipeline incorporating geometric and photometric transformations. The model placed in the top 5% of a Carnegie Mellon graduate-level Kaggle competition.",
                 "date": "Feb 2025",
                 "post_link": null,
                 "github_link": null
@@ -136,7 +136,7 @@
                 "id": 3,
                 "title": "Minesweeper Solver",
                 "short_title": "Minesweeper Solver",
-                "description": "Minesweeper solver using SAT solving over boolean equation representations of board states. Developed a Minesweeper solver in Standard ML by representing board states as systems of boolean equations. Flags are denoted as 0 and safe squares as 1; for each revealed square, an equation constrains its warning number to equal the sum of the values of its neighboring variables. To solve these equations, I implemented a SAT solver using unit propagation and the DPLL algorithm. The solver enumerates all satisfying assignments, from which a provably safe square is selected to reveal.",
+                "description": "Minesweeper solver implemented using SAT solving over boolean equation representations of board states. Developed a Minesweeper solver in Standard ML by representing board states as systems of boolean equations. Flags were denoted as 0 and safe squares as 1; for each revealed square, an equation constrained its warning number to equal the sum of the values of its neighboring variables. To solve these equations, I implemented a SAT solver using unit propagation and the DPLL algorithm. The solver enumerated all satisfying assignments, from which a provably safe square was selected to reveal.",
                 "date": "Nov 2023",
                 "post_link": null,
                 "github_link": null
@@ -160,7 +160,7 @@
                 "id": 0,
                 "title": "Multithreaded File System",
                 "short_title": "File System",
-                "description": "Reengineered a FAT-style file system for full concurrency, creating a multithreaded design using C and POSIX threads. Implemented a two-pronged synchronization strategy with mutex for system-level synchronization and readers–writer locks for file-level access, allowing exclusive access to each file to be controlled independently. This significantly enhanced system reliability and performance, resolving 100% of race conditions identified by LLVM task graph tooling.",
+                "description": "Concurrent FAT-style file system redesign focused on correctness, scalability, and thread safety. Reengineered a FAT-style file system to support full concurrency using C and POSIX threads. Implemented a two-pronged synchronization strategy with a global mutex for system-level coordination and readers–writer locks for file-level access, allowing exclusive access to each file to be controlled independently. This design resolved 100% of race conditions identified by LLVM task graph analysis tooling.",
                 "date": "Apr 2024",
                 "post_link": null,
                 "github_link": null
@@ -169,7 +169,7 @@
                 "id": 1,
                 "title": "Concurrent Web Proxy",
                 "short_title": "Web Proxy",
-                "description": "Multithreaded HTTP proxy server featuring a thread-safe, protocol-independent design capable of handling multiple concurrent client connections using POSIX threads. Devised robust request parsing and error handling, including custom HTTP parser integration and validation mechanisms to ensure proper communication between clients and servers while achieving 100% of performance objectives.",
+                "description": "Thread-safe, multithreaded HTTP proxy server designed for high-concurrency network workloads. Implemented a multithreaded HTTP proxy server using POSIX threads with a protocol-independent, thread-safe architecture capable of handling multiple concurrent client connections. Developed robust request parsing and error handling, including integration of a custom HTTP parser and validation mechanisms to ensure correct communication between clients and servers. The system met 100% of prescribed performance objectives under concurrent load.",
                 "date": "Apr 2024",
                 "post_link": null,
                 "github_link": null
@@ -178,7 +178,7 @@
                 "id": 2,
                 "title": "Linux Shell",
                 "short_title": "Linux Shell",
-                "description": "Wrote my own Linux shell with signal-based job control, supporting foreground and background processes. The shell also features I/O redirection and handling of SIGINT and SIGTSTP signals on foreground jobs. Written in C, the shell employs a safe, resource-efficient design, achieved by reaping terminated processes and protecting against race conditions.",
+                "description": "Custom Linux shell implementing signal-based job control and process management. Implemented a Linux shell in C supporting foreground and background process execution with signal-based job control. The shell handles I/O redirection and manages SIGINT and SIGTSTP signals for foreground jobs. The implementation emphasizes safe, resource-efficient process management by reaping terminated processes and protecting against race conditions.",
                 "date": "Apr 2024",
                 "post_link": null,
                 "github_link": null
@@ -187,7 +187,7 @@
                 "id": 3,
                 "title": "Dynamic Memory Allocator",
                 "short_title": "Memory Allocator",
-                "description": "Custom heap allocator supporting malloc, free, realloc, and calloc functions. Written in C as a segregated free list dynamic memory allocator. This involved analyzing the tradeoffs between throughput and utilization, ultimately achieving a fast design with minimal heap fragmentation. My implementation ranked in the top 8% of the computer systems class at Carnegie Mellon.",
+                "description": "Dynamic memory allocator built on a segregated free list, optimized for throughput and fragmentation. Implemented a custom heap allocator in C supporting malloc, free, realloc, and calloc using a segregated free list design. The project involved analyzing and balancing throughput versus memory utilization to achieve a fast allocator with minimal heap fragmentation. The implementation ranked in the top 8% of the Carnegie Mellon intro computer systems course.",
                 "date": "Mar 2024",
                 "post_link": null,
                 "github_link": null
@@ -196,7 +196,7 @@
                 "id": 4,
                 "title": "Cache Memory Simulator",
                 "short_title": "Cache Simulator",
-                "description": "Command-line tool written in C for simulating the behavior of a hardware cache given memory-access traces. It uses the LRU (least-recently used) replacement policy when choosing which cache line to evict, and follows a write-back, write-allocate policy. Given an arbitrary size and associativity, the number of cache hits, misses, evictions, dirty bytes, and evicted dirty bytes are reported.",
+                "description": "Command-line cache simulator modeling LRU replacement and write-back, write-allocate policies. Wrote a command-line tool in C that simulates the behavior of a hardware cache given memory access traces. The simulator implements an LRU (least-recently used) replacement policy and follows a write-back, write-allocate design. For arbitrary cache sizes and associativities, it reports cache hits, misses, evictions, dirty bytes, and evicted dirty bytes.",
                 "date": "Feb 2024",
                 "post_link": null,
                 "github_link": null
@@ -205,7 +205,7 @@
                 "id": 5,
                 "title": "Virtual Machine",
                 "short_title": "Virtual Machine",
-                "description": "Virtual machine for the C0 and C1 languages, which are safe subsets of C. Influenced by the JVM, it is implemented as a stack machine in C and uses an operand stack, call stack, local variable array, program counter, and constant and function pools. It runs arbitrary C0/C1 code with dynamic safety checks for heap allocation, array accesses, pointer casts and dereferences, and more.",
+                "description": "Stack-based virtual machine for executing safe subsets of C with dynamic runtime checks. Implemented a virtual machine for the C0 and C1 languages, which are safe subsets of C. Influenced by the JVM, the system is implemented as a stack machine in C and uses an operand stack, call stack, local variable array, program counter, and constant and function pools. The virtual machine executes arbitrary C0/C1 programs while enforcing dynamic safety checks for heap allocation, array accesses, pointer casts and dereferences, and other runtime invariants.",
                 "date": "Dec 2023",
                 "post_link": null,
                 "github_link": null
@@ -220,7 +220,7 @@
                 "id": 0,
                 "title": "Swim Info",
                 "short_title": "Swim Info",
-                "description": "App designed to collect swim statistics for announcers at swim meets, consisting of a web scraper and interface built with Python and Beautiful Soup. It processes start lists and scrapes online meet results to provide splits for each swimmer’s best time. I developed the app to enhance the audience experience during the swim meets I announced in 2024.",
+                "description": "Web application for collecting and presenting swim meet statistics for live announcers. Designed and implemented an application to collect swim statistics for announcers at swim meets, consisting of a web scraper and user interface built with Python and Beautiful Soup. The system processes start lists and scrapes online meet results to extract split times for each swimmer’s best performance. I developed the app to enhance the audience experience during swim meets I announced in 2024.",
                 "date": "May 2024",
                 "post_link": null,
                 "github_link": "https://github.com/marcusalenius/swim-info"
@@ -229,7 +229,7 @@
                 "id": 1,
                 "title": "Personal Website",
                 "short_title": "Personal Website",
-                "description": "This website. Designed and built from scratch using React and NextJS. Inspired by olivierifrah.com and apple.com, with a focus on a responsive design that looks great in light and dark appearance with effortless and lightweight interactions. This project is a chance for me to explore my more creative side.",
+                "description": "Personal website (this website) designed and built from scratch using React and Next.js. Inspired by olivierifrah.com and apple.com, with a focus on a responsive design that looks great in light and dark appearance with effortless and lightweight interactions. This project is a chance for me to explore my more creative side.",
                 "date": "May 2024",
                 "post_link": null,
                 "github_link": "https://github.com/marcusalenius/marcusalenius.github.io"
@@ -238,7 +238,7 @@
                 "id": 2,
                 "title": "Investigation Tracking System",
                 "short_title": "Tracking System",
-                "description": "Developed a full-stack, multi-user web application using Ruby on Rails and SQLite for the backend, and React for the frontend for quick access to case data in a simulated criminal investigation database. Built with test-driven development, achieving 100% unit test coverage. The backend ensures maintainability and scalability, while the frontend offers a dynamic user interface. Additionally, I developed and documented 12 REST API endpoints with token-based authentication, authorization, and versioning. This system streamlines investigation tracking and provides a seamless user experience with data integrity and security.",
+                "description": "Full-stack, multi-user web application for managing simulated criminal investigation case data. Developed a full-stack, multi-user web application using Ruby on Rails with SQLite for the backend and React for the frontend, enabling fast access to case data in a simulated criminal investigation database. Built using test-driven development, achieving 100% unit test coverage. The backend emphasizes maintainability and scalability, while the frontend provides a dynamic user interface. Additionally, I developed and documented 12 REST API endpoints with token-based authentication, authorization, and versioning.",
                 "date": "Feb 2024 – Apr 2024",
                 "post_link": null,
                 "github_link": null
