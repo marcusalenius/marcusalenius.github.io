@@ -24,6 +24,21 @@
     }
 }
 
+.modal-content-card-content strong {
+    font-weight: 400;
+    color: var(--lightBodyText);
+}
+
+.modal-content-card-content p.read-more-container {
+    color: #aeaeae;
+    transition: color 0.3s;
+}
+
+.modal-content-card:has(.read-more:not(.closed)) .modal-content-card-content p.read-more-container {
+    color: var(--lightBodyText);
+}
+
+
 
 .modal-content-card:has(.read-more:not(.closed)) {
     z-index: 1200;

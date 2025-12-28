@@ -109,7 +109,7 @@
                 "id": 0,
                 "title": "Transformer Langue Model",
                 "short_title": "Transformer LM",
-                "description": "Built a decoder-only Transformer language model from scratch in PyTorch, including character and subword tokenization, causal and pad masking, sinusoidal positional encodings, and multi-head self-attention. Trained the model using a custom trainer, achieving a per-character perplexity of 3.4.",
+                "description": "Decoder-only Transformer language model implemented from scratch in PyTorch, achieving a per-character perplexity of 3.4. Built a decoder-only Transformer language model from scratch in PyTorch, including character- and subword-level tokenization, causal and padding masks, sinusoidal positional encodings, and multi-head self-attention. The model was trained using a custom training loop and achieved a final per-character perplexity of 3.4.",
                 "date": "Apr 2025",
                 "post_link": null,
                 "github_link": null
@@ -118,7 +118,7 @@
                 "id": 1,
                 "title": "Phoneme Transcriber",
                 "short_title": "Phoneme Transcriber",
-                "description": "Sequence-to-sequence model that transcribes speech utterances into phoneme sequences using LSTMs and beam search decoding. Developed entirely in PyTorch under strict RNN-only constraints and a 20M parameter budget, and trained with CTC loss, the system incorporates data augmentation (SpecAugment and Gaussian noise) and regularization strategies (including locked dropout), all optimized through ablation studies. Achieved a 4.6 Levenshtein distance on held-out data.",
+                "description": "RNN-based sequence-to-sequence speech-to-phoneme transcriber achieving a 4.6 Levenshtein distance under a 20M parameter budget. Sequence-to-sequence model that transcribes speech utterances into phoneme sequences using LSTMs and beam search decoding. Developed entirely in PyTorch under an RNN-only constraint and a 20M parameter budget. Trained with CTC loss, the system incorporates data augmentation techniques (SpecAugment and Gaussian noise) and regularization strategies, including locked dropout, all optimized through ablation studies. The final model achieved a Levenshtein distance of 4.6 on held-out data.",
                 "date": "Mar 2025",
                 "post_link": null,
                 "github_link": null
@@ -127,7 +127,7 @@
                 "id": 2,
                 "title": "Face Identifier and Classifier",
                 "short_title": "Face Identifier",
-                "description": "Built and trained a face classification and verification model under a 30M parameter constraint, leveraging modified ResNet-50 and ConvNeXt architectures. The system was optimized for open-set identity recognition through ArcFace loss fine-tuning, which improved the discriminability of face embeddings. Data augmentation was handled through a custom RandAugment pipeline incorporating geometric and photometric transformations. The final model achieved a 2.4 Equal Error Rate (EER) on the verification task and placed in the top 5% of a Carnegie Mellon graduate-level Kaggle competition.",
+                "description": "Face classification and verification model achieving a 2.4 Equal Error Rate (EER) under a 30M parameter constraint. Built and trained a face classification and verification model under a 30M parameter constraint, leveraging modified ResNet-50 and ConvNeXt architectures. The system was optimized for open-set identity recognition through ArcFace loss fine-tuning, improving the discriminability of learned face embeddings. Data augmentation was handled through a custom RandAugment pipeline incorporating geometric and photometric transformations. The final model placed in the top 5% of a Carnegie Mellon graduate-level Kaggle competition.",
                 "date": "Feb 2025",
                 "post_link": null,
                 "github_link": null
@@ -136,7 +136,7 @@
                 "id": 3,
                 "title": "Minesweeper Solver",
                 "short_title": "Minesweeper Solver",
-                "description": "Developed a Minesweeper solver in Standard ML by representing board states as a series of boolean equations. Flags are denoted as 0, safe squares as 1, and for each safe square, an equation sets the warning number on the square equal to the sum of the values of the variables representing its neighbors. To solve these boolean equations, I implemented a SAT solver using unit propagation and the DPLL algorithm. This solver takes the boolean equations and produces a sequence of all satisfying assignments of variables. From these assignments, I then identify a safe square to reveal.",
+                "description": "Minesweeper solver using SAT solving over boolean equation representations of board states. Developed a Minesweeper solver in Standard ML by representing board states as systems of boolean equations. Flags are denoted as 0 and safe squares as 1; for each revealed square, an equation constrains its warning number to equal the sum of the values of its neighboring variables. To solve these equations, I implemented a SAT solver using unit propagation and the DPLL algorithm. The solver enumerates all satisfying assignments, from which a provably safe square is selected to reveal.",
                 "date": "Nov 2023",
                 "post_link": null,
                 "github_link": null
@@ -145,7 +145,7 @@
                 "id": 4,
                 "title": "Kenboard",
                 "short_title": "Kenboard",
-                "description": "Virtual keyboard with a custom typing error correction system. My term project for Carnegie Mellon's 15-112 Fundamentals of Programming and Computer Science. Inspired by Ken Kocienda's book Creative Selection, it combines a Manhattan distance-based algorithm and word usage frequency to suggest a most probable user-intended word, enabling up to 80% faster typing.",
+                "description": "Virtual keyboard featuring a custom typing error correction system enabling up to 80% faster typing. Developed as a term project for Carnegie Mellon’s 15-112 Fundamentals of Programming and Computer Science, this virtual keyboard implements a custom typing error correction system. Inspired by Ken Kocienda’s Creative Selection, it combines a Manhattan distance-based algorithm with word usage frequency to infer the most probable user-intended word, enabling up to 80% faster typing.",
                 "date": "Apr 2023",
                 "post_link": "/kenboard",
                 "github_link": null

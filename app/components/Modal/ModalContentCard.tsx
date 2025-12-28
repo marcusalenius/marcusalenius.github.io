@@ -63,6 +63,16 @@ export default function ModalContentCard({ projectData }: Props) {
     height: cardHeight === -1 ? "auto" : `${cardHeight}px`,
   };
 
+  // Split description into first sentence and rest
+  const description = projectData.description || "";
+  const firstPeriodIndex = description.indexOf(". ");
+  const firstSentence =
+    firstPeriodIndex !== -1 ? description.slice(0, firstPeriodIndex + 1) : "";
+  const restOfDescription =
+    firstPeriodIndex !== -1
+      ? description.slice(firstPeriodIndex + 2).trim()
+      : description;
+
   return (
     <div
       className="modal-content-card-container"
@@ -79,7 +89,16 @@ export default function ModalContentCard({ projectData }: Props) {
             <span className="short-title">{projectData.short_title}</span>
           </h4>
           <h5>{projectData.date}</h5>
-          <ReadMore isExpanded={isExpanded}>{projectData.description}</ReadMore>
+          <ReadMore isExpanded={isExpanded}>
+            {firstSentence ? (
+              <>
+                <strong>{firstSentence}</strong>
+                {restOfDescription && ` ${restOfDescription}`}
+              </>
+            ) : (
+              description
+            )}
+          </ReadMore>
           <ModalLinks projectData={projectData} />
           <ExpandCollapseButton
             collapse={isExpanded} // collapse-button if expanded
