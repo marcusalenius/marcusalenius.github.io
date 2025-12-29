@@ -29,9 +29,16 @@
     color: var(--lightBodyText);
 }
 
+.dark .modal-content-card-content strong {
+    color: var(--darkBodyText);
+}
+
 .modal-content-card-content p.read-more-container {
     color: #aeaeae;
-    /* transition: color 0.3s; */
+}
+
+.dark .modal-content-card-content p.read-more-container {
+    color: #8a8a8a;
 }
 
 .modal-content-card-content p.read-more-container .read-more {
@@ -42,57 +49,80 @@
     color: var(--lightBodyText);
 }
 
-
+.dark .modal-content-card:has(.read-more:not(.closed)) .modal-content-card-content p.read-more-container {
+    color: var(--darkBodyText);
+}
 
 .modal-content-card:has(.read-more:not(.closed)) {
     z-index: 1200;
 }
 
-/* when one card is expanded, reduce shadows of cards after */
-/* (and disable pointer events) */
-.modal-content-card-container:has(.read-more:not(.closed)) ~ 
-.modal-content-card-container .modal-content-card {
-    box-shadow: 0px 0px 4px rgba(204, 204, 204, 0.15), 0px 0px 15px rgba(204, 204, 204, 0.20);
-    transition: box-shadow 0.3s;
+
+
+
+/* When any card is expanded, fade ALL other cards in the modal (all layouts) */
+.modal-content:has(.read-more:not(.closed)) .modal-content-card {
+    box-shadow: 0px 0px 4px rgba(204, 204, 204, 0.15),
+                0px 0px 15px rgba(204, 204, 204, 0.20);
     pointer-events: none;
+    transition: box-shadow 0.3s, opacity 0.3s;
 }
 
-/* when one card is expanded, reduce shadows of cards before */ 
-/* (and disable pointer events) */
-.modal-content-card-container:has(~ .modal-content-card-container .read-more:not(.closed)) 
-.modal-content-card {
-    box-shadow: 0px 0px 4px rgba(204, 204, 204, 0.15), 0px 0px 15px rgba(204, 204, 204, 0.20);
-    transition: box-shadow 0.3s;
-    pointer-events: none;
+/* Keep the expanded card “normal” and interactive */
+.modal-content .modal-content-card:has(.read-more:not(.closed)) {
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.08),
+                0px 0px 15px rgba(0, 0, 0, 0.1);
+    pointer-events: auto;
+    z-index: 1200;
+}
+
+/* Fade all other cards’ contents */
+.modal-content:has(.read-more:not(.closed)) .modal-content-card-content {
+    opacity: 0.3;
+    }
+
+/* Keep expanded card’s content fully opaque */
+.modal-content .modal-content-card:has(.read-more:not(.closed)) .modal-content-card-content {
+    opacity: 1;
+}
+
+/* Dark mode: fade all OTHER cards' backgrounds (not the expanded one) */
+.dark .modal-content:has(.read-more:not(.closed))
+  .modal-content-card:not(:has(.read-more:not(.closed))) {
+  box-shadow: none;
+  background-color: #2a2c2f;
+}
+/* Dark mode: remove rim highlight only from NON-expanded cards */
+.dark .modal-content:has(.read-more:not(.closed))
+  .modal-content-card:not(:has(.read-more:not(.closed))) .card-border {
+  background: none !important;
+}
+
+/* Dark mode: darken FOREGROUND of NON-selected cards in the modal */
+.dark .modal-content:has(.read-more:not(.closed))
+  .modal-content-card.card:not(:has(.read-more:not(.closed)))::before {
+  background-color: #18191b; 
+}
+
+/* Ensure the selected card keeps its normal foreground color */
+.dark .modal-content .modal-content-card.card:has(.read-more:not(.closed))::before {
+  background-color: var(--darkCard); /* or simply omit to use the default from Card.css */
+}
+
+/* When a card is expanded, fade all section headings in the modal */
+.modal-content:has(.read-more:not(.closed)) h2 {
+    opacity: 0.3;
+    transition: opacity 0.3s;
+}
+  
+/* Dark mode: make headings a bit more faded if you like */
+.dark .modal-content:has(.read-more:not(.closed)) h2 {
+    opacity: 0.2;
 }
 
 .dark .modal-content-card {
     transition: background-color 0.3s;
 }
-
-/* not in dark mode */
-.dark .modal-content-card-container:has(.read-more:not(.closed)) ~ 
-.modal-content-card-container .modal-content-card,
-.dark .modal-content-card-container:has(~ .modal-content-card-container .read-more:not(.closed)) 
-.modal-content-card {
-    box-shadow: none;
-    /* and darken rim */
-    background-color: #404246;
-    transition: background-color 0.3s;
-}
-
-/* dark mode: when one card is expanded, reduce bkg hover element of cards after */
-.dark .modal-content-card-container:has(.read-more:not(.closed)) ~ 
-.modal-content-card-container .modal-content-card .card-border {
-    background: none !important;
-}
-
-/* dark mode: when one card is expanded, reduce bkg hover element of cards before */
-.dark .modal-content-card-container:has(~ .modal-content-card-container .read-more:not(.closed)) 
-.modal-content-card .card-border {
-    background: none !important;
-}
-
 
 .modal-content-card-content {
     opacity: 1;
@@ -100,28 +130,6 @@
     padding: 26px;
     z-index: 15;
     position: relative;
-}
-
-/* when one card is expanded, decrease opacity of card contents of cards after */
-.modal-content-card-container:has(.read-more:not(.closed)) ~
-.modal-content-card-container .modal-content-card-content {
-    opacity: 0.3;
-    transition: opacity 0.3s;
-}
-
-/* when one card is expanded, decrease opacity of card contents of cards before */
-.modal-content-card-container:has(~ .modal-content-card-container .read-more:not(.closed)) 
-.modal-content-card-content {
-    opacity: 0.3;
-    transition: opacity 0.3s;
-}
-
-/* in dark mode, make more transparent */
-.dark .modal-content-card-container:has(.read-more:not(.closed)) ~
-.modal-content-card-container .modal-content-card-content,
-.dark .modal-content-card-container:has(~ .modal-content-card-container .read-more:not(.closed)) 
-.modal-content-card-content {
-    opacity: 0.2;
 }
 
 .modal-content-card h4 {
