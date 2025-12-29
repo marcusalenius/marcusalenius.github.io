@@ -23,7 +23,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: var(--lightCard);
+}
+
+.dark .post-image:has(#needle-card-svg) {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.08);
+    background-color: var(--darkCard);
 }
 
 #needle-card-svg {
@@ -39,7 +44,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: var(--lightCard);
+}
+
+.dark .post-image:has(#speech-transformer-card-svg) {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.08);
+    background-color: var(--darkCard);
 }
 
 #speech-transformer-card-svg {

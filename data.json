@@ -358,7 +358,7 @@
     },
     "speech-transformer": {
       "title": "Speech Transformer",
-      "intro": "Foo.",
+      "intro": "An encoder-decoder Transformer for automatic speech recognition.",
       "date": "April 2025",
       "links": null,
       "youtube_link": null,

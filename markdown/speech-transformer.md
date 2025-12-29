@@ -1,3 +1,1 @@
-### Foo
-
-Foo.
+Implemented an encoder–decoder Transformer for automatic speech recognition from scratch in PyTorch, including multi-head self- and cross-attention, positional encoding, and a custom data pipeline. Applied CTC auxiliary loss, beam search decoding, and filter bank feature downsampling to improve convergence, accuracy, and inference speed. Hyperparameters were tuned through ablation studies informed by recent ASR research. The final model achieved an 8.5 character error rate (CER) and placed in the top 10% of a Carnegie Mellon graduate-level Kaggle competition.
