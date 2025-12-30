@@ -4,13 +4,13 @@ I built this framework during my semester taking CMU's [10-714 Deep Learning Sys
 
 The [course website](https://dlsyscourse.org/) describes the course as "[providing] students with a comprehensive understanding of the 'full stack' of deep learning systems, from high-level modeling design to automatic differentiation implementation to device-level efficient algorithms." We start by building out the autograd engine, and finish by implementing our own CPU and CUDA backends. 
 
-It was a fantastic course, and I would highly recommend it to anyone at CMU interested in both machine learning and computer systems. My only critique is that I would have preferred less emphasis on high-level ML modeling, as I was already quite familiar with it from prior coursework.
+It was a fantastic course, and I would highly recommend it to anyone at CMU interested in both machine learning and computer systems. My only critique is that I would have preferred less emphasis on high-level ML modeling, as I was already quite familiar with that from prior coursework.
 
 ### A Brief Overview
 
-The framework uses a layered architecture with a dispatcher pattern, as seen in the figure at the top of this page. The Tensor class builds a computational graph and performs automatic differentiation. Operations on tensors are implemented via Op subclasses, which define forward and backward computations. These operations call methods on the NDArray class, which provides a backend-agnostic interface. NDArrayBackend then dispatches primitive operations (e.g., ewise_add, matmul, reduce_sum) to the selected device.
+The framework uses a layered architecture with a dispatcher pattern, as seen in the figure at the top of this page. The `Tensor` class builds a computational graph and performs automatic differentiation. Operations on tensors are implemented via `Op` subclasses, which define forward and backward computations. These operations call methods on the `NDArray` class, which provides a backend-agnostic interface. `NDArrayBackend` then dispatches primitive operations (e.g., `ewise_add`, `matmul`, `reduce_sum`) to the selected device.
 
-Performance-critical code is isolated behind a small, well-defined backend interface. Each backend is packaged as a Python module exposing a uniform set of functions. These modules implement primitives such as EwiseSetitem, Compact, EwiseMul, and Matmul, optimized for its target hardware. This design cleanly separates algorithmic logic from hardware-specific optimizations.
+Performance-critical code is isolated behind a small, well-defined backend interface. Each backend is packaged as a Python module exposing a uniform set of functions. These modules implement primitives such as `EwiseSetitem`, `Compact`, `EwiseMul`, and `Matmul`, optimized for its target hardware. This design cleanly separates algorithmic logic from hardware-specific optimizations.
 
 ### Metal Extension
 

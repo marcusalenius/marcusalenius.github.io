@@ -173,6 +173,20 @@ p.url-card-website {
 
 .dark p.url-card-website { color: var(--darkBodyText); }
 
+code {
+    font-family: var(--font-inconsolata);
+    background-color: var(--lightSelected);
+    color: var(--lightText);
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.dark code {
+    background-color: var(--darkSelected);
+    color: var(--darkText);
+}
+
+
 /* Tablet */
 @media (max-width: 1080px) {
     

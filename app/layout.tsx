@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
+import { Inconsolata } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
 const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
+const inconsolata = Inconsolata({
+  subsets: ["latin"],
+  variable: "--font-inconsolata",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://alenius.io"),
@@ -34,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={nunitoSans.className}>
+      <body className={`${nunitoSans.className} ${inconsolata.variable}`}>
         <ThemeProvider attribute="class">{children}</ThemeProvider>
       </body>
     </html>
