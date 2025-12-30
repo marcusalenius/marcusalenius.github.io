@@ -4,8 +4,6 @@ export default function NeedleCardSvg() {
   return (
     <svg
       id="needle-card-svg"
-      width="2283"
-      height="898"
       viewBox="0 0 2283 898"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

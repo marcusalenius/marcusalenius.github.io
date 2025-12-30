@@ -17,8 +17,16 @@ type Props = {
 export default function PostImage({ post }: Props) {
   const content: { [key: string]: JSX.Element } = {
     attention: <Video src="videos/attention-hero.mp4" id="attention-hero" />,
-    needle: <NeedleCardSvg />,
-    "speech-transformer": <SpeechTransformerCardSvg />,
+    needle: (
+      <div className="needle-card-svg-container">
+        <NeedleCardSvg />
+      </div>
+    ),
+    "speech-transformer": (
+      <div className="speech-transformer-card-svg-container">
+        <SpeechTransformerCardSvg />
+      </div>
+    ),
     actordentify: (
       <Video src="videos/actordentify-hero.mp4" id="actordentify-hero" />
     ),
@@ -55,6 +63,5 @@ export default function PostImage({ post }: Props) {
       </>
     ),
   };
-
   return <div className="post-image">{content[post]}</div>;
 }

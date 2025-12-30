@@ -18,45 +18,48 @@
 }
 
 
-.post-image:has(#needle-card-svg) {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.03);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.needle-card-svg-container {
+    position: relative;
     background-color: var(--lightCard);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.03);
+    width: 100%;
+    aspect-ratio: 2283 / 970;
 }
 
-.dark .post-image:has(#needle-card-svg) {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.08);
+.dark .needle-card-svg-container {
     background-color: var(--darkCard);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.08);
 }
 
 #needle-card-svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 94%;
     height: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
 }
 
-
-.post-image:has(#speech-transformer-card-svg) {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.03);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.speech-transformer-card-svg-container {
+    position: relative;
     background-color: var(--lightCard);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.03);
+    width: 100%;
+    aspect-ratio: 1082 / 550;
 }
 
-.dark .post-image:has(#speech-transformer-card-svg) {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.08);
+.dark .speech-transformer-card-svg-container {
     background-color: var(--darkCard);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.08);
 }
 
 #speech-transformer-card-svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 33%;
     height: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
 }
 
 
