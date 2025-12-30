@@ -1,3 +1,5 @@
+"use client";
+
 import "./NeedleCardSvg.css";
 
 export default function NeedleCardSvg() {
