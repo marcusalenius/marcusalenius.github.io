@@ -1,6 +1,7 @@
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkMath from "remark-math";
+import remarkSmartypants from "remark-smartypants";
 import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css"; // import KaTeX CSS
 import dynamic from "next/dynamic";
@@ -52,7 +53,7 @@ export default function PostBody({ markdown }: Props) {
     <div className="post-body">
       <Markdown
         rehypePlugins={[rehypeRaw, rehypeKatex]}
-        remarkPlugins={[remarkMath]}
+        remarkPlugins={[remarkMath, remarkSmartypants]}
         components={markdownComponents}
       >
         {markdown}
