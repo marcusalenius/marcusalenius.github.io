@@ -363,6 +363,14 @@
       "links": null,
       "youtube_link": null,
       "markdown": "speech-transformer.md"
+    },
+    "cuda-matmul": {
+      "title": "CUDA Matmul",
+      "intro": "Foo.",
+      "date": "Date",
+      "links": null,
+      "youtube_link": null,
+      "markdown": "cuda-matmul.md"
     }
   }
 }

@@ -22,6 +22,7 @@ export default function HomePageClient({
     kenboard: data.posts.kenboard,
     needle: data.posts.needle,
     "speech-transformer": data.posts["speech-transformer"],
+    "cuda-matmul": data.posts["cuda-matmul"],
     // Add other post names and their corresponding data here if needed
   };
   const postData = postNameToPostData[postName];
