@@ -1,0 +1,10 @@
+.hljs {
+    background-color: var(--lightFooter) !important;
+    line-height: 20px !important;
+    border-radius: 4px !important;
+    margin-top: 14px !important;
+}
+
+.dark .hljs {
+    background-color: var(--darkFooter) !important;
+}

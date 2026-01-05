@@ -3,9 +3,13 @@ import rehypeRaw from "rehype-raw";
 import remarkMath from "remark-math";
 import remarkSmartypants from "remark-smartypants";
 import rehypeKatex from "rehype-katex";
-import "katex/dist/katex.min.css"; // import KaTeX CSS
+import rehypeHighlight from "rehype-highlight";
+import "katex/dist/katex.min.css";
+
 import dynamic from "next/dynamic";
 import Image from "next/image";
+
+import CodeBlock from "../CodeBlock/CodeBlock";
 
 const Video = dynamic(() => import("../Media/Video"), {
   ssr: false,
@@ -47,12 +51,16 @@ export default function PostBody({ markdown }: Props) {
       const { node, ...rest } = props;
       return <a {...rest} target="_blank" />;
     },
+    pre(props: any) {
+      const { node, ...rest } = props;
+      return <CodeBlock {...rest} />;
+    },
   };
 
   return (
     <div className="post-body">
       <Markdown
-        rehypePlugins={[rehypeRaw, rehypeKatex]}
+        rehypePlugins={[rehypeRaw, rehypeHighlight, rehypeKatex]}
         remarkPlugins={[remarkMath, remarkSmartypants]}
         components={markdownComponents}
       >
