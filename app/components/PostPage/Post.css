@@ -50,6 +50,11 @@ iframe {
     margin-bottom: 0;
 }
 
+.post-body h4 {
+    margin-top: 16px;
+    margin-bottom: 0;
+}
+
 .post-body p { margin-top: 14px; }
 
 .post-body a {text-decoration: underline;}

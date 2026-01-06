@@ -2,7 +2,8 @@
     background-color: var(--lightFooter) !important;
     line-height: 20px !important;
     border-radius: 4px !important;
-    margin-top: 14px !important;
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
 }
 
 .dark .hljs {
