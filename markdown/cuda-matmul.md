@@ -132,4 +132,33 @@ __global__ void sgemm_shared_mem_block(
 }
 ```
 
-Bar
+===
+
+We now have the results that the thread has computed in `acc`. We just have to write the values to `C`.
+
+```cpp
+  // write results
+  #pragma unroll
+  for (int r = 0; r < TM; ++r) {
+    const int row = globalRowBase + r;
+    if (row < M) {
+      #pragma unroll
+      for (int c = 0; c < TN; ++c) {
+        const int col = globalColBase + c;
+        if (col < N) {
+          const int idx = row * N + col;
+          C[idx] = alpha * acc[r][c] + beta * C[idx];
+        }
+      }
+    }
+  }
+}
+```
+
+This is a simple loop over each element in `acc`.
+
+<div class="body-image">
+  <img src="cuda-matmul-k5-write.jpg" alt="Write result">
+  <div class="image-text">Each thread writes the values in its <code>acc</code> to the corresponding position in <code>C</code>.</div>
+</div>
+

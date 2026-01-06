@@ -80,6 +80,10 @@ iframe {
     margin-top: 14px;
 }
 
+.body-image .image-text code {
+    padding: 1px 3px;
+}
+
 blockquote {
     margin-left: 4px;
     padding-left: 14px;
@@ -193,6 +197,17 @@ blockquote {
 .katex-display {
     overflow-x: auto;
     overflow-y: hidden;
+}
+
+/* CUDA Matmul */
+
+.cuda-image {
+    width: 96%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.03);
+}
+
+.dark .cuda-image {
+    box-shadow: none;
 }
 
 
