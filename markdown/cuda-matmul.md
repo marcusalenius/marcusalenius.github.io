@@ -36,34 +36,30 @@ __global__ void sgemm_naive(
   float* __restrict__ C
 ) {
   // compute position in C that this thread is responsible for
-  const uint globalRow = blockIdx.y * blockDim.y + threadIdx.y;
-  const uint globalCol = blockIdx.x * blockDim.x + threadIdx.x;
+  const int globalRow = blockIdx.y * blockDim.y + threadIdx.y;
+  const int globalCol = blockIdx.x * blockDim.x + threadIdx.x;
 
-  // the `if` condition is needed if M is not a multiple of gridDim.y 
-  // or N is not a multiple of gridDim.x
   if (globalRow < M && globalCol < N) {
-    float tmp = 0.0f;
-    for (int i = 0; i < K; ++i) {
+    float acc = 0.0f;
+    for (int k = 0; k < K; ++k) {
       // recall: A (MxK) and B (KxN)
-      // tmp += A[y, i] * B[i, x]
-      tmp += A[y * K + i] * B[i * N + x];
+      // acc += A[globalRow, k] * B[k, globalCol]
+      acc += A[globalRow * K + k] * B[k * N + globalCol];
     }
-    // C = α*(A@B)+β*C
-    // C[y, x]
-    C[y * N + x] = alpha * tmp + beta * C[y * N + x];
+    // C = alpha * (A @ B) + beta * C
+    // C[globalRow, globalCol]
+    C[globalRow * N + globalCol] = 
+      alpha * acc + beta * C[globalRow * N + globalCol];
   }
 }
 ```
 
-Note that if the size of the matrix is not divisible by the size of the block, we'll have to launch extra blocks to process the remainder. This is called [tile quantization](https://docs.nvidia.com/deeplearning/performance/dl-performance-matrix-multiplication/index.html#tile-quant).
-
-
+Note that if the size of the matrix is not divisible by the size of the block, we'll have to launch extra blocks to process the remainder. This is called [tile quantization](https://docs.nvidia.com/deeplearning/performance/dl-performance-matrix-multiplication/index.html#tile-quant). This is why we have the boundary check `if (globalRow < M && globalCol < N)` in the kernel.
 
 <div class="body-image">
   <img src="cuda-matmul-k1-tile-quantization.jpg" alt="Tile quantization">
   <div class="image-text">Here, we need to create 9 blocks to cover <code>C</code>. Only 4 of those utilize all their threads.</div>
 </div>
-
 
 #### Performance
 
@@ -80,20 +76,31 @@ Contiguous memory accesses by threads that are part of the same warp can be grou
 
 Global memory coalescing is only possible if the floats loaded are consecutive in memory, and if access is aligned. If they aren't, then the GPU will execute as many 32B loads (the smallest load size — with the other options being 64B and 128B) as necessary to fetch all floats, leading to a lot of wasted bandwidth.
 
-Fortunately, our naive kernel already supports global memory coalescing. Why? Because it choses the warp-contiguous index to be the contiguous memory dimension of `B` and `C`, i.e. the column. 
+Fortunately, our naive kernel already supports global memory coalescing. Why? Because it choses the warp-contiguous index — `threadIdx.x` — to be the contiguous memory dimension of `B` and `C` — the column. 
+
+```cpp
+// compute position in C that this thread is responsible for
+const int globalRow = blockIdx.y * blockDim.y + threadIdx.y;
+const int globalCol = blockIdx.x * blockDim.x + threadIdx.x;
+```
 
 <div class="body-image">
   <img src="cuda-matmul-k2-gmem-coalescing-contiguous.jpg" alt="Global memory coalescing">
   <div class="image-text">Our kernel maps threads to positions in matrix <code>C</code> like this. This means that threads access memory in both <code>B</code> and <code>C</code> that are next to each other. In <code>A</code> all threads access the same memory.</div>
 </div>
 
+If we had instead chosen `threadIdx.y` to be the contiguous memory dimension of `B` and `C`, we would not have had global memory coalescing.
+
+```cpp
+// compute position in C that this thread is responsible for
+const int globalRow = blockIdx.x * blockDim.x + threadIdx.x;
+const int globalCol = blockIdx.y * blockDim.y + threadIdx.y;
+```
+
 <div class="body-image">
   <img src="cuda-matmul-k2-gmem-coalescing-non-contiguous.jpg" alt="Global memory coalescing">
   <div class="image-text">If we instead mapped threads to positions in <code>C</code> like this, threads would not be accessing memory that is next to each other. The memory would be <code>N</code> positions apart.</div>
 </div>
-
-
-
 
 ### Kernel 3 — Blocktiling
 
@@ -103,11 +110,121 @@ Each SM has one shared memory (SMEM). As the shared memory is located on-chip, i
 
 For this kernel, we'll load a tile of `A` and a tile of `B` from global memory into shared memory. Then we'll perform as much work as possible on the two tiles, with each thread still being assigned one entry of `C`. We'll slide the tiles along the columns of `A` and the rows of `B` computing partial sums in `C` until we have have the full result.
 
-We start by setting up the blocktiling parameters (namely the block size `BS`) along with arrays for the shared memory tiles. Then we start our loop sliding over the K dimension. (SHOULD I USE DIFFERENT WIDTH AND HEIGHT FOR THE BLOCK TILES?)
+We start by setting up the blocktiling parameters along with arrays for the shared memory tiles. Then we start our loop sliding the tiles over the `K` dimension.
+
+Note that for simplicity for this kernel, we assume square tiles and that the block dimensions equal the tile dimensions (`blockDim.x == blockDim.y == BM == BN == BK`). This way, each thread can load exactly one element of `A` and one element of `B` per tile. In the next kernel, we'll relax these assumptions.
 
 ```cpp
+#define BM ...  // block tile height in M (rows of C per block)
+#define BN ...  // block tile width in N (cols of C per block)
+#define BK ...  // block tile width in K
+
+// assumes: blockDim.x == blockDim.y == BM == BN == BK (for now)
+
+__global__ void sgemm_blocktiling(
+  int M, int N, int K, float alpha, float beta,
+  const float* __restrict__ A, 
+  const float* __restrict__ B,
+  float* __restrict__ C
+) {
+  // block indices
+  const int blockRow = blockIdx.y;
+  const int blockCol = blockIdx.x;
+  
+  // thread indices
+  const int threadRow = threadIdx.y;  // 0 .. (BM)-1
+  const int threadCol = threadIdx.x;  // 0 .. (BN)-1
+
+  // global output coordinates in C
+  const int globalRow = blockRow * BM + threadRow;
+  const int globalCol = blockCol * BN + threadCol;
+
+  // shared memory tiles
+  __shared__ float As[BM][BK];
+  __shared__ float Bs[BK][BN];
+
+  float acc = 0.0f;
+
+  // slide over K
+  for (int bk = 0; bk < K; bk += BK) {
+    ...
 ```
 
+<div class="body-image">
+  <img src="cuda-matmul-k3-overview.jpg" alt="Loop result">
+  <div class="image-text">We slide over the <code>K</code> dimension in tiles of size <code>BK</code>.</div>
+</div>
+
+
+For each iteration of the `bk`-loop (that is for each tile), we do the steps outlined below.
+
+First, each block loads a tile of `A` and `B` from global memory into shared memory `As[BM][BK]` and `Bs[BK][BN]`.
+
+```cpp
+    // load A tile
+    const int aRow = globalRow;
+    const int aCol = bk + threadCol;
+    As[threadRow][threadCol] =
+      (aRow < M && aCol < K) ? A[aRow * K + aCol] : 0.0f;
+    
+    // load B tile
+    const int bRow = bk + threadRow;
+    const int bCol = globalCol;
+    Bs[threadRow][threadCol] =
+      (bRow < K && bCol < N) ? B[bRow * N + bCol] : 0.0f;
+```
+
+The threads in this block cooperatively load the block's entire tile of `A` and `B` into shared memory. Each thread loads one element from `A` into `As` and one element from `B` into `Bs`.
+
+<div class="body-image">
+  <img src="cuda-matmul-k3-load.jpg" alt="Load into shared memory">
+  <div class="image-text">Each thread loads one element from <code>A</code> into <code>As</code> and one element from <code>B</code> into <code>Bs</code>. Three threads are shown here.</div>
+</div>
+
+Next, each thread computes the result for its entry in `C` using the data in shared memory. This is a loop over the `BK` dimension of the tiles, multiplying the corresponding elements from `As` and `Bs` and accumulating the result in `acc`.
+
+```cpp
+    __syncthreads();
+
+    // compute
+    #pragma unroll
+    for (int k = 0; k < BK; ++k) {
+      acc += As[threadRow][k] * Bs[k][threadCol];
+    }
+
+    __syncthreads();
+```
+
+There are two things to note in this code snippet. First, we have a `__syncthreads()` before and after the compute. The one before is necessary to ensure that all threads have loaded the data they are responsible for into shared memory, and the one after to ensure that no thread begins loading the next tile before all threads have finished computing the results for the current tile.
+
+Second, we use `#pragma unroll` to ask the compiler to unroll the `k`-loop — that is to replace the loop with repeated straight-line code. Because `BK` is a compile-time constant, the compiler can unroll the loop completely. For example, say we have `BK == 4`. Then the compiler can replace the loop with this code.
+
+```cpp
+acc += As[threadRow][0] * Bs[0][threadCol];
+acc += As[threadRow][1] * Bs[1][threadCol];
+acc += As[threadRow][2] * Bs[2][threadCol];
+acc += As[threadRow][3] * Bs[3][threadCol];
+```
+
+Unrolling the loop removes the loop overhead (`++k`, `k < BK`, and branching), and can also enable other optimizations. 
+
+<div class="body-image">
+  <img src="cuda-matmul-k3-compute.jpg" alt="Compute result">
+  <div class="image-text">Each thread computes the product of the row of <code>As</code> and the column of <code>Bs</code> corresponding to its output element. Two threads are shown here.</div>
+</div>
+
+We now have the result that the thread has computed in `acc`. We just have to write the value to C.
+
+```cpp
+  // write results
+  if (globalRow < M && globalCol < N) {
+    const int idx = globalRow * N + globalCol;
+    C[idx] = alpha * acc + beta * C[idx];
+  }
+}
+```
+
+#### Performance
 
 ### Kernel 5 — Blocktiling and 2D Threadtiling
 
@@ -169,7 +286,7 @@ __global__ void sgemm_blocktiling_2dthreadtiling(
 
 <div class="body-image">
   <img src="cuda-matmul-k5-overview.jpg" alt="Loop result">
-  <div class="image-text">We slide over the <code>K</code> dimension in blocks of size <code>BK</code>.</div>
+  <div class="image-text">We slide over the <code>K</code> dimension in tiles of size <code>BK</code>.</div>
 </div>
 
 For each iteration of the `bk`-loop, we do the steps outlined below.
