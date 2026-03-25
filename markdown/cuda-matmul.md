@@ -63,7 +63,10 @@ Note that if the size of the matrix is not divisible by the size of the block, w
 
 #### Performance
 
+
 ### Kernel 2 — Global Memory Coalescing
+
+#### Implementation
 
 For execution, the threads of a block are grouped into warps, consisting of 32 threads. The grouping into warps happens based on a consecutive `threadId`, which is calculated as `threadId = threadIdx.x + blockDim.x * threadIdx.y`. Threads with neighboring `threadId` become part of the same warp.
 
@@ -101,6 +104,16 @@ const int globalCol = blockIdx.y * blockDim.y + threadIdx.y;
   <img src="cuda-matmul-k2-gmem-coalescing-non-contiguous.jpg" alt="Global memory coalescing">
   <div class="image-text">If we instead mapped threads to positions in <code>C</code> like this, threads would not be accessing memory that is next to each other. The memory would be <code>N</code> positions apart.</div>
 </div>
+
+#### Performance
+
+-> TALK ABOUT MEMORY HIERARCHY
+
+<div class="body-image">
+  <img src="cuda-matmul-k1-memory-hierarchy.jpg" alt="Memory hierarchy">
+  <div class="image-text">Each thread has its own registers. Each block has shared memory (SMEM) accessible by all threads in the block. The device has global memory (GMEM) accessible by all threads in all blocks in the grid.</div>
+</div>
+
 
 ### Kernel 3 — Blocktiling
 
