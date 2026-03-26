@@ -363,6 +363,14 @@
       "links": null,
       "youtube_link": null,
       "markdown": "speech-transformer.md"
+    },
+    "15418-project": {
+      "title": "Speculative Speculative Decoding: Hiding Draft Latency Through Asynchronous Speculation on Multi-GPU Systems",
+      "intro": "Course project for CMU 15-418 Parallel Computer Architecture and Programming by Marcus Alenius and William Chien.",
+      "date": "Spring 2026",
+      "links": null,
+      "youtube_link": null,
+      "markdown": "15418-project.md"
     }
   }
 }
