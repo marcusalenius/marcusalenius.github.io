@@ -1,13 +1,19 @@
 function getPageMetadata(
   data: { [key: string]: any },
   page: string,
-  customTitle?: string
+  customTitle?: string,
 ): { [key: string]: any } {
+  const formattedPageTitle = page
+    .split("-")
+    .filter(Boolean)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+
   let title;
   if (customTitle) {
     title = customTitle;
   } else {
-    title = `Marcus Alenius — ${page.charAt(0).toUpperCase() + page.slice(1)}`;
+    title = `Marcus Alenius — ${formattedPageTitle}`;
   }
   const description = data.posts[page].intro;
   const metadata = {
